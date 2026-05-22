@@ -1,26 +1,57 @@
 @import "tailwindcss";
 
+/* 1. Global Theme Configurations (Tailwind v4 Compliant) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: transparent;
+  --foreground: #f8fafc;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: transparent;
+  --color-foreground: #f8fafc;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* 2. Core Reset to Unblock Liquid Animations & Glows */
+html {
+  /* Asli solid background yahan handle hoga taaki layout safe rahe */
+  background-color: #030308 !important;
+  color: #f8fafc !important;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  /* Body ko transparent rakhna zaroori hai taaki GlowLayout ke components dikhein */
+  background: transparent !important;
+  color: #f8fafc !important;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* 3. Custom Futuristic Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030308;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.01);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.3) 0%, rgba(6, 182, 212, 0.3) 100%);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+}
+
+/* 4. Layer Fix: Force transparency on high-level container blocks if any */
+main, #__next, body > div:first-child {
+  background-color: transparent !important;
 }
