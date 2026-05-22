@@ -5,7 +5,6 @@ import Link from "next/link"
 import { ModeToggle } from "@/components/mode-toggle"
 import { Menu, X, ArrowUpRight, User, LogIn, Sparkles } from "lucide-react"
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion"
-import { AuthModal } from "@/components/auth/auth-modal"
 
 // Updated platforms list with your brand new branding colors & labels
 const platforms = [
@@ -420,7 +419,7 @@ export function Navbar() {
         </div>
       </motion.nav>
 
-      <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} initialView={authView} />
+    
     </>
   )
 }
