@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Odlix | World-Class Digital Ecosystem",
-  description: "One account. 6 Platforms. Infinite possibilities. Experience the future of integrated digital services.",
+  description: "One account. 8 Platforms. Infinite possibilities. Experience the future of integrated digital services.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

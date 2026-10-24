@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-type PlatformVariant = "elearning" | "agency" | "competition" | "trading" | "apps" | "mart";
+type PlatformVariant = "elearning" | "agency" | "competition" | "trading" | "apps" | "mart" | "useful-websites" | "telegram-bots";
 
 type PlatformBackdropProps = {
   variant: PlatformVariant;
@@ -44,6 +44,18 @@ const variantStyles: Record<PlatformVariant, { surface: string; glowA: string; g
     glowA: "from-white/30 to-[#DFFF00]/10",
     glowB: "from-[#32FF00]/20 to-white/10",
     grid: "[background-image:linear-gradient(135deg,rgba(255,255,255,0.10)_0%,transparent_40%),linear-gradient(315deg,rgba(223,255,0,0.10)_0%,transparent_40%)]"
+  },
+  "useful-websites": {
+    surface: "bg-gradient-to-br from-[#00F5FF]/10 via-background to-background dark:from-[#00F5FF]/20",
+    glowA: "from-[#00F5FF]/32 to-[#DFFF00]/10",
+    glowB: "from-[#32FF00]/25 to-[#DFFF00]/8",
+    grid: "[background-image:radial-gradient(rgba(0,245,255,0.14)_1px,transparent_1px)]"
+  },
+  "telegram-bots": {
+    surface: "bg-gradient-to-br from-[#0088CC]/10 via-background to-background dark:from-[#0088CC]/20",
+    glowA: "from-[#0088CC]/32 to-[#DFFF00]/10",
+    glowB: "from-[#32FF00]/25 to-[#DFFF00]/8",
+    grid: "[background-image:linear-gradient(135deg,rgba(0,136,204,0.10)_0%,transparent_60%)]"
   }
 };
 
