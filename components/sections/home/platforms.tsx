@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, BookOpen, Briefcase, GraduationCap, BarChart3, LayoutGrid, ShoppingBag, CheckCircle2 } from "lucide-react";
+import { ArrowRight, BookOpen, Briefcase, GraduationCap, BarChart3, LayoutGrid, ShoppingBag, CheckCircle2, Globe, Send } from "lucide-react";
 import Link from "next/link";
 
 const platforms = [
@@ -50,7 +50,7 @@ const platforms = [
     features: ["Multi-asset", "AI Insights", "Advanced Charts"]
   },
   {
-    title: "Useful Apps & Websites",
+    title: "App Store",
     description: "Curated collection of useful apps and websites.",
     icon: <LayoutGrid className="text-[#FF1E1E]" />,
     href: "/apps",
@@ -59,6 +59,28 @@ const platforms = [
     iconText: "text-[#FF1E1E] dark:text-[#FF1E1E] group-hover:text-white",
     checkColor: "text-[#FF1E1E]",
     features: ["Creator Studio", "Affiliate Program", "Guides"]
+  },
+  {
+    title: "Useful Websites",
+    description: "Handpicked websites for productivity, learning, and daily tools.",
+    icon: <Globe className="text-[#00F5FF]" />,
+    href: "/apps",
+    color: "from-[#00F5FF] to-[#DFFF00]",
+    iconSurface: "bg-[#00F5FF]/15 group-hover:bg-[#00F5FF]",
+    iconText: "text-[#00F5FF] dark:text-[#00F5FF] group-hover:text-slate-950",
+    checkColor: "text-[#00F5FF]",
+    features: ["Verified Links", "Daily Tools", "Quick Access"]
+  },
+  {
+    title: "Telegram Bots",
+    description: "Automation bots for trading, alerts, and productivity on Telegram.",
+    icon: <Send className="text-[#0088CC]" />,
+    href: "/apps",
+    color: "from-[#0088CC] to-[#DFFF00]",
+    iconSurface: "bg-[#0088CC]/15 group-hover:bg-[#0088CC]",
+    iconText: "text-[#0088CC] dark:text-[#0088CC] group-hover:text-white",
+    checkColor: "text-[#0088CC]",
+    features: ["Trading Alerts", "Task Automation", "Instant Notify"]
   },
   {
     title: "Odlix Mart",
@@ -81,7 +103,7 @@ export function PlatformShowcase() {
           <div>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tight leading-[0.92]">Ecosystem <br /> <span className="text-[#DFFF00] italic">Hub.</span></h2>
             <p className="opacity-60 max-w-md text-lg md:text-xl font-medium leading-relaxed">
-              Six dedicated engines driving the digital revolution.
+              Eight dedicated engines driving the digital revolution.
             </p>
           </div>
           <Link href="/platforms" className="font-black text-xl flex items-center hover:text-[#00F5FF] transition-colors active:scale-95">

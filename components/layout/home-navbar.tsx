@@ -12,7 +12,9 @@ const navLinks = [
   { name: "Agency", href: "/agency" },
   { name: "Mock Tests", href: "/competition" },
   { name: "Trading", href: "/trading" },
-  { name: "Useful Apps & Websites", href: "/apps" },
+  { name: "App Store", href: "/apps" },
+  { name: "Useful Websites", href: "/apps" },
+  { name: "Telegram Bots", href: "/apps" },
   { name: "Mart", href: "/mart" },
 ];
 

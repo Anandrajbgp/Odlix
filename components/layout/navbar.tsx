@@ -14,6 +14,8 @@ import {
   LayoutGrid,
   ShoppingBag,
   LayoutDashboard,
+  Globe,
+  Send,
   type LucideIcon
 } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -74,14 +76,34 @@ const platforms: PlatformConfig[] = [
     border: "border-[#FF5F1F]/40"
   },
   {
-    name: "Useful Apps & Websites",
-    logoTitle: "Useful Apps & Websites",
+    name: "App Store",
+    logoTitle: "App Store",
     href: "/apps",
     icon: LayoutGrid,
     color: "text-[#FF1E1E]",
     navBg: "bg-[#1f0d0d]/95",
     navText: "text-white",
     border: "border-[#FF1E1E]/40"
+  },
+  {
+    name: "Useful Websites",
+    logoTitle: "Useful Websites",
+    href: "/apps",
+    icon: Globe,
+    color: "text-[#00F5FF]",
+    navBg: "bg-[#0d1f1d]/95",
+    navText: "text-white",
+    border: "border-[#00F5FF]/40"
+  },
+  {
+    name: "Telegram Bots",
+    logoTitle: "Telegram Bots",
+    href: "/apps",
+    icon: Send,
+    color: "text-[#0088CC]",
+    navBg: "bg-[#0d151f]/95",
+    navText: "text-white",
+    border: "border-[#0088CC]/40"
   },
   {
     name: "Mart",

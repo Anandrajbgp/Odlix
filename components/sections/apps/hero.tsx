@@ -49,7 +49,7 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 className="mb-6 text-4xl font-black leading-[0.9] tracking-tighter text-foreground md:text-6xl"
               >
-                Odlix <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--platform-primary)] to-[var(--platform-accent)]">Useful Apps & Websites</span>
+                Odlix <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--platform-primary)] to-[var(--platform-accent)]">App Store</span>
               </motion.h1>
               <p className="mb-8 max-w-2xl text-base font-medium leading-relaxed text-foreground/70 md:text-lg">
                 Play Store style discovery for business tools, learning apps, trading utilities, and creator software — all in one clean marketplace.
