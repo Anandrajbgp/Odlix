@@ -17,7 +17,7 @@ export function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="relative pt-24 pb-16 md:pt-28 md:pb-20 flex flex-col items-center text-center overflow-hidden">
+    <section className="relative pt-16 pb-16 md:pt-20 md:pb-20 flex flex-col items-center text-center overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,#DFFF00,transparent_60%)] opacity-25 dark:opacity-40" />
 
         <motion.div
