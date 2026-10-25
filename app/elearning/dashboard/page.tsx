@@ -33,7 +33,7 @@ const sidebarLinks = [
   { name: "My Courses", icon: <Video />, id: "courses" },
   { name: "Payout", icon: <Wallet />, id: "payout" },
   { name: "Training", icon: <LayoutDashboard />, id: "training" },
-  { name: "Affiliates", icon: <Users />, id: "affiliates" },
+  { name: "Partners", icon: <Users />, id: "partners" },
   { name: "Leaderboard", icon: <Trophy />, id: "leaderboard" },
   { name: "Tools", icon: <Wrench />, id: "tools" },
   { name: "Certificates", icon: <Award />, id: "certificates" },
@@ -128,7 +128,7 @@ export default function StudentDashboard() {
                        <div className="space-y-8 relative z-10">
                           {[
                             { name: "Advanced Video Editing & Motion Graphics", progress: 75, instructor: "Master Marcus", tag: "Expert" },
-                            { name: "Affiliate Marketing Scaling Blueprint", progress: 40, instructor: "Coach Sarah", tag: "Pro" }
+                            { name: "Income Scaling Blueprint", progress: 40, instructor: "Coach Sarah", tag: "Pro" }
                           ].map(course => (
                             <div key={course.name} className="p-8 rounded-[2.5rem] bg-muted/20 border border-border group hover:border-indigo-500/50 transition-all shadow-sm">
                                <div className="flex justify-between items-start mb-6">
@@ -181,7 +181,7 @@ export default function StudentDashboard() {
                    { label: "My Certificates", icon: <Award />, color: "text-indigo-500" },
                    { label: "Community Q&A", icon: <HelpCircle />, color: "text-purple-500" },
                    { label: "Earning Toolkit", icon: <Wrench />, color: "text-orange-500" },
-                   { label: "Affiliate Link", icon: <Share2 />, color: "text-green-500" },
+                   { label: "Share Link", icon: <Share2 />, color: "text-green-500" },
                  ].map((item, i) => (
                    <div key={i} className="bg-card p-8 rounded-[2.5rem] border border-border shadow-sm flex flex-col items-center text-center group cursor-pointer hover:border-primary/30 transition-all">
                       <div className={cn("w-12 h-12 rounded-2xl bg-muted flex items-center justify-center mb-4 transition-transform group-hover:scale-110", item.color)}>

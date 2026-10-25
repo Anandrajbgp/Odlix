@@ -31,7 +31,7 @@ const adminLinks = [
   { name: "Students Management", icon: <Users />, id: "students" },
   { name: "Courses Management", icon: <BookOpen />, id: "courses" },
   { name: "Packages & Payments", icon: <Wallet />, id: "payments" },
-  { name: "Affiliate Management", icon: <TrendingUp />, id: "affiliates" },
+  { name: "Partner Management", icon: <TrendingUp />, id: "partners" },
   { name: "Notifications / Marketing", icon: <Bell />, id: "marketing" },
   { name: "Admin Settings", icon: <Settings />, id: "settings" },
 ];
@@ -124,7 +124,7 @@ export default function AdminPanel() {
                    { label: "Total Revenue", value: "₹12.5M", change: "+12%", up: true, color: "text-green-600 dark:text-green-400" },
                    { label: "Active Students", value: "24,802", change: "+5%", up: true, color: "text-indigo-600 dark:text-indigo-400" },
                    { label: "Pending Payouts", value: "₹2.4L", change: "-8%", up: false, color: "text-orange-600 dark:text-orange-400" },
-                   { label: "Affiliate Payouts", value: "₹8.2L", change: "+18%", up: true, color: "text-purple-600 dark:text-purple-400" },
+                   { label: "Partner Payouts", value: "₹8.2L", change: "+18%", up: true, color: "text-purple-600 dark:text-purple-400" },
                  ].map((stat, i) => (
                    <motion.div
                      key={i}

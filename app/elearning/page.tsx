@@ -2,7 +2,7 @@ import { Hero } from "@/components/sections/elearning/hero";
 import { Packages } from "@/components/sections/elearning/packages";
 import { Features } from "@/components/sections/elearning/features";
 import { Stats } from "@/components/sections/elearning/stats";
-import { Affiliate } from "@/components/sections/elearning/affiliate";
+import { Wealth } from "@/components/sections/elearning/wealth";
 
 export default function ELearningPage() {
   return (
@@ -11,7 +11,7 @@ export default function ELearningPage() {
       <Packages />
       <Stats />
       <Features />
-      <Affiliate />
+      <Wealth />
     </div>
   );
 }

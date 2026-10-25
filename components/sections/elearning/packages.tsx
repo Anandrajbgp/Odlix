@@ -106,7 +106,7 @@ export function Packages() {
           >
             <div
               className="flex h-full items-stretch gap-4 transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(calc(50% - ${(activeIndex + 0.5) * 72}% - ${activeIndex * 1}rem))` }}
+              style={{ transform: `translateX(calc(50% - ${(activeIndex + 0.5) * 60}% - ${activeIndex * 1}rem))` }}
             >
               {slides.map((slide, index) => {
                 const isActive = index === activeIndex;
@@ -114,7 +114,7 @@ export function Packages() {
                 return (
                   <article
                     key={`${slide.slug}-${slide.name}`}
-                    className={`w-[72%] md:w-[58%] shrink-0 rounded-[1.75rem] border p-5 md:p-6 transition-all duration-300 h-full flex flex-col overflow-hidden ${
+                    className={`w-[60%] md:w-[48%] shrink-0 rounded-[1.75rem] border p-5 md:p-6 transition-all duration-300 h-full flex flex-col overflow-hidden ${
                       isActive
                         ? "border-indigo-500/70 bg-gradient-to-b from-card via-card to-indigo-500/5 shadow-[0_24px_80px_-30px_rgba(8,145,178,0.55)]"
                         : "border-border/70 bg-card/70 opacity-65"

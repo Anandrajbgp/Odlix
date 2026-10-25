@@ -5,7 +5,7 @@ import { Zap } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative pt-20 pb-14 md:pt-24 md:pb-16 overflow-hidden bg-slate-950 text-white border-b border-white/10">
+    <section className="relative pt-12 pb-10 md:pt-16 md:pb-12 overflow-hidden bg-slate-950 text-white border-b border-white/10">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,#4f46e5,transparent_50%)] opacity-10" />
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(2,6,23,0.35),rgba(2,6,23,0.8))]" />
       <div className="container mx-auto px-4 relative z-10 text-center">
@@ -23,7 +23,7 @@ export function Hero() {
         </h1>
         <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-300 mb-0 font-medium leading-relaxed">
           Transform your digital future with HD training, expert mentorship,
-          and a high-paying affiliate ecosystem.
+          and a high-paying skill-sharing income ecosystem.
         </p>
       </div>
     </section>

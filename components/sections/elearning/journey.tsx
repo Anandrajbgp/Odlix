@@ -14,7 +14,7 @@ export function Journey() {
             {[
               { step: "01", title: "Join & Enroll", desc: "Choose Beginner, Pro or Expert package to unlock HD modules." },
               { step: "02", title: "Skill Acquisition", desc: "Master concepts via AI roadmaps and interactive lesson quizzes." },
-              { step: "03", title: "Scale & Earn", desc: "Leverage earning toolkits and the multi-tier affiliate system." },
+              { step: "03", title: "Scale & Earn", desc: "Leverage earning toolkits and the multi-tier partner income system." },
               { step: "04", title: "Certify & Life", desc: "Get QR-verified and unlock the exclusive Life Mastery track." },
             ].map((s, i) => (
               <div key={i} className="relative group rounded-2xl p-5 md:p-6 bg-gradient-to-b from-transparent to-muted/45 hover:to-indigo-500/5 transition-colors">

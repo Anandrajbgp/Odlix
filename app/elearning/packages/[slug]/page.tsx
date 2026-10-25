@@ -66,7 +66,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
                 <p className="mt-2 text-2xl font-black tracking-tight text-indigo-300">{packageDetail.earning}</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">{isLifeMastery ? "Eligibility" : "Affiliate Edge"}</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">{isLifeMastery ? "Eligibility" : "Income Edge"}</p>
                 <p className="mt-2 text-sm font-black tracking-wide text-indigo-200">{isLifeMastery ? packageDetail.accessRule : packageDetail.commission}</p>
               </div>
             </div>
