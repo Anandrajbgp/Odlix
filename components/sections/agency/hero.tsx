@@ -23,7 +23,7 @@ export function Hero() {
   }, [projectNeed]);
 
   return (
-    <section className="relative overflow-hidden bg-background pt-20 pb-20 md:pb-24">
+    <section className="relative overflow-hidden bg-background pt-12 pb-14 md:pt-16 md:pb-10 md:pb-12">
       <div className="absolute inset-0 -z-10 bg-muted/30" />
       <div className="absolute top-0 left-1/2 -z-10 h-full w-full max-w-7xl -translate-x-1/2 bg-[radial-gradient(circle_at_50%_0%,rgba(10,132,255,0.14),transparent_56%)]" />
 

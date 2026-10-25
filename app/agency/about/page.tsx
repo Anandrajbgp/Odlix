@@ -20,8 +20,8 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col bg-slate-50 text-slate-900">
-      <section className="py-24">
+    <div className="flex flex-col bg-background text-foreground">
+      <section className="py-14 md:py-16">
         <div className="container mx-auto max-w-6xl px-4 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -34,7 +34,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mx-auto max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg"
+            className="mx-auto max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg"
           >
             Odlix Agency helps organizations transform ideas into dependable digital products. We combine
             strategy, design, engineering, and lifecycle support with clear accountability at every stage.
@@ -42,21 +42,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="pb-16">
+      <section className="pb-10 md:pb-12">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+            <div className="rounded-3xl border border-border bg-card p-8 shadow-sm">
               <Target className="mb-3 h-7 w-7 text-[var(--platform-accent)]" />
               <h2 className="mb-2 text-2xl font-black">Our Vision</h2>
-              <p className="text-slate-600">
+              <p className="text-muted-foreground">
                 To be a trusted digital execution partner for growing teams that need quality without
                 complexity.
               </p>
             </div>
-            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+            <div className="rounded-3xl border border-border bg-card p-8 shadow-sm">
               <Rocket className="mb-3 h-7 w-7 text-[var(--platform-accent)]" />
               <h2 className="mb-2 text-2xl font-black">Our Mission</h2>
-              <p className="text-slate-600">
+              <p className="text-muted-foreground">
                 To deliver outcome-focused digital services through structured processes, transparent communication,
                 and reliable post-delivery support.
               </p>
@@ -65,52 +65,52 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="pb-16">
+      <section className="pb-10 md:pb-12">
         <div className="container mx-auto max-w-6xl px-4">
-          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
+          <div className="rounded-3xl border border-border bg-card p-8 shadow-sm md:p-10">
             <h2 className="mb-6 text-2xl font-black md:text-3xl">How We Work</h2>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-              <article className="rounded-2xl border border-slate-200 p-5">
+              <article className="rounded-2xl border border-border p-5">
                 <CheckCircle2 className="mb-2 h-5 w-5 text-emerald-600" />
                 <h3 className="mb-1 font-bold">Discovery</h3>
-                <p className="text-sm text-slate-600">Business goals, requirements, constraints, and risk mapping.</p>
+                <p className="text-sm text-muted-foreground">Business goals, requirements, constraints, and risk mapping.</p>
               </article>
-              <article className="rounded-2xl border border-slate-200 p-5">
+              <article className="rounded-2xl border border-border p-5">
                 <CheckCircle2 className="mb-2 h-5 w-5 text-emerald-600" />
                 <h3 className="mb-1 font-bold">Build</h3>
-                <p className="text-sm text-slate-600">Design, implementation, QA, and release planning with milestone reviews.</p>
+                <p className="text-sm text-muted-foreground">Design, implementation, QA, and release planning with milestone reviews.</p>
               </article>
-              <article className="rounded-2xl border border-slate-200 p-5">
+              <article className="rounded-2xl border border-border p-5">
                 <CheckCircle2 className="mb-2 h-5 w-5 text-emerald-600" />
                 <h3 className="mb-1 font-bold">Scale</h3>
-                <p className="text-sm text-slate-600">Optimization, maintenance, monitoring, and ongoing growth support.</p>
+                <p className="text-sm text-muted-foreground">Optimization, maintenance, monitoring, and ongoing growth support.</p>
               </article>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="pb-16">
+      <section className="pb-10 md:pb-12">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {values.map((value) => (
-              <article key={value.title} className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+              <article key={value.title} className="rounded-3xl border border-border bg-card p-7 shadow-sm">
                 <ShieldCheck className="mb-3 h-6 w-6 text-[var(--platform-accent)]" />
                 <h3 className="mb-2 text-lg font-black">{value.title}</h3>
-                <p className="text-sm leading-relaxed text-slate-600">{value.description}</p>
+                <p className="text-sm leading-relaxed text-muted-foreground">{value.description}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="pb-24">
+      <section className="pb-12 md:pb-14">
         <div className="container mx-auto max-w-6xl px-4">
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 md:p-10">
+          <div className="rounded-3xl border border-border bg-background p-8 md:p-10">
             <h2 className="mb-3 flex items-center gap-2 text-2xl font-black">
               <Users className="h-6 w-6" /> Agency Support
             </h2>
-            <p className="mb-3 text-slate-700">
+            <p className="mb-3 text-muted-foreground">
               For project discussions, delivery clarifications, policy requests, and legal questions:
             </p>
             <div className="space-y-1 text-sm font-semibold md:text-base">

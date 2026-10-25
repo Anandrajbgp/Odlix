@@ -34,7 +34,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-16 md:py-20 text-white">
+    <section className="relative overflow-hidden bg-slate-950 py-14 md:py-16 text-white">
       <div className="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_100%_100%,rgba(250,204,21,0.12),transparent_50%)]" />
 
       <div className="container relative z-10 mx-auto px-4">

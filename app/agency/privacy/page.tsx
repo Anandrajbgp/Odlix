@@ -2,26 +2,26 @@ import { ShieldCheck, Lock, Eye, Database, Globe, Mail, Phone, ScrollText, UserC
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-slate-50 py-24">
+    <div className="min-h-screen bg-background py-14 md:py-16">
       <div className="container mx-auto max-w-4xl px-4">
-        <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm md:p-12">
+        <div className="rounded-[2rem] border border-border bg-card p-8 shadow-sm md:p-12">
           <header className="mb-10">
             <div className="mb-4 flex items-center gap-3">
-              <div className="rounded-2xl bg-slate-50 p-3 text-slate-700">
+              <div className="rounded-2xl bg-muted p-3 text-foreground">
                 <ShieldCheck className="h-7 w-7" />
               </div>
-              <h1 className="text-3xl font-black tracking-tight text-slate-900 md:text-5xl">Agency Privacy Policy</h1>
+              <h1 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">Agency Privacy Policy</h1>
             </div>
-            <p className="text-sm text-slate-600 md:text-base">
+            <p className="text-sm text-muted-foreground md:text-base">
               Effective Date: 18 August 2026 | Version: ODLIX-AGENCY-PRIV-1.1. This policy explains how Odlix Agency handles
               personal and project information.
             </p>
           </header>
 
-          <div className="space-y-8 text-sm leading-relaxed text-slate-700 md:text-base">
+          <div className="space-y-8 text-sm leading-relaxed text-muted-foreground md:text-base">
             <section>
-              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <Eye className="h-5 w-5 text-slate-600" /> Data We Collect
+              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
+                <Eye className="h-5 w-5 text-muted-foreground" /> Data We Collect
               </h2>
               <p>
                 We may collect contact data, project requirements, communication records, technical diagnostics,
@@ -30,8 +30,8 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <Database className="h-5 w-5 text-slate-600" /> Why We Process It
+              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
+                <Database className="h-5 w-5 text-muted-foreground" /> Why We Process It
               </h2>
               <ul className="space-y-2">
                 <li>• Proposal preparation, project planning, and contractual execution.</li>
@@ -42,8 +42,8 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <UserCheck className="h-5 w-5 text-slate-600" /> Processing Basis & Consent
+              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
+                <UserCheck className="h-5 w-5 text-muted-foreground" /> Processing Basis & Consent
               </h2>
               <p>
                 Data is processed under contract necessity, legitimate interest, consent, or legal obligation
@@ -52,8 +52,8 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <Lock className="h-5 w-5 text-slate-600" /> Security & Access Controls
+              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
+                <Lock className="h-5 w-5 text-muted-foreground" /> Security & Access Controls
               </h2>
               <p>
                 We implement role-based access, secure tooling, and operational controls to minimize risk of unauthorized
@@ -62,8 +62,8 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <Globe className="h-5 w-5 text-slate-600" /> Third-Party Processors
+              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
+                <Globe className="h-5 w-5 text-muted-foreground" /> Third-Party Processors
               </h2>
               <p>
                 Odlix may use vetted infrastructure and software providers for hosting, communication, analytics,
@@ -72,8 +72,8 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <Clock3 className="h-5 w-5 text-slate-600" /> Retention & Deletion
+              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
+                <Clock3 className="h-5 w-5 text-muted-foreground" /> Retention & Deletion
               </h2>
               <p>
                 Data is retained for project continuity, legal compliance, and auditability, then removed or anonymized
@@ -82,8 +82,8 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <ScrollText className="h-5 w-5 text-slate-600" /> Your Rights
+              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
+                <ScrollText className="h-5 w-5 text-muted-foreground" /> Your Rights
               </h2>
               <p>
                 Subject to applicable law, you may request access, correction, deletion, portability,

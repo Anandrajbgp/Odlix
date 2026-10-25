@@ -17,9 +17,9 @@ const Counter = ({ end, label }: { end: number; label: string }) => {
 
 export function AgencyStats() {
   return (
-    <section className="py-24 bg-background border-y border-border">
+    <section className="py-14 md:py-16 bg-background border-y border-border">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <Counter end={250} label="Projects Delivered" />
           <Counter end={120} label="Happy Clients" />
           <Counter end={5} label="Years Experience" />
