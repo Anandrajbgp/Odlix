@@ -1,12 +1,21 @@
 "use client";
 
-import { BrainCircuit, CheckCircle2, Sparkles } from "lucide-react";
+import { BrainCircuit, CheckCircle2, Sparkles, Clock3, BarChart3, BookOpenCheck, Trophy, ShieldCheck } from "lucide-react";
 
 const points = [
   "Accuracy heatmap by subject and question type.",
   "Attempt behavior analysis: speed vs precision.",
   "Daily revision list auto-generated from wrong answers.",
   "Predicted rank range based on recent mock trends.",
+];
+
+const highlights = [
+  { title: "Real Exam Timer", desc: "Strict timer, section flow, and negative marking exactly like actual exams.", icon: <Clock3 className="h-5 w-5" />, color: "#0ea5e9" },
+  { title: "All India Rank", desc: "Instant percentile, rank movement, and peer comparison after submit.", icon: <BarChart3 className="h-5 w-5" />, color: "#0d9488" },
+  { title: "AI Weak-Area Map", desc: "Detect weak topics and get a daily correction plan with priority tags.", icon: <BrainCircuit className="h-5 w-5" />, color: "#10b981" },
+  { title: "Topic-wise Practice", desc: "Chapter and concept tests for revision before full-length mocks.", icon: <BookOpenCheck className="h-5 w-5" />, color: "#f59e0b" },
+  { title: "Previous Year Feel", desc: "Paper style, question language, and attempt flow mirror real attempts.", icon: <Trophy className="h-5 w-5" />, color: "#f59e0b" },
+  { title: "Trusted Solutions", desc: "Detailed explanations with shortcuts and alternate solving methods.", icon: <ShieldCheck className="h-5 w-5" />, color: "#ffffff" },
 ];
 
 export function AiGuidance() {
@@ -22,44 +31,49 @@ export function AiGuidance() {
               <Sparkles className="h-3.5 w-3.5 text-[#f59e0b]" />
               AI Mentor Engine
             </span>
-            <h2 className="mt-4 text-4xl font-black leading-[0.95] tracking-tight md:text-6xl">
-              Smart Analysis,
-              <br />
-              Faster Selection
+            <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight md:text-5xl">
+              Smart Analysis, Faster Selection
             </h2>
             <p className="mt-4 max-w-2xl text-sm font-medium leading-relaxed text-white/75 md:text-base">
-              Every test attempt is converted into an actionable improvement plan so you can prioritize the right topics, cut silly mistakes, and improve your final score in fewer iterations.
+              Every test attempt is converted into an actionable improvement plan so you can prioritize the right topics and improve your final score.
             </p>
 
             <ul className="mt-6 space-y-3">
               {points.map((point) => (
-                <li key={point} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+                <li key={point} className="flex items-start gap-3 text-sm font-semibold text-white/85">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 text-[#10b981]" />
-                  <span className="text-sm font-semibold text-white/85">{point}</span>
+                  {point}
                 </li>
               ))}
             </ul>
-
-            <button
-              title="Backend AI report API required"
-              className="mt-6 rounded-xl bg-white px-6 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-zinc-950 transition-all hover:bg-[#f59e0b] active:scale-95"
-            >
-              Generate My AI Report
-            </button>
           </div>
 
-          <div className="rounded-2xl border border-white/15 bg-white/10 p-6">
-            <div className="mb-4 inline-flex rounded-lg border border-[#0ea5e9]/40 bg-[#0ea5e9]/20 px-3 py-2 text-[#0ea5e9]">
+          <div className="rounded-xl border border-white/15 bg-white/10 p-5">
+            <div className="mb-3 inline-flex rounded-lg border border-[#0ea5e9]/40 bg-[#0ea5e9]/20 px-3 py-2 text-[#0ea5e9]">
               <BrainCircuit className="h-5 w-5" />
             </div>
-            <h3 className="mb-3 text-2xl font-black tracking-tight">Today&apos;s AI Insight</h3>
-            <p className="mb-5 text-sm font-medium text-white/75">Your Quant attempts are fast but 12% lower in accuracy under 25 minutes. Suggested action: 2 timed arithmetic sets + 1 accuracy drill.</p>
+            <h3 className="mb-2 text-xl font-black tracking-tight">Today's AI Insight</h3>
+            <p className="mb-4 text-sm font-medium text-white/75">
+              Your Quant attempts are fast but 12% lower in accuracy under 25 minutes. Suggested action: 2 timed arithmetic sets + 1 accuracy drill.
+            </p>
             <div className="space-y-2 text-xs font-black uppercase tracking-[0.14em] text-white/70">
               <div className="rounded-lg border border-white/15 bg-black/20 px-3 py-2">Predicted Rank Improvement: 18%</div>
               <div className="rounded-lg border border-white/15 bg-black/20 px-3 py-2">Weak Topic Priority: Number System</div>
               <div className="rounded-lg border border-white/15 bg-black/20 px-3 py-2">Recommended Daily Time: 95 min</div>
             </div>
           </div>
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {highlights.map((item) => (
+            <div key={item.title} className="rounded-xl border border-white/10 bg-white/5 p-4">
+              <div className="mb-2 inline-flex rounded-lg border px-3 py-2" style={{ color: item.color, borderColor: `${item.color}66`, backgroundColor: `${item.color}14` }}>
+                {item.icon}
+              </div>
+              <h4 className="mb-1 text-base font-black tracking-tight text-white">{item.title}</h4>
+              <p className="text-sm font-medium text-white/65">{item.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

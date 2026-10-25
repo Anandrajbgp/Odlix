@@ -131,18 +131,6 @@ export function Features() {
             No test matched this filter. Try another keyword like SSC, SBI, UPSC, or Railway.
           </div>
         ) : null}
-
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {highlights.map((item) => (
-            <div key={item.title} className="rounded-2xl border border-border bg-card p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
-              <div className="mb-3 inline-flex rounded-lg border px-3 py-2" style={{ color: item.color, borderColor: `${item.color}66`, backgroundColor: `${item.color}14` }}>
-                {item.icon}
-              </div>
-              <h4 className="mb-2 text-base font-black tracking-tight text-foreground">{item.title}</h4>
-              <p className="text-sm font-medium text-foreground/60">{item.desc}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
