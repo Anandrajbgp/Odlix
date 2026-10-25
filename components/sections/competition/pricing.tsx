@@ -4,31 +4,22 @@ import { CheckCircle2 } from "lucide-react";
 
 const plans = [
   {
-    title: "Starter",
+    title: "Free",
     price: "₹0",
     period: "lifetime",
-    badge: "Free Access",
+    badge: "Start Free",
     highlight: false,
     points: ["5 Full Mock Tests", "Daily Quiz", "Basic Rank & Accuracy Report", "Limited Topic Practice"],
     button: "Start Free",
   },
   {
-    title: "Pro Aspirant",
-    price: "₹199",
+    title: "Premium",
+    price: "₹299",
     period: "month",
     badge: "Most Popular",
     highlight: true,
     points: ["Unlimited Full & Sectional Mocks", "All India Rank + Percentile", "AI Weakness & Revision Plan", "Detailed Explanations + Solutions"],
-    button: "Upgrade to Pro",
-  },
-  {
-    title: "Elite Mentor",
-    price: "₹499",
-    period: "month",
-    badge: "High Performance",
-    highlight: false,
-    points: ["Everything in Pro", "1:1 Doubt Sessions", "Live Strategy Workshops", "Priority Mentor Support"],
-    button: "Join Elite",
+    button: "Upgrade to Premium",
   },
 ];
 
@@ -41,7 +32,7 @@ export function Pricing() {
           <p className="mt-3 text-sm font-medium text-foreground/60">Choose based on your preparation stage and target exam timeline.</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-5 md:grid-cols-2">
           {plans.map((plan) => (
             <div
               key={plan.title}
