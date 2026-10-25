@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, Sparkles, Zap } from "lucide-react";
+import { MessageCircle, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 const WHATSAPP_NUMBER = "917372891228";
@@ -12,40 +12,30 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-background pt-12 pb-14 md:pt-16 md:pb-16">
       <div className="container mx-auto px-4 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-6 inline-flex items-center space-x-2 text-sm font-bold text-[var(--platform-accent)]"
-        >
-          <Zap className="h-4 w-4 fill-current" />
-          <span>Premium Growth Architecture</span>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.12 }}
           className="mx-auto max-w-4xl text-3xl font-black leading-tight tracking-tight text-foreground md:text-5xl"
         >
-          We build high-conversion digital systems that make your business look premium, attract better clients, and scale revenue.
+          We turn ideas into digital products that grow your business.
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.12 }}
           className="mx-auto mt-4 mb-8 max-w-2xl text-sm font-medium leading-relaxed text-muted-foreground md:text-base"
         >
-          Website, branding, funnels, and growth execution — designed end-to-end so your brand wins trust faster and closes more business.
+          Strategy, design, development, and growth — handled end-to-end by one reliable team.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.28 }}
+          transition={{ delay: 0.2 }}
           className="mb-8 flex flex-wrap items-center justify-center gap-2"
         >
-          {["Brand Positioning", "Website + Funnel", "Ads + Growth Ops"].map((item) => (
+          {["Brand", "Website", "Growth"].map((item) => (
             <span
               key={item}
               className="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-[0.14em] text-muted-foreground"
@@ -59,7 +49,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.32 }}
+          transition={{ delay: 0.28 }}
           className="flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
           <a
@@ -72,10 +62,10 @@ export function Hero() {
             Get Free Consultation
           </a>
           <Link
-            href="/agency#portfolio"
+            href="/agency#services"
             className="rounded-lg border border-border px-6 py-3 text-base font-black text-foreground transition-all hover:bg-muted active:scale-95"
           >
-            View Portfolio
+            View Services
           </Link>
         </motion.div>
       </div>

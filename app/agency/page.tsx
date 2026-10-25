@@ -1,8 +1,7 @@
 import { Hero } from "@/components/sections/agency/hero";
 import { AgencyStats } from "@/components/sections/agency/stats";
 import { Services } from "@/components/sections/agency/services";
-import { Portfolio } from "@/components/sections/agency/portfolio";
-import { Testimonials } from "@/components/sections/agency/testimonials";
+import { AgencyShowcase } from "@/components/sections/agency/showcase";
 
 export default function AgencyPage() {
   return (
@@ -10,8 +9,7 @@ export default function AgencyPage() {
       <Hero />
       <AgencyStats />
       <Services />
-      <Portfolio />
-      <Testimonials />
+      <AgencyShowcase />
     </div>
   );
 }
