@@ -84,8 +84,10 @@ export function Features() {
   }, [query]);
 
   return (
-    <section id="test-library" className="bg-background py-12 md:py-14">
-      <div className="container mx-auto px-4">
+    <section id="test-library" className="relative overflow-hidden bg-background py-12 md:py-14">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#0ea5e9]/15 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#0d9488]/12 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">Mock Test Library</h2>

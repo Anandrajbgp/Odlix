@@ -14,8 +14,10 @@ const icons = {
 
 export function Services() {
   return (
-    <section id="services" className="py-12 md:py-14 border-b border-border">
-      <div className="container mx-auto px-4">
+    <section id="services" className="relative overflow-hidden py-12 md:py-14 border-b border-border">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#f59e0b]/15 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#fbbf24]/12 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="text-2xl font-black tracking-tight text-foreground md:text-4xl">Our Core Services</h2>

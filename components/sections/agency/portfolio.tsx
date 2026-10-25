@@ -11,8 +11,10 @@ const projects = [
 
 export function Portfolio() {
   return (
-    <section id="portfolio" className="py-12 md:py-14 border-b border-border">
-      <div className="container mx-auto px-4">
+    <section id="portfolio" className="relative overflow-hidden py-12 md:py-14 border-b border-border">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#f59e0b]/15 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#fbbf24]/12 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
         <h2 className="text-2xl font-black uppercase tracking-tight text-foreground md:text-4xl">Portfolio</h2>
         <p className="mt-2 text-sm font-medium text-muted-foreground md:text-base">
           Real execution snapshots with measurable outcomes.

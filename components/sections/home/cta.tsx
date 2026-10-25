@@ -12,6 +12,9 @@ export function CTA() {
          className="relative p-16 md:p-32 rounded-[5rem] overflow-hidden group cursor-pointer shadow-2xl shadow-primary/10 border border-primary/5"
       >
         <div className="absolute inset-0 gradient-platform opacity-90 group-hover:opacity-100 transition-opacity" />
+        <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#4f46e5]/25 blur-3xl" />
+        <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#10b981]/20 blur-3xl" />
+        <div className="absolute right-1/3 top-1/2 h-64 w-64 rounded-full bg-[#24a1ee]/20 blur-3xl" />
         <div className="relative z-10 text-center max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-7xl lg:text-8xl font-black mb-10 tracking-tighter leading-[0.9] text-white">Create Your <br /> Odlix ID.</h2>
           <p className="text-lg md:text-2xl text-white/85 mb-14 font-bold max-w-2xl mx-auto leading-relaxed">

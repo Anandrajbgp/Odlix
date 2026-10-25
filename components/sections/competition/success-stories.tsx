@@ -22,8 +22,10 @@ const stories = [
 
 export function SuccessStories() {
   return (
-    <section className="bg-background py-12 md:py-14">
-      <div className="container mx-auto px-4">
+    <section className="relative overflow-hidden bg-background py-12 md:py-14">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#0ea5e9]/15 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#0d9488]/12 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="mb-8">
           <h2 className="text-2xl font-black tracking-tight text-foreground md:text-4xl">Placed Candidates</h2>
           <p className="mt-2 text-sm font-medium text-foreground/60">

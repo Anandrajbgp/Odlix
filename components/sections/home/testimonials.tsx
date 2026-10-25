@@ -83,8 +83,11 @@ export function Testimonials() {
   };
 
   return (
-    <section className="py-20 md:py-24 border-b border-border text-foreground">
-      <div className="container mx-auto px-4">
+    <section className="relative overflow-hidden py-20 md:py-24 border-b border-border text-foreground">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#dc2626]/10 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#f59e0b]/15 blur-3xl" />
+      <div className="absolute right-1/3 top-1/2 h-64 w-64 rounded-full bg-[#4f46e5]/10 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="text-center mb-12 md:mb-14">
           <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tighter">Customer Reviews.</h2>
           <p className="text-muted-foreground text-sm md:text-base font-semibold">Trusted by users across India.</p>

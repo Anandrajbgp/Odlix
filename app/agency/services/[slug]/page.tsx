@@ -25,8 +25,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
   return (
     <div className="bg-background text-foreground">
-      <section className="border-b border-border py-12 md:py-16">
-        <div className="container mx-auto max-w-5xl px-4">
+      <section className="relative overflow-hidden border-b border-border py-12 md:py-16">
+        <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#f59e0b]/15 blur-3xl" />
+        <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#fbbf24]/12 blur-3xl" />
+        <div className="container relative z-10 mx-auto max-w-5xl px-4">
           <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--platform-accent)]">
             Agency Service
           </p>
@@ -53,8 +55,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="py-10 md:py-12">
-        <div className="container mx-auto max-w-5xl px-4 grid grid-cols-1 gap-8 md:grid-cols-3">
+      <section className="relative overflow-hidden py-10 md:py-12">
+        <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#f59e0b]/12 blur-3xl" />
+        <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#fbbf24]/10 blur-3xl" />
+        <div className="container relative z-10 mx-auto max-w-5xl px-4 grid grid-cols-1 gap-8 md:grid-cols-3">
           <article className="md:col-span-2">
             <h2 className="text-xl font-black md:text-2xl">What You Get</h2>
             <ul className="mt-4 space-y-3">

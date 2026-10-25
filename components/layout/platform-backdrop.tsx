@@ -10,10 +10,10 @@ type PlatformBackdropProps = {
 
 const variantStyles: Record<PlatformVariant, { surface: string; glowA: string; glowB: string; grid: string }> = {
   elearning: {
-    surface: "bg-gradient-to-b from-[#4f46e5]/10 via-background to-background dark:from-[#4f46e5]/20",
-    glowA: "from-[#4f46e5]/35 to-[#06b6d4]/10",
-    glowB: "from-[#10b981]/30 to-[#06b6d4]/10",
-    grid: "[background-image:linear-gradient(to_right,rgba(79,70,229,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(79,70,229,0.10)_1px,transparent_1px)]"
+    surface: "bg-gradient-to-b from-[#1e3a8a]/10 via-background to-background dark:from-[#1e3a8a]/20",
+    glowA: "from-[#1e3a8a]/35 to-[#312e81]/10",
+    glowB: "from-[#312e81]/30 to-[#1e3a8a]/8",
+    grid: "[background-image:linear-gradient(to_right,rgba(30,58,138,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(30,58,138,0.10)_1px,transparent_1px)]"
   },
   agency: {
     surface: "bg-gradient-to-br from-[#f59e0b]/10 via-background to-background dark:from-[#f59e0b]/20",
@@ -40,10 +40,10 @@ const variantStyles: Record<PlatformVariant, { surface: string; glowA: string; g
     grid: "[background-image:radial-gradient(rgba(100,116,139,0.12)_1px,transparent_1px)]"
   },
   mart: {
-    surface: "bg-gradient-to-br from-[#dc2626]/8 via-background to-background dark:from-[#dc2626]/15",
-    glowA: "from-[#dc2626]/30 to-[#f97316]/10",
-    glowB: "from-[#facc15]/20 to-[#dc2626]/10",
-    grid: "[background-image:linear-gradient(135deg,rgba(220,38,38,0.10)_0%,transparent_40%),linear-gradient(315deg,rgba(249,115,22,0.10)_0%,transparent_40%)]"
+    surface: "bg-gradient-to-br from-[#5E3A1C]/8 via-background to-background dark:from-[#5E3A1C]/15",
+    glowA: "from-[#5E3A1C]/30 to-[#8B5A2B]/10",
+    glowB: "from-[#C8A951]/20 to-[#5E3A1C]/10",
+    grid: "[background-image:linear-gradient(135deg,rgba(94,58,28,0.10)_0%,transparent_40%),linear-gradient(315deg,rgba(200,169,81,0.10)_0%,transparent_40%)]"
   },
   "useful-websites": {
     surface: "bg-gradient-to-br from-[#14b8a6]/10 via-background to-background dark:from-[#14b8a6]/20",

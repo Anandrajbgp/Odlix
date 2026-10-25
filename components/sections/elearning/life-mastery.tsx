@@ -4,8 +4,10 @@ import { Star } from "lucide-react";
 
 export function LifeMastery() {
   return (
-    <section className="py-14 md:py-16 bg-muted/40 border-b border-border">
-      <div className="container mx-auto px-4">
+    <section className="relative overflow-hidden py-14 md:py-16 bg-muted/40 border-b border-border">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#1e3a8a]/10 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#312e81]/8 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="max-w-5xl mx-auto p-7 md:p-10 rounded-[2.2rem] bg-card border border-border relative overflow-hidden text-foreground shadow-sm">
            <div className="absolute top-10 right-10 opacity-5 pointer-events-none rotate-12"><Star className="w-64 h-64" /></div>
            <div className="relative z-10">

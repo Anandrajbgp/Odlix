@@ -13,8 +13,10 @@ const assets = [
 
 export function AssetShowcase() {
   return (
-    <section className="border-b border-white/10 bg-[#0a0505] py-20">
-      <div className="container relative mx-auto overflow-hidden px-4">
+    <section className="relative overflow-hidden border-b border-white/10 bg-[#0a0505] py-20">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#10b981]/20 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#3b82f6]/15 blur-3xl" />
+      <div className="container relative z-10 mx-auto overflow-hidden px-4">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

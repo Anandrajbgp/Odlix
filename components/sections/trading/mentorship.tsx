@@ -4,8 +4,10 @@ import { Users, ShieldCheck, BadgeCheck } from "lucide-react";
 
 export function Mentorship() {
   return (
-    <section className="bg-[#0a0505] py-32">
-      <div className="container mx-auto px-4">
+    <section className="relative overflow-hidden bg-[#0a0505] py-32">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#10b981]/20 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#3b82f6]/15 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="mx-auto mb-20 max-w-4xl text-center text-white">
           <Users className="mx-auto mb-8 h-16 w-16 text-[#3b82f6]/70" />
           <h2 className="mb-6 text-4xl font-black uppercase leading-none tracking-tighter md:text-[5rem]">

@@ -11,8 +11,10 @@ const stats = [
 
 export function AgencyStats() {
   return (
-    <section className="py-12 md:py-14 bg-background border-y border-border">
-      <div className="container mx-auto px-4">
+    <section className="relative overflow-hidden py-12 md:py-14 bg-background border-y border-border">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#f59e0b]/15 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#fbbf24]/12 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((stat) => (
             <div key={stat.label}>

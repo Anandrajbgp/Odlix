@@ -4,8 +4,10 @@ import { ArrowRight } from "lucide-react";
 
 export function Journey() {
   return (
-    <section className="py-20 md:py-24 bg-background border-b border-border">
-      <div className="container mx-auto px-4">
+    <section className="relative overflow-hidden py-20 md:py-24 bg-background border-b border-border">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#1e3a8a]/12 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#312e81]/10 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
          <div className="text-center mb-12 md:mb-14 text-foreground">
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none">Student <span className="text-indigo-600">Journey.</span></h2>
             <p className="text-muted-foreground text-sm md:text-base font-semibold mt-3">Path to financial independence</p>

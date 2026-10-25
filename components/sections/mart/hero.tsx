@@ -8,6 +8,8 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border bg-background pb-12 pt-8">
       <div className="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.08),transparent_55%)]" />
+      <div className="absolute -right-24 top-10 h-72 w-72 rounded-full bg-[#5E3A1C]/20 blur-3xl" />
+      <div className="absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-[#C8A951]/15 blur-3xl" />
       <div className="container relative z-10 mx-auto px-4">
         <div className="mb-6 rounded-2xl border border-[#f59e0b]/30 bg-gradient-to-r from-[#f59e0b]/20 via-[#dc2626]/10 to-[#dc2626]/20 px-5 py-3 text-center text-[10px] font-black uppercase tracking-[0.2em] text-foreground">
           Mega Sale Live • Free Delivery above ₹999 • Secure Checkout

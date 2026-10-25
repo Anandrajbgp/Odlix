@@ -85,8 +85,10 @@ export function Packages() {
   };
 
   return (
-    <section id="packages" className="py-14 md:py-16 bg-background border-b border-border overflow-hidden">
-      <div className="container mx-auto px-4 text-foreground">
+    <section id="packages" className="relative overflow-hidden py-14 md:py-16 bg-background border-b border-border overflow-hidden">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#1e3a8a]/12 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#312e81]/10 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4 text-foreground">
         <div className="text-center mb-8 md:mb-9">
           <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-4 uppercase">
             Start <span className="text-indigo-600">Your Journey.</span>

@@ -4,8 +4,10 @@ import { CheckCircle2 } from "lucide-react";
 
 export function Pricing() {
   return (
-    <section className="border-y border-white/10 bg-[#0a0505] py-32 text-white">
-      <div className="container mx-auto px-4 text-center">
+    <section className="relative overflow-hidden border-y border-white/10 bg-[#0a0505] py-32 text-white">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#10b981]/25 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#3b82f6]/20 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4 text-center">
         <h2 className="mb-8 text-4xl font-black uppercase leading-none tracking-tighter md:text-[5rem]">
           Flat Brokerage <br /> <span className="text-[#10b981]">₹5 Per Side.</span>
         </h2>

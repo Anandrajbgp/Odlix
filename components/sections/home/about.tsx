@@ -19,8 +19,11 @@ const Counter = ({ end, label }: { end: number; label: string }) => {
 
 export function About() {
   return (
-    <section className="py-20 md:py-24 bg-muted/20 border-y border-border text-foreground">
-      <div className="container mx-auto px-4">
+    <section className="relative overflow-hidden py-20 md:py-24 bg-muted/20 border-y border-border text-foreground">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#f59e0b]/15 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#4f46e5]/15 blur-3xl" />
+      <div className="absolute right-1/3 top-1/2 h-64 w-64 rounded-full bg-[#10b981]/10 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
            <div>
               <h2 className="text-4xl md:text-7xl font-black mb-8 leading-none">A World-Class <br /> Digital Vision.</h2>

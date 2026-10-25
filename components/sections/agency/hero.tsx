@@ -11,7 +11,9 @@ const DEFAULT_MESSAGE =
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-background pt-12 pb-14 md:pt-16 md:pb-16">
-      <div className="container mx-auto px-4 text-center">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#f59e0b]/15 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#fbbf24]/12 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -45,8 +45,10 @@ const features = [
 
 export function Features() {
   return (
-    <section className="bg-[#0a0505] py-32">
-      <div className="container mx-auto px-4">
+    <section className="relative overflow-hidden bg-[#0a0505] py-32">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#10b981]/20 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#3b82f6]/15 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="mb-24 text-center">
           <h2 className="mb-6 text-4xl font-black uppercase leading-none tracking-tighter text-white md:text-[5rem]">
             Broker-Grade <br /> <span className="text-[#10b981]">Infrastructure.</span>

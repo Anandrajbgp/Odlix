@@ -109,10 +109,10 @@ const platforms: PlatformConfig[] = [
     logoTitle: "Mart",
     href: "/mart",
     icon: ShoppingBag,
-    color: "text-[#dc2626]",
+    color: "text-[#5E3A1C]",
     navBg: "bg-white/95 dark:bg-slate-900/95",
     navText: "text-slate-900 dark:text-white",
-    border: "border-[#dc2626]/40"
+    border: "border-[#5E3A1C]/40"
   }
 ];
 

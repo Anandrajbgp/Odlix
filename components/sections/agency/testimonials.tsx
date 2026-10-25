@@ -8,8 +8,10 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-12 md:py-14 bg-slate-950 text-white">
-      <div className="container mx-auto px-4">
+    <section className="relative overflow-hidden py-12 md:py-14 bg-slate-950 text-white">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#f59e0b]/25 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#fbbf24]/20 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
         <h2 className="text-2xl font-black uppercase tracking-tight md:text-4xl">Client Proof</h2>
         <div className="mt-8 divide-y divide-white/10">
           {testimonials.map((item) => (

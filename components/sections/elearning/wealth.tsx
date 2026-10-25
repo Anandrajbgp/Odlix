@@ -6,7 +6,9 @@ export function Wealth() {
   return (
     <>
       <section className="py-14 md:py-16 bg-slate-950 text-white relative overflow-hidden border-b border-white/10">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_100%_100%,rgba(79,70,229,0.05),transparent_50%)]" />
+        <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#1e3a8a]/30 blur-3xl" />
+<div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#312e81]/25 blur-3xl" />
+<div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_100%_100%,rgba(79,70,229,0.05),transparent_50%)]" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto">
             <div>
@@ -45,6 +47,8 @@ export function Wealth() {
       </section>
 
       <section className="py-14 md:py-16 bg-background text-foreground relative overflow-hidden border-b border-border">
+        <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#1e3a8a]/12 blur-3xl" />
+        <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#312e81]/10 blur-3xl" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-8 md:mb-10">
             <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-3 uppercase">

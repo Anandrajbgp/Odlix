@@ -21,6 +21,9 @@ export function Hero() {
   return (
     <section className="relative pt-8 pb-8 md:pt-12 md:pb-12 flex flex-col items-center text-center overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,#f59e0b,transparent_60%)] opacity-25 dark:opacity-40" />
+      <div className="absolute -right-24 top-10 h-72 w-72 rounded-full bg-[#4f46e5]/20 blur-3xl" />
+      <div className="absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-[#10b981]/15 blur-3xl" />
+      <div className="absolute right-1/3 top-1/2 h-64 w-64 rounded-full bg-[#24a1ee]/15 blur-3xl" />
 
       <motion.div
         initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}

@@ -245,8 +245,10 @@ export function ProductShowcase() {
   };
 
   return (
-    <section className="bg-background py-14">
-      <div className="container mx-auto px-4">
+    <section className="relative overflow-hidden bg-background py-14">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#5E3A1C]/15 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#C8A951]/12 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="mb-8 grid grid-cols-1 gap-4 rounded-2xl border border-border bg-card p-4 lg:grid-cols-[1fr_auto] lg:items-center">
           <div className="flex items-center rounded-xl border border-border bg-background p-2">
             <Search className="ml-2 mr-3 h-4 w-4 text-foreground/35" />

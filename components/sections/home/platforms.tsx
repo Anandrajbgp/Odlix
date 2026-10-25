@@ -87,18 +87,21 @@ const platforms = [
     description: "Premium marketplace for high-end products.",
     icon: <ShoppingBag className="text-white" />,
     href: "/mart",
-    color: "from-[#dc2626] to-[#f59e0b]",
+     color: "from-[#5E3A1C] to-[#C8A951]",
     iconSurface: "bg-white/15 group-hover:bg-white",
     iconText: "text-white dark:text-white group-hover:text-slate-950",
-    checkColor: "text-white dark:text-[#f59e0b]",
+     checkColor: "text-white dark:text-[#C8A951]",
     features: ["Verified Products", "Secure Payments", "Fast Delivery"]
   },
 ];
 
 export function PlatformShowcase() {
   return (
-    <section id="platforms" className="py-32 text-foreground">
-      <div className="container mx-auto px-4">
+    <section id="platforms" className="relative overflow-hidden py-32 text-foreground">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#2563eb]/15 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#f59e0b]/15 blur-3xl" />
+      <div className="absolute right-1/3 top-1/2 h-64 w-64 rounded-full bg-[#10b981]/10 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
           <div>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tight leading-[0.92]">Ecosystem <br /> <span className="text-[#f59e0b] italic">Hub.</span></h2>

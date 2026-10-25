@@ -33,6 +33,8 @@ const nodes = [
 export function Features() {
   return (
     <section className="relative overflow-hidden border-b border-border bg-background py-14 md:py-16">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#1e3a8a]/12 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#312e81]/10 blur-3xl" />
       <div className="container relative z-10 mx-auto px-4 text-foreground">
         <div className="mb-7 text-center md:mb-8">
           <h2 className="text-3xl font-black tracking-tight md:text-5xl">

@@ -4,8 +4,10 @@ import { Wallet, CheckCircle2, ChevronRight, ShieldCheck } from "lucide-react";
 
 export function WalletIntegration() {
   return (
-    <section className="bg-gradient-to-b from-transparent to-[#10b981]/10 py-32">
-      <div className="container mx-auto px-4">
+    <section className="relative overflow-hidden bg-gradient-to-b from-transparent to-[#10b981]/10 py-32">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#10b981]/20 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#3b82f6]/15 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="relative overflow-hidden rounded-[4rem] border border-white/10 bg-zinc-950 p-12 shadow-2xl md:p-20">
           <div className="pointer-events-none absolute bottom-0 right-0 h-full w-full bg-[radial-gradient(circle_at_100%_100%,rgba(255,95,31,0.15),transparent_60%)]" />
           <div className="relative z-10 grid grid-cols-1 items-center gap-16 md:grid-cols-2">

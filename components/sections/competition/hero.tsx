@@ -7,6 +7,8 @@ import { Trophy } from "lucide-react";
 export function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border bg-background py-12 md:py-14">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#0ea5e9]/15 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#0d9488]/12 blur-3xl" />
       <div className="container relative z-10 mx-auto px-4 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}

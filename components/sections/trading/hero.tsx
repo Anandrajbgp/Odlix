@@ -12,6 +12,8 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden border-b border-white/10 bg-[#0a0505] pb-24 pt-12 text-white">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#10b981]/25 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#3b82f6]/20 blur-3xl" />
       <div className="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_50%_0%,#451a1a,transparent_70%)] opacity-30" />
       <div className="container relative z-10 mx-auto px-4">
         <div className="flex flex-col items-center justify-between gap-16 lg:flex-row">

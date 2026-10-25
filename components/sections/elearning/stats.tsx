@@ -40,8 +40,10 @@ const stats: StatItem[] = [
 
 export function Stats() {
   return (
-    <section className="py-12 md:py-14 border-b border-border bg-background">
-      <div className="container mx-auto px-4">
+    <section className="relative overflow-hidden py-12 md:py-14 border-b border-border bg-background">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#1e3a8a]/12 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#312e81]/10 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="text-center mb-7 md:mb-8 text-foreground">
           <p className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-indigo-700 dark:text-indigo-400">
             <ShieldCheck className="h-3.5 w-3.5" />

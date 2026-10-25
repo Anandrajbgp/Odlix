@@ -27,8 +27,11 @@ const features = [
 
 export function Features() {
   return (
-    <section className="py-20 md:py-24 bg-muted/20 text-foreground">
-      <div className="container mx-auto px-4 text-center">
+    <section className="relative overflow-hidden py-20 md:py-24 bg-muted/20 text-foreground">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#2563eb]/15 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#f59e0b]/15 blur-3xl" />
+      <div className="absolute right-1/3 top-1/2 h-64 w-64 rounded-full bg-[#14b8a6]/10 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4 text-center">
         <h2 className="text-4xl md:text-6xl font-black mb-24 leading-[0.9] tracking-tighter">
           Why <span className="text-magenta-500">Choose Us</span>
         </h2>
