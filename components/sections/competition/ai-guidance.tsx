@@ -25,8 +25,7 @@ export function AiGuidance() {
       <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#0d9488]/20 blur-3xl" />
 
       <div className="container relative z-10 mx-auto px-4">
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.2fr_1fr] lg:items-center">
-          <div>
+        <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em]">
               <Sparkles className="h-3.5 w-3.5 text-[#f59e0b]" />
               AI Mentor Engine
@@ -34,7 +33,7 @@ export function AiGuidance() {
             <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight md:text-5xl">
               Smart Analysis, Faster Selection
             </h2>
-            <p className="mt-4 max-w-2xl text-sm font-medium leading-relaxed text-white/75 md:text-base">
+            <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-white/75 md:text-base">
               Every test attempt is converted into an actionable improvement plan so you can prioritize the right topics and improve your final score.
             </p>
 
@@ -47,22 +46,6 @@ export function AiGuidance() {
               ))}
             </ul>
           </div>
-
-          <div className="rounded-xl border border-white/15 bg-white/10 p-5">
-            <div className="mb-3 inline-flex rounded-lg border border-[#0ea5e9]/40 bg-[#0ea5e9]/20 px-3 py-2 text-[#0ea5e9]">
-              <BrainCircuit className="h-5 w-5" />
-            </div>
-            <h3 className="mb-2 text-xl font-black tracking-tight">Today's AI Insight</h3>
-            <p className="mb-4 text-sm font-medium text-white/75">
-              Your Quant attempts are fast but 12% lower in accuracy under 25 minutes. Suggested action: 2 timed arithmetic sets + 1 accuracy drill.
-            </p>
-            <div className="space-y-2 text-xs font-black uppercase tracking-[0.14em] text-white/70">
-              <div className="rounded-lg border border-white/15 bg-black/20 px-3 py-2">Predicted Rank Improvement: 18%</div>
-              <div className="rounded-lg border border-white/15 bg-black/20 px-3 py-2">Weak Topic Priority: Number System</div>
-              <div className="rounded-lg border border-white/15 bg-black/20 px-3 py-2">Recommended Daily Time: 95 min</div>
-            </div>
-          </div>
-        </div>
 
         <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
           {highlights.map((item) => (
