@@ -25,7 +25,7 @@ const stories = [
 
 export function SuccessStories() {
   return (
-    <section className="bg-background py-16">
+    <section className="bg-background py-12 md:py-14">
       <div className="container mx-auto px-4">
         <div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>

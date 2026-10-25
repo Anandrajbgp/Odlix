@@ -11,7 +11,7 @@ const points = [
 
 export function AiGuidance() {
   return (
-    <section className="relative overflow-hidden border-y border-white/10 bg-slate-950 py-16 text-white">
+    <section className="relative overflow-hidden border-y border-white/10 bg-slate-950 py-12 md:py-14 text-white">
       <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#2563eb]/25 blur-3xl" />
       <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#0d9488]/20 blur-3xl" />
 

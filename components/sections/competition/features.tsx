@@ -84,7 +84,7 @@ export function Features() {
   }, [query]);
 
   return (
-    <section id="test-library" className="bg-background py-16">
+    <section id="test-library" className="bg-background py-12 md:py-14">
       <div className="container mx-auto px-4">
         <div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>

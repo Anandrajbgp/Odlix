@@ -19,7 +19,7 @@ export function Hero() {
   }, [searchQuery]);
 
   return (
-    <section className="relative overflow-hidden border-b border-border bg-background pb-16 pt-10">
+    <section className="relative overflow-hidden border-b border-border bg-background pb-12 pt-8 md:pb-14 md:pt-12">
       <div className="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_20%_0%,rgba(255,20,147,0.18),transparent_55%)]" />
       <div className="container relative z-10 mx-auto px-4">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#2563eb]/35 bg-[#2563eb]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#2563eb]">
