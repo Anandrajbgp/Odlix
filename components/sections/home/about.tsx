@@ -31,7 +31,7 @@ export function About() {
               </p>
               <div className="space-y-6">
                  {[
-                   "Verified Trust across all 6 platforms",
+                   "Verified Trust across all platforms",
                    "Seamless 24/7 Premium Support",
                    "Integrated Cashfree secure payments"
                  ].map(text => (

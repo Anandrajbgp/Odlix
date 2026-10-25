@@ -22,31 +22,31 @@ const highlights = [
     title: "Real Exam Timer",
     desc: "Strict timer, section flow, and negative marking exactly like actual exams.",
     icon: <Clock3 className="h-5 w-5" />,
-    color: "#FF1493",
+    color: "#2563eb",
   },
   {
     title: "All India Rank",
     desc: "Instant percentile, rank movement, and peer comparison after submit.",
     icon: <BarChart3 className="h-5 w-5" />,
-    color: "#00F5FF",
+    color: "#0d9488",
   },
   {
     title: "AI Weak-Area Map",
     desc: "Detect weak topics and get a daily correction plan with priority tags.",
     icon: <BrainCircuit className="h-5 w-5" />,
-    color: "#32FF00",
+    color: "#10b981",
   },
   {
     title: "Topic-wise Practice",
     desc: "Chapter and concept tests for revision before full-length mocks.",
     icon: <BookOpenCheck className="h-5 w-5" />,
-    color: "#DFFF00",
+    color: "#f59e0b",
   },
   {
     title: "Previous Year Feel",
     desc: "Paper style, question language, and attempt flow mirror real attempts.",
     icon: <Trophy className="h-5 w-5" />,
-    color: "#FF5F1F",
+    color: "#f59e0b",
   },
   {
     title: "Trusted Solutions",
@@ -110,7 +110,7 @@ export function Features() {
         <div className="mb-12 grid grid-cols-1 gap-4 md:grid-cols-2">
           {filteredTests.map((test) => (
             <div key={test.exam} className="rounded-2xl border border-border bg-card p-5 shadow-sm transition-all hover:shadow-md">
-              <div className="mb-3 text-[10px] font-black uppercase tracking-[0.16em] text-[#FF1493]">{test.level}</div>
+              <div className="mb-3 text-[10px] font-black uppercase tracking-[0.16em] text-[#2563eb]">{test.level}</div>
               <h3 className="mb-4 text-xl font-black tracking-tight text-foreground">{test.exam}</h3>
               <div className="flex flex-wrap items-center gap-2 text-[10px] font-black uppercase tracking-[0.16em] text-foreground/55">
                 <span className="rounded-full border border-border bg-background px-3 py-1">{test.questions}</span>
@@ -118,7 +118,7 @@ export function Features() {
               </div>
               <button
                 title="Test engine route required"
-                className="mt-4 rounded-lg bg-zinc-950 px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-white transition-all hover:bg-[#FF1493] dark:bg-white dark:text-zinc-950"
+                className="mt-4 rounded-lg bg-zinc-950 px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-white transition-all hover:bg-[#2563eb] dark:bg-white dark:text-zinc-950"
               >
                 Start Test
               </button>

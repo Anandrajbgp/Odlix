@@ -19,9 +19,9 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="mb-6 inline-flex items-center space-x-2 rounded-full border border-[#FF5F1F]/40 bg-[#FF5F1F]/10 px-3 py-1 text-xs font-black uppercase tracking-widest text-[#FFD9C9]"
+              className="mb-6 inline-flex items-center space-x-2 rounded-full border border-[#10b981]/40 bg-[#10b981]/10 px-3 py-1 text-xs font-black uppercase tracking-widest text-[#FFD9C9]"
             >
-              <div className="h-2 w-2 animate-pulse rounded-full bg-[#FF5F1F]" />
+              <div className="h-2 w-2 animate-pulse rounded-full bg-[#10b981]" />
               <span>Live Execution • Real Broker Experience</span>
             </motion.div>
 
@@ -32,7 +32,7 @@ export function Hero() {
               className="mb-8 text-5xl font-black leading-[0.85] tracking-tighter md:text-[6.5rem]"
             >
               Trade Real Markets. <br />
-              <span className="bg-gradient-to-r from-[#FF5F1F] via-[#DFFF00] to-[#00F5FF] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#10b981] via-[#10b981] to-[#3b82f6] bg-clip-text text-transparent">
                 No Paper Feel.
               </span>
             </motion.h1>
@@ -54,11 +54,11 @@ export function Hero() {
               className="mb-10 grid gap-3 text-left sm:grid-cols-2"
             >
               <div className="flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-xs font-bold uppercase tracking-wider text-white/90">
-                <BadgeCheck className="h-4 w-4 text-[#32FF00]" />
+                <BadgeCheck className="h-4 w-4 text-[#10b981]" />
                 Start live trading from ₹100
               </div>
               <div className="flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-xs font-bold uppercase tracking-wider text-white/90">
-                <ShieldCheck className="h-4 w-4 text-[#00F5FF]" />
+                <ShieldCheck className="h-4 w-4 text-[#3b82f6]" />
                 ₹5 per buy side + ₹5 per sell side
               </div>
             </motion.div>
@@ -70,19 +70,19 @@ export function Hero() {
               className="space-y-4"
             >
               <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
-                <button className="rounded-2xl bg-[#FF5F1F] px-10 py-5 text-xl font-black uppercase tracking-tight text-white shadow-2xl shadow-[#FF5F1F]/30 transition-all hover:bg-[#ff6f36] active:scale-95">
+                <button className="rounded-2xl bg-[#10b981] px-10 py-5 text-xl font-black uppercase tracking-tight text-white shadow-2xl shadow-[#10b981]/30 transition-all hover:bg-[#ff6f36] active:scale-95">
                   Start Live Trading From ₹100
                 </button>
               </div>
 
               <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
-                <button className="rounded-xl border border-[#32FF00]/40 bg-[#32FF00]/10 px-5 py-3 text-xs font-black uppercase tracking-[0.15em] text-[#32FF00] transition-all hover:bg-[#32FF00]/20 active:scale-95">
+                <button className="rounded-xl border border-[#10b981]/40 bg-[#10b981]/10 px-5 py-3 text-xs font-black uppercase tracking-[0.15em] text-[#10b981] transition-all hover:bg-[#10b981]/20 active:scale-95">
                   Download Android App
                 </button>
-                <button className="rounded-xl border border-[#00F5FF]/40 bg-[#00F5FF]/10 px-5 py-3 text-xs font-black uppercase tracking-[0.15em] text-[#00F5FF] transition-all hover:bg-[#00F5FF]/20 active:scale-95">
+                <button className="rounded-xl border border-[#3b82f6]/40 bg-[#3b82f6]/10 px-5 py-3 text-xs font-black uppercase tracking-[0.15em] text-[#3b82f6] transition-all hover:bg-[#3b82f6]/20 active:scale-95">
                   Download Windows App
                 </button>
-                <button className="rounded-xl border border-[#DFFF00]/40 bg-[#DFFF00]/10 px-5 py-3 text-xs font-black uppercase tracking-[0.15em] text-[#DFFF00] transition-all hover:bg-[#DFFF00]/20 active:scale-95">
+                <button className="rounded-xl border border-[#10b981]/40 bg-[#10b981]/10 px-5 py-3 text-xs font-black uppercase tracking-[0.15em] text-[#10b981] transition-all hover:bg-[#10b981]/20 active:scale-95">
                   Download iOS App
                 </button>
               </div>
@@ -97,12 +97,12 @@ export function Hero() {
           >
             <div className="mb-10 flex items-center justify-between">
               <span className="text-xs font-black uppercase tracking-widest text-white/40">Live Derivatives Desk</span>
-              <span className="rounded-full border border-[#32FF00]/30 bg-[#32FF00]/10 px-2 py-1 text-[10px] font-black uppercase tracking-widest text-[#32FF00]">
+              <span className="rounded-full border border-[#10b981]/30 bg-[#10b981]/10 px-2 py-1 text-[10px] font-black uppercase tracking-widest text-[#10b981]">
                 Real-time
               </span>
             </div>
             <div className="mb-2 text-4xl font-black tracking-tighter">₹12,24,590.23</div>
-            <div className="mb-12 flex items-center text-xs font-black uppercase tracking-widest text-[#32FF00]">
+            <div className="mb-12 flex items-center text-xs font-black uppercase tracking-widest text-[#10b981]">
               <ArrowUpRight className="mr-1 h-3 w-3" /> +₹24,140.12 (1.8%) Today
             </div>
 
@@ -110,10 +110,10 @@ export function Hero() {
               {contracts.map((s) => (
                 <div
                   key={s.name}
-                  className="group flex cursor-pointer items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-all hover:border-[#FF5F1F]/40"
+                  className="group flex cursor-pointer items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-all hover:border-[#10b981]/40"
                 >
                   <div className="flex items-center space-x-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#FF5F1F]/30 bg-[#FF5F1F]/10 text-[10px] font-black text-[#FF5F1F]">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#10b981]/30 bg-[#10b981]/10 text-[10px] font-black text-[#10b981]">
                       {s.name[0]}
                     </div>
                     <div>
@@ -123,7 +123,7 @@ export function Hero() {
                   </div>
                   <div className="text-right">
                     <div className="text-sm font-black tracking-tight">{s.price}</div>
-                    <div className={`text-[10px] font-black uppercase tracking-widest ${s.up ? "text-[#32FF00]" : "text-[#FF1E1E]"}`}>
+                    <div className={`text-[10px] font-black uppercase tracking-widest ${s.up ? "text-[#10b981]" : "text-[#ef4444]"}`}>
                       {s.change}
                     </div>
                   </div>

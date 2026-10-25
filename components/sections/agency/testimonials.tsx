@@ -44,7 +44,7 @@ export function Testimonials() {
           </h2>
           <div className="mt-4 flex items-center justify-center gap-1 opacity-90">
             {[1, 2, 3, 4, 5].map((item) => (
-              <Star key={item} className="h-5 w-5 fill-current text-yellow-400" />
+              <Star key={item} className="h-5 w-5 fill-current text-orange-400" />
             ))}
           </div>
           <p className="mt-3 text-xs font-bold uppercase tracking-[0.18em] text-slate-400">

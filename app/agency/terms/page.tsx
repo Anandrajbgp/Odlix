@@ -20,7 +20,7 @@ export default function TermsPage() {
           <div className="space-y-8 text-sm leading-relaxed text-slate-700 md:text-base">
             <section>
               <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <Scale className="h-5 w-5 text-blue-600" /> Engagement Scope
+                <Scale className="h-5 w-5 text-slate-600" /> Engagement Scope
               </h2>
               <p>
                 Scope, timelines, and deliverables are defined in proposals, statements of work, and approved change requests.
@@ -30,7 +30,7 @@ export default function TermsPage() {
 
             <section>
               <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <UserCheck className="h-5 w-5 text-blue-600" /> Client Responsibilities
+                <UserCheck className="h-5 w-5 text-slate-600" /> Client Responsibilities
               </h2>
               <ul className="space-y-2">
                 <li>• Provide timely approvals, assets, and required operational inputs.</li>
@@ -49,7 +49,7 @@ export default function TermsPage() {
 
             <section>
               <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <ShieldCheck className="h-5 w-5 text-blue-600" /> Intellectual Property & Licenses
+                <ShieldCheck className="h-5 w-5 text-slate-600" /> Intellectual Property & Licenses
               </h2>
               <p>
                 Ownership transfer, licensing, and usage rights are governed by project-specific agreements.
@@ -59,7 +59,7 @@ export default function TermsPage() {
 
             <section>
               <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <Ban className="h-5 w-5 text-blue-600" /> Warranty & Liability Limits
+                <Ban className="h-5 w-5 text-slate-600" /> Warranty & Liability Limits
               </h2>
               <p>
                 Services are delivered using commercially reasonable professional standards. Liability is limited
@@ -77,7 +77,7 @@ export default function TermsPage() {
 
             <section>
               <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <Landmark className="h-5 w-5 text-blue-600" /> Governing Law & Jurisdiction
+                <Landmark className="h-5 w-5 text-slate-600" /> Governing Law & Jurisdiction
               </h2>
               <p>
                 These terms are governed by Indian law. Subject to legal requirements, disputes fall under competent
@@ -87,7 +87,7 @@ export default function TermsPage() {
 
             <section>
               <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <Gavel className="h-5 w-5 text-blue-600" /> Dispute Resolution
+                <Gavel className="h-5 w-5 text-slate-600" /> Dispute Resolution
               </h2>
               <p>
                 Parties should first attempt amicable settlement. If unresolved, matters may proceed to mediation/arbitration
@@ -97,7 +97,7 @@ export default function TermsPage() {
 
             <section>
               <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <Clock3 className="h-5 w-5 text-blue-600" /> Policy Updates
+                <Clock3 className="h-5 w-5 text-slate-600" /> Policy Updates
               </h2>
               <p>
                 Odlix may update these terms for operational, legal, or security reasons. Updated versions include a new
@@ -105,7 +105,7 @@ export default function TermsPage() {
               </p>
             </section>
 
-            <section className="rounded-2xl bg-blue-600 p-6 text-white">
+            <section className="rounded-2xl bg-slate-600 p-6 text-white">
               <h2 className="mb-3 text-xl font-black">Agency Legal & Support Contact</h2>
               <div className="space-y-2 text-sm font-semibold md:text-base">
                 <p className="flex items-center gap-2"><Mail className="h-4 w-4" /> team.odlix@gmail.com</p>

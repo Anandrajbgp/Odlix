@@ -20,7 +20,6 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { usePathname } from "next/navigation";
 
 type PlatformConfig = {
@@ -40,80 +39,80 @@ const platforms: PlatformConfig[] = [
     logoTitle: "Elearning",
     href: "/elearning",
     icon: BookOpen,
-    color: "text-[#32FF00]",
-    navBg: "bg-[#101a10]/95",
+    color: "text-[#4f46e5]",
+    navBg: "bg-[#0b0f19]/95",
     navText: "text-white",
-    border: "border-[#32FF00]/40"
+    border: "border-[#4f46e5]/40"
   },
   {
     name: "Agency",
     logoTitle: "Agency",
     href: "/agency",
     icon: Briefcase,
-    color: "text-[#00F5FF]",
-    navBg: "bg-[#09181d]/95",
-    navText: "text-white",
-    border: "border-[#00F5FF]/40"
+    color: "text-[#f97316]",
+    navBg: "bg-[#f8fafc]/95 dark:bg-slate-900/95",
+    navText: "text-slate-900 dark:text-white",
+    border: "border-[#1e3a8a]/40"
   },
   {
     name: "Mock Tests",
     logoTitle: "Mock Tests",
     href: "/competition",
     icon: GraduationCap,
-    color: "text-[#FF1493]",
-    navBg: "bg-[#1d0b16]/95",
-    navText: "text-white",
-    border: "border-[#FF1493]/40"
+    color: "text-[#2563eb]",
+    navBg: "bg-[#f0f4f8]/95 dark:bg-slate-900/95",
+    navText: "text-slate-900 dark:text-white",
+    border: "border-[#2563eb]/40"
   },
   {
     name: "Trading",
     logoTitle: "Trading",
     href: "/trading",
     icon: BarChart3,
-    color: "text-[#FF5F1F]",
-    navBg: "bg-[#1d120c]/95",
+    color: "text-[#10b981]",
+    navBg: "bg-[#0a0a0a]/95",
     navText: "text-white",
-    border: "border-[#FF5F1F]/40"
+    border: "border-[#10b981]/40"
   },
   {
     name: "App Store",
     logoTitle: "App Store",
     href: "/apps",
     icon: LayoutGrid,
-    color: "text-[#FF1E1E]",
-    navBg: "bg-[#1f0d0d]/95",
-    navText: "text-white",
-    border: "border-[#FF1E1E]/40"
+    color: "text-[#2563eb]",
+    navBg: "bg-[#f1f5f9]/95 dark:bg-slate-900/95",
+    navText: "text-slate-900 dark:text-white",
+    border: "border-[#64748b]/40"
   },
   {
     name: "Useful Websites",
     logoTitle: "Useful Websites",
-    href: "/apps",
+    href: "/useful-websites",
     icon: Globe,
-    color: "text-[#00F5FF]",
-    navBg: "bg-[#0d1f1d]/95",
-    navText: "text-white",
-    border: "border-[#00F5FF]/40"
+    color: "text-[#14b8a6]",
+    navBg: "bg-[#fafafa]/95 dark:bg-slate-900/95",
+    navText: "text-slate-900 dark:text-white",
+    border: "border-[#14b8a6]/40"
   },
   {
     name: "Telegram Bots",
     logoTitle: "Telegram Bots",
-    href: "/apps",
+    href: "/telegram-bots",
     icon: Send,
-    color: "text-[#0088CC]",
-    navBg: "bg-[#0d151f]/95",
+    color: "text-[#24a1ee]",
+    navBg: "bg-[#17212b]/95",
     navText: "text-white",
-    border: "border-[#0088CC]/40"
+    border: "border-[#24a1ee]/40"
   },
   {
     name: "Mart",
     logoTitle: "Mart",
     href: "/mart",
     icon: ShoppingBag,
-    color: "text-white",
-    navBg: "bg-[#141414]/95",
-    navText: "text-white",
-    border: "border-white/30"
+    color: "text-[#dc2626]",
+    navBg: "bg-white/95 dark:bg-slate-900/95",
+    navText: "text-slate-900 dark:text-white",
+    border: "border-[#dc2626]/40"
   }
 ];
 
@@ -151,8 +150,8 @@ export function Navbar() {
 
   const navBg = currentPlatform?.navBg || "bg-[#18180a]/95";
   const navText = currentPlatform?.navText || "text-white";
-  const border = currentPlatform?.border || "border-[#DFFF00]/45";
-  const iconColor = currentPlatform?.color || "text-[#DFFF00]";
+  const border = currentPlatform?.border || "border-[#4f46e5]/45";
+  const iconColor = currentPlatform?.color || "text-[#4f46e5]";
   const isHome = pathname === "/";
   const mobilePanelSurface = navText === "text-white"
     ? "bg-slate-950/95"
@@ -232,14 +231,12 @@ export function Navbar() {
                  Dashboard
                </Link>
              ) : null}
-             <ThemeToggle />
              <Link href="/login" className={cn("text-xs font-black uppercase tracking-widest opacity-80 hover:opacity-100 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md", navText === "text-white" ? "text-white" : "text-foreground")}>Login</Link>
              <Link href="/signup" className={cn("px-7 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring", navText === "text-white" ? "bg-white text-slate-950" : "bg-slate-900 text-white dark:bg-white dark:text-slate-950")}>Get Started</Link>
           </div>
 
           {/* Mobile Right */}
           <div className="flex md:hidden items-center space-x-3 relative z-[150]">
-            <ThemeToggle />
              <button
                onClick={toggleMenu}
                className="p-3 rounded-2xl bg-white/10 active:scale-90 transition-all border border-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"

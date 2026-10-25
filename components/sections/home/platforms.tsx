@@ -8,78 +8,78 @@ const platforms = [
   {
     title: "E-Learning",
     description: "Next-gen education with interactive courses.",
-    icon: <BookOpen className="text-[#32FF00]" />,
+    icon: <BookOpen className="text-[#4f46e5]" />,
     href: "/elearning",
-    color: "from-[#32FF00] to-[#DFFF00]",
-    iconSurface: "bg-[#32FF00]/15 group-hover:bg-[#32FF00]",
-    iconText: "text-[#32FF00] dark:text-[#32FF00] group-hover:text-slate-950",
-    checkColor: "text-[#32FF00]",
+    color: "from-[#4f46e5] to-[#06b6d4]",
+    iconSurface: "bg-[#4f46e5]/15 group-hover:bg-[#4f46e5]",
+    iconText: "text-[#4f46e5] dark:text-[#4f46e5] group-hover:text-slate-950",
+    checkColor: "text-[#4f46e5]",
     features: ["Expert Mentors", "Live Sessions", "Certifications"]
   },
   {
     title: "Digital Agency",
     description: "Full-stack creative and tech solutions.",
-    icon: <Briefcase className="text-[#00F5FF]" />,
+    icon: <Briefcase className="text-[#1e3a8a]" />,
     href: "/agency",
-    color: "from-[#00F5FF] to-[#DFFF00]",
-    iconSurface: "bg-[#00F5FF]/15 group-hover:bg-[#00F5FF]",
-    iconText: "text-[#00F5FF] dark:text-[#00F5FF] group-hover:text-slate-950",
-    checkColor: "text-[#00F5FF]",
+    color: "from-[#1e3a8a] to-[#f97316]",
+    iconSurface: "bg-[#1e3a8a]/15 group-hover:bg-[#1e3a8a]",
+    iconText: "text-[#1e3a8a] dark:text-[#1e3a8a] group-hover:text-white",
+    checkColor: "text-[#14b8a6]",
     features: ["Web & App Dev", "Marketing", "Video Prod"]
   },
   {
     title: "Mock Tests",
     description: "Competitive exam mocks with rank analytics and AI guidance.",
-    icon: <GraduationCap className="text-[#FF1493]" />,
+    icon: <GraduationCap className="text-[#2563eb]" />,
     href: "/competition",
-    color: "from-[#FF1493] to-[#DFFF00]",
-    iconSurface: "bg-[#FF1493]/15 group-hover:bg-[#FF1493]",
-    iconText: "text-[#FF1493] dark:text-[#FF1493] group-hover:text-white",
-    checkColor: "text-[#FF1493]",
+    color: "from-[#2563eb] to-[#f59e0b]",
+    iconSurface: "bg-[#2563eb]/15 group-hover:bg-[#2563eb]",
+    iconText: "text-[#2563eb] dark:text-[#2563eb] group-hover:text-white",
+    checkColor: "text-[#2563eb]",
     features: ["Real Simulation", "AI Analytics", "Topic-wise Tests"]
   },
   {
     title: "Broker Trading",
     description: "Advanced dashboard for smart investors.",
-    icon: <BarChart3 className="text-[#FF5F1F]" />,
+    icon: <BarChart3 className="text-[#10b981]" />,
     href: "/trading",
-    color: "from-[#FF5F1F] to-[#DFFF00]",
-    iconSurface: "bg-[#FF5F1F]/15 group-hover:bg-[#FF5F1F]",
-    iconText: "text-[#FF5F1F] dark:text-[#FF5F1F] group-hover:text-white",
-    checkColor: "text-[#FF5F1F]",
+    color: "from-[#1f2937] to-[#10b981]",
+    iconSurface: "bg-[#10b981]/15 group-hover:bg-[#10b981]",
+    iconText: "text-[#10b981] dark:text-[#10b981] group-hover:text-white",
+    checkColor: "text-[#10b981]",
     features: ["Multi-asset", "AI Insights", "Advanced Charts"]
   },
   {
     title: "App Store",
     description: "Curated collection of useful apps and websites.",
-    icon: <LayoutGrid className="text-[#FF1E1E]" />,
+    icon: <LayoutGrid className="text-[#2563eb]" />,
     href: "/apps",
-    color: "from-[#FF1E1E] to-[#DFFF00]",
-    iconSurface: "bg-[#FF1E1E]/15 group-hover:bg-[#FF1E1E]",
-    iconText: "text-[#FF1E1E] dark:text-[#FF1E1E] group-hover:text-white",
-    checkColor: "text-[#FF1E1E]",
+    color: "from-[#64748b] to-[#2563eb]",
+    iconSurface: "bg-[#2563eb]/15 group-hover:bg-[#2563eb]",
+    iconText: "text-[#2563eb] dark:text-[#2563eb] group-hover:text-white",
+    checkColor: "text-[#2563eb]",
     features: ["Creator Studio", "Affiliate Program", "Guides"]
   },
   {
     title: "Useful Websites",
     description: "Handpicked websites for productivity, learning, and daily tools.",
-    icon: <Globe className="text-[#00F5FF]" />,
-    href: "/apps",
-    color: "from-[#00F5FF] to-[#DFFF00]",
-    iconSurface: "bg-[#00F5FF]/15 group-hover:bg-[#00F5FF]",
-    iconText: "text-[#00F5FF] dark:text-[#00F5FF] group-hover:text-slate-950",
-    checkColor: "text-[#00F5FF]",
+    icon: <Globe className="text-[#14b8a6]" />,
+    href: "/useful-websites",
+    color: "from-[#14b8a6] to-[#eab308]",
+    iconSurface: "bg-[#14b8a6]/15 group-hover:bg-[#14b8a6]",
+    iconText: "text-[#14b8a6] dark:text-[#14b8a6] group-hover:text-slate-950",
+    checkColor: "text-[#14b8a6]",
     features: ["Verified Links", "Daily Tools", "Quick Access"]
   },
   {
     title: "Telegram Bots",
     description: "Automation bots for trading, alerts, and productivity on Telegram.",
-    icon: <Send className="text-[#0088CC]" />,
-    href: "/apps",
-    color: "from-[#0088CC] to-[#DFFF00]",
-    iconSurface: "bg-[#0088CC]/15 group-hover:bg-[#0088CC]",
-    iconText: "text-[#0088CC] dark:text-[#0088CC] group-hover:text-white",
-    checkColor: "text-[#0088CC]",
+    icon: <Send className="text-[#24a1ee]" />,
+    href: "/telegram-bots",
+    color: "from-[#24a1ee] to-[#38bdf8]",
+    iconSurface: "bg-[#24a1ee]/15 group-hover:bg-[#24a1ee]",
+    iconText: "text-[#24a1ee] dark:text-[#24a1ee] group-hover:text-white",
+    checkColor: "text-[#24a1ee]",
     features: ["Trading Alerts", "Task Automation", "Instant Notify"]
   },
   {
@@ -87,10 +87,10 @@ const platforms = [
     description: "Premium marketplace for high-end products.",
     icon: <ShoppingBag className="text-white" />,
     href: "/mart",
-    color: "from-white to-[#DFFF00]",
+    color: "from-[#dc2626] to-[#f59e0b]",
     iconSurface: "bg-white/15 group-hover:bg-white",
     iconText: "text-white dark:text-white group-hover:text-slate-950",
-    checkColor: "text-white dark:text-[#DFFF00]",
+    checkColor: "text-white dark:text-[#f59e0b]",
     features: ["Verified Products", "Secure Payments", "Fast Delivery"]
   },
 ];
@@ -101,12 +101,12 @@ export function PlatformShowcase() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
           <div>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tight leading-[0.92]">Ecosystem <br /> <span className="text-[#DFFF00] italic">Hub.</span></h2>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tight leading-[0.92]">Ecosystem <br /> <span className="text-[#f59e0b] italic">Hub.</span></h2>
             <p className="opacity-60 max-w-md text-lg md:text-xl font-medium leading-relaxed">
-              Eight dedicated engines driving the digital revolution.
+              Dedicated engines driving the digital revolution.
             </p>
           </div>
-          <Link href="/platforms" className="font-black text-xl flex items-center hover:text-[#00F5FF] transition-colors active:scale-95">
+          <Link href="/platforms" className="font-black text-xl flex items-center hover:text-[#14b8a6] transition-colors active:scale-95">
             Explore All Platforms <ArrowRight className="ml-2 w-6 h-6" />
           </Link>
         </div>

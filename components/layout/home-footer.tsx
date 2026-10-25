@@ -47,7 +47,7 @@ export function HomeFooter() {
           </p>
           <div className="flex space-x-4">
             <Link
-              href="https://youtube.com/@odlix"
+              href="http://www.youtube.com/@TeamOdlix"
               className="rounded-md opacity-60 transition-all hover:text-magenta-500 hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               aria-label="Open Odlix YouTube"
               target="_blank"
@@ -56,7 +56,7 @@ export function HomeFooter() {
               <YoutubeIcon />
             </Link>
             <Link
-              href="https://facebook.com/odlix"
+              href="https://www.facebook.com/share/19pa8hWvZR/"
               className="rounded-md opacity-60 transition-all hover:text-magenta-500 hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               aria-label="Open Odlix Facebook"
               target="_blank"
@@ -65,7 +65,7 @@ export function HomeFooter() {
               <FacebookIcon />
             </Link>
             <Link
-              href="https://instagram.com/odlix"
+              href="https://www.instagram.com/odlix_?exln=bWVxN2tzNjBsZDIw"
               className="rounded-md opacity-60 transition-all hover:text-magenta-500 hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               aria-label="Open Odlix Instagram"
               target="_blank"

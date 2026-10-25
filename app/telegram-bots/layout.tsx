@@ -10,10 +10,10 @@ export default function TelegramBotsLayout({ children }: { children: ReactNode }
         className="flex min-h-screen flex-col bg-background/30 text-foreground transition-colors duration-300"
         style={{
           // @ts-ignore
-          "--platform-primary": "#0088CC",
-          "--platform-secondary": "#DFFF00",
-          "--platform-accent": "#32FF00",
-          "--platform-gradient": "linear-gradient(135deg, #0088CC 0%, #DFFF00 55%, #32FF00 100%)"
+          "--platform-primary": "#24a1ee",
+          "--platform-secondary": "#06b6d4",
+          "--platform-accent": "#2563eb",
+          "--platform-gradient": "linear-gradient(135deg, #24a1ee 0%, #06b6d4 55%, #2563eb 100%)"
         }}
       >
         <Navbar />

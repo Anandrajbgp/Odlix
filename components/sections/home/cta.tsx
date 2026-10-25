@@ -15,7 +15,7 @@ export function CTA() {
         <div className="relative z-10 text-center max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-7xl lg:text-8xl font-black mb-10 tracking-tighter leading-[0.9] text-white">Create Your <br /> Odlix ID.</h2>
           <p className="text-lg md:text-2xl text-white/85 mb-14 font-bold max-w-2xl mx-auto leading-relaxed">
-            Create your Odlix ID today and access all 6 platforms instantly.
+            Create your Odlix ID today and access the digital ecosystem instantly.
           </p>
           <Link
             href="/signup"

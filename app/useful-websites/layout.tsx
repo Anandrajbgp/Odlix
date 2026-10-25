@@ -10,10 +10,10 @@ export default function UsefulWebsitesLayout({ children }: { children: ReactNode
         className="flex min-h-screen flex-col bg-background/30 text-foreground transition-colors duration-300"
         style={{
           // @ts-ignore
-          "--platform-primary": "#00F5FF",
-          "--platform-secondary": "#DFFF00",
-          "--platform-accent": "#32FF00",
-          "--platform-gradient": "linear-gradient(135deg, #00F5FF 0%, #DFFF00 55%, #32FF00 100%)"
+          "--platform-primary": "#14b8a6",
+          "--platform-secondary": "#06b6d4",
+          "--platform-accent": "#eab308",
+          "--platform-gradient": "linear-gradient(135deg, #14b8a6 0%, #06b6d4 55%, #eab308 100%)"
         }}
       >
         <Navbar />

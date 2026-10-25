@@ -22,7 +22,7 @@ export function Hero() {
     <section className="relative overflow-hidden border-b border-border bg-background pb-16 pt-10">
       <div className="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_20%_0%,rgba(255,20,147,0.18),transparent_55%)]" />
       <div className="container relative z-10 mx-auto px-4">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#FF1493]/35 bg-[#FF1493]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#FF1493]">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#2563eb]/35 bg-[#2563eb]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#2563eb]">
           India&apos;s Competitive Mock Test Hub
         </div>
 
@@ -33,7 +33,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               className="mb-4 text-4xl font-black leading-[0.92] tracking-tight text-foreground md:text-6xl"
             >
-              Mock Tests, Rank Analysis, and AI Guidance in <span className="text-[#FF1493]">One Page</span>
+              Mock Tests, Rank Analysis, and AI Guidance in <span className="text-[#2563eb]">One Page</span>
             </motion.h1>
             <p className="mb-6 max-w-2xl text-sm font-medium leading-relaxed text-foreground/70 md:text-base">
               Full-length exam simulations, section-wise practice, real-time rank predictor, and weak-topic diagnostics for all major competitive exams.
@@ -50,7 +50,7 @@ export function Hero() {
                   className="w-full bg-transparent py-3 text-sm font-bold tracking-tight text-foreground focus:outline-none"
                 />
               </div>
-              <a href={testLibraryHref} className="rounded-xl bg-zinc-950 px-5 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-white transition-all hover:bg-[#FF1493] active:scale-95 dark:bg-white dark:text-zinc-950">
+              <a href={testLibraryHref} className="rounded-xl bg-zinc-950 px-5 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-white transition-all hover:bg-[#2563eb] active:scale-95 dark:bg-white dark:text-zinc-950">
                 Find Test
               </a>
             </div>
@@ -80,20 +80,20 @@ export function Hero() {
             <h3 className="mb-4 text-xs font-black uppercase tracking-[0.2em] text-foreground/45">Today&apos;s Performance Snapshot</h3>
             <div className="space-y-3">
               <div className="flex items-start gap-3 rounded-xl border border-border bg-card px-4 py-3">
-                <Trophy className="mt-0.5 h-4 w-4 text-[#DFFF00]" />
+                <Trophy className="mt-0.5 h-4 w-4 text-[#f59e0b]" />
                 <span className="text-sm font-semibold text-foreground/80">3,42,891 students attempted tests today</span>
               </div>
               <div className="flex items-start gap-3 rounded-xl border border-border bg-card px-4 py-3">
-                <Clock3 className="mt-0.5 h-4 w-4 text-[#00F5FF]" />
+                <Clock3 className="mt-0.5 h-4 w-4 text-[#0d9488]" />
                 <span className="text-sm font-semibold text-foreground/80">Live timers and exam-like interface enabled</span>
               </div>
               <div className="flex items-start gap-3 rounded-xl border border-border bg-card px-4 py-3">
-                <Target className="mt-0.5 h-4 w-4 text-[#32FF00]" />
+                <Target className="mt-0.5 h-4 w-4 text-[#10b981]" />
                 <span className="text-sm font-semibold text-foreground/80">AI detected your top 3 weak areas instantly</span>
               </div>
             </div>
 
-            <div className="mt-5 rounded-xl border border-[#FF1493]/30 bg-[#FF1493]/10 px-4 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-[#FF1493]">
+            <div className="mt-5 rounded-xl border border-[#2563eb]/30 bg-[#2563eb]/10 px-4 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-[#2563eb]">
               <ShieldCheck className="mr-2 inline h-3.5 w-3.5" />
               Trusted by aspirants across 120+ exam categories
             </div>

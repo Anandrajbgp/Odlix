@@ -10,19 +10,19 @@ export function Hero() {
       label: "Windows",
       icon: <Monitor className="h-5 w-5" />,
       href: "#windows-download",
-      tone: "border-[#00F5FF]/35 bg-[#00F5FF]/10 text-[#00F5FF] hover:bg-[#00F5FF]/20",
+      tone: "border-[#2563eb]/35 bg-[#2563eb]/10 text-[#2563eb] hover:bg-[#2563eb]/20",
     },
     {
       label: "iOS",
       icon: <Apple className="h-5 w-5" />,
       href: "#ios-download",
-      tone: "border-[#DFFF00]/35 bg-[#DFFF00]/10 text-[#DFFF00] hover:bg-[#DFFF00]/20",
+      tone: "border-[#60a5fa]/35 bg-[#60a5fa]/10 text-[#60a5fa] hover:bg-[#60a5fa]/20",
     },
     {
       label: "Android",
       icon: <Smartphone className="h-5 w-5" />,
       href: "#android-download",
-      tone: "border-[#32FF00]/35 bg-[#32FF00]/10 text-[#32FF00] hover:bg-[#32FF00]/20",
+      tone: "border-[#10b981]/35 bg-[#10b981]/10 text-[#10b981] hover:bg-[#10b981]/20",
     },
   ];
 
@@ -34,10 +34,10 @@ export function Hero() {
           <div className="flex flex-wrap items-center justify-center gap-3 lg:justify-start">
             <Link
               href="#useful-websites"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl border border-[#FF1493]/40 bg-gradient-to-r from-[#FF1493]/20 via-[#FF5F1F]/15 to-[#DFFF00]/20 px-5 py-3 text-[10px] font-black uppercase tracking-[0.18em] text-white shadow-[0_0_30px_rgba(255,20,147,0.35)] transition-all hover:scale-[1.02] active:scale-95"
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl border border-[#2563eb]/40 bg-gradient-to-r from-[#2563eb]/20 via-[#60a5fa]/15 to-[#60a5fa]/20 px-5 py-3 text-[10px] font-black uppercase tracking-[0.18em] text-white shadow-[0_0_30px_rgba(255,20,147,0.35)] transition-all hover:scale-[1.02] active:scale-95"
             >
               <span className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.2),transparent_55%)] opacity-70" />
-              <Globe className="relative h-4 w-4 text-[#00F5FF]" />
+              <Globe className="relative h-4 w-4 text-[#2563eb]" />
               <span className="relative">Useful Websites</span>
             </Link>
           </div>

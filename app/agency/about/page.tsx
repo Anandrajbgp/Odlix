@@ -71,17 +71,17 @@ export default function AboutPage() {
             <h2 className="mb-6 text-2xl font-black md:text-3xl">How We Work</h2>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
               <article className="rounded-2xl border border-slate-200 p-5">
-                <CheckCircle2 className="mb-2 h-5 w-5 text-green-600" />
+                <CheckCircle2 className="mb-2 h-5 w-5 text-emerald-600" />
                 <h3 className="mb-1 font-bold">Discovery</h3>
                 <p className="text-sm text-slate-600">Business goals, requirements, constraints, and risk mapping.</p>
               </article>
               <article className="rounded-2xl border border-slate-200 p-5">
-                <CheckCircle2 className="mb-2 h-5 w-5 text-green-600" />
+                <CheckCircle2 className="mb-2 h-5 w-5 text-emerald-600" />
                 <h3 className="mb-1 font-bold">Build</h3>
                 <p className="text-sm text-slate-600">Design, implementation, QA, and release planning with milestone reviews.</p>
               </article>
               <article className="rounded-2xl border border-slate-200 p-5">
-                <CheckCircle2 className="mb-2 h-5 w-5 text-green-600" />
+                <CheckCircle2 className="mb-2 h-5 w-5 text-emerald-600" />
                 <h3 className="mb-1 font-bold">Scale</h3>
                 <p className="text-sm text-slate-600">Optimization, maintenance, monitoring, and ongoing growth support.</p>
               </article>
@@ -106,7 +106,7 @@ export default function AboutPage() {
 
       <section className="pb-24">
         <div className="container mx-auto max-w-6xl px-4">
-          <div className="rounded-3xl border border-blue-200 bg-blue-50 p-8 md:p-10">
+          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 md:p-10">
             <h2 className="mb-3 flex items-center gap-2 text-2xl font-black">
               <Users className="h-6 w-6" /> Agency Support
             </h2>

@@ -10,10 +10,10 @@ export default function ELearningLayout({ children }: { children: ReactNode }) {
         className="flex min-h-screen flex-col"
         style={{
           // @ts-ignore
-          "--platform-primary": "#32FF00",
-          "--platform-secondary": "#DFFF00",
-          "--platform-accent": "#00F5FF",
-          "--platform-gradient": "linear-gradient(135deg, #32FF00 0%, #DFFF00 55%, #00F5FF 100%)"
+          "--platform-primary": "#4f46e5",
+          "--platform-secondary": "#06b6d4",
+          "--platform-accent": "#10b981",
+          "--platform-gradient": "linear-gradient(135deg, #4f46e5 0%, #06b6d4 55%, #10b981 100%)"
         }}
       >
         <Navbar />
@@ -23,3 +23,4 @@ export default function ELearningLayout({ children }: { children: ReactNode }) {
     </PlatformBackdrop>
   );
 }
+

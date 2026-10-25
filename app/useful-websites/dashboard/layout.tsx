@@ -9,10 +9,10 @@ export default function UsefulWebsitesDashboardLayout({ children }: { children: 
         className="min-h-screen flex flex-col"
         style={{
           // @ts-ignore
-          "--platform-primary": "#00F5FF",
-          "--platform-secondary": "#DFFF00",
-          "--platform-accent": "#32FF00",
-          "--platform-gradient": "linear-gradient(135deg, #00F5FF 0%, #DFFF00 55%, #32FF00 100%)"
+          "--platform-primary": "#14b8a6",
+          "--platform-secondary": "#06b6d4",
+          "--platform-accent": "#eab308",
+          "--platform-gradient": "linear-gradient(135deg, #14b8a6 0%, #06b6d4 55%, #eab308 100%)"
         } as React.CSSProperties}
       >
         <Navbar />

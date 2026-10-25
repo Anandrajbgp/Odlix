@@ -36,7 +36,7 @@ export function Features() {
       <div className="container relative z-10 mx-auto px-4 text-foreground">
         <div className="mb-7 text-center md:mb-8">
           <h2 className="text-3xl font-black tracking-tight md:text-5xl">
-            Learn. Earn. <span className="text-cyan-600">Conquer.</span>
+            Learn. Earn. <span className="text-indigo-600">Conquer.</span>
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm font-medium text-muted-foreground md:text-base">
             One clean roadmap from skill-building to income to long-term growth.
@@ -53,7 +53,7 @@ export function Features() {
             <motion.path
               d="M50,16 C42,28 34,40 24,56"
               fill="none"
-              stroke="rgba(8,145,178,0.42)"
+              stroke="rgba(79,70,229,0.42)"
               strokeWidth="0.5"
               strokeLinecap="round"
               initial={{ pathLength: 0 }}
@@ -64,7 +64,7 @@ export function Features() {
             <motion.path
               d="M50,16 C58,28 66,40 76,56"
               fill="none"
-              stroke="rgba(8,145,178,0.42)"
+              stroke="rgba(79,70,229,0.42)"
               strokeWidth="0.5"
               strokeLinecap="round"
               initial={{ pathLength: 0 }}
@@ -75,7 +75,7 @@ export function Features() {
             <motion.path
               d="M24,56 C38,70 62,70 76,56"
               fill="none"
-              stroke="rgba(8,145,178,0.3)"
+              stroke="rgba(79,70,229,0.3)"
               strokeWidth="0.5"
               strokeLinecap="round"
               initial={{ pathLength: 0 }}
@@ -98,7 +98,7 @@ export function Features() {
                 viewport={{ once: true, amount: 0.4 }}
               >
                 <div className="min-w-[10.75rem] rounded-2xl border border-border/80 bg-background/90 px-4 py-3 text-center shadow-sm">
-                  <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">
+                  <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
                     <Icon className="h-4.5 w-4.5" />
                   </div>
                   <div className="text-lg font-black tracking-tight">{node.title}</div>
@@ -117,8 +117,8 @@ export function Features() {
             transition={{ duration: 0.45, delay: 0.2, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.4 }}
           >
-            <div className="rounded-xl border border-cyan-500/25 bg-cyan-500/5 px-4 py-2.5 text-center">
-              <div className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-300">
+            <div className="rounded-xl border border-indigo-500/25 bg-indigo-500/5 px-4 py-2.5 text-center">
+              <div className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-700 dark:text-indigo-300">
                 Odlix Growth Loop
               </div>
               <div className="mt-1 text-xs font-bold text-muted-foreground">Learn → Earn → Conquer</div>
@@ -129,3 +129,4 @@ export function Features() {
     </section>
   );
 }
+

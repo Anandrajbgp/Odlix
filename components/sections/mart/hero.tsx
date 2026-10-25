@@ -9,14 +9,14 @@ export function Hero() {
     <section className="relative overflow-hidden border-b border-border bg-background pb-12 pt-8">
       <div className="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.08),transparent_55%)]" />
       <div className="container relative z-10 mx-auto px-4">
-        <div className="mb-6 rounded-2xl border border-[#DFFF00]/30 bg-gradient-to-r from-[#DFFF00]/20 via-[#00F5FF]/10 to-[#FF5F1F]/20 px-5 py-3 text-center text-[10px] font-black uppercase tracking-[0.2em] text-foreground">
+        <div className="mb-6 rounded-2xl border border-[#f59e0b]/30 bg-gradient-to-r from-[#f59e0b]/20 via-[#dc2626]/10 to-[#dc2626]/20 px-5 py-3 text-center text-[10px] font-black uppercase tracking-[0.2em] text-foreground">
           Mega Sale Live • Free Delivery above ₹999 • Secure Checkout
         </div>
 
         <div className="grid grid-cols-1 gap-6 rounded-[2rem] border border-border bg-card p-5 shadow-2xl lg:grid-cols-[1.3fr_1fr] lg:p-7">
           <div>
             <div className="mb-5 flex flex-wrap items-center gap-3">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#32FF00]/35 bg-[#32FF00]/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-[#32FF00]">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#f59e0b]/35 bg-[#f59e0b]/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-[#f59e0b]">
                 <Sparkles className="h-3.5 w-3.5" />
                 Ecommerce Premium Experience
               </span>
@@ -31,7 +31,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               className="mb-4 text-4xl font-black leading-[0.9] tracking-tighter text-foreground md:text-6xl"
             >
-              Odlix Mart <span className="bg-gradient-to-r from-[#DFFF00] via-[#00F5FF] to-white bg-clip-text text-transparent">Super Store</span>
+              Odlix Mart <span className="bg-gradient-to-r from-[#f59e0b] via-[#dc2626] to-white bg-clip-text text-transparent">Super Store</span>
             </motion.h1>
             <p className="mb-6 max-w-2xl text-sm font-medium leading-relaxed text-foreground/70 md:text-base">
               Electronics, creator tools, lifestyle essentials, and brand merchandise — discover products with verified quality, fast delivery, and secure payments.
@@ -46,7 +46,7 @@ export function Hero() {
                   className="w-full bg-transparent py-3 text-sm font-bold tracking-tight text-foreground focus:outline-none"
                 />
               </div>
-              <button className="rounded-xl bg-zinc-950 px-5 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-white transition-all hover:bg-[#00F5FF] hover:text-zinc-950 active:scale-95 dark:bg-white dark:text-zinc-950">
+              <button className="rounded-xl bg-zinc-950 px-5 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-white transition-all hover:bg-[#dc2626] hover:text-zinc-950 active:scale-95 dark:bg-white dark:text-zinc-950">
                 Search
               </button>
             </div>
@@ -70,13 +70,13 @@ export function Hero() {
                 { icon: <ShoppingCart className="h-4 w-4" />, text: "Secure checkout and easy returns" },
               ].map((item) => (
                 <div key={item.text} className="flex items-start gap-3 rounded-xl border border-border bg-card px-4 py-3">
-                  <span className="mt-0.5 text-[#DFFF00]">{item.icon}</span>
+                  <span className="mt-0.5 text-[#f59e0b]">{item.icon}</span>
                   <span className="text-sm font-semibold text-foreground/80">{item.text}</span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-5 rounded-xl border border-[#FF5F1F]/35 bg-[#FF5F1F]/10 px-4 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-[#FF5F1F]">
+            <div className="mt-5 rounded-xl border border-[#dc2626]/35 bg-[#dc2626]/10 px-4 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-[#dc2626]">
               Limited Offer: Extra 10% off on prepaid orders
             </div>
           </div>

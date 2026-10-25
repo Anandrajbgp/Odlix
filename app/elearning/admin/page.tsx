@@ -122,7 +122,7 @@ export default function AdminPanel() {
               <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                  {[
                    { label: "Total Revenue", value: "₹12.5M", change: "+12%", up: true, color: "text-green-600 dark:text-green-400" },
-                   { label: "Active Students", value: "24,802", change: "+5%", up: true, color: "text-blue-600 dark:text-blue-400" },
+                   { label: "Active Students", value: "24,802", change: "+5%", up: true, color: "text-indigo-600 dark:text-indigo-400" },
                    { label: "Pending Payouts", value: "₹2.4L", change: "-8%", up: false, color: "text-orange-600 dark:text-orange-400" },
                    { label: "Affiliate Payouts", value: "₹8.2L", change: "+18%", up: true, color: "text-purple-600 dark:text-purple-400" },
                  ].map((stat, i) => (
@@ -188,7 +188,7 @@ export default function AdminPanel() {
                                </td>
                                <td className="p-8">
                                   <span className={cn("px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest border",
-                                    row.pkg === "Expert" ? "bg-purple-500/10 text-purple-600 border-purple-500/20" : row.pkg === "Pro" ? "bg-blue-500/10 text-blue-600 border-blue-500/20" : "bg-green-500/10 text-green-600 border-green-500/20"
+                                    row.pkg === "Expert" ? "bg-purple-500/10 text-purple-600 border-purple-500/20" : row.pkg === "Pro" ? "bg-indigo-500/10 text-indigo-600 border-indigo-500/20" : "bg-green-500/10 text-green-600 border-green-500/20"
                                   )}>
                                      {row.pkg} Package
                                   </span>
@@ -218,8 +218,8 @@ export default function AdminPanel() {
               <div className="bg-card p-12 rounded-[4rem] border border-border shadow-lg">
                  <h2 className="text-3xl font-black mb-8 uppercase tracking-tighter">Notification Engine</h2>
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                    <div className="p-8 rounded-[2rem] bg-muted/40 border border-border hover:border-cyan-500/30 transition-all cursor-pointer">
-                       <Mail className="text-cyan-600 mb-4 w-8 h-8" />
+                    <div className="p-8 rounded-[2rem] bg-muted/40 border border-border hover:border-indigo-500/30 transition-all cursor-pointer">
+                       <Mail className="text-indigo-600 mb-4 w-8 h-8" />
                        <h4 className="font-black text-lg mb-2">Email Campaigns</h4>
                        <p className="text-xs opacity-50 font-bold uppercase tracking-widest">Schedule weekly Saturday reports</p>
                     </div>
@@ -248,3 +248,4 @@ export default function AdminPanel() {
     </div>
   );
 }
+

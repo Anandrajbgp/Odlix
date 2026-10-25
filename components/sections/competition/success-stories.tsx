@@ -32,7 +32,7 @@ export function SuccessStories() {
             <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">Topper Results</h2>
             <p className="mt-2 text-sm font-medium text-foreground/60">Real outcomes from learners using mocks + analytics + AI workflow.</p>
           </div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#32FF00]/35 bg-[#32FF00]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-[#32FF00]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#10b981]/35 bg-[#10b981]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-[#10b981]">
             <TrendingUp className="h-3.5 w-3.5" />
             Consistent Rank Growth
           </div>
@@ -52,8 +52,8 @@ export function SuccessStories() {
               <div className="rounded-xl border border-border bg-background p-4">
                 <h4 className="text-lg font-black tracking-tight text-foreground">{story.name}</h4>
                 <p className="mt-1 text-[10px] font-black uppercase tracking-[0.16em] text-foreground/45">{story.exam}</p>
-                <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-[#DFFF00]/35 bg-[#DFFF00]/15 px-3 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-foreground">
-                  <Medal className="h-3.5 w-3.5 text-[#DFFF00]" />
+                <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-[#f59e0b]/35 bg-[#f59e0b]/15 px-3 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-foreground">
+                  <Medal className="h-3.5 w-3.5 text-[#f59e0b]" />
                   {story.result}
                 </div>
               </div>

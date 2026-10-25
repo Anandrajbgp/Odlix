@@ -26,18 +26,18 @@ export default function TradingDashboard() {
       <aside className="w-80 bg-slate-950 text-white flex flex-col sticky top-0 h-screen shrink-0 border-r border-white/5">
         <div className="p-8 border-b border-white/10">
           <Link href="/trading" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 rounded-xl bg-[#FF5F1F] flex items-center justify-center text-slate-950 shadow-lg group-hover:rotate-6 transition-transform">
+            <div className="w-10 h-10 rounded-xl bg-[#10b981] flex items-center justify-center text-slate-950 shadow-lg group-hover:rotate-6 transition-transform">
               <BarChart3 className="w-6 h-6" />
             </div>
             <div>
               <div className="text-lg font-black tracking-tighter leading-none">TRADE HUB</div>
-              <div className="text-[9px] font-bold text-[#FF5F1F] tracking-[0.2em] leading-none mt-1.5 uppercase">Dashboard by Odlix</div>
+              <div className="text-[9px] font-bold text-[#10b981] tracking-[0.2em] leading-none mt-1.5 uppercase">Dashboard by Odlix</div>
             </div>
           </Link>
         </div>
         <nav className="flex-1 p-6 space-y-1.5 overflow-y-auto scrollbar-hide text-white">
           {links.map(l => (
-            <button key={l.id} onClick={() => setTab(l.id)} className={cn("w-full flex items-center space-x-4 p-4 rounded-[1.2rem] font-bold text-sm transition-all relative group", tab === l.id ? "bg-[#FF5F1F] text-slate-950 shadow-xl" : "text-slate-500 hover:text-white hover:bg-white/5")}>
+            <button key={l.id} onClick={() => setTab(l.id)} className={cn("w-full flex items-center space-x-4 p-4 rounded-[1.2rem] font-bold text-sm transition-all relative group", tab === l.id ? "bg-[#10b981] text-slate-950 shadow-xl" : "text-slate-500 hover:text-white hover:bg-white/5")}>
               {l.icon && <span className="w-5 h-5">{l.icon}</span>}
               <span className="tracking-tight">{l.name}</span>
               {tab === l.id && <div className="absolute right-4"><ChevronRight className="w-4 h-4" /></div>}
@@ -60,23 +60,23 @@ export default function TradingDashboard() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="bg-card p-10 rounded-[3rem] border border-border shadow-sm">
               <h3 className="font-black mb-8 uppercase tracking-tighter opacity-70">Portfolio Value</h3>
-              <div className="text-5xl font-black text-[#FF5F1F] mb-10">₹2,45,000</div>
+              <div className="text-5xl font-black text-[#10b981] mb-10">₹2,45,000</div>
               <div className="flex items-center space-x-3 p-6 rounded-[2rem] bg-muted/40 border border-border">
-                <BarChart3 className="w-7 h-7 text-[#FF5F1F]" />
-                <div><div className="font-black text-sm tracking-tight">Today P&L</div><div className="text-[10px] font-bold text-[#32FF00] tracking-widest">+₹4,250 (+1.8%)</div></div>
+                <BarChart3 className="w-7 h-7 text-[#10b981]" />
+                <div><div className="font-black text-sm tracking-tight">Today P&L</div><div className="text-[10px] font-bold text-[#10b981] tracking-widest">+₹4,250 (+1.8%)</div></div>
               </div>
             </div>
             <div className="bg-card p-10 rounded-[3rem] border border-border shadow-sm">
               <h3 className="font-black mb-8 uppercase tracking-tighter opacity-70">Current Earning</h3>
               <p className="opacity-40 text-[10px] font-bold uppercase tracking-[0.2em] mb-8">Payout Saturday • min ₹1000</p>
-              <div className="text-5xl font-black text-[#FF5F1F] mb-10">₹32,400</div>
-              <button className="w-full py-5 rounded-[1.5rem] bg-[#FF5F1F] text-slate-950 font-black text-xs uppercase tracking-widest shadow-xl shadow-[#FF5F1F]/20 hover:scale-[1.02] active:scale-[0.98] transition-all">Payout Hub</button>
+              <div className="text-5xl font-black text-[#10b981] mb-10">₹32,400</div>
+              <button className="w-full py-5 rounded-[1.5rem] bg-[#10b981] text-slate-950 font-black text-xs uppercase tracking-widest shadow-xl shadow-[#10b981]/20 hover:scale-[1.02] active:scale-[0.98] transition-all">Payout Hub</button>
             </div>
             <div className="bg-card p-10 rounded-[3rem] border border-border shadow-sm">
               <h3 className="font-black mb-8 uppercase tracking-tighter opacity-70">Open Positions</h3>
-              <div className="text-5xl font-black text-[#DFFF00] mb-10">7</div>
+              <div className="text-5xl font-black text-[#10b981] mb-10">7</div>
               <div className="flex items-center space-x-3 p-6 rounded-[2rem] bg-muted/40 border border-border">
-                <Users className="w-7 h-7 text-[#DFFF00]" />
+                <Users className="w-7 h-7 text-[#10b981]" />
                 <div><div className="font-black text-sm tracking-tight">Assets Tracked</div><div className="text-[10px] opacity-40 font-bold uppercase tracking-widest">Crypto • Stocks • Forex</div></div>
               </div>
             </div>

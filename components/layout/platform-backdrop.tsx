@@ -10,52 +10,52 @@ type PlatformBackdropProps = {
 
 const variantStyles: Record<PlatformVariant, { surface: string; glowA: string; glowB: string; grid: string }> = {
   elearning: {
-    surface: "bg-gradient-to-b from-[#32FF00]/10 via-background to-background dark:from-[#32FF00]/20",
-    glowA: "from-[#32FF00]/35 to-[#DFFF00]/10",
-    glowB: "from-[#00F5FF]/30 to-[#DFFF00]/10",
-    grid: "[background-image:linear-gradient(to_right,rgba(50,255,0,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(50,255,0,0.10)_1px,transparent_1px)]"
+    surface: "bg-gradient-to-b from-[#4f46e5]/10 via-background to-background dark:from-[#4f46e5]/20",
+    glowA: "from-[#4f46e5]/35 to-[#06b6d4]/10",
+    glowB: "from-[#10b981]/30 to-[#06b6d4]/10",
+    grid: "[background-image:linear-gradient(to_right,rgba(79,70,229,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(79,70,229,0.10)_1px,transparent_1px)]"
   },
   agency: {
-    surface: "bg-gradient-to-br from-[#00F5FF]/10 via-background to-background dark:from-[#00F5FF]/20",
-    glowA: "from-[#00F5FF]/32 to-[#DFFF00]/10",
-    glowB: "from-[#32FF00]/25 to-[#DFFF00]/8",
-    grid: "[background-image:radial-gradient(rgba(0,245,255,0.14)_1px,transparent_1px)]"
+    surface: "bg-gradient-to-br from-[#1e3a8a]/10 via-background to-background dark:from-[#1e3a8a]/20",
+    glowA: "from-[#1e3a8a]/32 to-[#f97316]/10",
+    glowB: "from-[#fb7185]/25 to-[#f97316]/8",
+    grid: "[background-image:radial-gradient(rgba(30,58,138,0.14)_1px,transparent_1px)]"
   },
   competition: {
-    surface: "bg-gradient-to-b from-[#FF1493]/10 via-background to-background dark:from-[#FF1493]/20",
-    glowA: "from-[#FF1493]/35 to-[#DFFF00]/10",
-    glowB: "from-[#00F5FF]/20 to-[#FF1493]/8",
-    grid: "[background-image:linear-gradient(120deg,rgba(255,20,147,0.10)_0%,transparent_60%)]"
+    surface: "bg-gradient-to-b from-[#2563eb]/10 via-background to-background dark:from-[#2563eb]/20",
+    glowA: "from-[#2563eb]/35 to-[#0d9488]/10",
+    glowB: "from-[#f59e0b]/20 to-[#2563eb]/8",
+    grid: "[background-image:linear-gradient(120deg,rgba(37,99,235,0.10)_0%,transparent_60%)]"
   },
   trading: {
-    surface: "bg-gradient-to-b from-[#FF5F1F]/10 via-background to-background dark:from-[#FF5F1F]/20",
-    glowA: "from-[#FF5F1F]/30 to-[#DFFF00]/8",
-    glowB: "from-[#FF1E1E]/25 to-[#FF5F1F]/8",
-    grid: "[background-image:linear-gradient(to_right,rgba(255,95,31,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,95,31,0.10)_1px,transparent_1px)]"
+    surface: "bg-gradient-to-b from-[#1f2937]/10 via-background to-background dark:from-[#1f2937]/20",
+    glowA: "from-[#1f2937]/30 to-[#10b981]/8",
+    glowB: "from-[#ef4444]/25 to-[#10b981]/8",
+    grid: "[background-image:linear-gradient(to_right,rgba(31,41,55,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(31,41,55,0.10)_1px,transparent_1px)]"
   },
   apps: {
-    surface: "bg-gradient-to-br from-[#FF1E1E]/10 via-background to-background dark:from-[#FF1E1E]/20",
-    glowA: "from-[#FF1E1E]/30 to-[#DFFF00]/8",
-    glowB: "from-[#FF5F1F]/25 to-[#FF1E1E]/8",
-    grid: "[background-image:radial-gradient(rgba(255,30,30,0.12)_1px,transparent_1px)]"
+    surface: "bg-gradient-to-br from-[#64748b]/10 via-background to-background dark:from-[#64748b]/20",
+    glowA: "from-[#64748b]/30 to-[#2563eb]/8",
+    glowB: "from-[#0ea5e9]/25 to-[#64748b]/8",
+    grid: "[background-image:radial-gradient(rgba(100,116,139,0.12)_1px,transparent_1px)]"
   },
   mart: {
-    surface: "bg-gradient-to-br from-white/8 via-background to-background dark:from-white/15",
-    glowA: "from-white/30 to-[#DFFF00]/10",
-    glowB: "from-[#32FF00]/20 to-white/10",
-    grid: "[background-image:linear-gradient(135deg,rgba(255,255,255,0.10)_0%,transparent_40%),linear-gradient(315deg,rgba(223,255,0,0.10)_0%,transparent_40%)]"
+    surface: "bg-gradient-to-br from-[#dc2626]/8 via-background to-background dark:from-[#dc2626]/15",
+    glowA: "from-[#dc2626]/30 to-[#f97316]/10",
+    glowB: "from-[#facc15]/20 to-[#dc2626]/10",
+    grid: "[background-image:linear-gradient(135deg,rgba(220,38,38,0.10)_0%,transparent_40%),linear-gradient(315deg,rgba(249,115,22,0.10)_0%,transparent_40%)]"
   },
   "useful-websites": {
-    surface: "bg-gradient-to-br from-[#00F5FF]/10 via-background to-background dark:from-[#00F5FF]/20",
-    glowA: "from-[#00F5FF]/32 to-[#DFFF00]/10",
-    glowB: "from-[#32FF00]/25 to-[#DFFF00]/8",
-    grid: "[background-image:radial-gradient(rgba(0,245,255,0.14)_1px,transparent_1px)]"
+    surface: "bg-gradient-to-br from-[#14b8a6]/10 via-background to-background dark:from-[#14b8a6]/20",
+    glowA: "from-[#14b8a6]/32 to-[#06b6d4]/10",
+    glowB: "from-[#eab308]/25 to-[#06b6d4]/8",
+    grid: "[background-image:radial-gradient(rgba(20,184,166,0.14)_1px,transparent_1px)]"
   },
   "telegram-bots": {
-    surface: "bg-gradient-to-br from-[#0088CC]/10 via-background to-background dark:from-[#0088CC]/20",
-    glowA: "from-[#0088CC]/32 to-[#DFFF00]/10",
-    glowB: "from-[#32FF00]/25 to-[#DFFF00]/8",
-    grid: "[background-image:linear-gradient(135deg,rgba(0,136,204,0.10)_0%,transparent_60%)]"
+    surface: "bg-gradient-to-br from-[#24a1ee]/10 via-background to-background dark:from-[#24a1ee]/20",
+    glowA: "from-[#24a1ee]/32 to-[#06b6d4]/10",
+    glowB: "from-[#2563eb]/25 to-[#06b6d4]/8",
+    grid: "[background-image:linear-gradient(135deg,rgba(36,161,238,0.10)_0%,transparent_60%)]"
   }
 };
 

@@ -27,18 +27,18 @@ export default function AppsDashboard() {
       <aside className="w-80 bg-slate-950 text-white flex flex-col sticky top-0 h-screen shrink-0 border-r border-white/5">
         <div className="p-8 border-b border-white/10">
           <Link href="/apps" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 rounded-xl bg-[#FF1E1E] flex items-center justify-center text-slate-950 shadow-lg group-hover:rotate-6 transition-transform">
+            <div className="w-10 h-10 rounded-xl bg-[#2563eb] flex items-center justify-center text-slate-950 shadow-lg group-hover:rotate-6 transition-transform">
               <LayoutGrid className="w-6 h-6" />
             </div>
             <div>
               <div className="text-lg font-black tracking-tighter leading-none">APP STORE</div>
-              <div className="text-[9px] font-bold text-[#FF1E1E] tracking-[0.2em] leading-none mt-1.5 uppercase">Dashboard by Odlix</div>
+              <div className="text-[9px] font-bold text-[#2563eb] tracking-[0.2em] leading-none mt-1.5 uppercase">Dashboard by Odlix</div>
             </div>
           </Link>
         </div>
         <nav className="flex-1 p-6 space-y-1.5 overflow-y-auto scrollbar-hide text-white">
           {links.map(l => (
-            <button key={l.id} onClick={() => setTab(l.id)} className={cn("w-full flex items-center space-x-4 p-4 rounded-[1.2rem] font-bold text-sm transition-all relative group", tab === l.id ? "bg-[#FF1E1E] text-slate-950 shadow-xl" : "text-slate-500 hover:text-white hover:bg-white/5")}>
+            <button key={l.id} onClick={() => setTab(l.id)} className={cn("w-full flex items-center space-x-4 p-4 rounded-[1.2rem] font-bold text-sm transition-all relative group", tab === l.id ? "bg-[#2563eb] text-slate-950 shadow-xl" : "text-slate-500 hover:text-white hover:bg-white/5")}>
               {l.icon && <span className="w-5 h-5">{l.icon}</span>}
               <span className="tracking-tight">{l.name}</span>
               {tab === l.id && <div className="absolute right-4"><ChevronRight className="w-4 h-4" /></div>}
@@ -61,23 +61,23 @@ export default function AppsDashboard() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="bg-card p-10 rounded-[3rem] border border-border shadow-sm">
               <h3 className="font-black mb-8 uppercase tracking-tighter opacity-70">Apps Published</h3>
-              <div className="text-5xl font-black text-[#FF1E1E] mb-10">12</div>
+              <div className="text-5xl font-black text-[#2563eb] mb-10">12</div>
               <div className="flex items-center space-x-3 p-6 rounded-[2rem] bg-muted/40 border border-border">
-                <LayoutGrid className="w-7 h-7 text-[#FF1E1E]" />
+                <LayoutGrid className="w-7 h-7 text-[#2563eb]" />
                 <div><div className="font-black text-sm tracking-tight">Total Downloads</div><div className="text-[10px] opacity-40 font-bold uppercase tracking-widest">45k+ installs</div></div>
               </div>
             </div>
             <div className="bg-card p-10 rounded-[3rem] border border-border shadow-sm">
               <h3 className="font-black mb-8 uppercase tracking-tighter opacity-70">Current Earning</h3>
               <p className="opacity-40 text-[10px] font-bold uppercase tracking-[0.2em] mb-8">Payout Saturday • min ₹500</p>
-              <div className="text-5xl font-black text-[#FF1E1E] mb-10">₹18,900</div>
-              <button className="w-full py-5 rounded-[1.5rem] bg-[#FF1E1E] text-slate-950 font-black text-xs uppercase tracking-widest shadow-xl shadow-[#FF1E1E]/20 hover:scale-[1.02] active:scale-[0.98] transition-all">Payout Hub</button>
+              <div className="text-5xl font-black text-[#2563eb] mb-10">₹18,900</div>
+              <button className="w-full py-5 rounded-[1.5rem] bg-[#2563eb] text-slate-950 font-black text-xs uppercase tracking-widest shadow-xl shadow-[#2563eb]/20 hover:scale-[1.02] active:scale-[0.98] transition-all">Payout Hub</button>
             </div>
             <div className="bg-card p-10 rounded-[3rem] border border-border shadow-sm">
               <h3 className="font-black mb-8 uppercase tracking-tighter opacity-70">Avg Rating</h3>
-              <div className="text-5xl font-black text-[#DFFF00] mb-10">4.7 ★</div>
+              <div className="text-5xl font-black text-[#60a5fa] mb-10">4.7 ★</div>
               <div className="flex items-center space-x-3 p-6 rounded-[2rem] bg-muted/40 border border-border">
-                <Users className="w-7 h-7 text-[#DFFF00]" />
+                <Users className="w-7 h-7 text-[#60a5fa]" />
                 <div><div className="font-black text-sm tracking-tight">Active Users</div><div className="text-[10px] opacity-40 font-bold uppercase tracking-widest">12k+ monthly</div></div>
               </div>
             </div>

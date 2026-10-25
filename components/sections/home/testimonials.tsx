@@ -12,39 +12,52 @@ type Testimonial = {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Aman Verma",
-    role: "B.Tech Student, Lucknow",
-    review: "The lessons are easy to follow and helped me improve my test score quickly.",
-    image:
-      "https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?auto=format&fit=crop&w=240&q=80",
+    name: "Rohan Mehta",
+    role: "Small Business Owner, Mumbai",
+    review: "Managing learning, trading, and commerce from one Odlix account has saved me hours every week.",
+    image: "https://plus.unsplash.com/premium_photo-1682089869602-2ec199cc501a?auto=format&fit=crop&w=240&q=80",
   },
   {
-    name: "Priya Nair",
-    role: "MBA Aspirant, Kochi",
-    review: "I like the clean dashboard and simple daily plan. It keeps me consistent.",
-    image:
-      "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=240&q=80",
+    name: "Ananya Sharma",
+    role: "Freelance Designer, Delhi",
+    review: "The agency and app ecosystem helped me find clients and deliver work faster than any other platform.",
+    image: "https://plus.unsplash.com/premium_photo-1682089859052-6e9e4463b18c?auto=format&fit=crop&w=240&q=80",
   },
   {
-    name: "Rohit Singh",
-    role: "Final Year Student, Jaipur",
-    review: "Practice tests and feedback are very useful. I feel more confident now.",
-    image:
-      "https://images.unsplash.com/photo-1615109398623-88346a601842?auto=format&fit=crop&w=240&q=80",
+    name: "Vikram Reddy",
+    role: "Software Engineer, Hyderabad",
+    review: "Clean dashboards, smooth performance, and reliable support make the whole ecosystem feel premium.",
+    image: "https://plus.unsplash.com/premium_photo-1770480250069-7e5f063de645?auto=format&fit=crop&w=240&q=80",
   },
   {
-    name: "Neha Gupta",
-    role: "BCA Student, Pune",
-    review: "The platform is smooth and fast. I can study on mobile without any issue.",
-    image:
-      "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=240&q=80",
+    name: "Meera Iyer",
+    role: "Teacher, Chennai",
+    review: "I use the learning and competition tools with my students, and the experience is simple and motivating.",
+    image: "https://plus.unsplash.com/premium_photo-1770494464374-e7d77aee8594?auto=format&fit=crop&w=240&q=80",
   },
   {
-    name: "Karan Patel",
-    role: "Engineering Student, Ahmedabad",
-    review: "I got interview-ready with the structured roadmap. It saved me a lot of time.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=240&q=80",
+    name: "Arjun Nair",
+    role: "Startup Founder, Bengaluru",
+    review: "One identity across every service means my team spends less time switching tools and more time building.",
+    image: "https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?auto=format&fit=crop&w=240&q=80",
+  },
+  {
+    name: "Fatima Sheikh",
+    role: "Homemaker, Ahmedabad",
+    review: "Shopping on Mart and tracking orders is effortless, and payments feel safe and transparent.",
+    image: "https://plus.unsplash.com/premium_photo-1682096111256-e020381ec730?auto=format&fit=crop&w=240&q=80",
+  },
+  {
+    name: "Sanjana Rao",
+    role: "Content Creator, Pune",
+    review: "Useful websites and Telegram bots in one place keep my workflow organized and always accessible.",
+    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=240&q=80",
+  },
+  {
+    name: "Sanjay Gupta",
+    role: "Retail Shop Owner, Kanpur",
+    review: "From trading insights to daily business tools, Odlix feels like a complete digital ecosystem for everyone.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=240&q=80",
   },
 ];
 
@@ -73,8 +86,8 @@ export function Testimonials() {
     <section className="py-20 md:py-24 border-b border-border text-foreground">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-14">
-          <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tighter">Student Reviews.</h2>
-          <p className="text-muted-foreground text-sm md:text-base font-semibold">Trusted by learners across India.</p>
+          <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tighter">Customer Reviews.</h2>
+          <p className="text-muted-foreground text-sm md:text-base font-semibold">Trusted by users across India.</p>
         </div>
 
         <div className="relative max-w-4xl mx-auto overflow-hidden rounded-[2rem] border border-border bg-gradient-to-br from-card to-card/70 p-1 shadow-[0_20px_50px_rgba(15,23,42,0.12)] dark:border-white/10 dark:shadow-[0_30px_80px_rgba(0,0,0,0.25)]">

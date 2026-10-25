@@ -11,7 +11,7 @@ const principles = [
     icon: ShieldCheck,
   },
   {
-    title: "One Identity, Six Services",
+    title: "One Identity, Digital Ecosystem",
     description:
       "Your Odlix account unlocks a connected ecosystem spanning learning, services, tests, trading workflows, applications, and commerce.",
     icon: Globe,

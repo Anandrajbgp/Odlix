@@ -43,7 +43,7 @@ export function Stats() {
     <section className="py-12 md:py-14 border-b border-border bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-7 md:mb-8 text-foreground">
-          <p className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-cyan-700 dark:text-cyan-400">
+          <p className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-indigo-700 dark:text-indigo-400">
             <ShieldCheck className="h-3.5 w-3.5" />
             Trust Signals
           </p>
@@ -61,7 +61,7 @@ export function Stats() {
               key={item.label}
               className="rounded-2xl border border-border bg-card p-5 md:p-6 shadow-sm"
             >
-              <div className="mb-4 inline-flex rounded-xl bg-cyan-500/10 p-2 text-cyan-700 dark:text-cyan-400">
+              <div className="mb-4 inline-flex rounded-xl bg-indigo-500/10 p-2 text-indigo-700 dark:text-indigo-400">
                 {item.icon}
               </div>
               <AnimatedCounter
@@ -80,3 +80,4 @@ export function Stats() {
     </section>
   );
 }
+

@@ -7,9 +7,9 @@ export function Mentorship() {
     <section className="bg-[#0a0505] py-32">
       <div className="container mx-auto px-4">
         <div className="mx-auto mb-20 max-w-4xl text-center text-white">
-          <Users className="mx-auto mb-8 h-16 w-16 text-[#00F5FF]/70" />
+          <Users className="mx-auto mb-8 h-16 w-16 text-[#3b82f6]/70" />
           <h2 className="mb-6 text-4xl font-black uppercase leading-none tracking-tighter md:text-[5rem]">
-            Trust <br /> <span className="italic text-[#DFFF00]">Signals.</span>
+            Trust <br /> <span className="italic text-[#10b981]">Signals.</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg font-medium text-white/65 md:text-xl">
             Built for clarity: start from ₹100, understand risk before every order, and always know your exact brokerage.
@@ -24,7 +24,7 @@ export function Mentorship() {
                 Show order lifecycle clearly: submitted, accepted, partially filled, filled, cancelled.
               </p>
             </div>
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-[#32FF00]">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-[#10b981]">
               <BadgeCheck className="h-4 w-4" />
               Real Status Tracking
             </div>
@@ -37,7 +37,7 @@ export function Mentorship() {
                   Position size, margin impact, and max-loss visibility before every confirmation.
                 </p>
             </div>
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-[#00F5FF]">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-[#3b82f6]">
               <ShieldCheck className="h-4 w-4" />
               Guardrail Enabled
             </div>
@@ -50,7 +50,7 @@ export function Mentorship() {
                   Clear pricing: ₹5 on buy side + ₹5 on sell side per executed order.
                 </p>
             </div>
-            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-[#FF5F1F]">
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-[#10b981]">
               ₹5 / Side Flat
             </div>
           </div>

@@ -39,13 +39,13 @@ export default async function PackageDetailPage({ params }: PageProps) {
       <section className="border-b border-border bg-slate-950 text-white">
         <div className="container mx-auto px-4 py-14 md:py-16">
           <div className="mx-auto max-w-5xl rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 md:p-8 backdrop-blur">
-            <p className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-cyan-300">
+            <p className="inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-indigo-300">
               <Flame className="h-3.5 w-3.5" />
               {packageDetail.tagline}
             </p>
 
             <h1 className="mt-4 text-4xl font-black tracking-tight md:text-6xl">
-              {packageDetail.name} <span className="text-cyan-400">{isLifeMastery ? "Track" : "Package"}</span>
+              {packageDetail.name} <span className="text-indigo-400">{isLifeMastery ? "Track" : "Package"}</span>
             </h1>
 
             <p className="mt-4 max-w-3xl text-base font-medium text-slate-300 md:text-lg">
@@ -63,18 +63,18 @@ export default async function PackageDetailPage({ params }: PageProps) {
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">{isLifeMastery ? "Life Impact" : "Potential Momentum"}</p>
-                <p className="mt-2 text-2xl font-black tracking-tight text-cyan-300">{packageDetail.earning}</p>
+                <p className="mt-2 text-2xl font-black tracking-tight text-indigo-300">{packageDetail.earning}</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">{isLifeMastery ? "Eligibility" : "Affiliate Edge"}</p>
-                <p className="mt-2 text-sm font-black tracking-wide text-cyan-200">{isLifeMastery ? packageDetail.accessRule : packageDetail.commission}</p>
+                <p className="mt-2 text-sm font-black tracking-wide text-indigo-200">{isLifeMastery ? packageDetail.accessRule : packageDetail.commission}</p>
               </div>
             </div>
 
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <Link
                 href="/signup"
-                className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-6 py-3 text-sm font-black uppercase tracking-wide text-slate-950 transition-transform hover:scale-[1.02] active:scale-95"
+                className="inline-flex items-center gap-2 rounded-xl bg-indigo-500 px-6 py-3 text-sm font-black uppercase tracking-wide text-slate-950 transition-transform hover:scale-[1.02] active:scale-95"
               >
                 {isLifeMastery ? "Unlock Life Mastery" : `Enroll in ${packageDetail.name}`}
                 <ArrowRight className="h-4 w-4" />
@@ -101,7 +101,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
               <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {packageDetail.skills.map((skill) => (
                   <div key={skill} className="flex items-start gap-2 rounded-xl border border-border/80 bg-background/70 px-3 py-2.5">
-                    <BadgeCheck className="mt-0.5 h-4 w-4 text-cyan-600 dark:text-cyan-400" />
+                    <BadgeCheck className="mt-0.5 h-4 w-4 text-indigo-600 dark:text-indigo-400" />
                     <span className="text-sm font-semibold leading-snug">{skill}</span>
                   </div>
                 ))}
@@ -113,8 +113,8 @@ export default async function PackageDetailPage({ params }: PageProps) {
               <p className="mt-3 text-sm font-semibold leading-relaxed text-muted-foreground">
                 {packageDetail.motivation}
               </p>
-              <div className="mt-5 rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-3">
-                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-300">
+              <div className="mt-5 rounded-xl border border-indigo-500/20 bg-indigo-500/5 p-3">
+                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-700 dark:text-indigo-300">
                   Execution Rule
                 </p>
                 <p className="mt-1 text-xs font-semibold text-muted-foreground">
@@ -132,7 +132,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <article>
                 <h3 className="inline-flex items-center gap-2 text-xl font-black tracking-tight">
-                  <TrendingUp className="h-5 w-5 text-cyan-600 dark:text-cyan-400" />
+                  <TrendingUp className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
                   Expected Outcomes
                 </h3>
                 <ul className="mt-4 space-y-2.5">
@@ -159,7 +159,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
             <div className="mt-7 flex flex-wrap items-center gap-3 border-t border-border pt-6">
               <Link
                 href="/signup"
-                className="inline-flex items-center gap-2 rounded-xl bg-cyan-600 px-6 py-3 text-sm font-black uppercase tracking-wide text-white transition-transform hover:scale-[1.02] active:scale-95"
+                className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-black uppercase tracking-wide text-white transition-transform hover:scale-[1.02] active:scale-95"
               >
                 Enroll Now
                 <ArrowRight className="h-4 w-4" />

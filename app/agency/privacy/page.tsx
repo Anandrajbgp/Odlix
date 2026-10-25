@@ -7,7 +7,7 @@ export default function PrivacyPage() {
         <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm md:p-12">
           <header className="mb-10">
             <div className="mb-4 flex items-center gap-3">
-              <div className="rounded-2xl bg-blue-50 p-3 text-blue-700">
+              <div className="rounded-2xl bg-slate-50 p-3 text-slate-700">
                 <ShieldCheck className="h-7 w-7" />
               </div>
               <h1 className="text-3xl font-black tracking-tight text-slate-900 md:text-5xl">Agency Privacy Policy</h1>
@@ -21,7 +21,7 @@ export default function PrivacyPage() {
           <div className="space-y-8 text-sm leading-relaxed text-slate-700 md:text-base">
             <section>
               <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <Eye className="h-5 w-5 text-blue-600" /> Data We Collect
+                <Eye className="h-5 w-5 text-slate-600" /> Data We Collect
               </h2>
               <p>
                 We may collect contact data, project requirements, communication records, technical diagnostics,
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <Database className="h-5 w-5 text-blue-600" /> Why We Process It
+                <Database className="h-5 w-5 text-slate-600" /> Why We Process It
               </h2>
               <ul className="space-y-2">
                 <li>• Proposal preparation, project planning, and contractual execution.</li>
@@ -43,7 +43,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <UserCheck className="h-5 w-5 text-blue-600" /> Processing Basis & Consent
+                <UserCheck className="h-5 w-5 text-slate-600" /> Processing Basis & Consent
               </h2>
               <p>
                 Data is processed under contract necessity, legitimate interest, consent, or legal obligation
@@ -53,7 +53,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <Lock className="h-5 w-5 text-blue-600" /> Security & Access Controls
+                <Lock className="h-5 w-5 text-slate-600" /> Security & Access Controls
               </h2>
               <p>
                 We implement role-based access, secure tooling, and operational controls to minimize risk of unauthorized
@@ -63,7 +63,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <Globe className="h-5 w-5 text-blue-600" /> Third-Party Processors
+                <Globe className="h-5 w-5 text-slate-600" /> Third-Party Processors
               </h2>
               <p>
                 Odlix may use vetted infrastructure and software providers for hosting, communication, analytics,
@@ -73,7 +73,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <Clock3 className="h-5 w-5 text-blue-600" /> Retention & Deletion
+                <Clock3 className="h-5 w-5 text-slate-600" /> Retention & Deletion
               </h2>
               <p>
                 Data is retained for project continuity, legal compliance, and auditability, then removed or anonymized
@@ -83,7 +83,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-slate-900">
-                <ScrollText className="h-5 w-5 text-blue-600" /> Your Rights
+                <ScrollText className="h-5 w-5 text-slate-600" /> Your Rights
               </h2>
               <p>
                 Subject to applicable law, you may request access, correction, deletion, portability,

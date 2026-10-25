@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export function CTA() {
   return (
     <section className="container mx-auto px-4 py-20 md:py-24">
-       <div className="bg-cyan-600 rounded-[2.5rem] p-8 md:p-14 text-center relative overflow-hidden group shadow-[0_30px_70px_rgba(0,180,216,0.22)] border border-cyan-400/25">
+       <div className="bg-indigo-600 rounded-[2.5rem] p-8 md:p-14 text-center relative overflow-hidden group shadow-[0_30px_70px_rgba(79,70,229,0.22)] border border-indigo-400/25">
           <div className="absolute inset-0 bg-slate-950 opacity-40 group-hover:opacity-60 transition-opacity" />
           <div className="relative z-10">
              <motion.h2
@@ -28,3 +28,4 @@ export function CTA() {
     </section>
   );
 }
+

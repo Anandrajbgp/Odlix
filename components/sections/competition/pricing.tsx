@@ -47,11 +47,11 @@ export function Pricing() {
               key={plan.title}
               className={
                 plan.highlight
-                  ? "relative rounded-2xl border-2 border-[#FF1493] bg-card p-6 shadow-xl"
+                  ? "relative rounded-2xl border-2 border-[#2563eb] bg-card p-6 shadow-xl"
                   : "rounded-2xl border border-border bg-card p-6 shadow-sm"
               }
             >
-              <div className={plan.highlight ? "mb-4 inline-block rounded-full bg-[#FF1493] px-3 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-white" : "mb-4 inline-block rounded-full border border-border bg-background px-3 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-foreground/60"}>
+              <div className={plan.highlight ? "mb-4 inline-block rounded-full bg-[#2563eb] px-3 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-white" : "mb-4 inline-block rounded-full border border-border bg-background px-3 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-foreground/60"}>
                 {plan.badge}
               </div>
 
@@ -64,7 +64,7 @@ export function Pricing() {
               <ul className="space-y-2">
                 {plan.points.map((point) => (
                   <li key={point} className="flex items-start gap-2 text-sm font-semibold text-foreground/75">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-[#32FF00]" />
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-[#10b981]" />
                     <span>{point}</span>
                   </li>
                 ))}
@@ -72,7 +72,7 @@ export function Pricing() {
 
               <button
                 title="Payment integration required"
-                className={plan.highlight ? "mt-6 w-full rounded-xl bg-zinc-950 px-4 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-white transition-all hover:bg-[#FF1493] dark:bg-white dark:text-zinc-950" : "mt-6 w-full rounded-xl border border-border bg-background px-4 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-foreground/75 transition-all hover:bg-muted"}
+                className={plan.highlight ? "mt-6 w-full rounded-xl bg-zinc-950 px-4 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-white transition-all hover:bg-[#2563eb] dark:bg-white dark:text-zinc-950" : "mt-6 w-full rounded-xl border border-border bg-background px-4 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-foreground/75 transition-all hover:bg-muted"}
               >
                 {plan.button}
               </button>

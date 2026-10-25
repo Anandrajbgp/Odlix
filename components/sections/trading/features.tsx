@@ -14,27 +14,27 @@ const features = [
   {
     title: "Indian F&O Engine",
     desc: "Trade index futures & options and stock options with exchange-style contract depth and expiry visibility.",
-    icon: <Landmark className="text-[#FF5F1F]" />,
+    icon: <Landmark className="text-[#10b981]" />,
   },
   {
     title: "Crypto & Forex Futures",
     desc: "Access crypto perpetual/futures and forex futures from the same execution panel with unified margin monitoring.",
-    icon: <CandlestickChart className="text-[#00F5FF]" />,
+    icon: <CandlestickChart className="text-[#3b82f6]" />,
   },
   {
     title: "Fast, Reliable Execution",
     desc: "Place orders quickly with real-time updates and clear order statuses from submit to fill.",
-    icon: <Cpu className="text-[#32FF00]" />,
+    icon: <Cpu className="text-[#10b981]" />,
   },
   {
     title: "Risk & Compliance Guardrails",
     desc: "Pre-trade checks, margin sufficiency alerts, and position-level controls to reduce accidental over-exposure.",
-    icon: <ShieldCheck className="text-[#DFFF00]" />,
+    icon: <ShieldCheck className="text-[#10b981]" />,
   },
   {
     title: "Beginner-Friendly Trade Console",
     desc: "One clear dashboard for watchlists, positions, option chains, and profit/loss tracking.",
-    icon: <LayoutDashboard className="text-[#FF1493]" />,
+    icon: <LayoutDashboard className="text-[#2563eb]" />,
   },
   {
     title: "Flat ₹5 Per Buy/Sell",
@@ -49,7 +49,7 @@ export function Features() {
       <div className="container mx-auto px-4">
         <div className="mb-24 text-center">
           <h2 className="mb-6 text-4xl font-black uppercase leading-none tracking-tighter text-white md:text-[5rem]">
-            Broker-Grade <br /> <span className="text-[#FF5F1F]">Infrastructure.</span>
+            Broker-Grade <br /> <span className="text-[#10b981]">Infrastructure.</span>
           </h2>
           <p className="mx-auto max-w-3xl text-sm font-black uppercase tracking-[0.2em] text-white/55">
             Designed to look and operate like a real execution platform, not a learning simulator.
@@ -64,7 +64,7 @@ export function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group rounded-[3rem] border border-white/10 bg-white/[0.03] p-10 shadow-2xl transition-all hover:border-[#FF5F1F]/35 hover:bg-white/[0.05] active:scale-95"
+              className="group rounded-[3rem] border border-white/10 bg-white/[0.03] p-10 shadow-2xl transition-all hover:border-[#10b981]/35 hover:bg-white/[0.05] active:scale-95"
             >
               <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/15 bg-white/[0.04] transition-transform group-hover:scale-110">
                 {f.icon}

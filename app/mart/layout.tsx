@@ -10,10 +10,10 @@ export default function MartLayout({ children }: { children: ReactNode }) {
         className="flex min-h-screen flex-col bg-background/30 text-foreground transition-colors duration-300"
         style={{
           // @ts-ignore
-          "--platform-primary": "#FFFFFF",
-          "--platform-secondary": "#DFFF00",
-          "--platform-accent": "#32FF00",
-          "--platform-gradient": "linear-gradient(135deg, #FFFFFF 0%, #DFFF00 55%, #32FF00 100%)"
+          "--platform-primary": "#dc2626",
+          "--platform-secondary": "#f97316",
+          "--platform-accent": "#facc15",
+          "--platform-gradient": "linear-gradient(135deg, #dc2626 0%, #f97316 55%, #facc15 100%)"
         }}
       >
         <Navbar />
