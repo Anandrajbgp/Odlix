@@ -49,10 +49,10 @@ const platforms: PlatformConfig[] = [
     logoTitle: "Agency",
     href: "/agency",
     icon: Briefcase,
-    color: "text-[#f97316]",
+    color: "text-[#f59e0b]",
     navBg: "bg-[#f8fafc]/95 dark:bg-slate-900/95",
     navText: "text-slate-900 dark:text-white",
-    border: "border-[#1e3a8a]/40"
+    border: "border-[#f59e0b]/40"
   },
   {
     name: "Mock Tests",

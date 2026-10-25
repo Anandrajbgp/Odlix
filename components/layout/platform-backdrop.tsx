@@ -16,10 +16,10 @@ const variantStyles: Record<PlatformVariant, { surface: string; glowA: string; g
     grid: "[background-image:linear-gradient(to_right,rgba(79,70,229,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(79,70,229,0.10)_1px,transparent_1px)]"
   },
   agency: {
-    surface: "bg-gradient-to-br from-[#1e3a8a]/10 via-background to-background dark:from-[#1e3a8a]/20",
-    glowA: "from-[#1e3a8a]/32 to-[#f97316]/10",
-    glowB: "from-[#fb7185]/25 to-[#f97316]/8",
-    grid: "[background-image:radial-gradient(rgba(30,58,138,0.14)_1px,transparent_1px)]"
+    surface: "bg-gradient-to-br from-[#f59e0b]/10 via-background to-background dark:from-[#f59e0b]/20",
+    glowA: "from-[#f59e0b]/32 to-[#f97316]/10",
+    glowB: "from-[#fbbf24]/25 to-[#f97316]/8",
+    grid: "[background-image:radial-gradient(rgba(245,158,11,0.14)_1px,transparent_1px)]"
   },
   competition: {
     surface: "bg-gradient-to-b from-[#2563eb]/10 via-background to-background dark:from-[#2563eb]/20",

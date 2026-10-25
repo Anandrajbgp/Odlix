@@ -10,10 +10,10 @@ export default function AgencyLayout({ children }: { children: ReactNode }) {
         className="flex min-h-screen flex-col bg-background/35 text-foreground transition-colors duration-300"
         style={{
           // @ts-ignore
-          "--platform-primary": "#1e3a8a",
+          "--platform-primary": "#f59e0b",
           "--platform-secondary": "#f97316",
-          "--platform-accent": "#fb7185",
-          "--platform-gradient": "linear-gradient(135deg, #1e3a8a 0%, #f97316 55%, #fb7185 100%)",
+          "--platform-accent": "#f59e0b",
+          "--platform-gradient": "linear-gradient(135deg, #f59e0b 0%, #f97316 55%, #fbbf24 100%)",
         }}
       >
         <Navbar />
