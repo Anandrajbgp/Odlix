@@ -10,10 +10,10 @@ export default function CompetitionLayout({ children }: { children: ReactNode })
         className="flex min-h-screen flex-col bg-background/40 text-foreground transition-colors duration-300"
         style={{
           // @ts-ignore
-          "--platform-primary": "#2563eb",
+          "--platform-primary": "#0ea5e9",
           "--platform-secondary": "#0d9488",
           "--platform-accent": "#f59e0b",
-          "--platform-gradient": "linear-gradient(135deg, #2563eb 0%, #0d9488 55%, #f59e0b 100%)"
+          "--platform-gradient": "linear-gradient(135deg, #0ea5e9 0%, #0d9488 55%, #f59e0b 100%)"
         }}
       >
         <Navbar />

@@ -22,7 +22,7 @@ export function Hero() {
     <section className="relative overflow-hidden border-b border-border bg-background pb-12 pt-8 md:pb-14 md:pt-12">
       <div className="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_20%_0%,rgba(255,20,147,0.18),transparent_55%)]" />
       <div className="container relative z-10 mx-auto px-4">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#2563eb]/35 bg-[#2563eb]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#2563eb]">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#0ea5e9]/35 bg-[#0ea5e9]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#0ea5e9]">
           India&apos;s Competitive Mock Test Hub
         </div>
 
@@ -33,7 +33,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               className="mb-4 text-4xl font-black leading-[0.92] tracking-tight text-foreground md:text-6xl"
             >
-              Mock Tests, Rank Analysis, and AI Guidance in <span className="text-[#2563eb]">One Page</span>
+              Mock Tests, Rank Analysis, and AI Guidance in <span className="text-[#0ea5e9]">One Page</span>
             </motion.h1>
             <p className="mb-6 max-w-2xl text-sm font-medium leading-relaxed text-foreground/70 md:text-base">
               Full-length exam simulations, section-wise practice, real-time rank predictor, and weak-topic diagnostics for all major competitive exams.
@@ -50,7 +50,7 @@ export function Hero() {
                   className="w-full bg-transparent py-3 text-sm font-bold tracking-tight text-foreground focus:outline-none"
                 />
               </div>
-              <a href={testLibraryHref} className="rounded-xl bg-zinc-950 px-5 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-white transition-all hover:bg-[#2563eb] active:scale-95 dark:bg-white dark:text-zinc-950">
+              <a href={testLibraryHref} className="rounded-xl bg-zinc-950 px-5 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-white transition-all hover:bg-[#0ea5e9] active:scale-95 dark:bg-white dark:text-zinc-950">
                 Find Test
               </a>
             </div>
@@ -93,7 +93,7 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="mt-5 rounded-xl border border-[#2563eb]/30 bg-[#2563eb]/10 px-4 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-[#2563eb]">
+            <div className="mt-5 rounded-xl border border-[#0ea5e9]/30 bg-[#0ea5e9]/10 px-4 py-3 text-[10px] font-black uppercase tracking-[0.16em] text-[#0ea5e9]">
               <ShieldCheck className="mr-2 inline h-3.5 w-3.5" />
               Trusted by aspirants across 120+ exam categories
             </div>

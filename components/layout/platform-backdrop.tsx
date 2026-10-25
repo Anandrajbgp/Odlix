@@ -22,9 +22,9 @@ const variantStyles: Record<PlatformVariant, { surface: string; glowA: string; g
     grid: "[background-image:radial-gradient(rgba(245,158,11,0.14)_1px,transparent_1px)]"
   },
   competition: {
-    surface: "bg-gradient-to-b from-[#2563eb]/10 via-background to-background dark:from-[#2563eb]/20",
-    glowA: "from-[#2563eb]/35 to-[#0d9488]/10",
-    glowB: "from-[#f59e0b]/20 to-[#2563eb]/8",
+    surface: "bg-gradient-to-b from-[#0ea5e9]/10 via-background to-background dark:from-[#0ea5e9]/20",
+    glowA: "from-[#0ea5e9]/35 to-[#0d9488]/10",
+    glowB: "from-[#f59e0b]/20 to-[#0ea5e9]/8",
     grid: "[background-image:linear-gradient(120deg,rgba(37,99,235,0.10)_0%,transparent_60%)]"
   },
   trading: {
@@ -35,7 +35,7 @@ const variantStyles: Record<PlatformVariant, { surface: string; glowA: string; g
   },
   apps: {
     surface: "bg-gradient-to-br from-[#64748b]/10 via-background to-background dark:from-[#64748b]/20",
-    glowA: "from-[#64748b]/30 to-[#2563eb]/8",
+    glowA: "from-[#64748b]/30 to-[#0ea5e9]/8",
     glowB: "from-[#0ea5e9]/25 to-[#64748b]/8",
     grid: "[background-image:radial-gradient(rgba(100,116,139,0.12)_1px,transparent_1px)]"
   },
@@ -54,7 +54,7 @@ const variantStyles: Record<PlatformVariant, { surface: string; glowA: string; g
   "telegram-bots": {
     surface: "bg-gradient-to-br from-[#24a1ee]/10 via-background to-background dark:from-[#24a1ee]/20",
     glowA: "from-[#24a1ee]/32 to-[#06b6d4]/10",
-    glowB: "from-[#2563eb]/25 to-[#06b6d4]/8",
+    glowB: "from-[#0ea5e9]/25 to-[#06b6d4]/8",
     grid: "[background-image:linear-gradient(135deg,rgba(36,161,238,0.10)_0%,transparent_60%)]"
   }
 };

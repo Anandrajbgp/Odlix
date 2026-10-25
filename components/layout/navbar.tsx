@@ -59,10 +59,10 @@ const platforms: PlatformConfig[] = [
     logoTitle: "Mock Tests",
     href: "/competition",
     icon: GraduationCap,
-    color: "text-[#2563eb]",
+    color: "text-[#0ea5e9]",
     navBg: "bg-[#f0f4f8]/95 dark:bg-slate-900/95",
     navText: "text-slate-900 dark:text-white",
-    border: "border-[#2563eb]/40"
+    border: "border-[#0ea5e9]/40"
   },
   {
     name: "Trading",
@@ -79,7 +79,7 @@ const platforms: PlatformConfig[] = [
     logoTitle: "App Store",
     href: "/apps",
     icon: LayoutGrid,
-    color: "text-[#2563eb]",
+    color: "text-[#0ea5e9]",
     navBg: "bg-[#f1f5f9]/95 dark:bg-slate-900/95",
     navText: "text-slate-900 dark:text-white",
     border: "border-[#64748b]/40"

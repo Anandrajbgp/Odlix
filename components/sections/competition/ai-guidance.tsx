@@ -12,7 +12,7 @@ const points = [
 export function AiGuidance() {
   return (
     <section className="relative overflow-hidden border-y border-white/10 bg-slate-950 py-12 md:py-14 text-white">
-      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#2563eb]/25 blur-3xl" />
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#0ea5e9]/25 blur-3xl" />
       <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#0d9488]/20 blur-3xl" />
 
       <div className="container relative z-10 mx-auto px-4">
@@ -49,7 +49,7 @@ export function AiGuidance() {
           </div>
 
           <div className="rounded-2xl border border-white/15 bg-white/10 p-6">
-            <div className="mb-4 inline-flex rounded-lg border border-[#2563eb]/40 bg-[#2563eb]/20 px-3 py-2 text-[#2563eb]">
+            <div className="mb-4 inline-flex rounded-lg border border-[#0ea5e9]/40 bg-[#0ea5e9]/20 px-3 py-2 text-[#0ea5e9]">
               <BrainCircuit className="h-5 w-5" />
             </div>
             <h3 className="mb-3 text-2xl font-black tracking-tight">Today&apos;s AI Insight</h3>
