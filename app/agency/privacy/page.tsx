@@ -4,10 +4,10 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-background py-14 md:py-16">
       <div className="container mx-auto max-w-4xl px-4">
-        <div className="rounded-[2rem] border border-border bg-card p-8 shadow-sm md:p-12">
+        <div className="border border-border bg-card p-6 md:p-8">
           <header className="mb-10">
             <div className="mb-4 flex items-center gap-3">
-              <div className="rounded-2xl bg-muted p-3 text-foreground">
+              <div className="rounded-lg bg-muted p-3 text-foreground">
                 <ShieldCheck className="h-7 w-7" />
               </div>
               <h1 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">Agency Privacy Policy</h1>

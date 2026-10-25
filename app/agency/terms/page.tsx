@@ -4,7 +4,7 @@ export default function TermsPage() {
   return (
     <div className="min-h-screen bg-background py-14 md:py-16">
       <div className="container mx-auto max-w-4xl px-4">
-        <div className="rounded-[2rem] border border-border bg-card p-8 shadow-sm md:p-12">
+        <div className="border border-border bg-card p-6 md:p-8">
           <header className="mb-10">
             <div className="mb-4 flex items-center gap-3">
               <div className="rounded-2xl bg-slate-900 p-3 text-white">
