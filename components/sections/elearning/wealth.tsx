@@ -1,6 +1,6 @@
 "use client";
 
-import { TrendingUp, Gift, Plane, Users, CircleDollarSign } from "lucide-react";
+import { TrendingUp, Gift, Plane, Users } from "lucide-react";
 
 export function Wealth() {
   return (
@@ -8,7 +8,7 @@ export function Wealth() {
       <section className="py-14 md:py-16 bg-slate-950 text-white relative overflow-hidden border-b border-white/10">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_100%_100%,rgba(79,70,229,0.05),transparent_50%)]" />
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 items-center">
+          <div className="max-w-3xl mx-auto">
             <div>
               <h2 className="text-4xl md:text-6xl font-black mb-6 leading-[0.9] tracking-tighter">
                 Skill & Income <br /> <span className="text-indigo-500 italic">Wealth.</span>
@@ -36,26 +36,6 @@ export function Wealth() {
                       <div className="text-indigo-400 font-black text-xl md:text-2xl tracking-tighter">Direct {p.direct}</div>
                       <div className="text-white/30 text-[10px] font-black uppercase tracking-[0.2em] mt-1">Tier 2: {p.level2}</div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8">
-              <div className="flex items-center gap-3 mb-5">
-                <CircleDollarSign className="h-6 w-6 text-indigo-400" />
-                <h3 className="text-2xl md:text-3xl font-black tracking-tight">Income Snapshot</h3>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { label: "Direct Share", value: "54-58%" },
-                  { label: "Level 2 Share", value: "12-17%" },
-                  { label: "Payout Cycle", value: "Weekly" },
-                  { label: "Minimum", value: "₹200" },
-                ].map((item) => (
-                  <div key={item.label} className="rounded-2xl border border-white/10 bg-black/30 p-4">
-                    <div className="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-black">{item.label}</div>
-                    <div className="mt-2 text-xl font-black text-indigo-300">{item.value}</div>
                   </div>
                 ))}
               </div>
