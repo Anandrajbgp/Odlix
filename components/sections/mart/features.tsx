@@ -13,8 +13,8 @@ const features = [
 export function Features() {
   return (
     <section className="relative overflow-hidden border-y border-border bg-card py-16 text-foreground">
-      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#5E3A1C]/15 blur-3xl" />
-      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#C8A951]/12 blur-3xl" />
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#ea580c]/15 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#fb923c]/12 blur-3xl" />
       <div className="container relative z-10 mx-auto px-4">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-5">
           {features.map((f) => (

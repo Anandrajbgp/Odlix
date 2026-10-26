@@ -17,8 +17,8 @@ const variantStyles: Record<PlatformVariant, { surface: string; glowA: string; g
   },
   agency: {
     surface: "bg-gradient-to-br from-[#f59e0b]/10 via-background to-background dark:from-[#f59e0b]/20",
-    glowA: "from-[#f59e0b]/32 to-[#f97316]/10",
-    glowB: "from-[#fbbf24]/25 to-[#f97316]/8",
+    glowA: "from-[#f59e0b]/32 to-[#f59e0b]/10",
+    glowB: "from-[#fbbf24]/25 to-[#f59e0b]/8",
     grid: "[background-image:radial-gradient(rgba(245,158,11,0.14)_1px,transparent_1px)]"
   },
   competition: {
@@ -40,10 +40,10 @@ const variantStyles: Record<PlatformVariant, { surface: string; glowA: string; g
     grid: "[background-image:radial-gradient(rgba(100,116,139,0.12)_1px,transparent_1px)]"
   },
   mart: {
-    surface: "bg-gradient-to-br from-[#5E3A1C]/8 via-background to-background dark:from-[#5E3A1C]/15",
-    glowA: "from-[#5E3A1C]/30 to-[#8B5A2B]/10",
-    glowB: "from-[#C8A951]/20 to-[#5E3A1C]/10",
-    grid: "[background-image:linear-gradient(135deg,rgba(94,58,28,0.10)_0%,transparent_40%),linear-gradient(315deg,rgba(200,169,81,0.10)_0%,transparent_40%)]"
+    surface: "bg-gradient-to-br from-[#ea580c]/8 via-background to-background dark:from-[#ea580c]/15",
+    glowA: "from-[#ea580c]/30 to-[#f97316]/10",
+    glowB: "from-[#fb923c]/20 to-[#ea580c]/10",
+    grid: "[background-image:linear-gradient(135deg,rgba(234,88,12,0.10)_0%,transparent_40%),linear-gradient(315deg,rgba(251,146,60,0.10)_0%,transparent_40%)]"
   },
   "useful-websites": {
     surface: "bg-gradient-to-br from-[#14b8a6]/10 via-background to-background dark:from-[#14b8a6]/20",

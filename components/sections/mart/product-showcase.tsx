@@ -53,7 +53,7 @@ const topDeals: Product[] = [
     rating: "4.8",
     reviews: "2,341",
     badge: "Best Seller",
-    accent: "#f59e0b",
+    accent: "#f97316",
     image: "/mart-smartwatch.svg",
   },
   {
@@ -65,7 +65,7 @@ const topDeals: Product[] = [
     rating: "4.9",
     reviews: "1,087",
     badge: "Top Rated",
-    accent: "#dc2626",
+    accent: "#ea580c",
     image: "/mart-creator-kit.svg",
   },
   {
@@ -77,7 +77,7 @@ const topDeals: Product[] = [
     rating: "4.7",
     reviews: "3,912",
     badge: "New Arrival",
-    accent: "#dc2626",
+    accent: "#ea580c",
     image: "/mart-hoodie.svg",
   },
   {
@@ -89,7 +89,7 @@ const topDeals: Product[] = [
     rating: "4.8",
     reviews: "928",
     badge: "Limited Deal",
-    accent: "#f59e0b",
+    accent: "#f97316",
     image: "/mart-desk-bundle.svg",
   },
 ];
@@ -104,7 +104,7 @@ const newArrivals: Product[] = [
     rating: "4.6",
     reviews: "678",
     badge: "Fresh Drop",
-    accent: "#dc2626",
+    accent: "#ea580c",
     image: "/mart-earbuds.svg",
   },
   {
@@ -116,7 +116,7 @@ const newArrivals: Product[] = [
     rating: "4.8",
     reviews: "1,206",
     badge: "Editor Pick",
-    accent: "#f59e0b",
+    accent: "#f97316",
     image: "/mart-notebook.svg",
   },
   {
@@ -128,7 +128,7 @@ const newArrivals: Product[] = [
     rating: "4.7",
     reviews: "459",
     badge: "Trending",
-    accent: "#dc2626",
+    accent: "#ea580c",
     image: "/mart-sling.svg",
   },
 ];
@@ -147,11 +147,11 @@ function ProductCard({ product, wishlistCount, onAddWishlist, onAddCart }: { pro
           type="button"
           onClick={() => onAddWishlist(product.id)}
           aria-label={`Wishlist ${product.name}`}
-          className="absolute right-4 top-4 rounded-full border border-border bg-background p-2 text-foreground/45 transition-all hover:text-[#dc2626]"
+          className="absolute right-4 top-4 rounded-full border border-border bg-background p-2 text-foreground/45 transition-all hover:text-[#ea580c]"
         >
           <span className="inline-flex items-center gap-1">
             <Heart className="h-4 w-4" />
-            {wishlistCount > 0 ? <span className="text-[9px] font-black text-[#dc2626]">{wishlistCount}</span> : null}
+            {wishlistCount > 0 ? <span className="text-[9px] font-black text-[#ea580c]">{wishlistCount}</span> : null}
           </span>
         </button>
 
@@ -246,8 +246,8 @@ export function ProductShowcase() {
 
   return (
     <section className="relative overflow-hidden bg-background py-14">
-      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#5E3A1C]/15 blur-3xl" />
-      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#C8A951]/12 blur-3xl" />
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#ea580c]/15 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#fb923c]/12 blur-3xl" />
       <div className="container relative z-10 mx-auto px-4">
         <div className="mb-8 grid grid-cols-1 gap-4 rounded-2xl border border-border bg-card p-4 lg:grid-cols-[1fr_auto] lg:items-center">
           <div className="flex items-center rounded-xl border border-border bg-background p-2">
@@ -295,8 +295,8 @@ export function ProductShowcase() {
                 onClick={() => setActiveCategoryId(category.id)}
                 className={
                   isActive
-                    ? "whitespace-nowrap rounded-full border border-[#dc2626]/60 bg-[#dc2626]/10 px-4 py-2 text-left transition-all"
-                    : "whitespace-nowrap rounded-full border border-border bg-card px-4 py-2 text-left transition-all hover:border-[#dc2626]/60 hover:bg-[#dc2626]/10"
+                    ? "whitespace-nowrap rounded-full border border-[#ea580c]/60 bg-[#ea580c]/10 px-4 py-2 text-left transition-all"
+                    : "whitespace-nowrap rounded-full border border-border bg-card px-4 py-2 text-left transition-all hover:border-[#ea580c]/60 hover:bg-[#ea580c]/10"
                 }
               >
                 <p className="text-[10px] font-black uppercase tracking-[0.16em] text-foreground/80">{category.name}</p>
@@ -306,9 +306,9 @@ export function ProductShowcase() {
           })}
         </div>
 
-        <div id="top-deals" className="mb-12 rounded-2xl border border-[#dc2626]/35 bg-gradient-to-r from-[#dc2626]/15 via-transparent to-[#f59e0b]/15 p-4">
+        <div id="top-deals" className="mb-12 rounded-2xl border border-[#ea580c]/35 bg-gradient-to-r from-[#ea580c]/15 via-transparent to-[#f97316]/15 p-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <p className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.16em] text-[#dc2626]">
+            <p className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.16em] text-[#ea580c]">
               <Flame className="h-4 w-4" />
               Top Deals Live Now
             </p>
@@ -369,28 +369,28 @@ export function ProductShowcase() {
               <h4 className="mb-4 text-xs font-black uppercase tracking-[0.16em] text-foreground/50">Shop with Confidence</h4>
               <div className="space-y-3">
                 <div className="flex items-start gap-3 rounded-xl border border-border bg-background p-3">
-                  <ShieldCheck className="mt-0.5 h-4 w-4 text-[#f59e0b]" />
+                  <ShieldCheck className="mt-0.5 h-4 w-4 text-[#f97316]" />
                   <p className="text-sm font-semibold text-foreground/75">Verified sellers and authentic products.</p>
                 </div>
                 <div className="flex items-start gap-3 rounded-xl border border-border bg-background p-3">
-                  <Truck className="mt-0.5 h-4 w-4 text-[#dc2626]" />
+                  <Truck className="mt-0.5 h-4 w-4 text-[#ea580c]" />
                   <p className="text-sm font-semibold text-foreground/75">Fast shipping and live order tracking.</p>
                 </div>
                 <div className="flex items-start gap-3 rounded-xl border border-border bg-background p-3">
-                  <RotateCcw className="mt-0.5 h-4 w-4 text-[#dc2626]" />
+                  <RotateCcw className="mt-0.5 h-4 w-4 text-[#ea580c]" />
                   <p className="text-sm font-semibold text-foreground/75">Easy return and replacement process.</p>
                 </div>
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[#f59e0b]/35 bg-[#f59e0b]/10 p-5">
+            <div className="rounded-2xl border border-[#f97316]/35 bg-[#f97316]/10 p-5">
               <p className="mb-1 text-[10px] font-black uppercase tracking-[0.16em] text-foreground/55">Extra Savings</p>
               <h4 className="mb-2 text-2xl font-black tracking-tight text-foreground">Up to 40% OFF</h4>
               <p className="mb-4 text-sm font-semibold text-foreground/70">Use code MART40 on selected products this week.</p>
                <button
                  type="button"
                  title="Promo code integration required"
-                 className="rounded-lg bg-zinc-950 px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-white transition-all hover:bg-[#f59e0b] hover:text-zinc-950 dark:bg-white dark:text-zinc-950"
+                 className="rounded-lg bg-zinc-950 px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-white transition-all hover:bg-[#f97316] hover:text-zinc-950 dark:bg-white dark:text-zinc-950"
                >
                  Apply Offer
                </button>

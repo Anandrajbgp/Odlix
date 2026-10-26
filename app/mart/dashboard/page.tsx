@@ -31,7 +31,7 @@ export default function MartDashboard() {
             </div>
             <div>
               <div className="text-lg font-black tracking-tighter leading-none">MART HUB</div>
-              <div className="text-[9px] font-bold text-[#f59e0b] tracking-[0.2em] leading-none mt-1.5 uppercase">Dashboard by Odlix</div>
+              <div className="text-[9px] font-bold text-[#f97316] tracking-[0.2em] leading-none mt-1.5 uppercase">Dashboard by Odlix</div>
             </div>
           </Link>
         </div>
@@ -74,9 +74,9 @@ export default function MartDashboard() {
             </div>
             <div className="bg-card p-10 rounded-[3rem] border border-border shadow-sm">
               <h3 className="font-black mb-8 uppercase tracking-tighter opacity-70">Avg Order Value</h3>
-              <div className="text-5xl font-black text-[#f59e0b] mb-10">₹1,240</div>
+              <div className="text-5xl font-black text-[#f97316] mb-10">₹1,240</div>
               <div className="flex items-center space-x-3 p-6 rounded-[2rem] bg-muted/40 border border-border">
-                <Users className="w-7 h-7 text-[#f59e0b]" />
+                <Users className="w-7 h-7 text-[#f97316]" />
                 <div><div className="font-black text-sm tracking-tight">Repeat Customers</div><div className="text-[10px] opacity-40 font-bold uppercase tracking-widest">32 verified</div></div>
               </div>
             </div>

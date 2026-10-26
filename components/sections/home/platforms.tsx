@@ -32,7 +32,7 @@ const platforms = [
     description: "Competitive exam mocks with rank analytics and AI guidance.",
     icon: <GraduationCap className="text-[#2563eb]" />,
     href: "/competition",
-    color: "from-[#2563eb] to-[#f59e0b]",
+    color: "from-[#2563eb] to-[#f97316]",
     iconSurface: "bg-[#2563eb]/15 group-hover:bg-[#2563eb]",
     iconText: "text-[#2563eb] dark:text-[#2563eb] group-hover:text-white",
     checkColor: "text-[#2563eb]",
@@ -87,10 +87,10 @@ const platforms = [
     description: "Premium marketplace for high-end products.",
     icon: <ShoppingBag className="text-white" />,
     href: "/mart",
-     color: "from-[#5E3A1C] to-[#C8A951]",
+     color: "from-[#ea580c] to-[#fb923c]",
     iconSurface: "bg-white/15 group-hover:bg-white",
     iconText: "text-white dark:text-white group-hover:text-slate-950",
-     checkColor: "text-white dark:text-[#C8A951]",
+     checkColor: "text-white dark:text-[#fb923c]",
     features: ["Verified Products", "Secure Payments", "Fast Delivery"]
   },
 ];
