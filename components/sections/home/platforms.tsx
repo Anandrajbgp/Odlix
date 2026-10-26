@@ -41,12 +41,12 @@ const platforms = [
   {
     title: "Broker Trading",
     description: "Advanced dashboard for smart investors.",
-    icon: <BarChart3 className="text-[#10b981]" />,
+    icon: <BarChart3 className="text-[#7CFC00]" />,
     href: "/trading",
-    color: "from-[#1f2937] to-[#10b981]",
-    iconSurface: "bg-[#10b981]/15 group-hover:bg-[#10b981]",
-    iconText: "text-[#10b981] dark:text-[#10b981] group-hover:text-white",
-    checkColor: "text-[#10b981]",
+    color: "from-[#1f2937] to-[#7CFC00]",
+    iconSurface: "bg-[#7CFC00]/15 group-hover:bg-[#7CFC00]",
+    iconText: "text-[#7CFC00] dark:text-[#7CFC00] group-hover:text-slate-900",
+    checkColor: "text-[#7CFC00]",
     features: ["Multi-asset", "AI Insights", "Advanced Charts"]
   },
   {
@@ -100,7 +100,7 @@ export function PlatformShowcase() {
     <section id="platforms" className="relative overflow-hidden py-32 text-foreground">
       <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#2563eb]/15 blur-3xl" />
       <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#f59e0b]/15 blur-3xl" />
-      <div className="absolute right-1/3 top-1/2 h-64 w-64 rounded-full bg-[#10b981]/10 blur-3xl" />
+      <div className="absolute right-1/3 top-1/2 h-64 w-64 rounded-full bg-[#7CFC00]/10 blur-3xl" />
       <div className="container relative z-10 mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
           <div>
@@ -158,3 +158,6 @@ export function PlatformShowcase() {
     </section>
   );
 }
+
+
+

@@ -69,10 +69,10 @@ const platforms: PlatformConfig[] = [
     logoTitle: "Trading",
     href: "/trading",
     icon: BarChart3,
-    color: "text-[#10b981]",
-    navBg: "bg-[#0a0a0a]/95",
-    navText: "text-white",
-    border: "border-[#10b981]/40"
+    color: "text-[#7CFC00]",
+    navBg: "bg-[#f8fafc]/95 dark:bg-slate-900/95",
+    navText: "text-slate-900 dark:text-white",
+    border: "border-[#7CFC00]/40"
   },
   {
     name: "App Store",

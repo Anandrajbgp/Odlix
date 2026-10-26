@@ -33,16 +33,10 @@ export function Hero() {
           className="mt-8 flex flex-wrap items-center justify-center gap-3"
         >
           <Link
-            href="#test-library"
-            className="rounded-lg bg-foreground px-6 py-3 text-sm font-black uppercase tracking-wide text-background transition-all hover:opacity-90 active:scale-95"
+            href="/competition/exams"
+            className="rounded-lg bg-[#0ea5e9] px-6 py-3 text-sm font-black uppercase tracking-wide text-slate-950 transition-all hover:opacity-90 active:scale-95 shadow-xl shadow-[#0ea5e9]/25"
           >
-            Start Free Mock
-          </Link>
-          <Link
-            href="#plans"
-            className="rounded-lg border border-border px-6 py-3 text-sm font-black uppercase tracking-wide text-foreground/80 transition-all hover:bg-muted active:scale-95"
-          >
-            View Plans
+            Explore Popular &amp; Latest Vacancy
           </Link>
         </motion.div>
       </div>

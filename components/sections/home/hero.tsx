@@ -8,7 +8,7 @@ const platformIcons: Array<{ Icon: LucideIcon; color: string; href: string; labe
   { Icon: BookOpen, color: "text-[#4f46e5]", href: "/elearning", label: "E-Learning" },
   { Icon: Briefcase, color: "text-[#1e3a8a]", href: "/agency", label: "Agency" },
   { Icon: GraduationCap, color: "text-[#2563eb]", href: "/competition", label: "Mock Tests" },
-  { Icon: BarChart3, color: "text-[#10b981]", href: "/trading", label: "Trading" },
+  { Icon: BarChart3, color: "text-[#7CFC00]", href: "/trading", label: "Trading" },
   { Icon: LayoutGrid, color: "text-[#2563eb]", href: "/apps", label: "App Store" },
   { Icon: Globe, color: "text-[#14b8a6]", href: "/apps", label: "Useful Websites" },
   { Icon: Send, color: "text-[#24a1ee]", href: "/apps", label: "Telegram Bots" },
@@ -22,7 +22,7 @@ export function Hero() {
     <section className="relative pt-8 pb-8 md:pt-12 md:pb-12 flex flex-col items-center text-center overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,#f59e0b,transparent_60%)] opacity-25 dark:opacity-40" />
       <div className="absolute -right-24 top-10 h-72 w-72 rounded-full bg-[#4f46e5]/20 blur-3xl" />
-      <div className="absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-[#10b981]/15 blur-3xl" />
+      <div className="absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-[#7CFC00]/15 blur-3xl" />
       <div className="absolute right-1/3 top-1/2 h-64 w-64 rounded-full bg-[#24a1ee]/15 blur-3xl" />
 
       <motion.div
@@ -58,3 +58,5 @@ export function Hero() {
     </section>
   );
 }
+
+

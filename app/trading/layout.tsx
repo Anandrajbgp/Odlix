@@ -10,10 +10,10 @@ export default function TradingLayout({ children }: { children: ReactNode }) {
         className="flex min-h-screen flex-col bg-background/30 text-foreground transition-colors duration-300"
         style={{
           // @ts-ignore
-          "--platform-primary": "#1f2937",
-          "--platform-secondary": "#10b981",
-          "--platform-accent": "#ef4444",
-          "--platform-gradient": "linear-gradient(135deg, #1f2937 0%, #10b981 55%, #ef4444 100%)"
+          "--platform-primary": "#7CFC00",
+          "--platform-secondary": "#7CFC00",
+          "--platform-accent": "#7CFC00",
+          "--platform-gradient": "linear-gradient(135deg, #7CFC00 0%, #7CFC00 55%, #7CFC00 100%)"
         }}
       >
         <Navbar />

@@ -1,16 +1,14 @@
 import { Hero } from "@/components/sections/trading/hero";
-import { AssetShowcase } from "@/components/sections/trading/assets";
-import { Features } from "@/components/sections/trading/features";
-import { WalletIntegration } from "@/components/sections/trading/wallet";
-import { Mentorship } from "@/components/sections/trading/mentorship";
+import { Segments } from "@/components/sections/trading/segments";
+import { Steps } from "@/components/sections/trading/steps";
+import { FeaturesSecurity } from "@/components/sections/trading/features-security";
 export default function TradingPage() {
   return (
-    <div className="bg-[#0a0505] min-h-screen transition-colors duration-300">
+    <div className="bg-background min-h-screen transition-colors duration-300">
       <Hero />
-      <AssetShowcase />
-      <Features />
-      <WalletIntegration />
-      <Mentorship />
+      <Segments />
+      <Steps />
+      <FeaturesSecurity />
     </div>
   );
 }
