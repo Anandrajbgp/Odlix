@@ -1,0 +1,107 @@
+import { ShieldCheck, Lock, Eye, Database, Globe, Mail, Phone, ScrollText, UserCheck, Clock3 } from "lucide-react";
+
+export default function PrivacyPage() {
+  return (
+    <div className="min-h-screen bg-background py-14 md:py-16">
+      <div className="container mx-auto max-w-4xl px-4">
+        <div className="border border-border bg-card p-6 md:p-8">
+          <header className="mb-10">
+            <div className="mb-4 flex items-center gap-3">
+              <div className="rounded-lg bg-muted p-3 text-foreground">
+                <ShieldCheck className="h-7 w-7" />
+              </div>
+              <h1 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">Agency Privacy Policy</h1>
+            </div>
+            <p className="text-sm text-muted-foreground md:text-base">
+              Effective Date: 18 August 2026 | Version: ODLIX-AGENCY-PRIV-1.1. This policy explains how Odlix Agency handles
+              personal and project information.
+            </p>
+          </header>
+
+          <div className="space-y-8 text-sm leading-relaxed text-muted-foreground md:text-base">
+            <section>
+              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
+                <Eye className="h-5 w-5 text-muted-foreground" /> Data We Collect
+              </h2>
+              <p>
+                We may collect contact data, project requirements, communication records, technical diagnostics,
+                invoicing metadata, and operational details required for service delivery and support.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
+                <Database className="h-5 w-5 text-muted-foreground" /> Why We Process It
+              </h2>
+              <ul className="space-y-2">
+                <li>• Proposal preparation, project planning, and contractual execution.</li>
+                <li>• Delivery communication, status updates, approvals, and support workflows.</li>
+                <li>• Platform security, fraud detection, and legal/compliance obligations.</li>
+                <li>• Performance and quality improvements via controlled analytics.</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
+                <UserCheck className="h-5 w-5 text-muted-foreground" /> Processing Basis & Consent
+              </h2>
+              <p>
+                Data is processed under contract necessity, legitimate interest, consent, or legal obligation
+                depending on engagement type and jurisdiction.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
+                <Lock className="h-5 w-5 text-muted-foreground" /> Security & Access Controls
+              </h2>
+              <p>
+                We implement role-based access, secure tooling, and operational controls to minimize risk of unauthorized
+                disclosure. Access is restricted to personnel with defined business need.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
+                <Globe className="h-5 w-5 text-muted-foreground" /> Third-Party Processors
+              </h2>
+              <p>
+                Odlix may use vetted infrastructure and software providers for hosting, communication, analytics,
+                and support. These processors operate under contractual confidentiality and purpose limits.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
+                <Clock3 className="h-5 w-5 text-muted-foreground" /> Retention & Deletion
+              </h2>
+              <p>
+                Data is retained for project continuity, legal compliance, and auditability, then removed or anonymized
+                as feasible after retention requirements are met.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
+                <ScrollText className="h-5 w-5 text-muted-foreground" /> Your Rights
+              </h2>
+              <p>
+                Subject to applicable law, you may request access, correction, deletion, portability,
+                or objection to certain processing activities.
+              </p>
+            </section>
+
+            <section className="rounded-2xl bg-slate-900 p-6 text-white">
+              <h2 className="mb-3 text-xl font-black">Privacy, DPO & Grievance Contact</h2>
+              <div className="space-y-2 text-sm font-semibold md:text-base">
+                <p className="flex items-center gap-2"><Mail className="h-4 w-4" /> team.odlix@gmail.com</p>
+                <p className="flex items-center gap-2"><Phone className="h-4 w-4" /> +91 7372891228</p>
+                <p className="text-xs uppercase tracking-[0.12em] opacity-90">Initial response target: 24-48 working hours</p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
