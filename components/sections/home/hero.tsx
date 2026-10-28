@@ -6,6 +6,7 @@ import Link from "next/link";
 
 const platformIcons: Array<{ Icon: LucideIcon; color: string; href: string; label: string }> = [
   { Icon: BookOpen, color: "text-[#4f46e5]", href: "/elearning", label: "E-Learning" },
+  { Icon: BookOpen, color: "text-[#4f46e5]", href: "/elearning", label: "E-Learning" },
   { Icon: ShoppingBag, color: "text-white", href: "/mart", label: "Mart" },
   { Icon: GraduationCap, color: "text-[#2563eb]", href: "/competition", label: "Mock Tests" },
   { Icon: Briefcase, color: "text-[#1e3a8a]", href: "/agency", label: "Agency" },
@@ -57,5 +58,7 @@ export function Hero() {
       </motion.div>
     </section>
   );
+}
+
 }
 

@@ -50,4 +50,5 @@
     "@prisma/client@6.16.2": true,
     "@prisma/engines@6.16.2": true
   }
+
 }
