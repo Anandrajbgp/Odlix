@@ -161,7 +161,6 @@ export function Navbar() {
   const homeLogoSrc = "/logo-home.png";
   const LogoIcon = isHome ? Home : (currentPlatform?.icon ?? Home);
 
-
   return (
     <>
       <nav className={cn(
@@ -232,90 +231,102 @@ export function Navbar() {
                </Link>
              ) : null}
              <Link href="/login" className={cn("text-xs font-black uppercase tracking-widest opacity-80 hover:opacity-100 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md", navText === "text-white" ? "text-white" : "text-foreground")}>Login</Link>
-             <Link href="/signup" className={cn("px-7 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring", navText === "text-white" ? "bg-white text-slate-950" : "bg-slate-900 text-white dark:bg-white dark:text-slate-950")}>Get Started</Link>
+             <Link href="/signup" className={cn("px-7 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring", navText === "text-white" ? "bg-white text-black" : "bg-primary text-primary-foreground")}>Sign Up</Link>
           </div>
 
-          {/* Mobile Right */}
-          <div className="flex md:hidden items-center space-x-3 relative z-[150]">
-             <button
-               onClick={toggleMenu}
-               className="p-3 rounded-2xl bg-white/10 active:scale-90 transition-all border border-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-               aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-               aria-expanded={isOpen}
-               aria-controls="mobile-platform-menu"
-               type="button"
-             >
-               {isOpen ? <X className="w-6 h-6 text-primary" /> : <Menu className="w-6 h-6" />}
-             </button>
-          </div>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMenu}
+            className="md:hidden relative z-[150] p-2 rounded-xl transition-all active:scale-90 hover:bg-white/10"
+            aria-label="Toggle Menu"
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
-      </nav>
 
-      {/* Mobile Side Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <>
+        {/* Mobile Navigation Panel */}
+        <AnimatePresence>
+          {isOpen && (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[109] bg-black/40 md:hidden"
-              onClick={toggleMenu}
-            />
-              <motion.aside
-               id="mobile-platform-menu"
-               initial={{ x: "100%" }}
-               animate={{ x: 0 }}
-               exit={{ x: "100%" }}
-               transition={{ type: "tween", duration: 0.25 }}
-               className={cn(
-                 "fixed top-[76px] right-0 bottom-0 z-[110] w-[88vw] max-w-[360px] overflow-y-auto border-l p-5 shadow-2xl backdrop-blur-xl md:hidden",
-                 mobilePanelSurface,
-                 border,
-                 navText
-               )}
-             >
-              <div className="space-y-3">
-                <Link href="/" className={cn("flex items-center gap-3 rounded-xl border px-4 py-3 text-base font-semibold transition-colors", navText === "text-white" ? "border-white/15 bg-white/5 hover:bg-white/12" : "border-border bg-muted/50 hover:bg-muted") }>
-                  <Home className={cn("h-5 w-5", iconColor)} />
-                  <span>Home</span>
-                </Link>
+              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+              className={cn(
+                "md:hidden absolute top-full left-0 right-0 mt-3 p-6 rounded-3xl border shadow-2xl backdrop-blur-3xl overflow-hidden",
+                mobilePanelSurface,
+                border
+              )}
+            >
+              <div className="flex flex-col space-y-4">
+                <div className="grid grid-cols-2 gap-3">
+                  {platforms.map((p) => (
+                    <Link
+                      key={p.name}
+                      href={p.href}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "flex items-center space-x-3 p-3 rounded-2xl border transition-all active:scale-95",
+                        pathname.startsWith(p.href)
+                          ? "border-primary/50 bg-primary/10"
+                          : "border-transparent bg-white/5 hover:bg-white/10"
+                      )}
+                    >
+                      <div className={cn("p-2 rounded-xl bg-white/10", p.color)}>
+                        <p.icon className="h-5 w-5" />
+                      </div>
+                      <span className="text-xs font-bold tracking-wide">{p.name}</span>
+                    </Link>
+                  ))}
+                </div>
 
-                {!isHome && currentPlatform?.href && ["/elearning", "/mart", "/competition"].includes(currentPlatform.href) && (
-                  <Link href={`${currentPlatform.href}/dashboard`} className={cn("flex items-center gap-3 rounded-xl border px-4 py-3 text-base font-semibold transition-colors", navText === "text-white" ? "border-white/15 bg-white/5 hover:bg-white/12" : "border-border bg-muted/50 hover:bg-muted") }>
-                    <LayoutDashboard className={cn("h-5 w-5", iconColor)} />
-                    <span>Dashboard</span>
-                  </Link>
-                )}
-
-                <div className="pt-2 pb-1 text-xs font-bold uppercase tracking-[0.2em] opacity-60">Platforms</div>
-                {platforms.map((p) => (
+                {!isHome && currentPlatform?.href && ["/elearning", "/mart", "/competition"].includes(currentPlatform.href) ? (
                   <Link
-                    key={p.name}
-                    href={p.href}
+                    href={`${currentPlatform.href}/dashboard`}
+                    onClick={() => setIsOpen(false)}
                     className={cn(
-                      "flex items-center gap-3 rounded-xl border px-4 py-3 text-base font-semibold transition-colors",
-                      pathname.startsWith(p.href)
-                        ? (navText === "text-white" ? "border-white/20 bg-white/12" : "border-border bg-muted")
-                        : (navText === "text-white" ? "border-white/10 bg-white/5 hover:bg-white/10" : "border-border bg-muted/50 hover:bg-muted")
+                      "flex items-center justify-center gap-2 rounded-2xl border p-3 text-xs font-black uppercase tracking-widest transition-all active:scale-95",
+                      navText === "text-white"
+                        ? "border-white/20 bg-white/10 text-white hover:bg-white/15"
+                        : "border-border bg-muted text-foreground hover:bg-muted/80"
                     )}
                   >
-                    <span className={cn("shrink-0", p.color)}><p.icon className="h-5 w-5" /></span>
-                    <span>{p.name}</span>
+                    <LayoutDashboard className={cn("h-4 w-4", iconColor)} />
+                    Dashboard
                   </Link>
-                ))}
+                ) : null}
 
-                <div className="pt-2">
-                  <Link href="/login" className={cn("block rounded-xl border px-4 py-3 text-center text-sm font-semibold transition-colors", navText === "text-white" ? "border-white/15 hover:bg-white/10" : "border-border hover:bg-muted")}>Log In</Link>
+                <div className="pt-4 border-t border-white/10 flex flex-col space-y-3">
+                  <Link
+                    href="/login"
+                    onClick={() => setIsOpen(false)}
+                    className={cn(
+                      "w-full py-3 text-center text-xs font-black uppercase tracking-widest rounded-2xl border transition-all active:scale-95",
+                      navText === "text-white"
+                        ? "border-white/20 text-white hover:bg-white/10"
+                        : "border-border text-foreground hover:bg-muted"
+                    )}
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    href="/signup"
+                    onClick={() => setIsOpen(false)}
+                    className={cn(
+                      "w-full py-3 text-center text-xs font-black uppercase tracking-widest rounded-2xl shadow-xl transition-all active:scale-95",
+                      navText === "text-white"
+                        ? "bg-white text-black hover:bg-white/90"
+                        : "bg-primary text-primary-foreground hover:bg-primary/90"
+                    )}
+                  >
+                    Sign Up
+                  </Link>
                 </div>
               </div>
-            </motion.aside>
-          </>
-        )}
-      </AnimatePresence>
-
-      {/* Spacer */}
-      <div className="h-[92px] md:h-[104px] pointer-events-none" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
     </>
   );
 }
