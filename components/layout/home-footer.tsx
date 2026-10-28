@@ -27,11 +27,11 @@ function InstagramIcon() {
 
 export function HomeFooter() {
   return (
-    <footer className="bg-background border-t border-border py-12 text-foreground transition-colors duration-300">
-      <div className="container mx-auto grid grid-cols-1 gap-12 px-4 md:grid-cols-3">
+    <footer className="bg-[#050b14] border-t border-cyan-500/20 py-12 text-slate-300">
+      <div className="container mx-auto grid grid-cols-1 gap-12 px-4 max-w-6xl md:grid-cols-3">
         <div className="space-y-6">
           <div className="group flex items-center space-x-3">
-            <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-border bg-muted/60 dark:border-white/10 dark:bg-white/5">
+            <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-cyan-500/30 bg-slate-900">
               <Image
                 src="/logo-home.png"
                 alt="Odlix logo"
@@ -40,15 +40,17 @@ export function HomeFooter() {
                 className="object-contain"
               />
             </div>
-
+            <span className="text-xl font-black text-white tracking-widest uppercase">
+              ODLIX
+            </span>
           </div>
-          <p className="text-sm leading-relaxed text-muted-foreground">
+          <p className="text-sm leading-relaxed text-slate-400">
             A world-class digital ecosystem designed for reliable, secure, and integrated digital experiences.
           </p>
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 text-cyan-400">
             <Link
               href="http://www.youtube.com/@TeamOdlix"
-              className="rounded-md opacity-60 transition-all hover:text-magenta-500 hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="p-2.5 rounded-xl bg-slate-900 border border-cyan-500/20 hover:border-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
               aria-label="Open Odlix YouTube"
               target="_blank"
               rel="noopener noreferrer"
@@ -57,7 +59,7 @@ export function HomeFooter() {
             </Link>
             <Link
               href="https://www.facebook.com/share/19pa8hWvZR/"
-              className="rounded-md opacity-60 transition-all hover:text-magenta-500 hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="p-2.5 rounded-xl bg-slate-900 border border-cyan-500/20 hover:border-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
               aria-label="Open Odlix Facebook"
               target="_blank"
               rel="noopener noreferrer"
@@ -66,7 +68,7 @@ export function HomeFooter() {
             </Link>
             <Link
               href="https://www.instagram.com/odlix_?exln=bWVxN2tzNjBsZDIw"
-              className="rounded-md opacity-60 transition-all hover:text-magenta-500 hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="p-2.5 rounded-xl bg-slate-900 border border-cyan-500/20 hover:border-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
               aria-label="Open Odlix Instagram"
               target="_blank"
               rel="noopener noreferrer"
@@ -77,25 +79,25 @@ export function HomeFooter() {
         </div>
 
         <div>
-          <h3 className="mb-6 text-lg font-bold">Company</h3>
-          <ul className="space-y-4 text-sm font-medium text-muted-foreground">
+          <h3 className="mb-6 text-lg font-bold text-white">Company</h3>
+          <ul className="space-y-4 text-sm font-medium text-slate-400">
             <li>
-              <Link href="/" className="rounded-md transition-colors hover:text-magenta-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <Link href="/" className="transition-colors hover:text-cyan-400">
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/about" className="rounded-md transition-colors hover:text-magenta-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <Link href="/about" className="transition-colors hover:text-cyan-400">
                 About Us
               </Link>
             </li>
             <li>
-              <Link href="/privacy" className="rounded-md transition-colors hover:text-magenta-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <Link href="/privacy" className="transition-colors hover:text-cyan-400">
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link href="/terms" className="rounded-md transition-colors hover:text-magenta-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <Link href="/terms" className="transition-colors hover:text-cyan-400">
                 Terms of Service
               </Link>
             </li>
@@ -103,28 +105,22 @@ export function HomeFooter() {
         </div>
 
         <div>
-          <h3 className="mb-6 text-lg font-bold">Support</h3>
-          <ul className="space-y-4 text-sm font-medium text-muted-foreground">
+          <h3 className="mb-6 text-lg font-bold text-white">Support</h3>
+          <ul className="space-y-4 text-sm font-medium text-slate-400">
             <li>
-              <a
-                href="mailto:team.odlix@gmail.com"
-                className="rounded-md transition-colors hover:text-magenta-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              >
+              <a href="mailto:team.odlix@gmail.com" className="transition-colors hover:text-cyan-400">
                 team.odlix@gmail.com
               </a>
             </li>
             <li>
-              <a
-                href="tel:+917372891228"
-                className="rounded-md transition-colors hover:text-magenta-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              >
+              <a href="tel:+917372891228" className="transition-colors hover:text-cyan-400">
                 +91 7372891228
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <div className="container mx-auto mt-16 border-t border-border px-4 pt-8 text-center text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
+      <div className="container mx-auto mt-16 border-t border-slate-800 px-4 pt-8 text-center text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
         © 2026 Odlix. All rights reserved.
       </div>
     </footer>

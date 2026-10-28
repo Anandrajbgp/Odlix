@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote, Star, MessageSquare } from "lucide-react";
 
 type Testimonial = {
   name: string;
@@ -83,45 +83,53 @@ export function Testimonials() {
   };
 
   return (
-    <section className="relative overflow-hidden py-20 md:py-24 border-b border-border text-foreground">
-      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#dc2626]/10 blur-3xl" />
-      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#f59e0b]/15 blur-3xl" />
-      <div className="absolute right-1/3 top-1/2 h-64 w-64 rounded-full bg-[#4f46e5]/10 blur-3xl" />
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="text-center mb-12 md:mb-14">
-          <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tighter">Customer Reviews.</h2>
-          <p className="text-muted-foreground text-sm md:text-base font-semibold">Trusted by users across India.</p>
+    <section className="relative overflow-hidden py-16 md:py-24 bg-[#050b14] text-white">
+      <div className="container relative z-10 mx-auto px-4 max-w-6xl">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 rounded-full bg-cyan-500/10 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-cyan-300 border border-cyan-500/30 backdrop-blur-md mb-3">
+            <MessageSquare className="h-4 w-4 text-cyan-400" />
+            User Feedback
+          </div>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight">
+            Customer <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-300">Reviews</span>
+          </h2>
+          <p className="text-slate-400 text-sm md:text-base font-medium mt-2">Trusted by thousands of users across India.</p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto overflow-hidden rounded-[2rem] border border-border bg-gradient-to-br from-card to-card/70 p-1 shadow-[0_20px_50px_rgba(15,23,42,0.12)] dark:border-white/10 dark:shadow-[0_30px_80px_rgba(0,0,0,0.25)]">
+        {/* YouTube Premium styled cyan-teal gradient container */}
+        <div className="relative overflow-hidden rounded-[2.2rem] bg-[linear-gradient(108deg,#00a3da_0%,#00d4ca_50%,#00f5c4_100%)] p-8 md:p-12 text-[#0f1d26] shadow-[0_25px_70px_rgba(0,212,202,0.3)] border border-white/40">
+          <div className="absolute inset-0 bg-[linear-gradient(125deg,rgba(255,255,255,0.38)_0%,rgba(255,255,255,0.12)_40%,transparent_65%)] pointer-events-none" />
+
           <div
-            className="flex transition-transform duration-700 ease-out"
+            className="flex transition-transform duration-700 ease-out relative z-10"
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
           >
             {testimonials.map((item) => (
-              <article key={item.name} className="min-w-full rounded-[1.85rem] bg-card p-8 md:p-12 dark:bg-card/80 dark:backdrop-blur-sm">
+              <article key={item.name} className="min-w-full rounded-3xl bg-[#0f1d26]/10 backdrop-blur-md p-6 sm:p-10 text-[#0f1d26] border border-[#0f1d26]/15">
                 <div className="mb-6 flex items-center justify-between">
                   <div className="flex items-center gap-1" aria-label="5 star rating">
                     {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} className="w-4 h-4 md:w-5 md:h-5 text-yellow-500 fill-current" />
+                      <Star key={star} className="w-5 h-5 text-amber-900 fill-current" />
                     ))}
                   </div>
-                  <Quote className="w-6 h-6 md:w-8 md:h-8 text-magenta-500/80" />
+                  <Quote className="w-7 h-7 text-[#0f1d26]/60" />
                 </div>
 
-                <p className="text-foreground/80 text-base md:text-xl font-medium leading-relaxed mb-8 italic">“{item.review}”</p>
+                <p className="text-[#0f1d26] text-lg md:text-2xl font-black leading-relaxed mb-8 italic">
+                  “{item.review}”
+                </p>
 
                 <div className="flex items-center gap-4">
                   <img
                     src={item.image}
                     alt={`${item.name} profile photo`}
-                    className="h-14 w-14 md:h-16 md:w-16 rounded-full object-cover border-2 border-white/20 shadow-lg"
+                    className="h-14 w-14 rounded-full object-cover border-2 border-[#0f1d26]/20 shadow-md"
                     loading="lazy"
                     referrerPolicy="no-referrer"
                   />
                   <div>
-                    <h4 className="text-lg md:text-xl font-black tracking-tight">{item.name}</h4>
-                    <p className="text-muted-foreground font-semibold text-xs md:text-sm">{item.role}</p>
+                    <h4 className="text-lg md:text-xl font-black text-[#0f1d26] tracking-tight">{item.name}</h4>
+                    <p className="text-[#0f1d26] font-extrabold text-xs md:text-sm">{item.role}</p>
                   </div>
                 </div>
               </article>
@@ -131,19 +139,19 @@ export function Testimonials() {
           <button
             type="button"
             onClick={goToPrevious}
-            className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 h-10 w-10 md:h-11 md:w-11 rounded-full border border-white/20 bg-black/25 text-white hover:bg-black/45 transition-colors flex items-center justify-center"
+            className="absolute left-4 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full border border-[#0f1d26]/20 bg-[#0f1d26]/15 text-[#0f1d26] hover:bg-[#0f1d26]/30 transition-colors flex items-center justify-center backdrop-blur-md z-20 active:scale-90"
             aria-label="Previous review"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-6 h-6" />
           </button>
 
           <button
             type="button"
             onClick={goToNext}
-            className="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 h-10 w-10 md:h-11 md:w-11 rounded-full border border-white/20 bg-black/25 text-white hover:bg-black/45 transition-colors flex items-center justify-center"
+            className="absolute right-4 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full border border-[#0f1d26]/20 bg-[#0f1d26]/15 text-[#0f1d26] hover:bg-[#0f1d26]/30 transition-colors flex items-center justify-center backdrop-blur-md z-20 active:scale-90"
             aria-label="Next review"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-6 h-6" />
           </button>
         </div>
 
@@ -156,7 +164,7 @@ export function Testimonials() {
                 setActiveIndex(index);
               }}
               className={`h-2.5 rounded-full transition-all ${
-                activeIndex === index ? "w-8 bg-magenta-500" : "w-2.5 bg-foreground/30"
+                activeIndex === index ? "w-8 bg-cyan-400" : "w-2.5 bg-slate-800"
               }`}
               aria-label={`Go to ${item.name} review`}
             />

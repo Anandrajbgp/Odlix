@@ -148,14 +148,13 @@ export function Navbar() {
 
   const currentPlatform = platforms.find(p => pathname.startsWith(p.href));
 
-  const navBg = currentPlatform?.navBg || "bg-[#18180a]/95";
-  const navText = currentPlatform?.navText || "text-white";
-  const border = currentPlatform?.border || "border-[#4f46e5]/45";
-  const iconColor = currentPlatform?.color || "text-[#4f46e5]";
+  const isHomeRoute = pathname === "/" || ["/about", "/terms", "/privacy"].includes(pathname);
+  const navBg = isHomeRoute ? "bg-[#050b14]/90 backdrop-blur-2xl" : (currentPlatform?.navBg || "bg-[#18180a]/95");
+  const navText = isHomeRoute ? "text-white" : (currentPlatform?.navText || "text-white");
+  const border = isHomeRoute ? "border-cyan-500/30" : (currentPlatform?.border || "border-[#4f46e5]/45");
+  const iconColor = isHomeRoute ? "text-cyan-400" : (currentPlatform?.color || "text-[#4f46e5]");
   const isHome = pathname === "/";
-  const mobilePanelSurface = navText === "text-white"
-    ? "bg-slate-950/95"
-    : "bg-background/95";
+  const mobilePanelSurface = "bg-slate-950/95 text-white";
   const logoTitle = isHome ? "ODLIX ECOSYSTEM" : (currentPlatform?.logoTitle ?? "ODLIX ECOSYSTEM");
   const logoSubtitle = isHome ? "" : "by Odlix";
   const homeLogoSrc = "/logo-home.png";

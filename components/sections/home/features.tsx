@@ -5,44 +5,75 @@ import { Fingerprint, ShieldCheck, BarChart3, Zap } from "lucide-react";
 const features = [
   {
     title: "Single Login (SSO)",
-    desc: "One secure account to access every Odlix service instantly.",
-    icon: <Fingerprint />,
+    desc: "One secure account to access every Odlix platform instantly without repeated sign-ins.",
+    icon: <Fingerprint className="h-7 w-7 text-cyan-400" />,
+    badge: "SSO Security",
+    accent: "from-cyan-500/20 to-blue-600/20",
+    border: "border-cyan-500/30 group-hover:border-cyan-400",
+    glow: "group-hover:shadow-[0_0_30px_rgba(6,182,212,0.25)]"
   },
   {
     title: "100% Verified Freelancers",
-    desc: "Agency projects are handled by thoroughly verified professionals.",
-    icon: <ShieldCheck />,
+    desc: "Agency client projects are delivered by thoroughly vetted professional freelancers.",
+    icon: <ShieldCheck className="h-7 w-7 text-emerald-400" />,
+    badge: "Quality Assured",
+    accent: "from-emerald-500/20 to-teal-600/20",
+    border: "border-emerald-500/30 group-hover:border-emerald-400",
+    glow: "group-hover:shadow-[0_0_30px_rgba(16,185,129,0.25)]"
   },
   {
     title: "High-Converting Tracking",
-    desc: "Affiliate tracking built for reliable attribution and better conversions.",
-    icon: <BarChart3 />,
+    desc: "Affiliate tracking systems built for reliable attribution, transparency, and top conversions.",
+    icon: <BarChart3 className="h-7 w-7 text-purple-400" />,
+    badge: "Real-time Stats",
+    accent: "from-purple-500/20 to-indigo-600/20",
+    border: "border-purple-500/30 group-hover:border-purple-400",
+    glow: "group-hover:shadow-[0_0_30px_rgba(168,85,247,0.25)]"
   },
   {
     title: "Super-Fast Utility Apps",
-    desc: "Lightweight, performance-first apps that load fast and work smoothly.",
-    icon: <Zap />,
+    desc: "Lightweight, performance-first applications that load blazingly fast on all devices.",
+    icon: <Zap className="h-7 w-7 text-amber-400" />,
+    badge: "Ultra Performance",
+    accent: "from-amber-500/20 to-orange-600/20",
+    border: "border-amber-500/30 group-hover:border-amber-400",
+    glow: "group-hover:shadow-[0_0_30px_rgba(245,158,11,0.25)]"
   },
 ];
 
 export function Features() {
   return (
-    <section className="relative overflow-hidden py-20 md:py-24 bg-muted/20 text-foreground">
-      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#2563eb]/15 blur-3xl" />
-      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#f59e0b]/15 blur-3xl" />
-      <div className="absolute right-1/3 top-1/2 h-64 w-64 rounded-full bg-[#14b8a6]/10 blur-3xl" />
-      <div className="container relative z-10 mx-auto px-4 text-center">
-        <h2 className="text-4xl md:text-6xl font-black mb-24 leading-[0.9] tracking-tighter">
-          Why <span className="text-magenta-500">Choose Us</span>
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <section className="relative overflow-hidden py-16 md:py-24 bg-[#050b14] text-white">
+      <div className="container relative z-10 mx-auto px-4 text-center max-w-6xl">
+        <div className="mb-16">
+          <span className="text-xs font-black uppercase tracking-[0.25em] text-cyan-400 mb-3 block">
+            Core Highlights
+          </span>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight">
+            Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-300">Odlix</span>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((f, i) => (
-            <div key={i} className="space-y-6 group">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 mx-auto flex items-center justify-center text-magenta-500 group-hover:bg-magenta-500 group-hover:text-white transition-all shadow-xl active:scale-90">
-                {f.icon}
+            <div
+              key={i}
+              className={`group relative p-8 rounded-[2rem] bg-slate-900/80 backdrop-blur-xl border ${f.border} transition-all duration-300 text-left shadow-xl flex flex-col justify-between ${f.glow} hover:-translate-y-1.5`}
+            >
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${f.accent} border border-white/10 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
+                    {f.icon}
+                  </div>
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full bg-slate-950/80 text-slate-300 border border-slate-800">
+                    {f.badge}
+                  </span>
+                </div>
+                <h3 className="text-xl font-black tracking-tight mb-3 text-white group-hover:text-cyan-300 transition-colors">
+                  {f.title}
+                </h3>
+                <p className="text-slate-400 font-medium text-sm leading-relaxed">{f.desc}</p>
               </div>
-              <h4 className="text-xl font-black tracking-tight">{f.title}</h4>
-              <p className="text-muted-foreground font-medium text-sm leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>
