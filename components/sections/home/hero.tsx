@@ -19,7 +19,7 @@ export function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="relative pt-8 pb-8 md:pt-12 md:pb-12 flex flex-col items-center text-center overflow-hidden">
+    <section className="relative pt-28 pb-12 md:pt-36 md:pb-16 lg:pt-40 lg:pb-20 flex flex-col items-center text-center overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,#f59e0b,transparent_60%)] opacity-25 dark:opacity-40" />
       <div className="absolute -right-24 top-10 h-72 w-72 rounded-full bg-[#4f46e5]/20 blur-3xl" />
       <div className="absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-[#7CFC00]/15 blur-3xl" />
