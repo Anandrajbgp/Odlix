@@ -16,6 +16,7 @@
     "@auth/prisma-adapter": "^2.11.3",
     "@hookform/resolvers": "^3.10.0",
     "@prisma/client": "^6.16.2",
+    "@supabase/supabase-js": "^2.118.0",
     "axios": "^1.7.9",
     "bcryptjs": "^3.0.3",
     "clsx": "^2.1.1",
