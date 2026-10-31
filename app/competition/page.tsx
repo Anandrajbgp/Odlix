@@ -7,7 +7,7 @@ import { SuccessStories } from "@/components/sections/competition/success-storie
 
 export default function CompetitionPage() {
   return (
-    <div className="bg-background min-h-screen transition-colors duration-300">
+    <div className="bg-transparent min-h-screen transition-colors duration-300">
       <Hero />
       <Stats />
       <Features />

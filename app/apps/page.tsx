@@ -1,17 +1,17 @@
 import { Hero } from "@/components/sections/apps/hero";
-import { StoreTabs } from "@/components/sections/apps/store-tabs";
-import { Community } from "@/components/sections/apps/community";
+import { Features } from "@/components/sections/apps/features";
+import { FAQ } from "@/components/sections/apps/faq";
 
 export default function AppsPage() {
   return (
-    <div className="bg-background min-h-screen transition-colors duration-300">
+    <div className="bg-transparent min-h-screen transition-colors duration-300">
       <Hero />
-      <StoreTabs />
-      <Community />
+      <Features />
+      <FAQ />
 
-      {/* PWA Footer Section */}
-      <footer className="py-16 bg-background text-center text-[10px] opacity-30 text-foreground uppercase tracking-[0.4em] border-t border-border font-black">
-         Full Offline PWA Ready • Secure Cloud Verification • Powered by Odlix
+      {/* App Store Footer */}
+      <footer className="py-16 bg-transparent text-center text-[10px] opacity-40 text-red-300 uppercase tracking-[0.5em] border-t border-red-500/30 font-black backdrop-blur-sm">
+        Global App Distribution • Verified Developers • Secure Downloads
       </footer>
     </div>
   );

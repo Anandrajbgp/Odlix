@@ -8,7 +8,6 @@ export default function UsefulWebsitesDashboardLayout({ children }: { children: 
       <div
         className="min-h-screen flex flex-col"
         style={{
-          // @ts-ignore
           "--platform-primary": "#14b8a6",
           "--platform-secondary": "#06b6d4",
           "--platform-accent": "#eab308",

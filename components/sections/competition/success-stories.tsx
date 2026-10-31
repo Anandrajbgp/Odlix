@@ -22,31 +22,31 @@ const stories = [
 
 export function SuccessStories() {
   return (
-    <section className="relative overflow-hidden bg-background py-12 md:py-14">
-      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#0ea5e9]/15 blur-3xl" />
-      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#0d9488]/12 blur-3xl" />
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="mb-8">
-          <h2 className="text-2xl font-black tracking-tight text-foreground md:text-4xl">Placed Candidates</h2>
-          <p className="mt-2 text-sm font-medium text-foreground/60">
+    <section className="relative overflow-hidden bg-transparent py-16 md:py-20 text-white">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#0ea5e9]/20 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#0d9488]/20 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4 max-w-6xl">
+        <div className="mb-10 text-center">
+          <h2 className="text-3xl font-black tracking-tight text-white md:text-5xl">Placed Candidates</h2>
+          <p className="mt-3 text-sm font-semibold text-slate-200">
             Real reviews from aspirants who secured jobs using this platform.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {stories.map((story) => (
-            <article key={story.name} className="rounded-xl border border-border bg-card p-5">
-              <div className="mb-3 flex items-center gap-1 text-[#FFD54A]">
+            <article key={story.name} className="rounded-[2.2rem] border border-slate-700/60 bg-slate-900/15 backdrop-blur-xl p-6 md:p-8 shadow-xl">
+              <div className="mb-4 flex items-center gap-1 text-amber-400">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <Star key={star} className="h-4 w-4 fill-current" />
                 ))}
               </div>
-              <p className="text-sm font-medium leading-relaxed text-foreground/75">“{story.quote}”</p>
-              <div className="mt-4 flex items-center gap-2 text-sm font-black text-foreground">
-                <Briefcase className="h-4 w-4 text-[var(--platform-primary)]" />
+              <p className="text-sm font-semibold leading-relaxed text-slate-200">“{story.quote}”</p>
+              <div className="mt-6 flex items-center gap-2.5 text-base font-black text-white">
+                <Briefcase className="h-4 w-4 text-cyan-300" />
                 {story.name}
               </div>
-              <p className="mt-1 text-xs text-foreground/50">{story.role}</p>
+              <p className="mt-1 text-xs text-slate-300 font-semibold">{story.role}</p>
             </article>
           ))}
         </div>

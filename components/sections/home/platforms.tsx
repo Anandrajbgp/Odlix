@@ -102,19 +102,19 @@ export function PlatformShowcase() {
       <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#f59e0b]/15 blur-3xl" />
       <div className="absolute right-1/3 top-1/2 h-64 w-64 rounded-full bg-[#7CFC00]/10 blur-3xl" />
       <div className="container relative z-10 mx-auto px-4">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tight leading-[0.92]">Ecosystem <br /> <span className="text-[#f59e0b] italic">Hub.</span></h2>
-            <p className="opacity-60 max-w-md text-lg md:text-xl font-medium leading-relaxed">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-4 tracking-tight leading-[0.92] text-white">Ecosystem <br /> <span className="text-[#f59e0b] italic">Hub.</span></h2>
+            <p className="text-slate-200 text-lg md:text-xl font-semibold leading-relaxed max-w-md">
               Dedicated engines driving the digital revolution.
             </p>
           </div>
-          <Link href="/platforms" className="font-black text-xl flex items-center hover:text-[#14b8a6] transition-colors active:scale-95">
+          <Link href="/platforms" className="font-black text-xl flex items-center text-amber-400 hover:text-amber-300 transition-colors active:scale-95">
             Explore All Platforms <ArrowRight className="ml-2 w-6 h-6" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {platforms.map((platform, idx) => (
             <motion.div
               key={platform.title}
@@ -125,29 +125,29 @@ export function PlatformShowcase() {
             >
               <Link
                 href={platform.href}
-                className="group relative block p-10 rounded-[3rem] border border-border bg-card hover:bg-muted/50 transition-all hover:-translate-y-4 h-full overflow-hidden active:scale-[0.98]"
+                className="group relative block p-8 md:p-10 rounded-[2.5rem] border border-slate-700/70 bg-slate-950/85 backdrop-blur-xl hover:bg-slate-900/90 hover:border-amber-400/80 transition-all hover:-translate-y-2 h-full overflow-hidden active:scale-[0.98] text-white shadow-2xl"
               >
-                <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${platform.color} opacity-10 blur-[100px] group-hover:opacity-20 transition-opacity`} />
+                <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${platform.color} opacity-20 blur-[90px] group-hover:opacity-30 transition-opacity`} />
 
-                <div className={`mb-10 flex h-20 w-20 items-center justify-center rounded-3xl text-3xl shadow-2xl transition-all group-hover:scale-110 ${platform.iconSurface} ${platform.iconText}`}>
+                <div className={`mb-8 flex h-16 w-16 items-center justify-center rounded-2xl text-2xl shadow-xl transition-all group-hover:scale-110 ${platform.iconSurface} ${platform.iconText}`}>
                   {platform.icon}
                 </div>
 
-                <h3 className="text-3xl font-black mb-4 tracking-tighter">{platform.title}</h3>
-                <p className="opacity-50 text-lg mb-8 group-hover:opacity-100 transition-opacity leading-snug font-medium">
+                <h3 className="text-2xl md:text-3xl font-black mb-3 tracking-tight text-white">{platform.title}</h3>
+                <p className="text-slate-300 font-semibold text-sm md:text-base mb-6 leading-relaxed group-hover:text-white transition-colors">
                   {platform.description}
                 </p>
 
-                <div className="space-y-2 mb-10">
+                <div className="space-y-2.5 mb-8">
                    {platform.features.map(f => (
-                     <div key={f} className="flex items-center space-x-2 text-xs font-black uppercase tracking-widest opacity-30 group-hover:opacity-60 transition-opacity">
-                        <CheckCircle2 className={`h-3 w-3 ${platform.checkColor}`} />
+                     <div key={f} className="flex items-center space-x-2 text-xs font-black uppercase tracking-widest text-slate-200">
+                        <CheckCircle2 className={`h-4 w-4 ${platform.checkColor}`} />
                         <span>{f}</span>
                      </div>
                    ))}
                 </div>
 
-                <div className="flex items-center font-black text-sm uppercase tracking-[0.2em] opacity-40 group-hover:opacity-100 transition-opacity">
+                <div className="flex items-center font-extrabold text-xs md:text-sm uppercase tracking-[0.2em] text-amber-400 group-hover:text-amber-300 transition-colors">
                   Access Platform <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>

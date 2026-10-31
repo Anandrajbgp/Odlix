@@ -157,7 +157,7 @@ export const elearningPackages: PackageDetail[] = [
       "Weekly discipline checkpoints",
       "Ethical dilemma case studies",
     ],
-    accessRule: "Unlocked after completing any core package (Beginner, Pro, or Expert).",
+    accessRule: "Unlocked after completing core package",
   },
 ];
 

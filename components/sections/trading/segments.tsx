@@ -22,7 +22,7 @@ export function Segments() {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12 text-xs font-black uppercase tracking-[0.24em] text-[#7CFC00]"
+            className="mb-12 text-xs font-black uppercase tracking-[0.24em] text-slate-300"
           >
             Supported Live Segments
           </motion.div>
@@ -30,7 +30,7 @@ export function Segments() {
             {segments.map((s) => (
               <span
                 key={s}
-                className="rounded-full border border-[#7CFC00]/30 bg-[#7CFC00]/15 px-5 py-3 text-xs font-black tracking-wider text-[#7CFC00] md:text-sm transition-all hover:border-[#7CFC00]/50 hover:bg-[#7CFC00]/25 active:scale-95"
+                className="rounded-full border border-[#7CFC00]/30 bg-[#7CFC00]/15 px-5 py-3 text-xs font-black tracking-wider text-white md:text-sm transition-all hover:border-[#7CFC00]/50 hover:bg-[#7CFC00]/25 active:scale-95"
               >
                 {s}
               </span>

@@ -20,16 +20,16 @@ export function AgencyShowcase() {
   const next = () => setIndex((i) => (i < slides.length - 1 ? i + 1 : 0));
 
   return (
-    <section className="relative overflow-hidden py-12 md:py-14 border-b border-border">
-      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#f59e0b]/15 blur-3xl" />
-      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#fbbf24]/12 blur-3xl" />
+    <section className="relative overflow-hidden py-16 md:py-20 bg-slate-950 text-white border-b border-white/10">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#f59e0b]/20 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#fbbf24]/20 blur-3xl" />
       <div className="container relative z-10 mx-auto px-4">
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-4 mb-8">
           <div>
-            <h2 className="text-2xl font-black uppercase tracking-tight text-foreground md:text-4xl">
-              Portfolio & Client Proof
+            <h2 className="text-3xl font-black uppercase tracking-tight text-white md:text-5xl">
+              Portfolio &amp; Client Proof
             </h2>
-            <p className="mt-2 text-sm font-medium text-muted-foreground md:text-base">
+            <p className="mt-2 text-sm font-medium text-slate-300 md:text-base">
               Projects and real outcomes in one view.
             </p>
           </div>
@@ -37,33 +37,33 @@ export function AgencyShowcase() {
             <button
               type="button"
               onClick={prev}
-              className="rounded-lg border border-border p-2 text-foreground transition hover:bg-muted"
+              className="rounded-xl border border-white/10 bg-slate-900 p-3 text-white transition hover:bg-slate-800"
               aria-label="Previous slide"
             >
-              <ChevronLeft className="h-4 w-4" />
+              <ChevronLeft className="h-5 w-5" />
             </button>
             <button
               type="button"
               onClick={next}
-              className="rounded-lg border border-border p-2 text-foreground transition hover:bg-muted"
+              className="rounded-xl border border-white/10 bg-slate-900 p-3 text-white transition hover:bg-slate-800"
               aria-label="Next slide"
             >
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-5 w-5" />
             </button>
           </div>
         </div>
 
-        <div className="mt-8 rounded-xl border border-border bg-card p-6 md:p-8">
-          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--platform-accent)]">
+        <div className="rounded-3xl border border-white/10 bg-slate-900 p-8 md:p-12 shadow-2xl">
+          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-400">
             {current.type === "project" ? "Project" : "Client Proof"}
           </p>
-          <h3 className="mt-3 text-2xl font-black tracking-tight text-foreground">{current.title}</h3>
-          <p className="mt-1 text-sm text-muted-foreground">{current.subtitle}</p>
-          <div className="mt-6 text-xl font-black text-[var(--platform-accent)]">{current.result}</div>
-          <p className="mt-2 text-xs text-muted-foreground">{current.note}</p>
+          <h3 className="mt-3 text-3xl font-black tracking-tight text-white">{current.title}</h3>
+          <p className="mt-1 text-base text-slate-300 font-medium">{current.subtitle}</p>
+          <div className="mt-6 text-3xl font-black text-amber-400">{current.result}</div>
+          <p className="mt-2 text-xs font-semibold text-slate-400">{current.note}</p>
         </div>
 
-        <div className="mt-4 text-center text-xs text-muted-foreground">
+        <div className="mt-6 text-center text-xs font-bold text-slate-400">
           {index + 1} / {slides.length}
         </div>
       </div>

@@ -1,13 +1,15 @@
 "use client";
 
 import { ShieldCheck, Lock, Eye, Database, Globe, Mail, Phone, ScrollText, UserCheck, Clock3 } from "lucide-react";
+import { BackgroundBubbles } from "@/components/layout/background-bubbles";
 
 export default function EcosystemPrivacyPage() {
   return (
-    <div className="min-h-screen bg-[#050b14] pt-32 pb-24 text-white">
-      <div className="container mx-auto max-w-5xl px-4">
+    <div className="min-h-screen bg-transparent pt-32 pb-24 text-white relative">
+      <BackgroundBubbles />
+      <div className="container mx-auto max-w-5xl px-4 relative z-10">
         {/* Banner Card matching exact design and fonts from reference image */}
-        <div className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(108deg,#00a3da_0%,#00d4ca_50%,#00f5c4_100%)] p-8 md:p-12 text-[#0f1d26] shadow-[0_25px_60px_rgba(0,212,202,0.25)] border border-white/30 mb-10">
+        <div className="relative overflow-hidden rounded-[2.2rem] bg-[linear-gradient(108deg,#00a3da_0%,#00d4ca_50%,#00f5c4_100%)] p-8 md:p-12 text-[#0f1d26] shadow-[0_25px_60px_rgba(0,212,202,0.25)] border border-white/30 mb-10">
           <div className="absolute inset-0 bg-[linear-gradient(125deg,rgba(255,255,255,0.35)_0%,rgba(255,255,255,0.12)_40%,transparent_65%)] pointer-events-none" />
 
           <header className="relative z-10">
@@ -24,10 +26,10 @@ export default function EcosystemPrivacyPage() {
           </header>
         </div>
 
-        <div className="rounded-[2rem] border border-cyan-500/20 bg-slate-900/90 p-8 shadow-xl md:p-12 space-y-8 text-sm leading-relaxed text-slate-300 md:text-base font-medium">
+        <div className="rounded-[2.2rem] border border-slate-700/60 bg-slate-900/15 backdrop-blur-xl p-8 shadow-xl md:p-12 space-y-8 text-sm leading-relaxed text-slate-200 md:text-base font-semibold">
           <section>
             <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-white">
-              <Eye className="h-5 w-5 text-cyan-400" /> Information We Collect
+              <Eye className="h-5 w-5 text-cyan-300" /> Information We Collect
             </h2>
             <p>
               We may collect identity and contact data, account metadata, service usage logs, transaction records,
@@ -37,7 +39,7 @@ export default function EcosystemPrivacyPage() {
 
           <section>
             <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-white">
-              <Database className="h-5 w-5 text-cyan-400" /> Purpose of Processing
+              <Database className="h-5 w-5 text-cyan-300" /> Purpose of Processing
             </h2>
             <ul className="space-y-2">
               <li>• Account authentication, platform operations, and feature delivery.</li>
@@ -49,7 +51,7 @@ export default function EcosystemPrivacyPage() {
 
           <section>
             <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-white">
-              <UserCheck className="h-5 w-5 text-cyan-400" /> Lawful Bases & User Choice
+              <UserCheck className="h-5 w-5 text-cyan-300" /> Lawful Bases & User Choice
             </h2>
             <p>
               Processing is performed under lawful grounds including consent, contract performance,
@@ -59,7 +61,7 @@ export default function EcosystemPrivacyPage() {
 
           <section>
             <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-white">
-              <Lock className="h-5 w-5 text-cyan-400" /> Security Controls
+              <Lock className="h-5 w-5 text-cyan-300" /> Security Controls
             </h2>
             <p>
               Odlix applies layered controls including encrypted transport where applicable, role-based access,
@@ -70,7 +72,7 @@ export default function EcosystemPrivacyPage() {
 
           <section>
             <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-white">
-              <Globe className="h-5 w-5 text-cyan-400" /> Data Sharing & Processors
+              <Globe className="h-5 w-5 text-cyan-300" /> Data Sharing & Processors
             </h2>
             <p>
               We do not sell personal data. We may share limited data with trusted processors for hosting,
@@ -80,7 +82,7 @@ export default function EcosystemPrivacyPage() {
 
           <section>
             <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-white">
-              <Clock3 className="h-5 w-5 text-cyan-400" /> Retention & Deletion
+              <Clock3 className="h-5 w-5 text-cyan-300" /> Retention & Deletion
             </h2>
             <p>
               Data is retained only as long as necessary for service continuity, legal compliance, and audit.
@@ -90,7 +92,7 @@ export default function EcosystemPrivacyPage() {
 
           <section>
             <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-white">
-              <ScrollText className="h-5 w-5 text-cyan-400" /> Your Rights
+              <ScrollText className="h-5 w-5 text-cyan-300" /> Your Rights
             </h2>
             <p>
               Subject to applicable law, users may request access, correction, deletion, portability, or

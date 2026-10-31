@@ -6,7 +6,7 @@ import { Wealth } from "@/components/sections/elearning/wealth";
 
 export default function ELearningPage() {
   return (
-    <div className="bg-background min-h-screen transition-colors duration-300">
+    <div className="bg-transparent min-h-screen transition-colors duration-300">
       <Hero />
       <Packages />
       <Stats />
@@ -15,4 +15,3 @@ export default function ELearningPage() {
     </div>
   );
 }
-

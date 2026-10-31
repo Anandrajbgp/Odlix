@@ -1,116 +1,86 @@
-import { FileText, Scale, ShieldCheck, Ban, Mail, Phone, Landmark, Gavel, UserCheck, Clock3 } from "lucide-react";
+import { FileText, Scale, ShieldCheck, Ban, Mail, Phone, Landmark, Gavel, UserCheck, Clock3, Briefcase, CheckCircle2 } from "lucide-react";
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-background py-14 md:py-16">
-      <div className="container mx-auto max-w-4xl px-4">
-        <div className="border border-border bg-card p-6 md:p-8">
-          <header className="mb-10">
+    <div className="min-h-screen bg-background pt-32 pb-20 md:pt-36 md:pb-24">
+      <div className="container mx-auto max-w-5xl px-4">
+        <div className="border border-border bg-card p-8 md:p-14 rounded-[2.5rem] shadow-2xl">
+          <header className="mb-12 border-b border-border pb-8">
             <div className="mb-4 flex items-center gap-3">
-              <div className="rounded-2xl bg-slate-900 p-3 text-white">
-                <FileText className="h-7 w-7" />
+              <div className="rounded-2xl bg-amber-500/10 p-3 text-amber-500">
+                <FileText className="h-8 w-8" />
               </div>
-              <h1 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">Agency Terms & Conditions</h1>
+              <h1 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">Odlix Agency — Master Terms of Service</h1>
             </div>
-            <p className="text-sm text-muted-foreground md:text-base">
-              Effective Date: 18 August 2026 | Version: ODLIX-AGENCY-TOS-1.1. These terms govern all Odlix Agency service engagements.
+            <p className="text-sm text-muted-foreground md:text-base font-medium mt-3">
+              Effective Date: 18 August 2026 | Version: ODLIX-AGENCY-TOS-2.0. These Master Terms govern all software engineering, digital product creation, consulting, and technological partnership engagements undertaken by Odlix Agency.
             </p>
           </header>
 
-          <div className="space-y-8 text-sm leading-relaxed text-muted-foreground md:text-base">
-            <section>
-              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
-                <Scale className="h-5 w-5 text-muted-foreground" /> Engagement Scope
+          <div className="space-y-10 text-sm leading-relaxed text-muted-foreground md:text-base font-medium">
+            <section className="space-y-3">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground">
+                <Scale className="h-6 w-6 text-amber-500" /> 1. Scope of Engagement & Deliverables
               </h2>
               <p>
-                Scope, timelines, and deliverables are defined in proposals, statements of work, and approved change requests.
-                Scope modifications may impact cost and delivery schedules.
+                Every project executed by Odlix Agency operates under a defined Statement of Work (SoW), project proposal, or approved technical specification. Any changes, scope creep, or additional features requested post-signoff will be handled via formal Change Request Orders (CRO) impacting timeline and budget.
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
-                <UserCheck className="h-5 w-5 text-muted-foreground" /> Client Responsibilities
+            <section className="space-y-3">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground">
+                <UserCheck className="h-6 w-6 text-amber-500" /> 2. Client Commitments & Dependencies
               </h2>
               <ul className="space-y-2">
-                <li>• Provide timely approvals, assets, and required operational inputs.</li>
-                <li>• Ensure submitted materials do not violate third-party rights.</li>
-                <li>• Provide/maintain access credentials needed for implementation and deployment.</li>
+                <li>• Timely provision of brand assets, API documentation, server credentials, and decision-making feedback.</li>
+                <li>• Verification that all supplied content and trademarks do not infringe upon third-party intellectual property rights.</li>
+                <li>• Prompt milestone sign-offs within agreed review windows (default: 3 business days).</li>
               </ul>
             </section>
 
-            <section>
-              <h2 className="mb-2 text-xl font-bold text-foreground">Commercial Terms</h2>
-              <p>
-                Billing follows milestone or subscription structure defined in writing. Delayed payments may
-                pause ongoing work until dues are cleared.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
-                <ShieldCheck className="h-5 w-5 text-muted-foreground" /> Intellectual Property & Licenses
+            <section className="space-y-3">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground">
+                <Landmark className="h-6 w-6 text-amber-500" /> 3. Commercial Terms, Invoicing & Milestones
               </h2>
               <p>
-                Ownership transfer, licensing, and usage rights are governed by project-specific agreements.
-                Reusable internal frameworks and tools remain property of Odlix unless explicitly assigned.
+                Billing adheres to milestone-based or retainer structures specified in the SoW. Invoices are payable within 7 calendar days of issuance unless otherwise agreed. Failure to settle milestone invoices may result in suspension of staging servers and development velocity until dues are cleared.
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
-                <Ban className="h-5 w-5 text-muted-foreground" /> Warranty & Liability Limits
+            <section className="space-y-3">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground">
+                <ShieldCheck className="h-6 w-6 text-amber-500" /> 4. Intellectual Property Rights & Licensing
               </h2>
               <p>
-                Services are delivered using commercially reasonable professional standards. Liability is limited
-                to the extent permitted by law and applicable signed agreements.
+                Upon final, cleared payment of all project fees, Odlix Agency assigns full ownership of custom-developed source code and proprietary deliverables to the client. Odlix retains ownership of pre-existing reusable internal frameworks, utility libraries, and development accelerators licensed non-exclusively to the client for project operation.
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-2 text-xl font-bold text-foreground">Termination & Suspension</h2>
-              <p>
-                Either party may terminate as per agreement clauses. Charges for completed work, committed resources,
-                and non-cancellable third-party costs remain payable.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
-                <Landmark className="h-5 w-5 text-muted-foreground" /> Governing Law & Jurisdiction
+            <section className="space-y-3">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground">
+                <Ban className="h-6 w-6 text-amber-500" /> 5. Warranties & Limitation of Liability
               </h2>
               <p>
-                These terms are governed by Indian law. Subject to legal requirements, disputes fall under competent
-                courts in Tamil Nadu, India.
+                Odlix Agency delivers software with professional craftsmanship and industry-standard QA testing. We provide a 30-day post-launch warranty for bug remediation of delivered code. Total aggregate liability for any claim under an agency agreement shall not exceed the total fees paid by the client for the specific milestone in dispute.
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
-                <Gavel className="h-5 w-5 text-muted-foreground" /> Dispute Resolution
+            <section className="space-y-3">
+              <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground">
+                <Gavel className="h-6 w-6 text-amber-500" /> 6. Governing Law & Jurisdiction
               </h2>
               <p>
-                Parties should first attempt amicable settlement. If unresolved, matters may proceed to mediation/arbitration
-                and legal remedy in competent courts as applicable.
+                These terms are governed by and construed in accordance with the laws of India. Any legal dispute or arbitration arising herefrom shall be subject to the exclusive jurisdiction of the courts located in Bhagalpur, Bihar, India.
               </p>
             </section>
 
-            <section>
-              <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
-                <Clock3 className="h-5 w-5 text-muted-foreground" /> Policy Updates
-              </h2>
-              <p>
-                Odlix may update these terms for operational, legal, or security reasons. Updated versions include a new
-                effective date and version identifier.
-              </p>
-            </section>
-
-            <section className="rounded-2xl bg-slate-600 p-6 text-white">
-              <h2 className="mb-3 text-xl font-black">Agency Legal & Support Contact</h2>
-              <div className="space-y-2 text-sm font-semibold md:text-base">
-                <p className="flex items-center gap-2"><Mail className="h-4 w-4" /> team.odlix@gmail.com</p>
-                <p className="flex items-center gap-2"><Phone className="h-4 w-4" /> +91 7372891228</p>
-                <p className="text-xs uppercase tracking-[0.12em] opacity-90">Initial response target: 24-48 working hours</p>
+            <section className="rounded-3xl bg-slate-900 p-8 text-white border border-amber-500/20 shadow-xl">
+              <h2 className="mb-3 text-2xl font-black">Agency Commercial & Legal Desk</h2>
+              <p className="text-slate-300 mb-6 text-sm">For contract inquiries, procurement, or legal notices:</p>
+              <div className="space-y-3 text-sm font-bold md:text-base">
+                <p className="flex items-center gap-3"><Mail className="h-5 w-5 text-amber-400" /> team.odlix@gmail.com</p>
+                <p className="flex items-center gap-3"><Phone className="h-5 w-5 text-amber-400" /> +91 7372891228</p>
+                <p className="text-xs uppercase tracking-[0.15em] text-amber-300 font-black mt-4">Office Hours: Mon–Fri, 9:00 AM – 6:00 PM IST</p>
               </div>
             </section>
           </div>

@@ -19,7 +19,7 @@ export function Steps() {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12 text-xs font-black uppercase tracking-[0.24em] text-[#7CFC00]"
+            className="mb-12 text-xs font-black uppercase tracking-[0.24em] text-slate-300"
           >
             How It Works
           </motion.div>
@@ -33,11 +33,11 @@ export function Steps() {
                 transition={{ delay: steps.indexOf(step) * 0.1 }}
                 className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 text-center transition-all hover:bg-white/[0.05] hover:border-[#7CFC00]/40"
               >
-                <div className="mx-auto mb-6 h-12 w-12 rounded-full border border-[#7CFC00]/30 bg-[#7CFC00]/20 flex items-center justify-center text-[#7CFC00] font-black text-xl tracking-tighter">
+                <div className="mx-auto mb-6 h-12 w-12 rounded-full border border-[#7CFC00]/30 bg-[#7CFC00]/20 flex items-center justify-center text-white font-black text-xl tracking-tighter">
                   {step.num}
                 </div>
                 <h3 className="mb-2 text-xl font-black tracking-tight text-foreground">{step.title}</h3>
-                <p className="text-sm font-medium text-slate-500">{step.desc}</p>
+                <p className="text-sm font-medium text-slate-400">{step.desc}</p>
               </motion.div>
             ))}
           </div>

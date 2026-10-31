@@ -127,6 +127,22 @@
   animation: platform-float-b 18s ease-in-out infinite;
 }
 
+.platform-orb-center {
+  width: clamp(18rem, 38vw, 32rem);
+  height: clamp(18rem, 38vw, 32rem);
+  top: 38%;
+  left: 28%;
+  animation: platform-float-a 20s ease-in-out infinite reverse;
+}
+
+.platform-orb-bottom-left {
+  width: clamp(15rem, 32vw, 28rem);
+  height: clamp(15rem, 32vw, 28rem);
+  bottom: 15%;
+  left: 5%;
+  animation: platform-float-b 16s ease-in-out infinite;
+}
+
 @keyframes platform-float-a {
   0%,
   100% {
@@ -147,10 +163,32 @@
   }
 }
 
+@keyframes bubble-float {
+  0% {
+    transform: translateY(0px) scale(0.8);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  85% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-105vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.animate-bubble {
+  animation: bubble-float linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .platform-orb,
   .platform-orb-left,
-  .platform-orb-right {
+  .platform-orb-right,
+  .animate-bubble {
     animation: none !important;
   }
 

@@ -43,7 +43,7 @@ const features = [
 
 export function Features() {
   return (
-    <section className="relative overflow-hidden py-16 md:py-24 bg-[#050b14] text-white">
+    <section className="relative overflow-hidden py-16 md:py-24 bg-transparent text-white">
       <div className="container relative z-10 mx-auto px-4 text-center max-w-6xl">
         <div className="mb-16">
           <span className="text-xs font-black uppercase tracking-[0.25em] text-cyan-400 mb-3 block">
@@ -58,21 +58,21 @@ export function Features() {
           {features.map((f, i) => (
             <div
               key={i}
-              className={`group relative p-8 rounded-[2rem] bg-slate-900/80 backdrop-blur-xl border ${f.border} transition-all duration-300 text-left shadow-xl flex flex-col justify-between ${f.glow} hover:-translate-y-1.5`}
+              className={`group relative p-8 rounded-[2rem] bg-slate-900/15 backdrop-blur-md border border-slate-700/60 transition-all duration-300 text-left shadow-xl flex flex-col justify-between ${f.glow} hover:-translate-y-1.5 hover:bg-slate-900/35 hover:border-cyan-400`}
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${f.accent} border border-white/10 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${f.accent} border border-slate-700/60 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
                     {f.icon}
                   </div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full bg-slate-950/80 text-slate-300 border border-slate-800">
+                  <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-slate-900/40 text-slate-200 border border-slate-700/50 backdrop-blur-md">
                     {f.badge}
                   </span>
                 </div>
                 <h3 className="text-xl font-black tracking-tight mb-3 text-white group-hover:text-cyan-300 transition-colors">
                   {f.title}
                 </h3>
-                <p className="text-slate-400 font-medium text-sm leading-relaxed">{f.desc}</p>
+                <p className="text-slate-200 font-semibold text-sm leading-relaxed">{f.desc}</p>
               </div>
             </div>
           ))}

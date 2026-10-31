@@ -40,19 +40,19 @@ const stats: StatItem[] = [
 
 export function Stats() {
   return (
-    <section className="relative overflow-hidden py-12 md:py-14 border-b border-border bg-background">
-      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#1e3a8a]/12 blur-3xl" />
-      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#312e81]/10 blur-3xl" />
+    <section className="relative overflow-hidden py-16 md:py-20 border-b border-white/10 bg-transparent text-white">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#1e3a8a]/20 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#312e81]/20 blur-3xl" />
       <div className="container relative z-10 mx-auto px-4">
-        <div className="text-center mb-7 md:mb-8 text-foreground">
-          <p className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-indigo-700 dark:text-indigo-400">
+        <div className="text-center mb-10 md:mb-12 text-white">
+          <p className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/15 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-indigo-300 backdrop-blur-md">
             <ShieldCheck className="h-3.5 w-3.5" />
             Trust Signals
           </p>
-          <h2 className="mt-4 text-3xl md:text-5xl font-black tracking-tight">
+          <h2 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
             Real Learner Momentum.
           </h2>
-          <p className="mt-3 text-sm md:text-base text-muted-foreground font-medium">
+          <p className="mt-3 text-sm md:text-base text-slate-200 font-semibold">
             Transparent outcomes that help new students trust the platform quickly.
           </p>
         </div>
@@ -61,18 +61,18 @@ export function Stats() {
           {stats.map((item) => (
             <article
               key={item.label}
-              className="rounded-2xl border border-border bg-card p-5 md:p-6 shadow-sm"
+              className="rounded-2xl border border-slate-700/60 bg-slate-900/15 backdrop-blur-xl p-5 md:p-6 shadow-xl"
             >
-              <div className="mb-4 inline-flex rounded-xl bg-indigo-500/10 p-2 text-indigo-700 dark:text-indigo-400">
+              <div className="mb-4 inline-flex rounded-xl bg-indigo-500/20 p-2 text-indigo-300">
                 {item.icon}
               </div>
               <AnimatedCounter
                 end={item.value}
                 suffix={item.suffix}
                 format="compact"
-                className="block text-2xl md:text-3xl font-black tracking-tight text-foreground"
+                className="block text-2xl md:text-3xl font-black tracking-tight text-white"
               />
-              <p className="mt-2 text-xs md:text-sm font-semibold text-muted-foreground">
+              <p className="mt-2 text-xs md:text-sm font-semibold text-slate-200">
                 {item.label}
               </p>
             </article>
@@ -82,4 +82,3 @@ export function Stats() {
     </section>
   );
 }
-

@@ -9,9 +9,9 @@ export function CTA() {
     <section className="container mx-auto px-4 py-32">
       <motion.div
          whileHover={{ scale: 0.98 }}
-         className="relative p-16 md:p-32 rounded-[5rem] overflow-hidden group cursor-pointer shadow-2xl shadow-primary/10 border border-primary/5"
+         className="relative p-12 md:p-24 rounded-[3rem] md:rounded-[4rem] overflow-hidden group cursor-pointer shadow-2xl bg-slate-950/80 backdrop-blur-2xl border border-slate-700/80"
       >
-        <div className="absolute inset-0 gradient-platform opacity-90 group-hover:opacity-100 transition-opacity" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a8a]/40 via-[#f59e0b]/30 via-[#10b981]/30 to-[#0ea5e9]/40 opacity-90 group-hover:opacity-100 transition-opacity" />
         <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#4f46e5]/25 blur-3xl" />
         <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#10b981]/20 blur-3xl" />
         <div className="absolute right-1/3 top-1/2 h-64 w-64 rounded-full bg-[#24a1ee]/20 blur-3xl" />

@@ -153,7 +153,9 @@ const CATEGORIES = [
   { key: "Teaching", label: "Teaching", icon: BookOpen },
   { key: "Defence", label: "Defence", icon: ShieldCheck },
   { key: "State PSC", label: "State PSC", icon: MapPin },
-];export default function ExploreExams() {
+];
+
+export default function ExploreExams() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
 
@@ -172,21 +174,22 @@ const CATEGORIES = [
   });
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="border-b border-border bg-background/80 backdrop-blur sticky top-0 z-20">
+    <div className="min-h-screen bg-slate-950 text-white pt-36 md:pt-44 pb-20">
+      {/* Sticky Header */}
+      <div className="border-b border-white/10 bg-slate-950/90 backdrop-blur sticky top-28 md:top-32 z-20 shadow-xl">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row md:items-center gap-4">
-            <Link href="/competition" className="flex items-center gap-2 font-black text-2xl tracking-tighter">
+            <Link href="/competition" className="flex items-center gap-2 font-black text-2xl tracking-tighter text-white">
               <GraduationCap className="h-7 w-7 text-[#0ea5e9]" />
-              <span>Mock Hub</span>
+              <span>Exam Explorer</span>
             </Link>
-            <div className="ml-auto flex items-center gap-3">
-              <div className="relative flex-1 max-w-md">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+            <div className="ml-auto flex items-center gap-3 w-full md:w-auto">
+              <div className="relative flex-1 md:w-80">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
                 <input
                   type="text"
                   placeholder="Search exams..."
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-card text-sm font-bold focus:outline-none focus:ring-2 focus:ring-[#0ea5e9]/50 transition-all"
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-white/10 bg-slate-900 text-sm font-bold text-white focus:outline-none focus:ring-2 focus:ring-[#0ea5e9]/50 transition-all placeholder:text-slate-500"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                 />
@@ -197,16 +200,17 @@ const CATEGORIES = [
       </div>
 
       <div className="container mx-auto px-4 py-10">
-        <div className="flex items-center gap-3 mb-8 overflow-x-auto pb-2 scrollbar-hide">
+        {/* Category Pills */}
+        <div className="flex items-center gap-3 mb-10 overflow-x-auto pb-2 scrollbar-none">
           {CATEGORIES.map((c) => (
             <button
               key={c.key}
               onClick={() => setCategory(c.key)}
               className={cn(
-                "shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full border text-sm font-bold transition-all whitespace-nowrap",
+                "shrink-0 flex items-center gap-2 px-5 py-3 rounded-xl border text-sm font-bold transition-all whitespace-nowrap",
                 category === c.key
-                  ? "bg-[#0ea5e9]/10 border-[#0ea5e9]/30 text-[#0ea5e9] shadow-sm"
-                  : "bg-card border-border text-foreground/60 hover:text-foreground hover:border-[#0ea5e9]/40"
+                  ? "bg-[#0ea5e9] border-[#0ea5e9] text-slate-950 shadow-lg shadow-[#0ea5e9]/25 font-black"
+                  : "bg-slate-900 border-white/10 text-slate-300 hover:bg-slate-800 hover:text-white"
               )}
             >
               <c.icon className="h-4 w-4" />
@@ -215,40 +219,43 @@ const CATEGORIES = [
           ))}
         </div>
 
+        {/* Exams Sections */}
         <div className="space-y-16">
           {CATEGORIES.filter((c) => c.key !== "All").map((cat) => {
-            const exams = byCategory[cat.key].filter((e) => filtered.includes(e));
+            const exams = byCategory[cat.key]?.filter((e) => filtered.includes(e)) || [];
             if (exams.length === 0 && category !== "All") return null;
             if (category !== "All" && category !== cat.key) return null;
             return (
-              <section key={cat.key} className="relative pt-8 first:pt-0">
-                <h2 className="mb-6 text-3xl font-black tracking-tight uppercase">{cat.label}</h2>
+              <section key={cat.key} className="relative pt-6 first:pt-0">
+                <h2 className="mb-6 text-3xl font-black tracking-tight uppercase text-white flex items-center gap-3">
+                  <span className="h-3 w-3 rounded-full bg-[#0ea5e9]"></span>
+                  {cat.label}
+                </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {exams.map((exam) => (
-                    <Link
+                    <div
                       key={exam.id}
-                      href="#"
-                      className="group relative block rounded-[2rem] border border-border bg-card p-6 transition-all hover:border-[#0ea5e9]/50 hover:shadow-xl hover:-translate-y-2"
+                      className="group relative block rounded-[2rem] border border-white/10 bg-slate-900 p-6 transition-all hover:border-[#0ea5e9]/60 hover:shadow-2xl hover:shadow-[#0ea5e9]/10 hover:-translate-y-1.5"
                     >
                       <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
                         <ChevronRight className="h-5 w-5 text-[#0ea5e9]" />
                       </div>
 
-                      <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-[10px] font-black uppercase tracking-widest text-foreground/60">
-                        <BookOpen className="h-3 w-3" />
+                      <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-800 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-slate-300">
+                        <BookOpen className="h-3 w-3 text-[#0ea5e9]" />
                         {exam.body}
                       </div>
 
-                      <h3 className="text-xl font-black mb-3 tracking-tight group-hover:text-[#0ea5e9] transition-colors">
+                      <h3 className="text-xl font-black mb-3 tracking-tight text-white group-hover:text-[#0ea5e9] transition-colors">
                         {exam.title}
                       </h3>
 
                       <div className="space-y-3 mb-6">
-                        <div className="flex items-center gap-3 text-sm font-bold text-foreground/70">
+                        <div className="flex items-center gap-3 text-sm font-bold text-slate-300">
                           <MapPin className="h-4 w-4 text-[#0ea5e9]" />
                           <span>{exam.eligibility}</span>
                         </div>
-                        <div className="flex items-center gap-3 text-sm font-bold text-foreground/70">
+                        <div className="flex items-center gap-3 text-sm font-bold text-slate-300">
                           <Calendar className="h-4 w-4 text-[#0ea5e9]" />
                           <span>{exam.date}</span>
                         </div>
@@ -256,13 +263,13 @@ const CATEGORIES = [
 
                       <div className="flex items-center justify-between">
                         <Link
-                          href="#"
-                          className="px-5 py-3 rounded-xl bg-[#0ea5e9]/5 border border-[#0ea5e9]/10 text-[#0ea5e9] font-black text-xs uppercase tracking-widest hover:bg-[#0ea5e9] hover:text-slate-950 transition-all active:scale-95"
+                          href="/competition/mock-tests"
+                          className="px-6 py-3 rounded-xl bg-[#0ea5e9] text-slate-950 font-black text-xs uppercase tracking-widest hover:bg-sky-400 transition-all shadow-lg shadow-[#0ea5e9]/20 active:scale-95"
                         >
                           {exam.apply}
                         </Link>
                       </div>
-                    </Link>
+                    </div>
                   ))}
                 </div>
               </section>
@@ -270,12 +277,12 @@ const CATEGORIES = [
           })}
 
           {category === "All" && filtered.length === 0 && (
-            <div className="flex flex-col items-center justify-center py-24 text-center">
-              <div className="w-16 h-16 rounded-full bg-muted/50 flex items-center justify-center mb-6">
-                <Search className="h-8 w-8 text-muted-foreground" />
+            <div className="flex flex-col items-center justify-center py-20 text-center rounded-3xl border border-white/10 bg-slate-900">
+              <div className="w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center mb-6">
+                <Search className="h-8 w-8 text-slate-400" />
               </div>
-              <h2 className="text-2xl font-black mb-2">No exams found</h2>
-              <p className="text-foreground/50 max-w-xs">Try adjusting your search or category.</p>
+              <h2 className="text-2xl font-black mb-2 text-white">No exams found</h2>
+              <p className="text-slate-400 max-w-xs text-sm">Try adjusting your search or category.</p>
             </div>
           )}
         </div>

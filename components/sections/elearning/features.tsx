@@ -32,20 +32,20 @@ const nodes = [
 
 export function Features() {
   return (
-    <section className="relative overflow-hidden border-b border-border bg-background py-14 md:py-16">
-      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#1e3a8a]/12 blur-3xl" />
-      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#312e81]/10 blur-3xl" />
-      <div className="container relative z-10 mx-auto px-4 text-foreground">
-        <div className="mb-7 text-center md:mb-8">
-          <h2 className="text-3xl font-black tracking-tight md:text-5xl">
-            Learn. Earn. <span className="text-indigo-600">Conquer.</span>
+    <section className="relative overflow-hidden border-b border-white/10 bg-transparent py-16 md:py-20 text-white">
+      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#1e3a8a]/20 blur-3xl" />
+      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#312e81]/20 blur-3xl" />
+      <div className="container relative z-10 mx-auto px-4">
+        <div className="mb-10 text-center md:mb-12">
+          <h2 className="text-3xl font-black tracking-tight md:text-5xl text-white">
+            Learn. Earn. <span className="text-indigo-300">Conquer.</span>
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-sm font-medium text-muted-foreground md:text-base">
+          <p className="mx-auto mt-3 max-w-2xl text-sm font-semibold text-slate-200 md:text-base">
             One clean roadmap from skill-building to income to long-term growth.
           </p>
         </div>
 
-        <div className="relative mx-auto h-[23rem] w-full max-w-5xl rounded-[1.75rem] border border-border/70 bg-card/50 p-5 md:h-[26rem] md:p-8">
+        <div className="relative mx-auto h-[23rem] w-full max-w-5xl rounded-[1.75rem] border border-slate-700/60 bg-slate-900/15 p-5 md:h-[26rem] md:p-8 backdrop-blur-xl shadow-xl">
           <svg
             className="pointer-events-none absolute inset-0 h-full w-full"
             viewBox="0 0 100 100"
@@ -55,7 +55,7 @@ export function Features() {
             <motion.path
               d="M50,16 C42,28 34,40 24,56"
               fill="none"
-              stroke="rgba(79,70,229,0.42)"
+              stroke="rgba(129,140,248,0.5)"
               strokeWidth="0.5"
               strokeLinecap="round"
               initial={{ pathLength: 0 }}
@@ -66,7 +66,7 @@ export function Features() {
             <motion.path
               d="M50,16 C58,28 66,40 76,56"
               fill="none"
-              stroke="rgba(79,70,229,0.42)"
+              stroke="rgba(129,140,248,0.5)"
               strokeWidth="0.5"
               strokeLinecap="round"
               initial={{ pathLength: 0 }}
@@ -77,7 +77,7 @@ export function Features() {
             <motion.path
               d="M24,56 C38,70 62,70 76,56"
               fill="none"
-              stroke="rgba(79,70,229,0.3)"
+              stroke="rgba(129,140,248,0.35)"
               strokeWidth="0.5"
               strokeLinecap="round"
               initial={{ pathLength: 0 }}
@@ -99,12 +99,12 @@ export function Features() {
                 transition={{ duration: 0.45, delay: node.delay, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.4 }}
               >
-                <div className="min-w-[10.75rem] rounded-2xl border border-border/80 bg-background/90 px-4 py-3 text-center shadow-sm">
-                  <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+                <div className="min-w-[10.75rem] rounded-2xl border border-slate-700/60 bg-slate-900/30 px-4 py-3 text-center shadow-lg backdrop-blur-md">
+                  <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-500/20 text-indigo-300">
                     <Icon className="h-4.5 w-4.5" />
                   </div>
-                  <div className="text-lg font-black tracking-tight">{node.title}</div>
-                  <div className="mt-1 text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
+                  <div className="text-lg font-black tracking-tight text-white">{node.title}</div>
+                  <div className="mt-1 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-300">
                     {node.subtitle}
                   </div>
                 </div>
@@ -119,11 +119,11 @@ export function Features() {
             transition={{ duration: 0.45, delay: 0.2, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.4 }}
           >
-            <div className="rounded-xl border border-indigo-500/25 bg-indigo-500/5 px-4 py-2.5 text-center">
-              <div className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-700 dark:text-indigo-300">
+            <div className="rounded-xl border border-indigo-500/40 bg-indigo-500/15 px-4 py-2.5 text-center backdrop-blur-md">
+              <div className="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-300">
                 Odlix Growth Loop
               </div>
-              <div className="mt-1 text-xs font-bold text-muted-foreground">Learn → Earn → Conquer</div>
+              <div className="mt-1 text-xs font-bold text-slate-200">Learn → Earn → Conquer</div>
             </div>
           </motion.div>
         </div>
@@ -131,4 +131,3 @@ export function Features() {
     </section>
   );
 }
-

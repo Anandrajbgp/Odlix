@@ -5,7 +5,7 @@ import { Smartphone, Monitor, Apple } from "lucide-react";
 
 export function Hero() {
     return (
-      <section className="relative overflow-hidden border-b border-border bg-background pb-16 pt-8 text-foreground">
+      <section className="relative overflow-hidden border-b border-border bg-background pb-16 pt-28 md:pt-36 text-foreground">
       <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#7CFC00]/15 blur-3xl" />
       <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#7CFC00]/10 blur-3xl" />
       <div className="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_50%_0%,#7CFC00,transparent_70%)] opacity-40" />

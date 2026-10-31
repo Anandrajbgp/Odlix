@@ -8,7 +8,6 @@ export default function TelegramBotsDashboardLayout({ children }: { children: Re
       <div
         className="min-h-screen flex flex-col"
         style={{
-          // @ts-ignore
           "--platform-primary": "#24a1ee",
           "--platform-secondary": "#06b6d4",
           "--platform-accent": "#2563eb",

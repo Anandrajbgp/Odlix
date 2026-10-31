@@ -1,13 +1,15 @@
 "use client";
 
 import { FileText, ShieldCheck, Ban, Handshake, Mail, Phone, Landmark, Gavel, UserCheck, Clock3 } from "lucide-react";
+import { BackgroundBubbles } from "@/components/layout/background-bubbles";
 
 export default function EcosystemTermsPage() {
   return (
-    <div className="min-h-screen bg-[#050b14] pt-32 pb-24 text-white">
-      <div className="container mx-auto max-w-5xl px-4">
+    <div className="min-h-screen bg-transparent pt-32 pb-24 text-white relative">
+      <BackgroundBubbles />
+      <div className="container mx-auto max-w-5xl px-4 relative z-10">
         {/* Banner Card matching exact design and fonts from reference image */}
-        <div className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(108deg,#00a3da_0%,#00d4ca_50%,#00f5c4_100%)] p-8 md:p-12 text-[#0f1d26] shadow-[0_25px_60px_rgba(0,212,202,0.25)] border border-white/30 mb-10">
+        <div className="relative overflow-hidden rounded-[2.2rem] bg-[linear-gradient(108deg,#00a3da_0%,#00d4ca_50%,#00f5c4_100%)] p-8 md:p-12 text-[#0f1d26] shadow-[0_25px_60px_rgba(0,212,202,0.25)] border border-white/30 mb-10">
           <div className="absolute inset-0 bg-[linear-gradient(125deg,rgba(255,255,255,0.35)_0%,rgba(255,255,255,0.12)_40%,transparent_65%)] pointer-events-none" />
 
           <header className="relative z-10">
@@ -24,10 +26,10 @@ export default function EcosystemTermsPage() {
           </header>
         </div>
 
-        <div className="rounded-[2rem] border border-cyan-500/20 bg-slate-900/90 p-8 shadow-xl md:p-12 space-y-8 text-sm leading-relaxed text-slate-300 md:text-base font-medium">
+        <div className="rounded-[2.2rem] border border-slate-700/60 bg-slate-900/15 backdrop-blur-xl p-8 shadow-xl md:p-12 space-y-8 text-sm leading-relaxed text-slate-200 md:text-base font-semibold">
           <section>
             <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-white">
-              <Handshake className="h-5 w-5 text-cyan-400" /> Acceptance of Terms
+              <Handshake className="h-5 w-5 text-cyan-300" /> Acceptance of Terms
             </h2>
             <p>
               By creating an account, browsing our properties, or purchasing a service, you acknowledge that
@@ -37,7 +39,7 @@ export default function EcosystemTermsPage() {
 
           <section>
             <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-white">
-              <UserCheck className="h-5 w-5 text-cyan-400" /> Eligibility, Minors & Account Duties
+              <UserCheck className="h-5 w-5 text-cyan-300" /> Eligibility, Minors & Account Duties
             </h2>
             <ul className="space-y-2">
               <li>• You must provide accurate registration information and keep it current.</li>
@@ -48,7 +50,7 @@ export default function EcosystemTermsPage() {
 
           <section>
             <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-white">
-              <ShieldCheck className="h-5 w-5 text-cyan-400" /> Use of Services
+              <ShieldCheck className="h-5 w-5 text-cyan-300" /> Use of Services
             </h2>
             <p>
               Odlix grants a limited, non-transferable, revocable right to use services in compliance with
@@ -58,7 +60,7 @@ export default function EcosystemTermsPage() {
 
           <section>
             <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-white">
-              <Ban className="h-5 w-5 text-cyan-400" /> Prohibited Conduct
+              <Ban className="h-5 w-5 text-cyan-300" /> Prohibited Conduct
             </h2>
             <ul className="space-y-2">
               <li>• Unauthorized access, scraping, reverse engineering, or disruption of service infrastructure.</li>
@@ -86,24 +88,24 @@ export default function EcosystemTermsPage() {
           <section>
             <h2 className="mb-2 text-xl font-bold text-white">Disclaimer & Limitation of Liability</h2>
             <p>
-              Services are provided on an "as available" basis. To the maximum extent permitted by law,
+              Services are provided on an &quot;as available&quot; basis. To the maximum extent permitted by law,
               Odlix is not liable for indirect, incidental, special, or consequential damages.
             </p>
           </section>
 
           <section>
             <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-white">
-              <Landmark className="h-5 w-5 text-cyan-400" /> Governing Law & Jurisdiction
+              <Landmark className="h-5 w-5 text-cyan-300" /> Governing Law & Jurisdiction
             </h2>
             <p>
               These Terms are governed by the laws of India. Subject to mandatory legal requirements,
-              courts with competent jurisdiction in Tamil Nadu, India shall have exclusive jurisdiction.
+              courts with competent jurisdiction in Bhagalpur, Bihar, India shall have exclusive jurisdiction.
             </p>
           </section>
 
           <section>
             <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-white">
-              <Gavel className="h-5 w-5 text-cyan-400" /> Dispute Resolution
+              <Gavel className="h-5 w-5 text-cyan-300" /> Dispute Resolution
             </h2>
             <p>
               Parties will attempt amicable resolution first. If unresolved, disputes may be escalated to
@@ -113,7 +115,7 @@ export default function EcosystemTermsPage() {
 
           <section>
             <h2 className="mb-2 flex items-center gap-2 text-xl font-bold text-white">
-              <Clock3 className="h-5 w-5 text-cyan-400" /> Revisions to Terms
+              <Clock3 className="h-5 w-5 text-cyan-300" /> Revisions to Terms
             </h2>
             <p>
               We may revise these Terms for legal, operational, or security reasons. Material changes are

@@ -40,7 +40,7 @@ const platforms: PlatformConfig[] = [
     href: "/elearning",
     icon: BookOpen,
     color: "text-[#4f46e5]",
-    navBg: "bg-[#0b0f19]/95",
+    navBg: "bg-black/95",
     navText: "text-white",
     border: "border-[#4f46e5]/40"
   },
@@ -50,8 +50,8 @@ const platforms: PlatformConfig[] = [
     href: "/mart",
     icon: ShoppingBag,
     color: "text-[#ea580c]",
-    navBg: "bg-white/95 dark:bg-slate-900/95",
-    navText: "text-slate-900 dark:text-white",
+    navBg: "bg-black/95",
+    navText: "text-white",
     border: "border-[#ea580c]/40"
   },
   {
@@ -60,8 +60,8 @@ const platforms: PlatformConfig[] = [
     href: "/competition",
     icon: GraduationCap,
     color: "text-[#0ea5e9]",
-    navBg: "bg-[#f0f4f8]/95 dark:bg-slate-900/95",
-    navText: "text-slate-900 dark:text-white",
+    navBg: "bg-black/95",
+    navText: "text-white",
     border: "border-[#0ea5e9]/40"
   },
   {
@@ -70,8 +70,8 @@ const platforms: PlatformConfig[] = [
     href: "/agency",
     icon: Briefcase,
     color: "text-[#f59e0b]",
-    navBg: "bg-[#f8fafc]/95 dark:bg-slate-900/95",
-    navText: "text-slate-900 dark:text-white",
+    navBg: "bg-black/95",
+    navText: "text-white",
     border: "border-[#f59e0b]/40"
   },
   {
@@ -80,8 +80,8 @@ const platforms: PlatformConfig[] = [
     href: "/trading",
     icon: BarChart3,
     color: "text-[#7CFC00]",
-    navBg: "bg-[#f8fafc]/95 dark:bg-slate-900/95",
-    navText: "text-slate-900 dark:text-white",
+    navBg: "bg-black/95",
+    navText: "text-white",
     border: "border-[#7CFC00]/40"
   },
   {
@@ -90,8 +90,8 @@ const platforms: PlatformConfig[] = [
     href: "/apps",
     icon: LayoutGrid,
     color: "text-[#0ea5e9]",
-    navBg: "bg-[#f1f5f9]/95 dark:bg-slate-900/95",
-    navText: "text-slate-900 dark:text-white",
+    navBg: "bg-black/95",
+    navText: "text-white",
     border: "border-[#64748b]/40"
   },
   {
@@ -100,8 +100,8 @@ const platforms: PlatformConfig[] = [
     href: "/useful-websites",
     icon: Globe,
     color: "text-[#14b8a6]",
-    navBg: "bg-[#fafafa]/95 dark:bg-slate-900/95",
-    navText: "text-slate-900 dark:text-white",
+    navBg: "bg-black/95",
+    navText: "text-white",
     border: "border-[#14b8a6]/40"
   },
   {
@@ -110,7 +110,7 @@ const platforms: PlatformConfig[] = [
     href: "/telegram-bots",
     icon: Send,
     color: "text-[#24a1ee]",
-    navBg: "bg-[#17212b]/95",
+    navBg: "bg-black/95",
     navText: "text-white",
     border: "border-[#24a1ee]/40"
   }
@@ -160,6 +160,9 @@ export function Navbar() {
   const homeLogoSrc = "/logo-home.png";
   const LogoIcon = isHome ? Home : (currentPlatform?.icon ?? Home);
 
+  // Check if current platform is one of the 3 with a dashboard (E-Learning, Mart, Mock Tests)
+  const hasDashboard = !isHome && currentPlatform?.href && ["/elearning", "/mart", "/competition"].includes(currentPlatform.href);
+
   return (
     <>
       <nav className={cn(
@@ -200,24 +203,23 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Right */}
-          <div className="hidden md:flex items-center space-x-6 relative z-[150]">
-             <div className={cn("flex items-center space-x-1 mr-4 border-r pr-6", navText === "text-white" ? "border-white/10" : "border-border")}>
-                {platforms.map(p => (
-                  <Link
-                    key={p.name}
-                    href={p.href}
-                    className={cn(
-                      "p-2.5 rounded-xl transition-all active:scale-90",
-                      pathname.startsWith(p.href) ? "bg-white/10 " + p.color : "opacity-40 hover:opacity-100 hover:bg-white/5"
-                    )}
-                  >
-                    <p.icon className="h-5 w-5" />
-                  </Link>
-                ))}
-             </div>
-             {!isHome && currentPlatform?.href && ["/elearning", "/mart", "/competition"].includes(currentPlatform.href) ? (
+          <div className="hidden md:flex items-center space-x-4 relative z-[150]">
+             {/* 1. Home Link */}
+             <Link
+               href="/"
+               className={cn(
+                 "p-2 rounded-xl transition-all active:scale-90",
+                 isHome ? "bg-white/10 text-cyan-400" : "opacity-70 hover:opacity-100 hover:bg-white/5 text-white"
+               )}
+               title="Home"
+             >
+               <Home className="h-5 w-5" />
+             </Link>
+
+             {/* 2. Dashboard (Only for E-Learning, Mart, Mock Tests) */}
+             {hasDashboard && (
                <Link
-                 href={`${currentPlatform.href}/dashboard`}
+                 href={`${currentPlatform?.href}/dashboard`}
                  className={cn(
                    "inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-[11px] font-black uppercase tracking-[0.18em] transition-all active:scale-95",
                    navText === "text-white"
@@ -228,9 +230,28 @@ export function Navbar() {
                  <LayoutDashboard className={cn("h-4 w-4", iconColor)} />
                  Dashboard
                </Link>
-             ) : null}
-             <Link href="/login" className={cn("text-xs font-black uppercase tracking-widest opacity-80 hover:opacity-100 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md", navText === "text-white" ? "text-white" : "text-foreground")}>Login</Link>
-             <Link href="/signup" className={cn("px-7 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring", navText === "text-white" ? "bg-white text-black" : "bg-primary text-primary-foreground")}>Sign Up</Link>
+             )}
+
+             {/* 3. 8 Platforms */}
+             <div className={cn("flex items-center space-x-1 border-l border-r px-3", navText === "text-white" ? "border-white/10" : "border-border")}>
+                {platforms.map(p => (
+                  <Link
+                    key={p.name}
+                    href={p.href}
+                    className={cn(
+                      "p-2 rounded-xl transition-all active:scale-90",
+                      pathname.startsWith(p.href) ? "bg-white/10 " + p.color : "opacity-40 hover:opacity-100 hover:bg-white/5"
+                    )}
+                    title={p.name}
+                  >
+                    <p.icon className="h-4 w-4" />
+                  </Link>
+                ))}
+             </div>
+
+             {/* 4. Login & Sign Up */}
+             <Link href="/login" className={cn("text-xs font-black uppercase tracking-widest opacity-80 hover:opacity-100 active:scale-95 transition-all ml-2", navText === "text-white" ? "text-white" : "text-foreground")}>Login</Link>
+             <Link href="/signup" className={cn("px-5 py-2.5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all", navText === "text-white" ? "bg-white text-black" : "bg-primary text-primary-foreground")}>Sign Up</Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -252,49 +273,64 @@ export function Navbar() {
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
               className={cn(
-                "md:hidden absolute top-full left-0 right-0 mt-3 p-6 rounded-3xl border shadow-2xl backdrop-blur-3xl overflow-hidden",
+                "md:hidden absolute top-full left-0 right-0 mt-3 p-6 rounded-3xl border shadow-2xl backdrop-blur-3xl overflow-y-auto max-h-[75vh]",
                 mobilePanelSurface,
                 border
               )}
             >
-              <div className="flex flex-col space-y-4">
-                <div className="grid grid-cols-2 gap-3">
+              <div className="flex flex-col space-y-3">
+                {/* 1. Home Link */}
+                <Link
+                  href="/"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center space-x-3.5 p-3.5 rounded-2xl border border-slate-800 bg-slate-900/60 hover:bg-slate-900 text-white transition-all active:scale-95"
+                >
+                  <div className="p-2 rounded-xl bg-slate-950 border border-slate-800 text-cyan-400">
+                    <Home className="h-5 w-5" />
+                  </div>
+                  <span className="text-sm font-black tracking-wide">Home</span>
+                </Link>
+
+                {/* 2. Dashboard (Only for E-Learning, Mart, Mock Tests) */}
+                {hasDashboard && (
+                  <Link
+                    href={`${currentPlatform?.href}/dashboard`}
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center space-x-3.5 p-3.5 rounded-2xl border border-cyan-500/40 bg-cyan-500/15 text-white transition-all active:scale-95 shadow-md"
+                  >
+                    <div className="p-2 rounded-xl bg-slate-950 border border-slate-800 text-cyan-300">
+                      <LayoutDashboard className="h-5 w-5" />
+                    </div>
+                    <span className="text-sm font-black tracking-wide">Dashboard</span>
+                  </Link>
+                )}
+
+                {/* 3. 8 Platforms Line-wise */}
+                <div className="flex flex-col space-y-2 pt-1">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-300 px-1 mb-1">
+                    Ecosystem Platforms
+                  </span>
                   {platforms.map((p) => (
                     <Link
                       key={p.name}
                       href={p.href}
                       onClick={() => setIsOpen(false)}
                       className={cn(
-                        "flex items-center space-x-3 p-3 rounded-2xl border transition-all active:scale-95",
+                        "flex items-center space-x-3.5 p-3.5 rounded-2xl border transition-all active:scale-95",
                         pathname.startsWith(p.href)
-                          ? "border-primary/50 bg-primary/10"
-                          : "border-transparent bg-white/5 hover:bg-white/10"
+                          ? "border-cyan-400 bg-cyan-500/20 text-white"
+                          : "border-slate-800 bg-slate-900/60 hover:bg-slate-900 text-slate-200"
                       )}
                     >
-                      <div className={cn("p-2 rounded-xl bg-white/10", p.color)}>
+                      <div className={cn("p-2 rounded-xl bg-slate-950 border border-slate-800", p.color)}>
                         <p.icon className="h-5 w-5" />
                       </div>
-                      <span className="text-xs font-bold tracking-wide">{p.name}</span>
+                      <span className="text-sm font-black tracking-wide">{p.name}</span>
                     </Link>
                   ))}
                 </div>
 
-                {!isHome && currentPlatform?.href && ["/elearning", "/mart", "/competition"].includes(currentPlatform.href) ? (
-                  <Link
-                    href={`${currentPlatform.href}/dashboard`}
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "flex items-center justify-center gap-2 rounded-2xl border p-3 text-xs font-black uppercase tracking-widest transition-all active:scale-95",
-                      navText === "text-white"
-                        ? "border-white/20 bg-white/10 text-white hover:bg-white/15"
-                        : "border-border bg-muted text-foreground hover:bg-muted/80"
-                    )}
-                  >
-                    <LayoutDashboard className={cn("h-4 w-4", iconColor)} />
-                    Dashboard
-                  </Link>
-                ) : null}
-
+                {/* 4. Login & Sign Up */}
                 <div className="pt-4 border-t border-white/10 flex flex-col space-y-3">
                   <Link
                     href="/login"

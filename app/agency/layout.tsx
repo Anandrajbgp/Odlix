@@ -9,7 +9,7 @@ export default function AgencyLayout({ children }: { children: ReactNode }) {
       <div
         className="flex min-h-screen flex-col bg-background/35 text-foreground transition-colors duration-300"
         style={{
-          // @ts-ignore
+          // @ts-expect-error
           "--platform-primary": "#f59e0b",
           "--platform-secondary": "#f97316",
           "--platform-accent": "#f59e0b",

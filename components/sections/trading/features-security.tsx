@@ -142,18 +142,26 @@ export function FeaturesSecurity() {
           ))}
         </div>
 
-        <div className="mt-16 flex items-center justify-between rounded-[3rem] border border-[#7CFC00]/25 bg-[#7CFC00]/5 p-8 md:p-12">
-          <div className="max-w-2xl">
-            <h3 className="mb-3 text-2xl font-black uppercase tracking-tight text-foreground">
+        <div className="mt-20 relative overflow-hidden rounded-[3rem] border border-[#7CFC00]/40 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 p-10 md:p-16 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-[#7CFC00]/20 blur-3xl pointer-events-none" />
+          <div className="absolute -left-10 -bottom-10 h-48 w-48 rounded-full bg-[#7CFC00]/15 blur-3xl pointer-events-none" />
+
+          <div className="max-w-2xl relative z-10 text-center md:text-left">
+            <span className="inline-block px-3.5 py-1 rounded-full bg-[#7CFC00]/15 border border-[#7CFC00]/40 text-[#7CFC00] text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+              Zero Joining Fee • Instant Onboarding
+            </span>
+            <h3 className="mb-3 text-3xl md:text-5xl font-black uppercase tracking-tight text-white">
               Ready to Start Trading?
             </h3>
-            <p className="text-sm font-medium text-muted-foreground">
+            <p className="text-sm md:text-base font-semibold text-slate-300 leading-relaxed">
               Open your account in minutes and start trading from ₹100 with flat ₹5 per side brokerage.
             </p>
           </div>
-          <button className="ml-4 md:ml-0 rounded-xl bg-[#7CFC00] px-6 py-3 text-xs font-black uppercase tracking-widest text-foreground shadow-xl shadow-[#7CFC00]/30 hover:bg-[#5cfc26] active:scale-95 transition-all">
-            Open Trading Account
-          </button>
+          <div className="relative z-10 shrink-0">
+            <button className="rounded-2xl bg-[#7CFC00] px-8 py-4 text-xs font-black uppercase tracking-[0.2em] text-slate-950 shadow-2xl shadow-[#7CFC00]/30 hover:bg-[#5cfc26] hover:scale-105 active:scale-95 transition-all">
+              Open Trading Account
+            </button>
+          </div>
         </div>
       </div>
     </section>

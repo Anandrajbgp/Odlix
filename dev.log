@@ -1,0 +1,30 @@
+
+> odlix@0.1.0 dev
+> next dev
+
+▲ Next.js 16.3.1 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.43.11:3000
+✓ Ready in 1032ms
+✓ Running next.config.ts took 77ms
+
+○ Compiling /apps ...
+ GET /apps 200 in 6.3s (next.js: 5.7s, proxy.ts: 13ms, application-code: 576ms)
+ GET /apps 200 in 7.4s (next.js: 6.4s, proxy.ts: 285ms, application-code: 652ms)
+ GET /apps 200 in 124ms (next.js: 10ms, proxy.ts: 11ms, application-code: 104ms)
+ GET /apps 200 in 122ms (next.js: 12ms, proxy.ts: 5ms, application-code: 105ms)
+ GET /apps 200 in 150ms (next.js: 11ms, proxy.ts: 11ms, application-code: 128ms)
+ GET /apps 200 in 165ms (next.js: 7ms, proxy.ts: 15ms, application-code: 143ms)
+ GET /apps 200 in 156ms (next.js: 16ms, proxy.ts: 11ms, application-code: 129ms)
+✓ Compiled in 812ms
+ GET /apps 200 in 284ms (next.js: 64ms, proxy.ts: 15ms, application-code: 205ms)
+ GET /apps 200 in 208ms (next.js: 27ms, proxy.ts: 6ms, application-code: 175ms)
+ GET /apps 200 in 146ms (next.js: 10ms, proxy.ts: 11ms, application-code: 126ms)
+ GET /apps 200 in 192ms (next.js: 46ms, proxy.ts: 17ms, application-code: 129ms)
+ GET /apps 200 in 188ms (next.js: 10ms, proxy.ts: 6ms, application-code: 172ms)
+ GET /apps 200 in 95ms (next.js: 23ms, proxy.ts: 12ms, application-code: 60ms)
+ GET /apps 200 in 204ms (next.js: 11ms, proxy.ts: 5ms, application-code: 188ms)
+ GET /apps 200 in 156ms (next.js: 7ms, proxy.ts: 10ms, application-code: 139ms)
+ GET /apps 200 in 137ms (next.js: 27ms, proxy.ts: 7ms, application-code: 103ms)
+ GET /apps 200 in 172ms (next.js: 34ms, proxy.ts: 10ms, application-code: 128ms)
+ GET /apps 200 in 223ms (next.js: 17ms, proxy.ts: 8ms, application-code: 198ms)

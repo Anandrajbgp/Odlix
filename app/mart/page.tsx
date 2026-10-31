@@ -1,18 +1,16 @@
 import { Hero } from "@/components/sections/mart/hero";
-import { ProductShowcase } from "@/components/sections/mart/product-showcase";
 import { Features } from "@/components/sections/mart/features";
-import { Subscription } from "@/components/sections/mart/subscription";
+import { FAQ } from "@/components/sections/mart/faq";
 
 export default function MartPage() {
   return (
-    <div className="bg-background min-h-screen transition-colors duration-300">
+    <div className="bg-transparent min-h-screen transition-colors duration-300">
       <Hero />
-      <ProductShowcase />
       <Features />
-      <Subscription />
+      <FAQ />
 
       {/* Mart Footer */}
-      <footer className="py-16 bg-background text-center text-[10px] opacity-20 text-foreground uppercase tracking-[0.5em] border-t border-border font-black">
+      <footer className="py-16 bg-transparent text-center text-[10px] opacity-40 text-slate-300 uppercase tracking-[0.5em] border-t border-slate-800 font-black">
          Global Supply Chain • Verified Vendors • Secure Transactions
       </footer>
     </div>
