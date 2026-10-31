@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { rateLimit } from "@/lib/rate-limit";
+import { supabase } from "@/lib/supabase";
 
 export async function POST(request: Request) {
   try {
@@ -11,7 +12,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "Email and OTP token are required" }, { status: 400 });
     }
 
-    // Rate limit: max 5 verification attempts per minute to prevent brute-forcing OTP
     const limiter = rateLimit(`otp-verify-${email}-${ip}`, 5, 60 * 1000);
     if (!limiter.success) {
       return NextResponse.json({ message: "Too many verification attempts. Please try again after 1 minute." }, { status: 429 });
@@ -22,26 +22,29 @@ export async function POST(request: Request) {
 
     let supabaseVerified = false;
 
-    if (!supabaseUrl || !supabaseAnonKey) {
+    if (!supabaseUrl || !supabaseAnonKey || supabaseUrl.includes("YOUR_PROJECT_REF")) {
       if (token.length === 6) {
         supabaseVerified = true;
       }
     } else {
-      const res = await fetch(`${supabaseUrl}/auth/v1/verify`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "apikey": supabaseAnonKey,
-        },
-        body: JSON.stringify({ type: "email", email, token }),
+      const { data, error } = await supabase.auth.verifyOtp({
+        email,
+        token,
+        type: "email",
       });
 
-      const data = await res.json();
-      if (res.ok && data.access_token) {
-        supabaseVerified = true;
-      } else {
-        return NextResponse.json({ message: data.error_description || data.msg || "Invalid OTP" }, { status: 400 });
+      if (error || !data.session) {
+        const { data: data2, error: error2 } = await supabase.auth.verifyOtp({
+          email,
+          token,
+          type: "signup",
+        });
+
+        if (error2 || !data2.session) {
+          return NextResponse.json({ message: error?.message || error2?.message || "Invalid OTP code" }, { status: 400 });
+        }
       }
+      supabaseVerified = true;
     }
 
     if (supabaseVerified) {

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { rateLimit } from "@/lib/rate-limit";
+import { supabase } from "@/lib/supabase";
 
 export async function POST(request: Request) {
   try {
@@ -10,7 +11,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "Email is required" }, { status: 400 });
     }
 
-    // Rate limit: max 3 OTP requests per minute per email/IP
     const limiter = rateLimit(`otp-send-${email}-${ip}`, 3, 60 * 1000);
     if (!limiter.success) {
       return NextResponse.json({ message: "Too many OTP requests. Please try again after 1 minute." }, { status: 429 });
@@ -19,26 +19,22 @@ export async function POST(request: Request) {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-    if (!supabaseUrl || !supabaseAnonKey) {
+    if (!supabaseUrl || !supabaseAnonKey || supabaseUrl.includes("YOUR_PROJECT_REF")) {
       return NextResponse.json({
         success: true,
         message: "OTP sent successfully (Simulated mode: use any 6-digit code like 123456)"
       });
     }
 
-    const res = await fetch(`${supabaseUrl}/auth/v1/otp`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": supabaseAnonKey,
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: {
+        shouldCreateUser: true,
       },
-      body: JSON.stringify({ email, create_user: true }),
     });
 
-    const data = await res.json();
-
-    if (!res.ok) {
-      return NextResponse.json({ message: data.error_description || data.msg || "Failed to send OTP" }, { status: res.status });
+    if (error) {
+      return NextResponse.json({ message: error.message || "Failed to send OTP" }, { status: 400 });
     }
 
     return NextResponse.json({ success: true, message: "OTP sent to your email successfully" });
