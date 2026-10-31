@@ -37,7 +37,7 @@ function LoginForm() {
         return;
       }
 
-      setSuccessMsg("Secure login OTP sent to your email successfully!");
+      setSuccessMsg("Secure 6-digit OTP code sent to your email successfully!");
       setStep("otp");
     } catch (err: any) {
       setLoading(false);
@@ -91,8 +91,8 @@ function LoginForm() {
       </div>
       <p className="text-sm text-slate-400 leading-relaxed mb-8">
         {step === "email"
-          ? "Enter your registered email address to receive your secure login OTP."
-          : `We have sent a 6-digit code to ${email}.`}
+          ? "Enter your registered email address to receive your secure 6-digit login OTP code."
+          : `We have sent a 6-digit OTP code to ${email}.`}
       </p>
 
       {step === "email" ? (
@@ -143,7 +143,7 @@ function LoginForm() {
       ) : (
         <form onSubmit={handleVerifyOtp} className="space-y-6">
           <div>
-            <label htmlFor="otp" className="block text-xs font-bold uppercase tracking-widest text-slate-300">6-Digit Login OTP</label>
+            <label htmlFor="otp" className="block text-xs font-bold uppercase tracking-widest text-slate-300">6-Digit Login OTP Code</label>
             <div className="relative mt-2">
               <KeyRound className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-500" />
               <input

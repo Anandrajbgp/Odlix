@@ -259,20 +259,42 @@ export function Navbar() {
                 ))}
              </div>
 
-             {/* 4. Profile & Auth */}
-             <Link
-               href="/profile"
-               className={cn(
-                 "inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all active:scale-95 ml-2",
-                 navText === "text-white" ? "bg-white/10 text-white hover:bg-white/15" : "bg-muted text-foreground hover:bg-muted/80"
-               )}
-               title="Profile Settings"
-             >
-               <User className="h-4 w-4" />
-               <span className="hidden xl:inline">Profile</span>
-             </Link>
-             <Link href="/login" className={cn("text-xs font-black uppercase tracking-widest opacity-80 hover:opacity-100 active:scale-95 transition-all ml-1", navText === "text-white" ? "text-white" : "text-foreground")}>Login</Link>
-             <Link href="/signup" className={cn("px-4 py-2.5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all", navText === "text-white" ? "bg-white text-black" : "bg-primary text-primary-foreground")}>Sign Up</Link>
+             {/* 4. Auth Buttons (Conditional on isLoggedIn) */}
+             {isLoggedIn ? (
+               <div className="flex items-center space-x-2 ml-2">
+                 <Link
+                   href="/profile"
+                   className={cn(
+                     "inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all active:scale-95",
+                     navText === "text-white" ? "bg-white/10 text-white hover:bg-white/15" : "bg-muted text-foreground hover:bg-muted/80"
+                   )}
+                   title="Profile Settings"
+                 >
+                   <User className="h-4 w-4" />
+                   <span className="hidden xl:inline">Profile</span>
+                 </Link>
+                 <button
+                   onClick={() => {
+                     localStorage.removeItem("odlix_user");
+                     setIsLoggedIn(false);
+                     router.push("/login");
+                     router.refresh();
+                   }}
+                   className={cn(
+                     "px-3 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all active:scale-95 border text-red-400 hover:bg-red-500/10",
+                     navText === "text-white" ? "border-red-500/30 bg-red-500/10" : "border-red-500/20 bg-red-500/5"
+                   )}
+                   title="Logout"
+                 >
+                   Logout
+                 </button>
+               </div>
+             ) : (
+               <div className="flex items-center space-x-2 ml-2">
+                 <Link href="/login" className={cn("text-xs font-black uppercase tracking-widest opacity-80 hover:opacity-100 active:scale-95 transition-all px-2", navText === "text-white" ? "text-white" : "text-foreground")}>Login</Link>
+                 <Link href="/signup" className={cn("px-4 py-2.5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all", navText === "text-white" ? "bg-white text-black" : "bg-primary text-primary-foreground")}>Sign Up</Link>
+               </div>
+             )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -423,39 +445,65 @@ export function Navbar() {
                   ))}
                 </div>
 
-                {/* 4. Profile & Auth */}
+                {/* 4. Profile & Auth (Conditional) */}
                 <div className={cn("pt-4 border-t flex flex-col space-y-3", navText === "text-white" ? "border-white/10" : "border-border")}>
-                  <Link
-                    href="/profile"
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "flex items-center space-x-3.5 p-3 rounded-2xl border transition-all active:scale-95",
-                      navText === "text-white" ? "border-white/15 bg-white/5 hover:bg-white/10 text-white" : "border-border bg-muted/60 hover:bg-muted text-foreground"
-                    )}
-                  >
-                    <div className={cn("p-2 rounded-xl border", navText === "text-white" ? "border-white/15 bg-black/40" : "border-border bg-background", iconColor)}>
-                      <User className="h-5 w-5" />
-                    </div>
-                    <span className="text-sm font-black tracking-wide">Profile Settings</span>
-                  </Link>
-                  <Link
-                    href="/login"
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "w-full py-3 text-center text-xs font-black uppercase tracking-widest rounded-2xl border transition-all active:scale-95",
-                      navText === "text-white"
-                        ? "border-white/25 text-white hover:bg-white/10"
-                        : "border-border text-foreground hover:bg-muted"
-                    )}
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    href="/signup"
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "w-full py-3 text-center text-xs font-black uppercase tracking-widest rounded-2xl shadow-xl transition-all active:scale-95",
-                      navText === "text-white"
+                  {isLoggedIn ? (
+                    <>
+                      <Link
+                        href="/profile"
+                        onClick={() => setIsOpen(false)}
+                        className={cn(
+                          "flex items-center space-x-3.5 p-3 rounded-2xl border transition-all active:scale-95",
+                          navText === "text-white" ? "border-white/15 bg-white/5 hover:bg-white/10 text-white" : "border-border bg-muted/60 hover:bg-muted text-foreground"
+                        )}
+                      >
+                        <div className={cn("p-2 rounded-xl border", navText === "text-white" ? "border-white/15 bg-black/40" : "border-border bg-background", iconColor)}>
+                          <User className="h-5 w-5" />
+                        </div>
+                        <span className="text-sm font-black tracking-wide">Profile Settings</span>
+                      </Link>
+                      <button
+                        onClick={() => {
+                          setIsOpen(false);
+                          localStorage.removeItem("odlix_user");
+                          setIsLoggedIn(false);
+                          router.push("/login");
+                          router.refresh();
+                        }}
+                        className="w-full py-3 text-center text-xs font-black uppercase tracking-widest rounded-2xl border border-red-500/30 bg-red-500/10 text-red-400 hover:bg-red-500/20 transition-all active:scale-95"
+                      >
+                        Logout
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <Link
+                        href="/login"
+                        onClick={() => setIsOpen(false)}
+                        className={cn(
+                          "w-full py-3 text-center text-xs font-black uppercase tracking-widest rounded-2xl border transition-all active:scale-95",
+                          navText === "text-white"
+                            ? "border-white/25 text-white hover:bg-white/10"
+                            : "border-border text-foreground hover:bg-muted"
+                        )}
+                      >
+                        Login
+                      </Link>
+                      <Link
+                        href="/signup"
+                        onClick={() => setIsOpen(false)}
+                        className={cn(
+                          "w-full py-3 text-center text-xs font-black uppercase tracking-widest rounded-2xl shadow-xl transition-all active:scale-95",
+                          navText === "text-white"
+                            ? "bg-white text-black hover:bg-white/90"
+                            : "bg-primary text-primary-foreground hover:bg-primary/90"
+                        )}
+                      >
+                        Sign Up
+                      </Link>
+                    </>
+                  )}
+                </div>
                         ? "bg-white text-black hover:bg-white/90"
                         : "bg-primary text-primary-foreground hover:bg-primary/90"
                     )}

@@ -80,7 +80,7 @@ export default function SignupPage() {
         return;
       }
 
-      setSuccessMsg("Verification OTP sent to your email successfully!");
+      setSuccessMsg("Secure 6-digit verification OTP code sent to your email successfully!");
       setStep("otp");
     } catch (err: any) {
       setLoading(false);
@@ -139,7 +139,7 @@ export default function SignupPage() {
         <p className="text-sm text-slate-400 leading-relaxed mb-8">
           {step === "details"
             ? "Enter your complete profile credentials and location details to set up your Odlix account."
-            : `We have sent a secure 6-digit verification code to ${email}.`}
+            : `We have sent a secure 6-digit OTP code to ${email}.`}
         </p>
 
         {step === "details" ? (
@@ -265,7 +265,7 @@ export default function SignupPage() {
         ) : (
           <form onSubmit={handleVerifyOtp} className="space-y-6">
             <div>
-              <label htmlFor="otp" className="block text-xs font-bold uppercase tracking-widest text-slate-300">6-Digit Verification OTP</label>
+              <label htmlFor="otp" className="block text-xs font-bold uppercase tracking-widest text-slate-300">6-Digit Verification OTP Code</label>
               <div className="relative mt-2">
                 <KeyRound className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-500" />
                 <input
