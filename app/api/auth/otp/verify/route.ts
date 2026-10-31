@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 
 export async function POST(request: Request) {
   try {
-    const { email, token } = await request.json();
+    const { email, token, name, phone, state, district } = await request.json();
     if (!email || !token) {
       return NextResponse.json({ message: "Email and OTP token are required" }, { status: 400 });
     }
@@ -14,7 +14,6 @@ export async function POST(request: Request) {
     let supabaseVerified = false;
 
     if (!supabaseUrl || !supabaseAnonKey) {
-      // Simulation fallback when Supabase keys are not yet configured
       if (token.length === 6) {
         supabaseVerified = true;
       }
@@ -37,7 +36,6 @@ export async function POST(request: Request) {
     }
 
     if (supabaseVerified) {
-      // Ensure user exists in Prisma DB with isolated profiles for each platform dashboard
       let user = await prisma.user.findUnique({
         where: { email },
         include: {
@@ -52,7 +50,10 @@ export async function POST(request: Request) {
         user = await prisma.user.create({
           data: {
             email,
-            name: email.split("@")[0],
+            name: name || email.split("@")[0],
+            phone: phone || null,
+            state: state || null,
+            district: district || null,
             passwordHash: "SUPABASE_OTP_AUTH",
             martProfile: { create: {} },
             elearningProfile: { create: {} },
@@ -67,7 +68,23 @@ export async function POST(request: Request) {
           },
         });
       } else {
-        // Ensure profiles exist if user was created previously without them
+        // Update profile info if provided during signup
+        user = await prisma.user.update({
+          where: { email },
+          data: {
+            name: name || user.name,
+            phone: phone || user.phone,
+            state: state || user.state,
+            district: district || user.district,
+          },
+          include: {
+            martProfile: true,
+            elearningProfile: true,
+            tradingProfile: true,
+            agencyProfile: true,
+          },
+        });
+
         if (!user.martProfile) await prisma.martProfile.create({ data: { userId: user.id } }).catch(() => {});
         if (!user.elearningProfile) await prisma.elearningProfile.create({ data: { userId: user.id } }).catch(() => {});
         if (!user.tradingProfile) await prisma.tradingProfile.create({ data: { userId: user.id } }).catch(() => {});

@@ -11,7 +11,6 @@ export async function POST(request: Request) {
     const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
     if (!supabaseUrl || !supabaseAnonKey) {
-      // Fallback for simulation / development if Supabase keys are not set yet
       return NextResponse.json({
         success: true,
         message: "OTP sent successfully (Simulated mode: use any 6-digit code like 123456)"
