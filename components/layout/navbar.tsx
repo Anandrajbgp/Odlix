@@ -362,10 +362,17 @@ export function Navbar() {
                             ↗ Open Full Dashboard
                           </Link>
                           {(currentPlatform?.href === "/elearning" ? [
+                            { name: "Profile", id: "profile" },
                             { name: "My Courses", id: "courses" },
-                            { name: "Earning", id: "earning" },
-                            { name: "Payout", id: "payout" },
+                            { name: "Plan", id: "plan" },
+                            { name: "Startup Video", id: "startup-video" },
+                            { name: "Social Media Handles", id: "social-media" },
+                            { name: "Affiliates", id: "affiliates" },
+                            { name: "Payment Section", id: "payment" },
+                            { name: "Training Section", id: "training" },
                             { name: "Certificates", id: "certificates" },
+                            { name: "Assignments", id: "assignments" },
+                            { name: "Leaderboard", id: "leaderboard" },
                           ] : currentPlatform?.href === "/mart" ? [
                             { name: "Orders", id: "orders" },
                             { name: "Earning", id: "earning" },
