@@ -16,6 +16,7 @@ import {
   LayoutDashboard,
   Globe,
   Send,
+  User,
   type LucideIcon
 } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -249,9 +250,20 @@ export function Navbar() {
                 ))}
              </div>
 
-             {/* 4. Login & Sign Up */}
-             <Link href="/login" className={cn("text-xs font-black uppercase tracking-widest opacity-80 hover:opacity-100 active:scale-95 transition-all ml-2", navText === "text-white" ? "text-white" : "text-foreground")}>Login</Link>
-             <Link href="/signup" className={cn("px-5 py-2.5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all", navText === "text-white" ? "bg-white text-black" : "bg-primary text-primary-foreground")}>Sign Up</Link>
+             {/* 4. Profile & Auth */}
+             <Link
+               href="/profile"
+               className={cn(
+                 "inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all active:scale-95 ml-2",
+                 navText === "text-white" ? "bg-white/10 text-white hover:bg-white/15" : "bg-muted text-foreground hover:bg-muted/80"
+               )}
+               title="Profile Settings"
+             >
+               <User className="h-4 w-4" />
+               <span className="hidden xl:inline">Profile</span>
+             </Link>
+             <Link href="/login" className={cn("text-xs font-black uppercase tracking-widest opacity-80 hover:opacity-100 active:scale-95 transition-all ml-1", navText === "text-white" ? "text-white" : "text-foreground")}>Login</Link>
+             <Link href="/signup" className={cn("px-4 py-2.5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all", navText === "text-white" ? "bg-white text-black" : "bg-primary text-primary-foreground")}>Sign Up</Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -341,8 +353,21 @@ export function Navbar() {
                   ))}
                 </div>
 
-                {/* 4. Login & Sign Up */}
+                {/* 4. Profile & Auth */}
                 <div className={cn("pt-4 border-t flex flex-col space-y-3", navText === "text-white" ? "border-white/10" : "border-border")}>
+                  <Link
+                    href="/profile"
+                    onClick={() => setIsOpen(false)}
+                    className={cn(
+                      "flex items-center space-x-3.5 p-3 rounded-2xl border transition-all active:scale-95",
+                      navText === "text-white" ? "border-white/15 bg-white/5 hover:bg-white/10 text-white" : "border-border bg-muted/60 hover:bg-muted text-foreground"
+                    )}
+                  >
+                    <div className={cn("p-2 rounded-xl border", navText === "text-white" ? "border-white/15 bg-black/40" : "border-border bg-background", iconColor)}>
+                      <User className="h-5 w-5" />
+                    </div>
+                    <span className="text-sm font-black tracking-wide">Profile Settings</span>
+                  </Link>
                   <Link
                     href="/login"
                     onClick={() => setIsOpen(false)}
