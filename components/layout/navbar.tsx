@@ -17,11 +17,12 @@ import {
   Globe,
   Send,
   User,
+  ChevronDown,
   type LucideIcon
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 type PlatformConfig = {
   name: string;
@@ -118,10 +119,17 @@ const platforms: PlatformConfig[] = [
 ];
 
 export function Navbar() {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDashboardDropdownOpen, setIsDashboardDropdownOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const user = typeof window !== "undefined" ? localStorage.getItem("odlix_user") : null;
+    setIsLoggedIn(!!user);
+  }, [pathname, isOpen]);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -310,13 +318,20 @@ export function Navbar() {
                   <span className="text-sm font-black tracking-wide">Home</span>
                 </Link>
 
-                {/* 2. Dashboard Dropdown / Accordion */}
+                {/* 2. Dashboard Dropdown / Accordion (Only if Logged In) */}
                 {hasDashboard && (
                   <div className="flex flex-col">
                     <button
-                      onClick={() => setIsDashboardDropdownOpen(!isDashboardDropdownOpen)}
+                      onClick={() => {
+                        if (!isLoggedIn) {
+                          setIsOpen(false);
+                          router.push(`/login?callbackUrl=${encodeURIComponent(`${currentPlatform?.href}/dashboard`)}`);
+                          return;
+                        }
+                        setIsDashboardDropdownOpen(!isDashboardDropdownOpen);
+                      }}
                       className={cn(
-                        "w-full flex items-center justify-between p-3 rounded-2xl border transition-all active:scale-95 shadow-md",
+                        "w-full flex items-center justify-between p-3.5 rounded-2xl border transition-all active:scale-95 shadow-md",
                         navText === "text-white"
                           ? "border-cyan-500/40 bg-cyan-500/20 text-white"
                           : "border-primary/40 bg-primary/10 text-foreground"
@@ -326,15 +341,13 @@ export function Navbar() {
                         <div className={cn("p-2 rounded-xl border", navText === "text-white" ? "border-white/15 bg-black/40" : "border-border bg-background", iconColor)}>
                           <LayoutDashboard className="h-5 w-5" />
                         </div>
-                        <span className="text-sm font-black tracking-wide">Dashboard Menu</span>
+                        <span className="text-sm font-black tracking-wide">Dashboard</span>
                       </div>
-                      <span className="text-xs font-bold uppercase px-2 py-1 rounded bg-black/30">
-                        {isDashboardDropdownOpen ? "▲ Hide" : "▼ Open"}
-                      </span>
+                      <ChevronDown className={cn("h-4 w-4 transition-transform duration-300 opacity-70", isDashboardDropdownOpen && "rotate-180")} />
                     </button>
 
                     <AnimatePresence>
-                      {isDashboardDropdownOpen && (
+                      {isLoggedIn && isDashboardDropdownOpen && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
