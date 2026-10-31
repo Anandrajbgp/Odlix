@@ -1,22 +1,27 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Navbar } from "@/components/layout/navbar";
 import { PlatformBackdrop } from "@/components/layout/platform-backdrop";
 import { HomeFooter } from "@/components/layout/home-footer";
 import { BackgroundBubbles } from "@/components/layout/background-bubbles";
 
+export const metadata: Metadata = {
+  title: "Competition & Mock Tests",
+  description: "Competitive exam preparation, AI-guided mock tests, and comprehensive practice sets with Odlix Competition.",
+};
+
 export default function CompetitionLayout({ children }: { children: ReactNode }) {
   return (
     <PlatformBackdrop variant="competition">
       <BackgroundBubbles />
       <div
-        className="flex min-h-screen flex-col bg-transparent text-white transition-colors duration-300 relative z-10"
+        className="flex min-h-screen flex-col relative z-10"
         style={{
-          // @ts-expect-error
-          "--platform-primary": "#0ea5e9",
-          "--platform-secondary": "#0d9488",
-          "--platform-accent": "#f59e0b",
-          "--platform-gradient": "linear-gradient(135deg, #0ea5e9 0%, #0d9488 55%, #f59e0b 100%)"
-        }}
+          "--platform-primary": "#0f172a",
+          "--platform-secondary": "#38bdf8",
+          "--platform-accent": "#0ea5e9",
+          "--platform-gradient": "linear-gradient(135deg, #020617 0%, #0f172a 55%, #042f2e 100%)"
+        } as React.CSSProperties}
       >
         <Navbar />
         <main className="flex flex-1 flex-col">{children}</main>

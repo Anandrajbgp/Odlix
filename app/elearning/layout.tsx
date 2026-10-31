@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Navbar } from "@/components/layout/navbar";
 import { PlatformBackdrop } from "@/components/layout/platform-backdrop";
 import { HomeFooter } from "@/components/layout/home-footer";
 import { BackgroundBubbles } from "@/components/layout/background-bubbles";
+
+export const metadata: Metadata = {
+  title: "eLearning Hub",
+  description: "Master high-income skills, video editing, and partner earning ecosystem with Odlix eLearning.",
+};
 
 export default function ElearningLayout({ children }: { children: ReactNode }) {
   return (
