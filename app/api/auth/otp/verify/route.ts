@@ -36,6 +36,9 @@ export async function POST(request: Request) {
     }
 
     if (supabaseVerified) {
+      const isAdmin = email.toLowerCase() === "team.odlix@gmail.com";
+      const userRole = isAdmin ? "ADMIN" : "USER";
+
       let user = await prisma.user.findUnique({
         where: { email },
         include: {
@@ -54,6 +57,7 @@ export async function POST(request: Request) {
             phone: phone || null,
             state: state || null,
             district: district || null,
+            role: userRole,
             passwordHash: "SUPABASE_OTP_AUTH",
             martProfile: { create: {} },
             elearningProfile: { create: {} },
@@ -68,7 +72,6 @@ export async function POST(request: Request) {
           },
         });
       } else {
-        // Update profile info if provided during signup
         user = await prisma.user.update({
           where: { email },
           data: {
@@ -76,6 +79,7 @@ export async function POST(request: Request) {
             phone: phone || user.phone,
             state: state || user.state,
             district: district || user.district,
+            role: userRole,
           },
           include: {
             martProfile: true,
