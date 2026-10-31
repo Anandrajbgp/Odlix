@@ -9,8 +9,8 @@ const features = [
     icon: <Fingerprint className="h-7 w-7 text-cyan-400" />,
     badge: "SSO Security",
     accent: "from-cyan-500/20 to-blue-600/20",
-    border: "border-cyan-500/30 group-hover:border-cyan-400",
-    glow: "group-hover:shadow-[0_0_30px_rgba(6,182,212,0.25)]"
+    border: "border-cyan-500/40 group-hover:border-cyan-400",
+    glow: "group-hover:shadow-[0_0_35px_rgba(6,182,212,0.3)]"
   },
   {
     title: "100% Verified Freelancers",
@@ -18,8 +18,8 @@ const features = [
     icon: <ShieldCheck className="h-7 w-7 text-emerald-400" />,
     badge: "Quality Assured",
     accent: "from-emerald-500/20 to-teal-600/20",
-    border: "border-emerald-500/30 group-hover:border-emerald-400",
-    glow: "group-hover:shadow-[0_0_30px_rgba(16,185,129,0.25)]"
+    border: "border-emerald-500/40 group-hover:border-emerald-400",
+    glow: "group-hover:shadow-[0_0_35px_rgba(16,185,129,0.3)]"
   },
   {
     title: "High-Converting Tracking",
@@ -27,8 +27,8 @@ const features = [
     icon: <BarChart3 className="h-7 w-7 text-purple-400" />,
     badge: "Real-time Stats",
     accent: "from-purple-500/20 to-indigo-600/20",
-    border: "border-purple-500/30 group-hover:border-purple-400",
-    glow: "group-hover:shadow-[0_0_30px_rgba(168,85,247,0.25)]"
+    border: "border-purple-500/40 group-hover:border-purple-400",
+    glow: "group-hover:shadow-[0_0_35px_rgba(168,85,247,0.3)]"
   },
   {
     title: "Super-Fast Utility Apps",
@@ -36,8 +36,8 @@ const features = [
     icon: <Zap className="h-7 w-7 text-amber-400" />,
     badge: "Ultra Performance",
     accent: "from-amber-500/20 to-orange-600/20",
-    border: "border-amber-500/30 group-hover:border-amber-400",
-    glow: "group-hover:shadow-[0_0_30px_rgba(245,158,11,0.25)]"
+    border: "border-amber-500/40 group-hover:border-amber-400",
+    glow: "group-hover:shadow-[0_0_35px_rgba(245,158,11,0.3)]"
   },
 ];
 
@@ -58,21 +58,21 @@ export function Features() {
           {features.map((f, i) => (
             <div
               key={i}
-              className={`group relative p-8 rounded-[2rem] bg-slate-900/15 backdrop-blur-md border border-slate-700/60 transition-all duration-300 text-left shadow-xl flex flex-col justify-between ${f.glow} hover:-translate-y-1.5 hover:bg-slate-900/35 hover:border-cyan-400`}
+              className={`group relative p-8 rounded-[2.5rem] bg-slate-900/95 backdrop-blur-2xl border border-cyan-500/30 transition-all duration-300 text-left shadow-2xl flex flex-col justify-between ${f.glow} hover:-translate-y-2 hover:border-cyan-400`}
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${f.accent} border border-slate-700/60 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${f.accent} border border-slate-700 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
                     {f.icon}
                   </div>
-                  <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-slate-900/40 text-slate-200 border border-slate-700/50 backdrop-blur-md">
+                  <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-slate-950 text-cyan-300 border border-cyan-500/30">
                     {f.badge}
                   </span>
                 </div>
                 <h3 className="text-xl font-black tracking-tight mb-3 text-white group-hover:text-cyan-300 transition-colors">
                   {f.title}
                 </h3>
-                <p className="text-slate-200 font-semibold text-sm leading-relaxed">{f.desc}</p>
+                <p className="text-slate-300 font-medium text-sm leading-relaxed">{f.desc}</p>
               </div>
             </div>
           ))}

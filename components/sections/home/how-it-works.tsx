@@ -11,7 +11,7 @@ const steps = [
     icon: UserPlus,
     accent: "from-cyan-500/20 to-blue-600/20",
     border: "border-cyan-500/40",
-    glow: "shadow-[0_0_25px_rgba(6,182,212,0.2)]",
+    glow: "shadow-[0_0_30px_rgba(6,182,212,0.25)]",
   },
   {
     number: "02",
@@ -20,7 +20,7 @@ const steps = [
     icon: Compass,
     accent: "from-amber-500/20 to-orange-600/20",
     border: "border-amber-500/40",
-    glow: "shadow-[0_0_25px_rgba(245,158,11,0.2)]",
+    glow: "shadow-[0_0_30px_rgba(245,158,11,0.25)]",
   },
   {
     number: "03",
@@ -29,7 +29,7 @@ const steps = [
     icon: Rocket,
     accent: "from-emerald-500/20 to-teal-600/20",
     border: "border-emerald-500/40",
-    glow: "shadow-[0_0_25px_rgba(16,185,129,0.2)]",
+    glow: "shadow-[0_0_30px_rgba(16,185,129,0.25)]",
   },
 ];
 
@@ -45,7 +45,7 @@ export function HowItWorks() {
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white">
             How <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-teal-200 to-emerald-300">Odlix Works</span>
           </h2>
-          <p className="text-slate-200 text-sm md:text-base font-semibold mt-3 max-w-xl mx-auto">
+          <p className="text-slate-300 text-sm md:text-base font-semibold mt-3 max-w-xl mx-auto">
             Experience the simplicity of one unified login for all your digital needs.
           </p>
         </div>
@@ -60,14 +60,14 @@ export function HowItWorks() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.12 }}
                 viewport={{ once: true }}
-                className={`group relative p-8 rounded-[2.2rem] bg-slate-900/15 backdrop-blur-md border ${step.border} transition-all duration-300 text-left shadow-xl flex flex-col justify-between hover:-translate-y-2 ${step.glow} hover:bg-slate-900/35`}
+                className={`group relative p-8 sm:p-10 rounded-[2.5rem] bg-slate-900/95 backdrop-blur-2xl border ${step.border} transition-all duration-300 text-left shadow-2xl flex flex-col justify-between hover:-translate-y-2 ${step.glow}`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${step.accent} border border-slate-700 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
                       <Icon className="h-7 w-7 text-cyan-300" />
                     </div>
-                    <span className="text-2xl font-black text-slate-400 opacity-60 font-mono">
+                    <span className="text-2xl font-black text-slate-500 font-mono">
                       {step.number}
                     </span>
                   </div>
@@ -76,7 +76,7 @@ export function HowItWorks() {
                     {step.title}
                   </h3>
 
-                  <p className="text-slate-200 font-semibold text-sm leading-relaxed">
+                  <p className="text-slate-300 font-medium text-sm sm:text-base leading-relaxed">
                     {step.desc}
                   </p>
                 </div>

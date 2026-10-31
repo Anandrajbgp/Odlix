@@ -86,26 +86,26 @@ export function Testimonials() {
     <section className="relative overflow-hidden py-16 md:py-24 bg-transparent text-white">
       <div className="container relative z-10 mx-auto px-4 max-w-6xl">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full bg-cyan-500/10 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-cyan-300 border border-cyan-500/30 backdrop-blur-md mb-3">
-            <MessageSquare className="h-4 w-4 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 rounded-full bg-cyan-500/15 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-cyan-300 border border-cyan-500/40 backdrop-blur-md mb-3">
+            <MessageSquare className="h-4 w-4 text-cyan-300" />
             User Feedback
           </div>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight">
             Customer <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-300">Reviews</span>
           </h2>
-          <p className="text-slate-200 text-sm md:text-base font-semibold mt-2">Trusted by thousands of users across India.</p>
+          <p className="text-slate-300 text-sm md:text-base font-semibold mt-2">Trusted by thousands of users across India.</p>
         </div>
 
-        {/* Glassmorphic cyan-teal gradient container blending into backdrop */}
-        <div className="relative overflow-hidden rounded-[2.2rem] bg-slate-900/15 backdrop-blur-xl p-8 md:p-12 text-white shadow-xl border border-slate-700/60">
-          <div className="absolute inset-0 bg-[linear-gradient(125deg,rgba(0,212,202,0.12)_0%,rgba(99,102,241,0.08)_50%,transparent_80%)] pointer-events-none" />
+        {/* Solid high-contrast glassmorphic container */}
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-slate-900/95 backdrop-blur-2xl p-6 sm:p-12 text-white shadow-2xl border border-cyan-500/30">
+          <div className="absolute inset-0 bg-[linear-gradient(125deg,rgba(0,212,202,0.1)_0%,rgba(99,102,241,0.06)_50%,transparent_80%)] pointer-events-none" />
 
           <div
             className="flex transition-transform duration-700 ease-out relative z-10"
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
           >
             {testimonials.map((item) => (
-              <article key={item.name} className="min-w-full rounded-3xl bg-slate-900/30 backdrop-blur-md p-6 sm:p-10 text-white border border-slate-700/60 shadow-lg">
+              <article key={item.name} className="min-w-full rounded-[2rem] bg-slate-950/80 backdrop-blur-md p-6 sm:p-10 text-white border border-cyan-500/20 shadow-xl">
                 <div className="mb-6 flex items-center justify-between">
                   <div className="flex items-center gap-1" aria-label="5 star rating">
                     {[1, 2, 3, 4, 5].map((star) => (
@@ -115,7 +115,7 @@ export function Testimonials() {
                   <Quote className="w-7 h-7 text-cyan-300" />
                 </div>
 
-                <p className="text-white text-lg md:text-2xl font-black leading-relaxed mb-8 italic drop-shadow-sm">
+                <p className="text-white text-base sm:text-xl md:text-2xl font-black leading-relaxed mb-8 italic drop-shadow-sm">
                   “{item.review}”
                 </p>
 
@@ -123,13 +123,13 @@ export function Testimonials() {
                   <img
                     src={item.image}
                     alt={`${item.name} profile photo`}
-                    className="h-14 w-14 rounded-full object-cover border-2 border-cyan-400/60 shadow-md"
+                    className="h-14 w-14 rounded-full object-cover border-2 border-cyan-400 shadow-md"
                     loading="lazy"
                     referrerPolicy="no-referrer"
                   />
                   <div>
                     <h4 className="text-lg md:text-xl font-black text-white tracking-tight">{item.name}</h4>
-                    <p className="text-cyan-300 font-black text-xs md:text-sm">{item.role}</p>
+                    <p className="text-cyan-300 font-bold text-xs md:text-sm">{item.role}</p>
                   </div>
                 </div>
               </article>
@@ -139,7 +139,7 @@ export function Testimonials() {
           <button
             type="button"
             onClick={goToPrevious}
-            className="absolute left-4 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full border border-white/20 bg-white/10 text-white hover:bg-white/20 transition-colors flex items-center justify-center backdrop-blur-md z-20 active:scale-90"
+            className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full border border-cyan-500/40 bg-slate-900 text-cyan-300 hover:bg-slate-800 transition-colors flex items-center justify-center backdrop-blur-md z-20 active:scale-90 shadow-lg"
             aria-label="Previous review"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -148,7 +148,7 @@ export function Testimonials() {
           <button
             type="button"
             onClick={goToNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full border border-white/20 bg-white/10 text-white hover:bg-white/20 transition-colors flex items-center justify-center backdrop-blur-md z-20 active:scale-90"
+            className="absolute right-3 sm:left-auto right-4 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full border border-cyan-500/40 bg-slate-900 text-cyan-300 hover:bg-slate-800 transition-colors flex items-center justify-center backdrop-blur-md z-20 active:scale-90 shadow-lg"
             aria-label="Next review"
           >
             <ChevronRight className="w-6 h-6" />
