@@ -1,11 +1,20 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { rateLimit } from "@/lib/rate-limit";
 
 export async function POST(request: Request) {
   try {
+    const ip = request.headers.get("x-forwarded-for") || "127.0.0.1";
     const { email, token, name, phone, state, district } = await request.json();
+
     if (!email || !token) {
       return NextResponse.json({ message: "Email and OTP token are required" }, { status: 400 });
+    }
+
+    // Rate limit: max 5 verification attempts per minute to prevent brute-forcing OTP
+    const limiter = rateLimit(`otp-verify-${email}-${ip}`, 5, 60 * 1000);
+    if (!limiter.success) {
+      return NextResponse.json({ message: "Too many verification attempts. Please try again after 1 minute." }, { status: 429 });
     }
 
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
