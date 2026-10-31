@@ -121,6 +121,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDashboardDropdownOpen, setIsDashboardDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -309,23 +310,72 @@ export function Navbar() {
                   <span className="text-sm font-black tracking-wide">Home</span>
                 </Link>
 
-                {/* 2. Dashboard (Only for E-Learning, Mart, Mock Tests) */}
+                {/* 2. Dashboard Dropdown / Accordion */}
                 {hasDashboard && (
-                  <Link
-                    href={`${currentPlatform?.href}/dashboard`}
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "flex items-center space-x-3.5 p-3 rounded-2xl border transition-all active:scale-95 shadow-md",
-                      navText === "text-white"
-                        ? "border-cyan-500/40 bg-cyan-500/20 text-white"
-                        : "border-primary/40 bg-primary/10 text-foreground"
-                    )}
-                  >
-                    <div className={cn("p-2 rounded-xl border", navText === "text-white" ? "border-white/15 bg-black/40" : "border-border bg-background", iconColor)}>
-                      <LayoutDashboard className="h-5 w-5" />
-                    </div>
-                    <span className="text-sm font-black tracking-wide">Dashboard</span>
-                  </Link>
+                  <div className="flex flex-col">
+                    <button
+                      onClick={() => setIsDashboardDropdownOpen(!isDashboardDropdownOpen)}
+                      className={cn(
+                        "w-full flex items-center justify-between p-3 rounded-2xl border transition-all active:scale-95 shadow-md",
+                        navText === "text-white"
+                          ? "border-cyan-500/40 bg-cyan-500/20 text-white"
+                          : "border-primary/40 bg-primary/10 text-foreground"
+                      )}
+                    >
+                      <div className="flex items-center space-x-3.5">
+                        <div className={cn("p-2 rounded-xl border", navText === "text-white" ? "border-white/15 bg-black/40" : "border-border bg-background", iconColor)}>
+                          <LayoutDashboard className="h-5 w-5" />
+                        </div>
+                        <span className="text-sm font-black tracking-wide">Dashboard Menu</span>
+                      </div>
+                      <span className="text-xs font-bold uppercase px-2 py-1 rounded bg-black/30">
+                        {isDashboardDropdownOpen ? "▲ Hide" : "▼ Open"}
+                      </span>
+                    </button>
+
+                    <AnimatePresence>
+                      {isDashboardDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="flex flex-col space-y-2 mt-2 pl-4 border-l-2 border-cyan-500/40 ml-4 py-2"
+                        >
+                          <Link
+                            href={`${currentPlatform?.href}/dashboard`}
+                            onClick={() => setIsOpen(false)}
+                            className="text-xs font-black uppercase tracking-widest text-cyan-400 hover:underline py-1"
+                          >
+                            ↗ Open Full Dashboard
+                          </Link>
+                          {(currentPlatform?.href === "/elearning" ? [
+                            { name: "My Courses", id: "courses" },
+                            { name: "Earning", id: "earning" },
+                            { name: "Payout", id: "payout" },
+                            { name: "Certificates", id: "certificates" },
+                          ] : currentPlatform?.href === "/mart" ? [
+                            { name: "Orders", id: "orders" },
+                            { name: "Earning", id: "earning" },
+                            { name: "Payout", id: "payout" },
+                            { name: "Products", id: "products" },
+                          ] : [
+                            { name: "Mock Tests", id: "mock-tests" },
+                            { name: "Exams", id: "exams" },
+                            { name: "Leaderboard", id: "leaderboard" },
+                          ]).map((sub) => (
+                            <Link
+                              key={sub.id}
+                              href={`${currentPlatform?.href}/dashboard`}
+                              onClick={() => setIsOpen(false)}
+                              className="text-xs font-bold text-slate-300 hover:text-white py-1 transition-colors"
+                            >
+                              • {sub.name}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 )}
 
                 {/* 3. 8 Platforms Line-wise */}
