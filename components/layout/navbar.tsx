@@ -504,13 +504,6 @@ export function Navbar() {
                     </>
                   )}
                 </div>
-                        ? "bg-white text-black hover:bg-white/90"
-                        : "bg-primary text-primary-foreground hover:bg-primary/90"
-                    )}
-                  >
-                    Sign Up
-                  </Link>
-                </div>
               </div>
             </motion.div>
           )}
