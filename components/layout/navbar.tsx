@@ -273,9 +273,10 @@ export function Navbar() {
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
               className={cn(
-                "md:hidden absolute top-full left-0 right-0 mt-3 p-6 rounded-3xl border shadow-2xl backdrop-blur-3xl overflow-y-auto max-h-[75vh]",
-                mobilePanelSurface,
-                border
+                "md:hidden absolute top-full right-0 mt-3 w-80 max-w-[calc(100vw-2rem)] p-5 rounded-3xl border shadow-2xl backdrop-blur-3xl overflow-y-auto max-h-[75vh]",
+                navBg,
+                border,
+                navText
               )}
             >
               <div className="flex flex-col space-y-3">
@@ -283,9 +284,14 @@ export function Navbar() {
                 <Link
                   href="/"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center space-x-3.5 p-3.5 rounded-2xl border border-slate-800 bg-slate-900/60 hover:bg-slate-900 text-white transition-all active:scale-95"
+                  className={cn(
+                    "flex items-center space-x-3.5 p-3 rounded-2xl border transition-all active:scale-95",
+                    navText === "text-white"
+                      ? "border-white/15 bg-white/5 hover:bg-white/10 text-white"
+                      : "border-border bg-muted/60 hover:bg-muted text-foreground"
+                  )}
                 >
-                  <div className="p-2 rounded-xl bg-slate-950 border border-slate-800 text-cyan-400">
+                  <div className={cn("p-2 rounded-xl border", navText === "text-white" ? "border-white/15 bg-black/40" : "border-border bg-background", iconColor)}>
                     <Home className="h-5 w-5" />
                   </div>
                   <span className="text-sm font-black tracking-wide">Home</span>
@@ -296,9 +302,14 @@ export function Navbar() {
                   <Link
                     href={`${currentPlatform?.href}/dashboard`}
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center space-x-3.5 p-3.5 rounded-2xl border border-cyan-500/40 bg-cyan-500/15 text-white transition-all active:scale-95 shadow-md"
+                    className={cn(
+                      "flex items-center space-x-3.5 p-3 rounded-2xl border transition-all active:scale-95 shadow-md",
+                      navText === "text-white"
+                        ? "border-cyan-500/40 bg-cyan-500/20 text-white"
+                        : "border-primary/40 bg-primary/10 text-foreground"
+                    )}
                   >
-                    <div className="p-2 rounded-xl bg-slate-950 border border-slate-800 text-cyan-300">
+                    <div className={cn("p-2 rounded-xl border", navText === "text-white" ? "border-white/15 bg-black/40" : "border-border bg-background", iconColor)}>
                       <LayoutDashboard className="h-5 w-5" />
                     </div>
                     <span className="text-sm font-black tracking-wide">Dashboard</span>
@@ -307,7 +318,7 @@ export function Navbar() {
 
                 {/* 3. 8 Platforms Line-wise */}
                 <div className="flex flex-col space-y-2 pt-1">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-300 px-1 mb-1">
+                  <span className={cn("text-[10px] font-black uppercase tracking-[0.2em] px-1 mb-1", iconColor)}>
                     Ecosystem Platforms
                   </span>
                   {platforms.map((p) => (
@@ -316,13 +327,13 @@ export function Navbar() {
                       href={p.href}
                       onClick={() => setIsOpen(false)}
                       className={cn(
-                        "flex items-center space-x-3.5 p-3.5 rounded-2xl border transition-all active:scale-95",
+                        "flex items-center space-x-3.5 p-3 rounded-2xl border transition-all active:scale-95",
                         pathname.startsWith(p.href)
-                          ? "border-cyan-400 bg-cyan-500/20 text-white"
-                          : "border-slate-800 bg-slate-900/60 hover:bg-slate-900 text-slate-200"
+                          ? (navText === "text-white" ? "border-cyan-400 bg-cyan-500/20 text-white" : "border-primary bg-primary/20 text-foreground")
+                          : (navText === "text-white" ? "border-white/15 bg-white/5 hover:bg-white/10 text-slate-200" : "border-border bg-muted/60 hover:bg-muted text-foreground")
                       )}
                     >
-                      <div className={cn("p-2 rounded-xl bg-slate-950 border border-slate-800", p.color)}>
+                      <div className={cn("p-2 rounded-xl border", navText === "text-white" ? "border-white/15 bg-black/40" : "border-border bg-background", p.color)}>
                         <p.icon className="h-5 w-5" />
                       </div>
                       <span className="text-sm font-black tracking-wide">{p.name}</span>
@@ -331,14 +342,14 @@ export function Navbar() {
                 </div>
 
                 {/* 4. Login & Sign Up */}
-                <div className="pt-4 border-t border-white/10 flex flex-col space-y-3">
+                <div className={cn("pt-4 border-t flex flex-col space-y-3", navText === "text-white" ? "border-white/10" : "border-border")}>
                   <Link
                     href="/login"
                     onClick={() => setIsOpen(false)}
                     className={cn(
                       "w-full py-3 text-center text-xs font-black uppercase tracking-widest rounded-2xl border transition-all active:scale-95",
                       navText === "text-white"
-                        ? "border-white/20 text-white hover:bg-white/10"
+                        ? "border-white/25 text-white hover:bg-white/10"
                         : "border-border text-foreground hover:bg-muted"
                     )}
                   >
