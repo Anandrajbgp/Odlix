@@ -123,11 +123,6 @@ export function HomeFooter() {
               </Link>
             </li>
             <li>
-              <Link href="/about" className="transition-colors hover:text-cyan-300">
-                About Us
-              </Link>
-            </li>
-            <li>
               <Link href={privacyHref} className="transition-colors hover:text-cyan-300">
                 Privacy Policy
               </Link>
@@ -135,6 +130,11 @@ export function HomeFooter() {
             <li>
               <Link href={termsHref} className="transition-colors hover:text-cyan-300">
                 Terms of Service
+              </Link>
+            </li>
+            <li>
+              <Link href="/about" className="transition-colors hover:text-cyan-300">
+                About Us
               </Link>
             </li>
           </ul>
