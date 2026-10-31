@@ -6,10 +6,17 @@ import { supabase } from "@/lib/supabase";
 export async function POST(request: Request) {
   try {
     const ip = request.headers.get("x-forwarded-for") || "127.0.0.1";
-    const { email, token, name, phone, state, district } = await request.json();
+    const { email, token, name, phone, state, district, isLogin } = await request.json();
 
     if (!email || !token) {
       return NextResponse.json({ message: "Email and OTP token are required" }, { status: 400 });
+    }
+
+    if (isLogin) {
+      const existingUser = await prisma.user.findUnique({ where: { email } });
+      if (!existingUser) {
+        return NextResponse.json({ message: "No account found with this email. Please sign up first." }, { status: 404 });
+      }
     }
 
     const limiter = rateLimit(`otp-verify-${email}-${ip}`, 5, 60 * 1000);
@@ -62,6 +69,9 @@ export async function POST(request: Request) {
       });
 
       if (!user) {
+        if (isLogin) {
+          return NextResponse.json({ message: "Account not found. Please sign up first." }, { status: 404 });
+        }
         user = await prisma.user.create({
           data: {
             email,
