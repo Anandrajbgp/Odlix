@@ -44,13 +44,24 @@ const sidebarLinks = [
 export default function StudentDashboard() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("courses"); // Starting with Step 1: Learn (Courses)
+  const [isChecking, setIsChecking] = useState(true);
 
   useEffect(() => {
     const stored = localStorage.getItem("odlix_user");
     if (!stored) {
       router.replace("/login");
+    } else {
+      setIsChecking(false);
     }
   }, [router]);
+
+  if (isChecking) {
+    return (
+      <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center">
+        <div className="text-sm text-cyan-400 animate-pulse font-bold tracking-widest uppercase">Loading eLearning Dashboard...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-h-screen bg-background text-foreground transition-colors duration-300">
