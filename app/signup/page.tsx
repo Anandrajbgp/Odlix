@@ -80,7 +80,7 @@ export default function SignupPage() {
         return;
       }
 
-      setSuccessMsg("Secure 6-digit verification OTP code sent to your email successfully!");
+      setSuccessMsg(data.message || "Secure 6-digit verification OTP code sent to your email successfully!");
       setStep("otp");
     } catch (err: any) {
       setLoading(false);
@@ -264,6 +264,12 @@ export default function SignupPage() {
           </form>
         ) : (
           <form onSubmit={handleVerifyOtp} className="space-y-6">
+            {successMsg ? (
+              <div className="rounded-xl border border-cyan-500/30 bg-cyan-500/10 p-4 text-sm text-cyan-300 font-medium">
+                {successMsg}
+              </div>
+            ) : null}
+
             <div>
               <label htmlFor="otp" className="block text-xs font-bold uppercase tracking-widest text-slate-300">6-Digit Verification OTP Code</label>
               <div className="relative mt-2">
@@ -290,14 +296,12 @@ export default function SignupPage() {
             <button
               type="submit"
               disabled={loading}
-              className="group relative flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-500 to-teal-400 px-6 py-4 text-sm font-black uppercase tracking-widest text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:opacity-95 hover:shadow-cyan-500/40 disabled:cursor-not-allowed disabled:opacity-60"
+              className="group relative flex w-full items-center justify-center day gap-2 rounded-2xl bg-gradient-to-r from-cyan-500 to-teal-400 px-6 py-4 text-sm font-black uppercase tracking-widest text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:opacity-95 hover:shadow-cyan-500/40 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {loading ? (
-                "Verifying OTP..."
+                "Verifying..."
               ) : (
-                <>
-                  Verify & Complete Signup <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </>
+                `Verify & Complete Signup`
               )}
             </button>
 

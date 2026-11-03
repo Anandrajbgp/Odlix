@@ -37,7 +37,7 @@ function LoginForm() {
         return;
       }
 
-      setSuccessMsg("Secure 6-digit OTP code sent to your email successfully!");
+      setSuccessMsg(data.message || "Secure 6-digit OTP code sent successfully!");
       setStep("otp");
     } catch (err: any) {
       setLoading(false);
@@ -142,6 +142,12 @@ function LoginForm() {
         </form>
       ) : (
         <form onSubmit={handleVerifyOtp} className="space-y-6">
+          {successMsg ? (
+            <div className="rounded-xl border border-cyan-500/30 bg-cyan-500/10 p-4 text-sm text-cyan-300 font-medium">
+              {successMsg}
+            </div>
+          ) : null}
+
           <div>
             <label htmlFor="otp" className="block text-xs font-bold uppercase tracking-widest text-slate-300">6-Digit Login OTP Code</label>
             <div className="relative mt-2">
@@ -168,7 +174,7 @@ function LoginForm() {
           <button
             type="submit"
             disabled={loading}
-            className="group realative flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-500 to-teal-400 px-6 py-4 text-sm font-black uppercase tracking-widest text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:opacity-95 hover:shadow-cyan-500/40 disabled:cursor-not-allowed disabled:opacity-60"
+            className="group relative flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-500 to-teal-400 px-6 py-4 text-sm font-black uppercase tracking-widest text-slate-950 shadow-xl shadow-cyan-500/20 transition hover:opacity-95 hover:shadow-cyan-500/40 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {loading ? (
               "Verifying..."
