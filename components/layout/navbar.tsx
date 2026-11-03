@@ -292,11 +292,12 @@ export function Navbar() {
               exit={{ opacity: 0, x: -30, scale: 0.98 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
               className={cn(
-                "absolute top-full left-3 mt-3 w-72 max-w-[calc(100vw-2rem)] p-4 rounded-2xl border shadow-xl backdrop-blur-2xl overflow-y-auto max-h-[80vh] z-[160]",
+                "absolute top-full left-3 mt-3 w-72 max-w-[calc(100vw-2rem)] p-4 rounded-2xl border shadow-xl backdrop-blur-2xl overflow-y-auto max-h-[75vh] z-[160]",
                 navBg,
                 border,
                 navText
               )}
+              style={{ WebkitOverflowScrolling: "touch", overscrollBehavior: "contain" }}
             >
               <div className="flex flex-col space-y-1.5">
                 {/* 1. Home Link */}
