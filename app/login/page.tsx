@@ -83,6 +83,11 @@ function LoginForm() {
     }
   }
 
+  async function handleVerifyOtpSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    await verifyOtpCode(otp);
+  }
+
   return (
     <div className="w-full max-w-md rounded-[2.5rem] border border-slate-700/80 bg-slate-900/95 p-8 sm:p-10 shadow-2xl backdrop-blur-2xl relative z-10 mx-4 text-white">
       {/* Close button */}
@@ -100,7 +105,7 @@ function LoginForm() {
         </p>
       </div>
 
-      <form onSubmit={step === "email" ? handleSendOtp : (e) => { e.preventDefault(); verifyOtpCode(otp); }} className="space-y-4">
+      <form onSubmit={step === "email" ? handleSendOtp : handleVerifyOtpSubmit} className="space-y-4">
         <div>
           <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">Email address</label>
           <div className="relative">
@@ -120,7 +125,7 @@ function LoginForm() {
         {step === "otp" && (
           <div>
             <div className="flex justify-between items-center mb-1.5">
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Enter 6-Digit OTP (Replacing password)</label>
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Enter 6-Digit OTP</label>
               <button type="button" onClick={() => setStep("email")} className="text-[10px] font-bold text-cyan-400 hover:underline">Change email</button>
             </div>
             <div className="relative">
@@ -160,7 +165,7 @@ function LoginForm() {
           disabled={loading}
           className="w-full rounded-2xl bg-gradient-to-r from-slate-100 to-slate-200 text-slate-950 py-4 text-xs font-black uppercase tracking-widest shadow-lg transition hover:opacity-90 disabled:opacity-50 mt-2"
         >
-          {loading ? "Processing..." : step === "email" ? "Send Email / OTP" : "Verify & Sign In"}
+          {loading ? "Processing..." : step === "email" ? "Send Code" : "Verify"}
         </button>
       </form>
 
