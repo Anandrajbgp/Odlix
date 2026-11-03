@@ -1,49 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  User,
-  Wallet,
-  BookOpen,
-  ArrowUpRight,
-  Trophy,
-  Users,
-  Award,
-  Settings,
-  LogOut,
-  LayoutDashboard,
-  Video,
-  FileText,
-  Wrench,
-  HelpCircle,
-  Share2,
-  Smartphone,
-  ChevronRight,
-  TrendingUp,
-  Globe
-} from "lucide-react";
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { LayoutDashboard, User, BookOpen, Crown, Wallet, Award, Trophy, LogOut, TrendingUp, Users, ArrowUpRight, AlertCircle, BarChart2 } from "lucide-react";
 
-const sidebarLinks = [
-  { name: "Profile", icon: <User />, id: "profile" },
-  { name: "Earning", icon: <TrendingUp />, id: "earning" },
-  { name: "My Courses", icon: <Video />, id: "courses" },
-  { name: "Payout", icon: <Wallet />, id: "payout" },
-  { name: "Training", icon: <LayoutDashboard />, id: "training" },
-  { name: "Partners", icon: <Users />, id: "partners" },
-  { name: "Leaderboard", icon: <Trophy />, id: "leaderboard" },
-  { name: "Tools", icon: <Wrench />, id: "tools" },
-  { name: "Certificates", icon: <Award />, id: "certificates" },
-  { name: "Quiz", icon: <FileText />, id: "quiz" },
-  { name: "Social Media Handles", icon: <Share2 />, id: "social" },
+const navTabs = [
+  { name: "Dashboard", href: "/elearning/dashboard", icon: LayoutDashboard, active: true },
+  { name: "Profile", href: "/profile", icon: User },
+  { name: "My Courses", href: "/elearning/dashboard/courses", icon: BookOpen },
+  { name: "Plan", href: "/elearning/dashboard/plan", icon: Crown },
+  { name: "Affiliates", href: "/elearning/dashboard/affiliates", icon: Users },
+  { name: "Payments", href: "/elearning/dashboard/payment", icon: Wallet },
+  { name: "Certificates", href: "/elearning/dashboard/certificates", icon: Award },
+  { name: "Leaderboard", href: "/elearning/dashboard/leaderboard", icon: Trophy },
 ];
 
-export default function StudentDashboard() {
+export default function ElearningDashboardPage() {
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState("courses"); // Starting with Step 1: Learn (Courses)
+  const [user, setUser] = useState<any>(null);
   const [isChecking, setIsChecking] = useState(true);
 
   useEffect(() => {
@@ -51,181 +26,176 @@ export default function StudentDashboard() {
     if (!stored) {
       router.replace("/login");
     } else {
+      try {
+        setUser(JSON.parse(stored));
+      } catch (e) {}
       setIsChecking(false);
     }
   }, [router]);
 
   if (isChecking) {
     return (
-      <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center">
-        <div className="text-sm text-cyan-400 animate-pulse font-bold tracking-widest uppercase">Loading eLearning Dashboard...</div>
+      <div className="min-h-screen bg-[#050b14] text-white flex items-center justify-center">
+        <div className="text-sm text-cyan-400 animate-pulse font-bold tracking-widest uppercase">Loading Student Dashboard...</div>
       </div>
     );
   }
 
   return (
-    <div className="flex min-h-screen bg-background text-foreground transition-colors duration-300">
-      {/* Sidebar */}
-      <aside className="w-80 bg-slate-950 text-white flex flex-col sticky top-0 h-screen shrink-0 border-r border-white/5">
-        <div className="p-8 border-b border-white/10">
-          <Link href="/elearning" className="flex items-center space-x-3 group">
-             <div className="w-10 h-10 rounded-xl bg-indigo-500 flex items-center justify-center text-slate-950 shadow-lg group-hover:rotate-6 transition-transform">
-                <BookOpen className="w-6 h-6" />
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900 pb-20">
+      {/* Top Banner / User Header */}
+      <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white py-10 px-6 border-b border-slate-700 relative overflow-hidden">
+        <div className="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative z-10">
+          <div className="flex items-center gap-4">
+             <div className="w-16 h-16 rounded-2xl bg-indigo-500/20 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-black text-2xl shadow-inner">
+                {user?.name?.[0]?.toUpperCase() || "U"}
              </div>
              <div>
-                <div className="text-lg font-black tracking-tighter leading-none">EDU HUB</div>
-                <div className="text-[9px] font-bold text-indigo-400 tracking-[0.2em] leading-none mt-1.5 uppercase">Dashboard by Odlix</div>
+                <h1 className="text-2xl font-black tracking-tight">{user?.name || "Anees Ahmad"}</h1>
+                <p className="text-xs text-slate-300 mt-1">🇺🇸 Verified Student & Affiliate Partner</p>
+                <div className="mt-2 inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-indigo-500 text-white font-black text-xs tracking-wider">
+                   Rank 1
+                </div>
              </div>
-          </Link>
-        </div>
+          </div>
 
-        <nav className="flex-1 p-6 space-y-1.5 overflow-y-auto scrollbar-hide text-white">
-          {sidebarLinks.map((link) => (
+          <div className="w-full md:w-72 bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
+             <div className="flex justify-between text-xs font-bold mb-2">
+                <span className="text-slate-400">Referrals: <strong className="text-white">0</strong></span>
+                <span className="text-cyan-400">Earnings: <strong className="text-white">₹0.00</strong></span>
+             </div>
+             <p className="text-[10px] text-slate-400 mb-1.5 uppercase font-bold tracking-wider">Until 2 Rank...</p>
+             <div className="w-full h-2 bg-slate-900 rounded-full overflow-hidden">
+                <div className="h-full bg-emerald-500 rounded-full" style={{ width: "15%" }} />
+             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Horizontal Top Navigation Bar */}
+      <div className="bg-[#476b7b] text-white shadow-md sticky top-0 z-40">
+         <div className="container mx-auto max-w-6xl px-4 flex items-center space-x-1 overflow-x-auto scrollbar-hide py-2.5">
+            {navTabs.map(tab => {
+              const Icon = tab.icon;
+              return (
+                <Link
+                  key={tab.name}
+                  href={tab.href}
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all whitespace-nowrap ${
+                    tab.active ? "bg-slate-900/40 text-white shadow" : "text-slate-200 hover:bg-white/10 hover:text-white"
+                  }`}
+                >
+                  <Icon className="h-4 w-4" /> {tab.name}
+                </Link>
+              );
+            })}
             <button
-              key={link.id}
-              onClick={() => setActiveTab(link.id)}
-              className={cn(
-                "w-full flex items-center space-x-4 p-4 rounded-[1.2rem] font-bold text-sm transition-all relative group",
-                activeTab === link.id
-                  ? "bg-indigo-500 text-slate-950 shadow-xl"
-                  : "text-slate-500 hover:text-white hover:bg-white/5"
-              )}
+              onClick={() => {
+                localStorage.removeItem("odlix_user");
+                router.push("/login");
+                router.refresh();
+              }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest text-red-200 hover:bg-red-500/20 hover:text-white transition-all whitespace-nowrap ml-auto"
             >
-              <span className="w-5 h-5">{link.icon}</span>
-              <span className="tracking-tight">{link.name}</span>
-              {activeTab === link.id && <div className="absolute right-4"><ChevronRight className="w-4 h-4" /></div>}
+              <LogOut className="h-4 w-4" /> Logout
             </button>
-          ))}
-        </nav>
+         </div>
+      </div>
 
-        <div className="p-6 border-t border-white/10">
-          <button
-            onClick={() => {
-              localStorage.removeItem("odlix_user");
-              router.push("/login");
-              router.refresh();
-            }}
-            className="w-full flex items-center space-x-4 p-4 rounded-2xl font-black text-[10px] uppercase tracking-widest text-red-400 hover:bg-red-500/10 transition-all border border-red-500/10"
-          >
-             <LogOut className="w-5 h-5" />
-             <span>Terminate Session</span>
-          </button>
-        </div>
-      </aside>
+      {/* Alert Banner */}
+      <div className="container mx-auto max-w-6xl px-4 mt-6">
+         <div className="p-4 rounded-2xl bg-amber-100 border border-amber-300 text-amber-900 text-xs md:text-sm font-bold flex items-center gap-3 shadow-sm">
+            <AlertCircle className="h-5 w-5 text-amber-600 shrink-0" />
+            <span>You did not submit any Payout Method. You can complete setup <Link href="/elearning/dashboard/payment" className="underline font-black text-amber-950">here</Link></span>
+         </div>
+      </div>
 
-      {/* Main Content */}
-      <main className="flex-1 p-12 overflow-y-auto">
-        <header className="flex justify-between items-end mb-16">
-           <div>
-              <div className="inline-flex items-center space-x-2 text-[10px] font-black uppercase tracking-[0.3em] text-indigo-600 dark:text-indigo-400 mb-4">
-                 <Smartphone className="w-3 h-3" />
-                 <span>Verified Student Access</span>
-              </div>
-              <h1 className="text-4xl md:text-5xl font-black tracking-tighter">Hello, User! 👋</h1>
-              <p className="opacity-40 font-bold uppercase text-[10px] tracking-widest mt-2 italic">Step 1: Focus on Learning</p>
-           </div>
-           <div className="flex items-center space-x-6">
-              <div className="text-right hidden md:block">
-                 <div className="font-black text-xl tracking-tighter">Odlix User</div>
-                 <div className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20 mt-1">Expert Status</div>
-              </div>
-              <div className="w-16 h-16 rounded-3xl bg-card border-4 border-card shadow-2xl overflow-hidden group cursor-pointer relative">
-                 <div className="absolute inset-0 bg-indigo-500 opacity-0 group-hover:opacity-20 transition-opacity" />
-                 <div className="w-full h-full bg-slate-300 dark:bg-slate-800 transition-colors" />
-              </div>
-           </div>
-        </header>
+      {/* Main Dashboard Content */}
+      <div className="container mx-auto max-w-6xl px-4 mt-8 space-y-8">
+         <h2 className="text-2xl font-black text-slate-800 tracking-tight">Dashboard</h2>
 
-        {activeTab === "courses" && (
-           <div className="space-y-12">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 text-foreground">
-                 <div className="lg:col-span-2 space-y-8">
-                    <div className="bg-card p-12 rounded-[4rem] shadow-sm border border-border relative overflow-hidden">
-                       <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none"><BookOpen className="w-48 h-48" /></div>
-                       <div className="flex justify-between items-center mb-10 relative z-10">
-                          <h3 className="text-2xl font-black uppercase tracking-tighter">Continue Learning</h3>
-                          <Link href="#" className="text-indigo-600 dark:text-indigo-400 font-black text-xs uppercase tracking-widest hover:underline">Full Catalog</Link>
-                       </div>
-                       <div className="space-y-8 relative z-10">
-                          {[
-                            { name: "Advanced Video Editing & Motion Graphics", progress: 75, instructor: "Master Marcus", tag: "Expert" },
-                            { name: "Income Scaling Blueprint", progress: 40, instructor: "Coach Sarah", tag: "Pro" }
-                          ].map(course => (
-                            <div key={course.name} className="p-8 rounded-[2.5rem] bg-muted/20 border border-border group hover:border-indigo-500/50 transition-all shadow-sm">
-                               <div className="flex justify-between items-start mb-6">
-                                  <div>
-                                     <div className="inline-block px-2 py-0.5 rounded-lg bg-indigo-500/10 text-indigo-600 text-[8px] font-black uppercase tracking-widest mb-2 border border-indigo-500/20">{course.tag}</div>
-                                     <h4 className="font-black text-xl tracking-tight opacity-90">{course.name}</h4>
-                                     <p className="text-xs opacity-40 font-bold uppercase tracking-widest mt-1">Mentor: {course.instructor}</p>
-                                  </div>
-                                  <button className="w-12 h-12 rounded-2xl bg-card border border-border flex items-center justify-center shadow-lg group-hover:bg-indigo-500 group-hover:text-white transition-all">
-                                     <ArrowUpRight className="w-6 h-6" />
-                                  </button>
-                               </div>
-                               <div className="w-full h-2.5 bg-muted rounded-full overflow-hidden border border-border">
-                                  <div className="h-full bg-gradient-to-r from-indigo-600 to-indigo-500 rounded-full" style={{ width: `${course.progress}%` }} />
-                               </div>
-                               <div className="mt-3 text-[10px] font-black opacity-40 text-right uppercase tracking-[0.2em]">{course.progress}% Mastery achieved</div>
-                            </div>
-                          ))}
-                       </div>
+         {/* 4 Colored Stat Cards + 2 Balance Cards */}
+         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="p-6 rounded-2xl bg-[#5cb85c] text-white shadow-lg relative overflow-hidden">
+               <div className="text-4xl font-black mb-1">0</div>
+               <div className="text-sm font-bold uppercase tracking-wider opacity-90">Total Referrals</div>
+               <p className="text-[11px] opacity-80 mt-2 font-medium">rewards and commissions received by now</p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[#f0ad4e] text-white shadow-lg relative overflow-hidden">
+               <div className="text-4xl font-black mb-1">0</div>
+               <div className="text-sm font-bold uppercase tracking-wider opacity-90">Paid Referrals</div>
+               <p className="text-[11px] opacity-80 mt-2 font-medium">withdrawn number of referrals until now</p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[#d9534f] text-white shadow-lg relative overflow-hidden">
+               <div className="text-4xl font-black mb-1">0</div>
+               <div className="text-sm font-bold uppercase tracking-wider opacity-90">UnPaid Referrals</div>
+               <p className="text-[11px] opacity-80 mt-2 font-medium">which have been not withdrawn yet</p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[#337ab7] text-white shadow-lg relative overflow-hidden">
+               <div className="text-4xl font-black mb-1">0</div>
+               <div className="text-sm font-bold uppercase tracking-wider opacity-90">Total Payout Transactions</div>
+            </div>
+         </div>
+
+         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-[#e5e9f0] border border-slate-300 text-slate-800 shadow-sm">
+               <div className="text-3xl font-black text-slate-900 mb-1">₹0.00</div>
+               <div className="text-xs font-bold text-slate-600 uppercase tracking-wide">Withdrawn Earnings by Now (total Transactions)</div>
+            </div>
+            <div className="p-6 rounded-2xl bg-[#607d8b] text-white shadow-sm">
+               <div className="text-3xl font-black mb-1">₹0.00</div>
+               <div className="text-xs font-bold uppercase tracking-wide opacity-90">Current Account Balance</div>
+            </div>
+         </div>
+
+         <p className="text-xs text-slate-600 font-semibold">
+           You can learn more about Affiliate program and to start earning referrals <Link href="/elearning/dashboard/affiliates" className="text-blue-600 underline font-bold">here</Link>
+         </p>
+
+         {/* Earnings Overview & Summary */}
+         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-4">
+            <div className="lg:col-span-2 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+               <h3 className="font-bold text-sm text-slate-700 mb-1">Earnings Overview <span className="text-xs text-slate-400 font-normal">(for Last 30 days)</span></h3>
+               <p className="text-xs text-slate-500 mb-8">Line Graph for Earnings back to 30 days.</p>
+
+               <div className="h-64 flex items-center justify-center bg-slate-50 rounded-xl border border-dashed border-slate-300 text-slate-400 text-xs font-medium">
+                  [Interactive 30-Day Earnings Line Chart]
+               </div>
+
+               <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-slate-200">
+                  <div>
+                     <span className="text-xs text-slate-400 font-bold uppercase">Total Earnings</span>
+                     <div className="text-lg font-black text-slate-900 mt-1">₹0.00</div>
+                  </div>
+                  <div>
+                     <span className="text-xs text-slate-400 font-bold uppercase">Clicks</span>
+                     <div className="text-lg font-black text-slate-900 mt-1">0</div>
+                  </div>
+               </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+               <h3 className="font-bold text-sm text-slate-700 mb-4 pb-3 border-b border-slate-100">Summary for This Month</h3>
+               <div className="space-y-3 text-xs font-semibold">
+                  {[
+                    { label: "Total Referrals:", val: "0" },
+                    { label: "Total Earnings:", val: "₹0.00" },
+                    { label: "UnVerified Referrals:", val: "0" },
+                    { label: "Clicks:", val: "0" },
+                    { label: "Conversion:", val: "0%" },
+                  ].map(row => (
+                    <div key={row.label} className="flex justify-between py-2 border-b border-slate-100 last:border-0">
+                       <span className="text-slate-500">{row.label}</span>
+                       <span className="text-slate-900 font-bold">{row.val}</span>
                     </div>
-                 </div>
-
-                 <div className="space-y-8">
-                    <div className="bg-slate-950 p-10 rounded-[4rem] text-white overflow-hidden relative border border-white/5 shadow-2xl">
-                       <div className="absolute top-0 right-0 w-40 h-40 bg-indigo-500/20 blur-[60px] -mr-20 -mt-20" />
-                       <h3 className="text-xl font-black mb-4 tracking-tighter">Current Earning</h3>
-                       <p className="opacity-40 text-[10px] font-bold uppercase tracking-[0.2em] mb-8">Payout Saturday • min ₹200</p>
-                       <div className="text-5xl font-black text-indigo-400 mb-10 transition-colors">₹12,840</div>
-                       <button className="w-full py-5 rounded-[1.5rem] bg-indigo-500 text-slate-950 font-black text-xs uppercase tracking-widest shadow-xl shadow-indigo-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all">Payout Hub</button>
-                    </div>
-
-                    <div className="bg-card p-10 rounded-[3.5rem] border border-border shadow-sm">
-                       <h3 className="font-black mb-8 uppercase tracking-tighter opacity-70">Training Notice</h3>
-                       <div className="flex items-center space-x-5 p-6 rounded-[2rem] bg-muted/40 border border-border group hover:bg-muted transition-colors cursor-pointer">
-                          <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shadow-inner">
-                             <Video className="w-7 h-7" />
-                          </div>
-                          <div>
-                             <div className="font-black text-sm tracking-tight">Growth Webinar</div>
-                             <div className="text-[10px] opacity-40 font-bold uppercase tracking-widest">Today • 6:00 PM IST</div>
-                          </div>
-                       </div>
-                    </div>
-                 </div>
-              </div>
-
-              {/* Quick Grid for requested dashboard items */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                 {[
-                   { label: "My Certificates", icon: <Award />, color: "text-indigo-500" },
-                   { label: "Community Q&A", icon: <HelpCircle />, color: "text-purple-500" },
-                   { label: "Earning Toolkit", icon: <Wrench />, color: "text-orange-500" },
-                   { label: "Share Link", icon: <Share2 />, color: "text-green-500" },
-                 ].map((item, i) => (
-                   <div key={i} className="bg-card p-8 rounded-[2.5rem] border border-border shadow-sm flex flex-col items-center text-center group cursor-pointer hover:border-primary/30 transition-all">
-                      <div className={cn("w-12 h-12 rounded-2xl bg-muted flex items-center justify-center mb-4 transition-transform group-hover:scale-110", item.color)}>
-                         {item.icon}
-                      </div>
-                      <h4 className="font-black text-[10px] uppercase tracking-widest">{item.label}</h4>
-                   </div>
-                 ))}
-              </div>
-           </div>
-        )}
-
-        {/* Dynamic Empty State for other tabs */}
-        {activeTab !== "courses" && (
-           <div className="flex flex-col items-center justify-center h-[60vh] text-muted-foreground">
-              <div className="w-24 h-24 bg-muted/50 border border-border rounded-[2.5rem] flex items-center justify-center mb-8 shadow-inner">
-                 <span className="text-foreground scale-150">{sidebarLinks.find(l => l.id === activeTab)?.icon}</span>
-              </div>
-              <h2 className="text-3xl font-black text-foreground mb-4 tracking-tighter uppercase">{sidebarLinks.find(l => l.id === activeTab)?.name}</h2>
-              <p className="max-w-xs text-center font-medium italic opacity-60">This high-end module is currently being calibrated for your account.</p>
-           </div>
-        )}
-      </main>
+                  ))}
+               </div>
+            </div>
+         </div>
+      </div>
     </div>
   );
 }
