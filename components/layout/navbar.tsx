@@ -169,7 +169,82 @@ export function Navbar() {
   const homeLogoSrc = "/logo-home.png";
   const LogoIcon = isHome ? Home : (currentPlatform?.icon ?? Home);
 
-  const hasDashboard = !isHome && currentPlatform?.href && ["/elearning", "/mart", "/competition"].includes(currentPlatform.href);
+  const platformMenuConfig = currentPlatform?.href === "/elearning" ? {
+    label: "Dashboard",
+    items: [
+      { name: "Profile", href: "/profile" },
+      { name: "My Courses", href: "/elearning/dashboard/courses" },
+      { name: "Plan", href: "/elearning/dashboard/plan" },
+      { name: "Startup Video", href: "/elearning/dashboard/startup-video" },
+      { name: "Social Media Handles", href: "/elearning/dashboard/social" },
+      { name: "Affiliates", href: "/elearning/dashboard/affiliates" },
+      { name: "Payment Section", href: "/elearning/dashboard/payment" },
+      { name: "Training Section", href: "/elearning/dashboard/training" },
+      { name: "Certificates", href: "/elearning/dashboard/certificates" },
+      { name: "Assignments", href: "/elearning/dashboard/assignments" },
+      { name: "Leaderboard", href: "/elearning/dashboard/leaderboard" },
+    ]
+  } : currentPlatform?.href === "/mart" ? {
+    label: "Dashboard",
+    items: [
+      { name: "Overview", href: "/mart/dashboard" },
+      { name: "My Orders", href: "/mart/dashboard/orders" },
+      { name: "Payments & Wallet", href: "/mart/dashboard/wallet" },
+      { name: "Profile & Address", href: "/mart/dashboard/address" },
+      { name: "Wishlist & Prefs", href: "/mart/dashboard/wishlist" },
+      { name: "Help & Support", href: "/mart/dashboard/support" },
+    ]
+  } : currentPlatform?.href === "/competition" ? {
+    label: "Dashboard",
+    items: [
+      { name: "Profile", href: "/profile" },
+      { name: "Mock Tests", href: "/competition/dashboard" },
+      { name: "Payout", href: "/competition/dashboard" },
+      { name: "Leaderboard", href: "/competition/dashboard" },
+      { name: "Tools", href: "/competition/dashboard" },
+      { name: "Certificates", href: "/competition/dashboard" },
+    ]
+  } : currentPlatform?.href === "/agency" ? {
+    label: "Services Menu",
+    items: [
+      { name: "Web & App Dev", href: "/agency" },
+      { name: "Digital Growth", href: "/agency" },
+      { name: "Portfolio Showcase", href: "/agency" },
+      { name: "Contact Support", href: "/agency" },
+    ]
+  } : currentPlatform?.href === "/trading" ? {
+    label: "Markets Menu",
+    items: [
+      { name: "Market Watchlist", href: "/trading" },
+      { name: "Options Chain", href: "/trading" },
+      { name: "Portfolio Tracker", href: "/trading" },
+      { name: "Security & Margin", href: "/trading" },
+    ]
+  } : currentPlatform?.href === "/apps" ? {
+    label: "Categories",
+    items: [
+      { name: "Productivity Apps", href: "/apps" },
+      { name: "Developer Studio", href: "/apps" },
+      { name: "Creator Kit", href: "/apps" },
+      { name: "App Updates FAQ", href: "/apps" },
+    ]
+  } : currentPlatform?.href === "/useful-websites" ? {
+    label: "Directories",
+    items: [
+      { name: "Tool Directory", href: "/useful-websites" },
+      { name: "Developer Utilities", href: "/useful-websites" },
+      { name: "Learning Resources", href: "/useful-websites" },
+      { name: "Daily Productivity", href: "/useful-websites" },
+    ]
+  } : currentPlatform?.href === "/telegram-bots" ? {
+    label: "Bot Menu",
+    items: [
+      { name: "Bot Directory", href: "/telegram-bots" },
+      { name: "Trading Alerts Bot", href: "/telegram-bots" },
+      { name: "Automation Bot", href: "/telegram-bots" },
+      { name: "Bot FAQ", href: "/telegram-bots" },
+    ]
+  } : null;
 
   return (
     <>
@@ -250,23 +325,16 @@ export function Navbar() {
                   <span>Home</span>
                 </Link>
 
-                {/* 2. Dashboard Dropdown (Only if Has Dashboard) */}
-                {hasDashboard && (
+                {/* 2. Platform Contextual Menu / Dashboard Dropdown */}
+                {!isHome && platformMenuConfig && (
                   <div className="flex flex-col">
                     <button
-                      onClick={() => {
-                        if (!isLoggedIn) {
-                          setIsOpen(false);
-                          router.push("/login");
-                          return;
-                        }
-                        setIsDashboardDropdownOpen(!isDashboardDropdownOpen);
-                      }}
+                      onClick={() => setIsDashboardDropdownOpen(!isDashboardDropdownOpen)}
                       className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-white/10 transition-colors text-sm font-bold"
                     >
                       <div className="flex items-center space-x-3">
                         <LayoutDashboard className="h-4 w-4 opacity-80" />
-                        <span>Dashboard</span>
+                        <span>{platformMenuConfig.label}</span>
                       </div>
                       <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-300 opacity-60", isDashboardDropdownOpen && "rotate-180")} />
                     </button>
@@ -279,33 +347,7 @@ export function Navbar() {
                           exit={{ opacity: 0, height: 0 }}
                           className="flex flex-col space-y-1 mt-1 pl-7 border-l border-white/10 ml-3 py-1"
                         >
-                          {(currentPlatform?.href === "/elearning" ? [
-                            { name: "Profile", href: "/profile" },
-                            { name: "My Courses", href: "/elearning/dashboard/courses" },
-                            { name: "Plan", href: "/elearning/dashboard/plan" },
-                            { name: "Startup Video", href: "/elearning/dashboard/startup-video" },
-                            { name: "Social Media Handles", href: "/elearning/dashboard/social" },
-                            { name: "Affiliates", href: "/elearning/dashboard/affiliates" },
-                            { name: "Payment Section", href: "/elearning/dashboard/payment" },
-                            { name: "Training Section", href: "/elearning/dashboard/training" },
-                            { name: "Certificates", href: "/elearning/dashboard/certificates" },
-                            { name: "Assignments", href: "/elearning/dashboard/assignments" },
-                            { name: "Leaderboard", href: "/elearning/dashboard/leaderboard" },
-                          ] : currentPlatform?.href === "/mart" ? [
-                            { name: "Profile", href: "/profile" },
-                            { name: "My Orders", href: "/mart/dashboard/orders" },
-                            { name: "Payments & Wallet", href: "/mart/dashboard/wallet" },
-                            { name: "Profile & Address", href: "/mart/dashboard/address" },
-                            { name: "Wishlist & Prefs", href: "/mart/dashboard/wishlist" },
-                            { name: "Help & Support", href: "/mart/dashboard/support" },
-                          ] : [
-                            { name: "Profile", href: "/profile" },
-                            { name: "Mock Tests", href: "/competition/dashboard" },
-                            { name: "Payout", href: "/competition/dashboard" },
-                            { name: "Leaderboard", href: "/competition/dashboard" },
-                            { name: "Tools", href: "/competition/dashboard" },
-                            { name: "Certificates", href: "/competition/dashboard" },
-                          ]).map((sub) => (
+                          {platformMenuConfig.items.map((sub) => (
                             <Link
                               key={sub.name}
                               href={sub.href}
