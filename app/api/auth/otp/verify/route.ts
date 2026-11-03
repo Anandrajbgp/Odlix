@@ -51,12 +51,6 @@ export async function POST(request: Request) {
 
     let user = await prisma.user.findUnique({
       where: { email },
-      include: {
-        martProfile: true,
-        elearningProfile: true,
-        tradingProfile: true,
-        agencyProfile: true,
-      },
     });
 
     if (!user) {
@@ -72,16 +66,6 @@ export async function POST(request: Request) {
           district: district || null,
           role: userRole,
           passwordHash: "OTP_AUTH",
-          martProfile: { create: {} },
-          elearningProfile: { create: {} },
-          tradingProfile: { create: {} },
-          agencyProfile: { create: {} },
-        },
-        include: {
-          martProfile: true,
-          elearningProfile: true,
-          tradingProfile: true,
-          agencyProfile: true,
         },
       });
     } else {
@@ -94,19 +78,33 @@ export async function POST(request: Request) {
           district: district || user.district,
           role: userRole,
         },
-        include: {
-          martProfile: true,
-          elearningProfile: true,
-          tradingProfile: true,
-          agencyProfile: true,
-        },
       });
-
-      if (!user.martProfile) await prisma.martProfile.create({ data: { userId: user.id } }).catch(() => {});
-      if (!user.elearningProfile) await prisma.elearningProfile.create({ data: { userId: user.id } }).catch(() => {});
-      if (!user.tradingProfile) await prisma.tradingProfile.create({ data: { userId: user.id } }).catch(() => {});
-      if (!user.agencyProfile) await prisma.agencyProfile.create({ data: { userId: user.id } }).catch(() => {});
     }
+
+    // Ensure isolated profiles exist
+    await prisma.martProfile.upsert({
+      where: { userId: user.id },
+      update: {},
+      create: { userId: user.id },
+    }).catch(() => {});
+
+    await prisma.elearningProfile.upsert({
+      where: { userId: user.id },
+      update: {},
+      create: { userId: user.id },
+    }).catch(() => {});
+
+    await prisma.tradingProfile.upsert({
+      where: { userId: user.id },
+      update: {},
+      create: { userId: user.id },
+    }).catch(() => {});
+
+    await prisma.agencyProfile.upsert({
+      where: { userId: user.id },
+      update: {},
+      create: { userId: user.id },
+    }).catch(() => {});
 
     return NextResponse.json({ success: true, user, message: "Authentication successful" });
   } catch (error: any) {
