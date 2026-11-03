@@ -134,40 +134,40 @@ export default function ElearningDashboardPage() {
       <div className="container mx-auto max-w-6xl px-4 mt-8 space-y-8">
          <h2 className="text-2xl font-black text-slate-800 tracking-tight">Real Database Dashboard</h2>
 
-         {/* 4 Colored Stat Cards + 2 Balance Cards */}
+         {/* Unboxed Stat Cards */}
          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-6 rounded-2xl bg-[#5cb85c] text-white shadow-lg relative overflow-hidden min-w-0">
-               <div className="text-2xl sm:text-3xl font-black mb-1 truncate max-w-full">{coursesCount}</div>
-               <div className="text-xs sm:text-sm font-bold uppercase tracking-wider opacity-90 truncate max-w-full">Enrolled Courses</div>
-               <p className="text-[10px] sm:text-[11px] opacity-80 mt-2 font-medium">fetched live from Supabase database</p>
+            <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm min-w-0 overflow-hidden">
+               <div className="text-2xl sm:text-3xl md:text-4xl font-black mb-1 text-emerald-600 truncate max-w-full">{coursesCount}</div>
+               <div className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700 truncate max-w-full">Enrolled Courses</div>
+               <p className="text-[10px] sm:text-[11px] text-slate-500 mt-2 font-medium">fetched live from Supabase database</p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#f0ad4e] text-white shadow-lg relative overflow-hidden min-w-0">
-               <div className="text-2xl sm:text-3xl font-black mb-1 truncate max-w-full">{certsCount}</div>
-               <div className="text-xs sm:text-sm font-bold uppercase tracking-wider opacity-90 truncate max-w-full">Certificates Earned</div>
-               <p className="text-[10px] sm:text-[11px] opacity-80 mt-2 font-medium">QR verified credentials</p>
+            <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm min-w-0 overflow-hidden">
+               <div className="text-2xl sm:text-3xl md:text-4xl font-black mb-1 text-amber-600 truncate max-w-full">{certsCount}</div>
+               <div className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700 truncate max-w-full">Certificates Earned</div>
+               <p className="text-[10px] sm:text-[11px] text-slate-500 mt-2 font-medium">QR verified credentials</p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#d9534f] text-white shadow-lg relative overflow-hidden min-w-0">
-               <div className="text-2xl sm:text-3xl font-black mb-1 truncate max-w-full">0</div>
-               <div className="text-xs sm:text-sm font-bold uppercase tracking-wider opacity-90 truncate max-w-full">Pending Assignments</div>
-               <p className="text-[10px] sm:text-[11px] opacity-80 mt-2 font-medium">all submissions up to date</p>
+            <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm min-w-0 overflow-hidden">
+               <div className="text-2xl sm:text-3xl md:text-4xl font-black mb-1 text-rose-600 truncate max-w-full">0</div>
+               <div className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700 truncate max-w-full">Pending Assignments</div>
+               <p className="text-[10px] sm:text-[11px] text-slate-500 mt-2 font-medium">all submissions up to date</p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#337ab7] text-white shadow-lg relative overflow-hidden min-w-0">
-               <div className="text-2xl sm:text-3xl font-black mb-1 truncate max-w-full">₹1,250</div>
-               <div className="text-xs sm:text-sm font-bold uppercase tracking-wider opacity-90 truncate max-w-full">Wallet Credit</div>
+            <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm min-w-0 overflow-hidden">
+               <div className="text-2xl sm:text-3xl md:text-4xl font-black mb-1 text-sky-600 truncate max-w-full">₹1,250</div>
+               <div className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700 truncate max-w-full">Wallet Credit</div>
             </div>
          </div>
 
          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-[#e5e9f0] border border-slate-300 text-slate-800 shadow-sm min-w-0 overflow-hidden">
+            <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm min-w-0 overflow-hidden">
                <div className="text-2xl sm:text-3xl font-black text-slate-900 mb-1 truncate max-w-full">₹0.00</div>
                <div className="text-xs font-bold text-slate-600 uppercase tracking-wide truncate max-w-full">Withdrawn Earnings (Live Ledger)</div>
             </div>
-            <div className="p-6 rounded-2xl bg-[#607d8b] text-white shadow-sm min-w-0 overflow-hidden">
-               <div className="text-2xl sm:text-3xl font-black mb-1 truncate max-w-full">₹1,250.00</div>
-               <div className="text-xs font-bold uppercase tracking-wide opacity-90 truncate max-w-full">Current Supabase Account Balance</div>
+            <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm min-w-0 overflow-hidden">
+               <div className="text-2xl sm:text-3xl font-black text-slate-900 mb-1 truncate max-w-full">₹1,250.00</div>
+               <div className="text-xs font-bold text-slate-600 uppercase tracking-wide truncate max-w-full">Current Supabase Account Balance</div>
             </div>
          </div>
       </div>
