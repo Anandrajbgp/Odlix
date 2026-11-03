@@ -25,7 +25,7 @@ export default function CompetitionDashboard() {
   useEffect(() => {
     const stored = localStorage.getItem("odlix_user");
     if (!stored) {
-      router.push("/login");
+      router.replace("/login");
     }
   }, [router]);
 
