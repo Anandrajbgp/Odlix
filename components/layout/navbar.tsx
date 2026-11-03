@@ -204,22 +204,6 @@ export function Navbar() {
       { name: "Tools", href: "/competition/dashboard" },
       { name: "Certificates", href: "/competition/dashboard" },
     ]
-  } : currentPlatform?.href === "/agency" ? {
-    label: "Services Menu",
-    items: [
-      { name: "Web & App Dev", href: "/agency" },
-      { name: "Digital Growth", href: "/agency" },
-      { name: "Portfolio Showcase", href: "/agency" },
-      { name: "Contact Support", href: "/agency" },
-    ]
-  } : currentPlatform?.href === "/trading" ? {
-    label: "Markets Menu",
-    items: [
-      { name: "Market Watchlist", href: "/trading" },
-      { name: "Options Chain", href: "/trading" },
-      { name: "Portfolio Tracker", href: "/trading" },
-      { name: "Security & Margin", href: "/trading" },
-    ]
   } : currentPlatform?.href === "/apps" ? {
     label: "Categories",
     items: [
