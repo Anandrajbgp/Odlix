@@ -22,7 +22,7 @@ import {
   TrendingUp,
   Globe
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -44,6 +44,13 @@ const sidebarLinks = [
 export default function StudentDashboard() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("courses"); // Starting with Step 1: Learn (Courses)
+
+  useEffect(() => {
+    const stored = localStorage.getItem("odlix_user");
+    if (!stored) {
+      router.push("/login");
+    }
+  }, [router]);
 
   return (
     <div className="flex min-h-screen bg-background text-foreground transition-colors duration-300">

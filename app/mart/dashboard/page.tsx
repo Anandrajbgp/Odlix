@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { User, Wallet, ShoppingBag, TrendingUp, Trophy, Users, Award, LogOut, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -21,6 +21,13 @@ export default function MartDashboard() {
   const router = useRouter();
   const [tab, setTab] = useState("orders");
   const cur = links.find(l => l.id === tab);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("odlix_user");
+    if (!stored) {
+      router.push("/login");
+    }
+  }, [router]);
 
   return (
     <div className="flex min-h-screen bg-background text-foreground transition-colors duration-300">
