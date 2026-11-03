@@ -164,24 +164,7 @@ function LoginForm() {
         </button>
       </form>
 
-      <div className="relative my-6 text-center">
-         <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-slate-800" /></div>
-         <span className="relative bg-slate-900 px-3 text-[10px] font-bold uppercase tracking-widest text-slate-500">Or sign in with</span>
-      </div>
-
-      <div className="grid grid-cols-3 gap-3">
-         <button onClick={() => alert("Google Sign In simulation")} className="py-2.5 rounded-xl border border-slate-800 bg-slate-950 hover:bg-slate-800 transition text-xs font-bold text-slate-300 flex items-center justify-center gap-2">
-            Google
-         </button>
-         <button onClick={() => alert("Apple Sign In simulation")} className="py-2.5 rounded-xl border border-slate-800 bg-slate-950 hover:bg-slate-800 transition text-xs font-bold text-slate-300 flex items-center justify-center gap-2">
-            Apple
-         </button>
-         <button onClick={() => alert("GitHub Sign In simulation")} className="py-2.5 rounded-xl border border-slate-800 bg-slate-950 hover:bg-slate-800 transition text-xs font-bold text-slate-300 flex items-center justify-center gap-2">
-            GitHub
-         </button>
-      </div>
-
-      <div className="mt-6 text-center">
+      <div className="mt-6 text-center border-t border-slate-800 pt-6">
         <p className="text-xs text-slate-400">
           New to Odlix?{" "}
           <Link href="/signup" className="font-bold text-cyan-400 underline underline-offset-4 hover:text-cyan-300">
