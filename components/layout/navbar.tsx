@@ -71,10 +71,10 @@ const platforms: PlatformConfig[] = [
     logoTitle: "Agency",
     href: "/agency",
     icon: Briefcase,
-    color: "text-[#f59e0b]",
+    color: "text-[#6366f1]",
     navBg: "bg-black/95",
     navText: "text-white",
-    border: "border-[#f59e0b]/40"
+    border: "border-[#6366f1]/40"
   },
   {
     name: "Trading",
@@ -87,14 +87,14 @@ const platforms: PlatformConfig[] = [
     border: "border-[#7CFC00]/40"
   },
   {
-    name: "App Store",
-    logoTitle: "App Store",
+    name: "Apps",
+    logoTitle: "Apps",
     href: "/apps",
     icon: LayoutGrid,
-    color: "text-[#0ea5e9]",
+    color: "text-[#2563eb]",
     navBg: "bg-black/95",
     navText: "text-white",
-    border: "border-[#64748b]/40"
+    border: "border-[#2563eb]/40"
   },
   {
     name: "Useful Websites",
@@ -165,13 +165,11 @@ export function Navbar() {
   const border = isHomeRoute ? "border-cyan-500/30" : (currentPlatform?.border || "border-[#4f46e5]/45");
   const iconColor = isHomeRoute ? "text-cyan-400" : (currentPlatform?.color || "text-[#4f46e5]");
   const isHome = pathname === "/";
-  const mobilePanelSurface = "bg-slate-950/95 text-white";
   const logoTitle = isHome ? "ODLIX ECOSYSTEM" : (currentPlatform?.logoTitle ?? "ODLIX ECOSYSTEM");
   const logoSubtitle = isHome ? "" : "by Odlix";
   const homeLogoSrc = "/logo-home.png";
   const LogoIcon = isHome ? Home : (currentPlatform?.icon ?? Home);
 
-  // Check if current platform is one of the 3 with a dashboard (E-Learning, Mart, Mock Tests)
   const hasDashboard = !isHome && currentPlatform?.href && ["/elearning", "/mart", "/competition"].includes(currentPlatform.href);
 
   return (
@@ -185,8 +183,30 @@ export function Navbar() {
       )}>
         <div className="container mx-auto px-4 flex items-center justify-between">
 
-          {/* Logo Section */}
+          {/* Left: 3-Line Menu Button */}
+          <button
+            onClick={toggleMenu}
+            className={cn(
+              "relative z-[150] p-2.5 rounded-2xl border transition-all active:scale-90",
+              navText === "text-white" ? "border-white/15 bg-white/10 text-white hover:bg-white/20" : "border-border bg-background text-foreground hover:bg-muted"
+            )}
+            aria-label="Toggle Menu"
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+
+          {/* Right: Logo Section */}
           <Link href="/" className="group relative z-[150] flex items-center space-x-3 transition-all active:scale-95">
+            <div className="flex flex-col text-right">
+              <div className={cn("text-sm font-black leading-none tracking-[0.14em] uppercase md:text-base", navText === "text-white" ? "text-white" : "text-slate-900 dark:text-white")}>
+                {logoTitle}
+              </div>
+              {logoSubtitle ? (
+                <span className={cn("mt-1 text-[10px] font-bold leading-none tracking-[0.24em] uppercase", iconColor)}>
+                  {logoSubtitle}
+                </span>
+              ) : null}
+            </div>
             <div className={cn("relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full border shadow-xl transition-transform group-hover:scale-110", navText === "text-white" ? "border-white/15 bg-white/10" : "border-border bg-background/80")}>
               {isHome ? (
                 <Image
@@ -201,212 +221,33 @@ export function Navbar() {
                 <LogoIcon className={cn("h-5 w-5", iconColor)} />
               )}
             </div>
-            <div className="flex flex-col">
-              <div className={cn("text-sm font-black leading-none tracking-[0.14em] uppercase md:text-base", navText === "text-white" ? "text-white" : "text-slate-900 dark:text-white")}>
-                {logoTitle}
-              </div>
-              {logoSubtitle ? (
-                <span className={cn("mt-1 text-[10px] font-bold leading-none tracking-[0.24em] uppercase", iconColor, navText === "text-white" ? "opacity-75" : "opacity-100")}>
-                  {logoSubtitle}
-                </span>
-              ) : null}
-            </div>
           </Link>
 
-          {/* Desktop Right */}
-          <div className="hidden md:flex items-center space-x-4 relative z-[150]">
-             {/* 1. Home Link */}
-             <Link
-               href="/"
-               className={cn(
-                 "p-2 rounded-xl transition-all active:scale-90",
-                 isHome ? "bg-white/10 text-cyan-400" : "opacity-70 hover:opacity-100 hover:bg-white/5 text-white"
-               )}
-               title="Home"
-             >
-               <Home className="h-5 w-5" />
-             </Link>
-
-             {/* 2. Dashboard (Only for E-Learning, Mart, Mock Tests) */}
-             {hasDashboard && (
-               <div className="relative">
-                 <button
-                   onClick={() => {
-                     if (!isLoggedIn) {
-                       router.push(`/login?callbackUrl=${encodeURIComponent(`${currentPlatform?.href}/dashboard`)}`);
-                       return;
-                     }
-                     setIsDesktopDashboardOpen(!isDesktopDashboardOpen);
-                   }}
-                   className={cn(
-                     "inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-[11px] font-black uppercase tracking-[0.18em] transition-all active:scale-95",
-                     navText === "text-white"
-                       ? "border-white/20 bg-white/10 text-white hover:bg-white/15"
-                       : "border-border bg-muted text-foreground hover:bg-muted/80"
-                   )}
-                 >
-                   <LayoutDashboard className={cn("h-4 w-4", iconColor)} />
-                   Dashboard
-                   <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-300 opacity-70", isDesktopDashboardOpen && "rotate-180")} />
-                 </button>
-
-                 <AnimatePresence>
-                   {isLoggedIn && isDesktopDashboardOpen && (
-                     <motion.div
-                       initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                       className={cn(
-                         "absolute left-0 mt-2 w-72 rounded-2xl border p-3 shadow-2xl backdrop-blur-2xl z-50 overflow-hidden",
-                         navBg,
-                         border,
-                         navText
-                       )}
-                     >
-                       <div className="flex flex-col space-y-1">
-                         <Link
-                           href={`${currentPlatform?.href}/dashboard`}
-                           onClick={() => setIsDesktopDashboardOpen(false)}
-                           className="px-3 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest text-cyan-400 hover:bg-white/10 transition-colors mb-1 border-b border-white/10"
-                         >
-                           ↗ Open Full Dashboard
-                         </Link>
-                         {(currentPlatform?.href === "/elearning" ? [
-                           { name: "Profile", id: "profile" },
-                           { name: "My Courses", id: "courses" },
-                           { name: "Plan", id: "plan" },
-                           { name: "Startup Video", id: "startup-video" },
-                           { name: "Social Media Handles", id: "social-media" },
-                           { name: "Affiliates", id: "affiliates" },
-                           { name: "Payment Section", id: "payment" },
-                           { name: "Training Section", id: "training" },
-                           { name: "Certificates", id: "certificates" },
-                           { name: "Assignments", id: "assignments" },
-                           { name: "Leaderboard", id: "leaderboard" },
-                         ] : currentPlatform?.href === "/mart" ? [
-                           { name: "Profile", id: "profile" },
-                           { name: "Earning", id: "earning" },
-                           { name: "Orders", id: "orders" },
-                           { name: "Payout", id: "payout" },
-                           { name: "Products", id: "products" },
-                           { name: "Leaderboard", id: "leaderboard" },
-                           { name: "Tools", id: "tools" },
-                         ] : [
-                           { name: "Profile", id: "profile" },
-                           { name: "Earning", id: "earning" },
-                           { name: "Mock Tests", id: "mock-tests" },
-                           { name: "Payout", id: "payout" },
-                           { name: "Leaderboard", id: "leaderboard" },
-                           { name: "Tools", id: "tools" },
-                           { name: "Certificates", id: "certificates" },
-                         ]).map((sub) => (
-                           <Link
-                             key={sub.id}
-                             href={`${currentPlatform?.href}/dashboard`}
-                             onClick={() => setIsDesktopDashboardOpen(false)}
-                             className="px-3 py-2 rounded-xl text-xs font-bold hover:bg-white/10 transition-colors flex items-center justify-between"
-                           >
-                             <span>{sub.name}</span>
-                             <span className="text-[10px] opacity-50">→</span>
-                           </Link>
-                         ))}
-                       </div>
-                     </motion.div>
-                   )}
-                 </AnimatePresence>
-               </div>
-             )}
-
-             {/* 3. 8 Platforms */}
-             <div className={cn("flex items-center space-x-1 border-l border-r px-3", navText === "text-white" ? "border-white/10" : "border-border")}>
-                {platforms.map(p => (
-                  <Link
-                    key={p.name}
-                    href={p.href}
-                    className={cn(
-                      "p-2 rounded-xl transition-all active:scale-90",
-                      pathname.startsWith(p.href) ? "bg-white/10 " + p.color : "opacity-40 hover:opacity-100 hover:bg-white/5"
-                    )}
-                    title={p.name}
-                  >
-                    <p.icon className="h-4 w-4" />
-                  </Link>
-                ))}
-             </div>
-
-             {/* 4. Auth Buttons (Conditional on isLoggedIn) */}
-             {isLoggedIn ? (
-               <div className="flex items-center space-x-2 ml-2">
-                 <Link
-                   href="/profile"
-                   className={cn(
-                     "inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all active:scale-95",
-                     navText === "text-white" ? "bg-white/10 text-white hover:bg-white/15" : "bg-muted text-foreground hover:bg-muted/80"
-                   )}
-                   title="Profile Settings"
-                 >
-                   <User className="h-4 w-4" />
-                   <span className="hidden xl:inline">Profile</span>
-                 </Link>
-                 <button
-                   onClick={() => {
-                     localStorage.removeItem("odlix_user");
-                     setIsLoggedIn(false);
-                     router.push("/login");
-                     router.refresh();
-                   }}
-                   className={cn(
-                     "px-3 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all active:scale-95 border text-red-400 hover:bg-red-500/10",
-                     navText === "text-white" ? "border-red-500/30 bg-red-500/10" : "border-red-500/20 bg-red-500/5"
-                   )}
-                   title="Logout"
-                 >
-                   Logout
-                 </button>
-               </div>
-             ) : (
-               <div className="flex items-center space-x-2 ml-2">
-                 <Link href="/login" className={cn("text-xs font-black uppercase tracking-widest opacity-80 hover:opacity-100 active:scale-95 transition-all px-2", navText === "text-white" ? "text-white" : "text-foreground")}>Login</Link>
-                 <Link href="/signup" className={cn("px-4 py-2.5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all", navText === "text-white" ? "bg-white text-black" : "bg-primary text-primary-foreground")}>Sign Up</Link>
-               </div>
-             )}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden relative z-[150] p-2 rounded-xl transition-all active:scale-90 hover:bg-white/10"
-            aria-label="Toggle Menu"
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
         </div>
 
-        {/* Mobile Navigation Panel */}
+        {/* Left-Aligned Slide-Out Drawer / Dropdown Menu */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
+              initial={{ opacity: 0, x: -40, scale: 0.95 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: -40, scale: 0.95 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
               className={cn(
-                "md:hidden absolute top-full right-0 mt-3 w-80 max-w-[calc(100vw-2rem)] p-5 rounded-3xl border shadow-2xl backdrop-blur-3xl overflow-y-auto max-h-[75vh]",
+                "absolute top-full left-3 mt-3 w-80 max-w-[calc(100vw-2rem)] p-6 rounded-3xl border shadow-2xl backdrop-blur-3xl overflow-y-auto max-h-[80vh] z-[160]",
                 navBg,
                 border,
                 navText
               )}
             >
-              <div className="flex flex-col space-y-3">
+              <div className="flex flex-col space-y-3.5">
                 {/* 1. Home Link */}
                 <Link
                   href="/"
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    "flex items-center space-x-3.5 p-3 rounded-2xl border transition-all active:scale-95",
-                    navText === "text-white"
-                      ? "border-white/15 bg-white/5 hover:bg-white/10 text-white"
-                      : "border-border bg-muted/60 hover:bg-muted text-foreground"
+                    "flex items-center space-x-3.5 p-3.5 rounded-2xl border transition-all active:scale-95",
+                    navText === "text-white" ? "border-white/15 bg-white/5 hover:bg-white/10 text-white" : "border-border bg-muted/60 hover:bg-muted text-foreground"
                   )}
                 >
                   <div className={cn("p-2 rounded-xl border", navText === "text-white" ? "border-white/15 bg-black/40" : "border-border bg-background", iconColor)}>
@@ -415,18 +256,11 @@ export function Navbar() {
                   <span className="text-sm font-black tracking-wide">Home</span>
                 </Link>
 
-                {/* 2. Dashboard Dropdown / Accordion (Only if Logged In) */}
-                {hasDashboard && (
+                {/* 2. Dashboard Dropdown / Accordion (Only if Logged In & Has Dashboard) */}
+                {hasDashboard && isLoggedIn && (
                   <div className="flex flex-col">
                     <button
-                      onClick={() => {
-                        if (!isLoggedIn) {
-                          setIsOpen(false);
-                          router.push(`/login?callbackUrl=${encodeURIComponent(`${currentPlatform?.href}/dashboard`)}`);
-                          return;
-                        }
-                        setIsDashboardDropdownOpen(!isDashboardDropdownOpen);
-                      }}
+                      onClick={() => setIsDashboardDropdownOpen(!isDashboardDropdownOpen)}
                       className={cn(
                         "w-full flex items-center justify-between p-3.5 rounded-2xl border transition-all active:scale-95 shadow-md",
                         navText === "text-white"
@@ -444,7 +278,7 @@ export function Navbar() {
                     </button>
 
                     <AnimatePresence>
-                      {isLoggedIn && isDashboardDropdownOpen && (
+                      {isDashboardDropdownOpen && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
@@ -471,14 +305,21 @@ export function Navbar() {
                             { name: "Assignments", id: "assignments" },
                             { name: "Leaderboard", id: "leaderboard" },
                           ] : currentPlatform?.href === "/mart" ? [
-                            { name: "Orders", id: "orders" },
+                            { name: "Profile", id: "profile" },
                             { name: "Earning", id: "earning" },
+                            { name: "Orders", id: "orders" },
                             { name: "Payout", id: "payout" },
                             { name: "Products", id: "products" },
-                          ] : [
-                            { name: "Mock Tests", id: "mock-tests" },
-                            { name: "Exams", id: "exams" },
                             { name: "Leaderboard", id: "leaderboard" },
+                            { name: "Tools", id: "tools" },
+                          ] : [
+                            { name: "Profile", id: "profile" },
+                            { name: "Earning", id: "earning" },
+                            { name: "Mock Tests", id: "mock-tests" },
+                            { name: "Payout", id: "payout" },
+                            { name: "Leaderboard", id: "leaderboard" },
+                            { name: "Tools", id: "tools" },
+                            { name: "Certificates", id: "certificates" },
                           ]).map((sub) => (
                             <Link
                               key={sub.id}
@@ -495,7 +336,7 @@ export function Navbar() {
                   </div>
                 )}
 
-                {/* 3. 8 Platforms Line-wise */}
+                {/* 3. Ecosystem Platforms */}
                 <div className="flex flex-col space-y-2 pt-1">
                   <span className={cn("text-[10px] font-black uppercase tracking-[0.2em] px-1 mb-1", iconColor)}>
                     Ecosystem Platforms
