@@ -57,53 +57,64 @@ export async function POST(request: Request) {
       if (isLogin) {
         return NextResponse.json({ message: "Account not found. Please sign up first." }, { status: 404 });
       }
-      user = await prisma.user.create({
+      await prisma.user.create({
         data: {
           email,
           name: name || email.split("@")[0],
-          phone: phone || null,
-          state: state || null,
-          district: district || null,
           role: userRole,
           passwordHash: "OTP_AUTH",
-        } as any,
+        },
       });
     } else {
-      user = await prisma.user.update({
+      await prisma.user.update({
         where: { email },
         data: {
           name: name || user.name,
-          phone: phone || user.phone,
-          state: state || user.state,
-          district: district || user.district,
           role: userRole,
-        } as any,
+        },
       });
     }
 
+    // Update phone, state, and district using direct raw SQL to bypass Prisma Client type/engine restrictions
+    if (phone !== undefined || state !== undefined || district !== undefined) {
+      await prisma.$executeRaw`
+        UPDATE "User"
+        SET
+          phone = COALESCE(${phone || null}, phone),
+          state = COALESCE(${state || null}, state),
+          district = COALESCE(${district || null}, district)
+        WHERE email = ${email}
+      `.catch((err) => {
+        console.error("Raw SQL update error:", err);
+      });
+    }
+
+    // Refetch latest user record
+    user = await prisma.user.findUnique({ where: { email } });
+
     // Ensure isolated profiles exist
     await prisma.martProfile.upsert({
-      where: { userId: user.id },
+      where: { userId: user!.id },
       update: {},
-      create: { userId: user.id },
+      create: { userId: user!.id },
     }).catch(() => {});
 
     await prisma.elearningProfile.upsert({
-      where: { userId: user.id },
+      where: { userId: user!.id },
       update: {},
-      create: { userId: user.id },
+      create: { userId: user!.id },
     }).catch(() => {});
 
     await prisma.tradingProfile.upsert({
-      where: { userId: user.id },
+      where: { userId: user!.id },
       update: {},
-      create: { userId: user.id },
+      create: { userId: user!.id },
     }).catch(() => {});
 
     await prisma.agencyProfile.upsert({
-      where: { userId: user.id },
+      where: { userId: user!.id },
       update: {},
-      create: { userId: user.id },
+      create: { userId: user!.id },
     }).catch(() => {});
 
     return NextResponse.json({ success: true, user, message: "Authentication successful" });
