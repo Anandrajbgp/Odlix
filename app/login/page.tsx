@@ -3,7 +3,7 @@
 import { FormEvent, Suspense, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Mail, KeyRound, ArrowRight, ShieldCheck, RefreshCw, CheckCircle2 } from "lucide-react";
+import { Mail, KeyRound, ArrowRight, ShieldCheck, RefreshCw, CheckCircle2, X } from "lucide-react";
 
 function LoginForm() {
   const router = useRouter();
@@ -89,22 +89,27 @@ function LoginForm() {
   }
 
   return (
-    <div className="w-full max-w-sm rounded-[2rem] border border-cyan-500/30 bg-slate-900/95 p-6 sm:p-8 shadow-2xl backdrop-blur-2xl relative z-10">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 shadow-inner">
-          <ShieldCheck className="h-6 w-6" />
+    <div className="w-full max-w-md rounded-3xl border border-cyan-500/35 bg-slate-950/95 p-6 sm:p-8 shadow-2xl backdrop-blur-2xl relative z-10 mx-4">
+      {/* Close Popup Button */}
+      <Link href="/" className="absolute top-5 right-5 p-2 rounded-full bg-white/5 hover:bg-white/15 text-slate-400 hover:text-white transition-colors">
+        <X className="h-4 w-4" />
+      </Link>
+
+      <div className="flex items-center gap-3 mb-5">
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 shadow-inner">
+          <ShieldCheck className="h-5 w-5" />
         </div>
         <div>
           <span className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400">Secure Portal</span>
-          <h1 className="text-xl sm:text-2xl font-black tracking-tight text-white">
-            {step === "email" ? "Sign In" : "Enter OTP"}
+          <h1 className="text-xl font-black tracking-tight text-white">
+            {step === "email" ? "Sign In to Odlix" : "Enter Verification OTP"}
           </h1>
         </div>
       </div>
       <p className="text-xs text-slate-400 leading-relaxed mb-6">
         {step === "email"
-          ? "Enter your email address to receive your secure 6-digit login OTP code."
-          : `Enter the 6-digit code sent to ${email}.`}
+          ? "Enter your registered email address to receive your secure login OTP."
+          : `We've sent a 6-digit code to ${email}.`}
       </p>
 
       {step === "email" ? (
@@ -121,7 +126,7 @@ function LoginForm() {
                 placeholder="you@example.com"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
-                className="w-full rounded-xl border border-cyan-500/20 bg-slate-950/80 px-3.5 py-3 pl-11 text-xs text-white placeholder-slate-600 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
+                className="w-full rounded-xl border border-cyan-500/20 bg-slate-900/80 px-3.5 py-3 pl-11 text-xs text-white placeholder-slate-600 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
               />
             </div>
           </div>
@@ -179,7 +184,7 @@ function LoginForm() {
                     verifyOtpCode(val);
                   }
                 }}
-                className="w-full rounded-xl border border-cyan-500/20 bg-slate-950/80 px-3.5 py-3.5 pl-11 text-lg font-mono tracking-[0.25em] text-white placeholder-slate-600 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
+                className="w-full rounded-xl border border-cyan-500/20 bg-slate-900/80 px-3.5 py-3.5 pl-11 text-base font-mono tracking-[0.25em] text-white placeholder-slate-600 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
               />
             </div>
           </div>
@@ -228,8 +233,8 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <main className="min-h-screen bg-[#050b14] text-white flex items-center justify-center px-4 py-20 selection:bg-cyan-400 selection:text-slate-950 relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none" />
+    <main className="min-h-screen bg-[#030712] text-white flex items-center justify-center px-4 py-12 selection:bg-cyan-400 selection:text-slate-950 relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[90px] pointer-events-none" />
       <Suspense fallback={<div className="text-xs text-cyan-400 animate-pulse">Loading sign in...</div>}>
         <LoginForm />
       </Suspense>
