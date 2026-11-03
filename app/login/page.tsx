@@ -112,7 +112,7 @@ function LoginForm() {
               placeholder="you@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3.5 pl-11 text-xs text-white placeholder-slate-600 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 disabled:opacity-60"
+              className="w-full rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3.5 pl-12 text-xs text-white placeholder-slate-600 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 disabled:opacity-60"
             />
           </div>
         </div>
@@ -137,7 +137,7 @@ function LoginForm() {
                   setOtp(val);
                   if (val.length === 6) verifyOtpCode(val);
                 }}
-                className="w-full rounded-2xl border border-cyan-500/40 bg-slate-950/90 px-4 py-3.5 pl-11 text-base font-mono tracking-[0.3em] text-cyan-300 placeholder-slate-600 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
+                className="w-full rounded-2xl border border-cyan-500/40 bg-slate-950/90 px-4 py-3.5 pl-12 text-base font-mono tracking-[0.3em] text-cyan-300 placeholder-slate-600 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
               />
             </div>
           </div>
