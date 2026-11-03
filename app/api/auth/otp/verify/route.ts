@@ -66,7 +66,7 @@ export async function POST(request: Request) {
           district: district || null,
           role: userRole,
           passwordHash: "OTP_AUTH",
-        },
+        } as any,
       });
     } else {
       user = await prisma.user.update({
@@ -77,7 +77,7 @@ export async function POST(request: Request) {
           state: state || user.state,
           district: district || user.district,
           role: userRole,
-        },
+        } as any,
       });
     }
 
