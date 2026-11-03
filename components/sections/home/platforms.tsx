@@ -97,26 +97,26 @@ const platforms = [
 
 export function PlatformShowcase() {
   return (
-    <section id="platforms" className="relative overflow-hidden py-24 text-foreground">
+    <section id="platforms" className="relative overflow-hidden py-16 md:py-24 text-foreground">
       <div className="container relative z-10 mx-auto px-4 max-w-6xl">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-2 block">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-amber-400 mb-2 block">
               Ecosystem Hub
             </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-white break-words">
               Connected Platforms
             </h2>
-            <p className="text-slate-400 text-base font-normal mt-2 max-w-md">
+            <p className="text-slate-400 text-sm md:text-base font-normal mt-2 max-w-md">
               Dedicated engines driving the digital revolution under one roof.
             </p>
           </div>
-          <Link href="/platforms" className="font-bold text-sm flex items-center text-amber-400 hover:underline">
+          <Link href="/platforms" className="font-bold text-xs sm:text-sm flex items-center text-amber-400 hover:underline">
             Explore All Platforms <ArrowRight className="ml-2 w-4 h-4" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {platforms.map((platform, idx) => (
             <motion.div
               key={platform.title}
@@ -127,27 +127,27 @@ export function PlatformShowcase() {
             >
               <Link
                 href={platform.href}
-                className="group relative block p-8 rounded-3xl border border-slate-800 bg-slate-900/90 backdrop-blur-xl hover:border-slate-700 transition-all hover:-translate-y-1 h-full overflow-hidden text-white shadow-xl"
+                className="group relative block p-6 sm:p-8 rounded-3xl border border-slate-800 bg-slate-900/90 backdrop-blur-xl hover:border-slate-700 transition-all hover:-translate-y-1 h-full overflow-hidden text-white shadow-xl"
               >
                 <div className={`mb-6 flex h-12 w-12 items-center justify-center rounded-2xl text-xl shadow-md transition-all ${platform.iconSurface} ${platform.iconText}`}>
                   {platform.icon}
                 </div>
 
-                <h3 className="text-xl font-bold mb-2 tracking-tight text-white">{platform.title}</h3>
-                <p className="text-slate-400 font-normal text-sm mb-6 leading-relaxed">
+                <h3 className="text-lg sm:text-xl font-bold mb-2 tracking-tight text-white">{platform.title}</h3>
+                <p className="text-slate-400 font-normal text-xs sm:text-sm mb-6 leading-relaxed">
                   {platform.description}
                 </p>
 
                 <div className="space-y-2 mb-6">
                    {platform.features.map(f => (
-                     <div key={f} className="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-slate-300">
-                        <CheckCircle2 className={`h-4 w-4 ${platform.checkColor}`} />
+                     <div key={f} className="flex items-center space-x-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-300">
+                        <CheckCircle2 className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${platform.checkColor}`} />
                         <span>{f}</span>
                      </div>
                    ))}
                 </div>
 
-                <div className="flex items-center font-bold text-xs uppercase tracking-widest text-amber-400 group-hover:underline">
+                <div className="flex items-center font-bold text-[10px] sm:text-xs uppercase tracking-widest text-amber-400 group-hover:underline">
                   Access Platform <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
                 </div>
               </Link>

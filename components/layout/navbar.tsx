@@ -254,13 +254,13 @@ export function Navbar() {
           </button>
 
           {/* Right: Logo Section */}
-          <Link href="/" className="group relative z-[150] flex items-center space-x-3 transition-all active:scale-95">
+          <Link href="/" className="group relative z-[150] flex items-center space-x-2 sm:space-x-3 transition-all active:scale-95">
             <div className="flex flex-col text-right">
-              <div className={cn("text-sm font-black leading-none tracking-[0.14em] uppercase md:text-base", navText === "text-white" ? "text-white" : "text-slate-900 dark:text-white")}>
+              <div className={cn("text-xs sm:text-sm font-black leading-none tracking-normal sm:tracking-[0.14em] uppercase md:text-base truncate max-w-[160px] sm:max-w-none", navText === "text-white" ? "text-white" : "text-slate-900 dark:text-white")}>
                 {logoTitle}
               </div>
               {logoSubtitle ? (
-                <span className={cn("mt-1 text-[10px] font-bold leading-none tracking-[0.24em] uppercase", iconColor)}>
+                <span className={cn("mt-1 text-[9px] sm:text-[10px] font-bold leading-none tracking-wider sm:tracking-[0.24em] uppercase", iconColor)}>
                   {logoSubtitle}
                 </span>
               ) : null}
