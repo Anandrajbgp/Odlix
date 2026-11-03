@@ -249,7 +249,7 @@ export default function SignupPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-2xl bg-gradient-to-r from-slate-100 to-slate-200 text-slate-950 py-4 text-xs font-black uppercase tracking-widest shadow-lg transition hover:opacity-90 disabled:opacity-50 mt-2"
+              className="w-full rounded-2xl bg-gradient-to-r from-cyan-500 to-teal-400 text-slate-950 py-4 text-xs font-black uppercase tracking-widest shadow-lg shadow-cyan-500/20 transition hover:opacity-95 disabled:opacity-50 mt-2"
             >
               {loading ? "Sending OTP..." : "Send Email / OTP"}
             </button>
@@ -292,7 +292,7 @@ export default function SignupPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-2xl bg-gradient-to-r from-slate-100 to-slate-200 text-slate-950 py-4 text-xs font-black uppercase tracking-widest shadow-lg transition hover:opacity-90 disabled:opacity-50"
+              className="w-full rounded-2xl bg-gradient-to-r from-cyan-500 to-teal-400 text-slate-950 py-4 text-xs font-black uppercase tracking-widest shadow-lg shadow-cyan-500/20 transition hover:opacity-95 disabled:opacity-50"
             >
               {loading ? "Verifying..." : "Verify & Complete Signup"}
             </button>
