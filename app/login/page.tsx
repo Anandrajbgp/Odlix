@@ -37,7 +37,7 @@ function LoginForm() {
         return;
       }
 
-      setSuccessMsg(data.message || "Secure 6-digit OTP code sent successfully!");
+      setSuccessMsg(data.message || "Secure 6-digit OTP code sent to your email successfully!");
       setStep("otp");
     } catch (err: any) {
       setLoading(false);
@@ -61,6 +61,11 @@ function LoginForm() {
       setLoading(false);
       if (!res.ok) {
         setError(data.message || "Invalid OTP");
+        return;
+      }
+
+      if (!data.user) {
+        setError("Authentication successful, but user record was missing.");
         return;
       }
 
