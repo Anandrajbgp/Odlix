@@ -250,19 +250,26 @@ export function Navbar() {
                   <span>Home</span>
                 </Link>
 
-                {/* 2. Dashboard Dropdown (Only if Logged In & Has Dashboard) */}
+                {/* 2. Dashboard with Direct Navigation + Dropdown Options */}
                 {hasDashboard && isLoggedIn && (
                   <div className="flex flex-col">
-                    <button
-                      onClick={() => setIsDashboardDropdownOpen(!isDashboardDropdownOpen)}
-                      className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-white/10 transition-colors text-sm font-bold"
-                    >
-                      <div className="flex items-center space-x-3">
-                        <LayoutDashboard className="h-4 w-4 opacity-80" />
+                    <div className="flex items-center justify-between w-full rounded-xl border border-cyan-500/40 bg-cyan-500/15 overflow-hidden">
+                      <Link
+                        href={`${currentPlatform?.href}/dashboard`}
+                        onClick={() => setIsOpen(false)}
+                        className="flex-1 flex items-center space-x-3 px-3.5 py-2.5 text-white hover:bg-cyan-500/20 transition-colors text-sm font-bold"
+                      >
+                        <LayoutDashboard className="h-4 w-4 text-cyan-400" />
                         <span>Dashboard</span>
-                      </div>
-                      <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-300 opacity-60", isDashboardDropdownOpen && "rotate-180")} />
-                    </button>
+                      </Link>
+                      <button
+                        onClick={() => setIsDashboardDropdownOpen(!isDashboardDropdownOpen)}
+                        className="px-3 py-2.5 text-white hover:bg-cyan-500/25 transition-colors border-l border-cyan-500/40"
+                        title="Toggle Options"
+                      >
+                        <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-300 opacity-80", isDashboardDropdownOpen && "rotate-180")} />
+                      </button>
+                    </div>
 
                     <AnimatePresence>
                       {isDashboardDropdownOpen && (
@@ -270,17 +277,8 @@ export function Navbar() {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="flex flex-col space-y-1 mt-1 pl-7 border-l border-white/10 ml-3 py-1"
+                          className="flex flex-col space-y-1 mt-1 pl-6 border-l border-cyan-500/40 ml-3 py-1"
                         >
-                          {currentPlatform?.href !== "/elearning" && (
-                            <Link
-                              href={`${currentPlatform?.href}/dashboard`}
-                              onClick={() => setIsOpen(false)}
-                              className="px-3 py-2 rounded-lg text-xs font-bold text-cyan-400 hover:bg-white/10 transition-colors"
-                            >
-                              Open Full Dashboard
-                            </Link>
-                          )}
                           {(currentPlatform?.href === "/elearning" ? [
                             { name: "Profile", href: "/profile" },
                             { name: "My Courses", href: "/elearning/dashboard/courses" },
