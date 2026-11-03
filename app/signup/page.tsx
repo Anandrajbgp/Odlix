@@ -157,7 +157,7 @@ export default function SignupPage() {
                   placeholder="Anand Raj"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 pl-11 text-xs text-white placeholder-slate-600 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
+                  className="w-full rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3.5 pl-12 text-sm text-white placeholder-slate-600 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
                 />
               </div>
             </div>
@@ -172,7 +172,7 @@ export default function SignupPage() {
                   placeholder="you@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 pl-11 text-xs text-white placeholder-slate-600 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
+                  className="w-full rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3.5 pl-12 text-sm text-white placeholder-slate-600 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
                 />
               </div>
             </div>
@@ -187,7 +187,7 @@ export default function SignupPage() {
                   placeholder="+91 7372891228"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 pl-11 text-xs text-white placeholder-slate-600 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
+                  className="w-full rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3.5 pl-12 text-sm text-white placeholder-slate-600 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
                 />
               </div>
             </div>
@@ -204,7 +204,7 @@ export default function SignupPage() {
                       setState(e.target.value);
                       setDistrict("");
                     }}
-                    className="w-full rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 pl-11 text-xs text-white outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 appearance-none cursor-pointer"
+                    className="w-full rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3.5 pl-12 pr-10 text-sm text-white outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 appearance-none cursor-pointer"
                   >
                     <option value="" disabled className="bg-slate-900 text-slate-500">Select State</option>
                     {Object.keys(INDIAN_STATES_DISTRICTS).sort().map((s) => (
@@ -223,7 +223,7 @@ export default function SignupPage() {
                     disabled={!state}
                     value={district}
                     onChange={(e) => setDistrict(e.target.value)}
-                    className="w-full rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3 pl-11 text-xs text-white outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 appearance-none cursor-pointer disabled:opacity-50"
+                    className="w-full rounded-2xl border border-slate-700 bg-slate-950/80 px-4 py-3.5 pl-12 pr-10 text-sm text-white outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 appearance-none cursor-pointer disabled:opacity-50"
                   >
                     <option value="" disabled className="bg-slate-900 text-slate-500">{state ? "Select District" : "Select State First"}</option>
                     {availableDistricts.sort().map((d) => (
@@ -278,7 +278,7 @@ export default function SignupPage() {
                     setOtp(val);
                     if (val.length === 6) verifyOtpCode(val);
                   }}
-                  className="w-full rounded-2xl border border-cyan-500/40 bg-slate-950/90 px-4 py-3.5 pl-11 text-base font-mono tracking-[0.3em] text-cyan-300 placeholder-slate-600 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
+                  className="w-full rounded-2xl border border-cyan-500/40 bg-slate-950/90 px-4 py-3.5 pl-12 text-base font-mono tracking-[0.3em] text-cyan-300 placeholder-slate-600 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
                 />
               </div>
             </div>
