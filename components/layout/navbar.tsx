@@ -272,45 +272,47 @@ export function Navbar() {
                           exit={{ opacity: 0, height: 0 }}
                           className="flex flex-col space-y-1 mt-1 pl-7 border-l border-white/10 ml-3 py-1"
                         >
-                          <Link
-                            href={`${currentPlatform?.href}/dashboard`}
-                            onClick={() => setIsOpen(false)}
-                            className="px-3 py-2 rounded-lg text-xs font-bold text-cyan-400 hover:bg-white/10 transition-colors"
-                          >
-                            Open Full Dashboard
-                          </Link>
+                          {currentPlatform?.href !== "/elearning" && (
+                            <Link
+                              href={`${currentPlatform?.href}/dashboard`}
+                              onClick={() => setIsOpen(false)}
+                              className="px-3 py-2 rounded-lg text-xs font-bold text-cyan-400 hover:bg-white/10 transition-colors"
+                            >
+                              Open Full Dashboard
+                            </Link>
+                          )}
                           {(currentPlatform?.href === "/elearning" ? [
-                            { name: "Profile", id: "profile" },
-                            { name: "My Courses", id: "courses" },
-                            { name: "Plan", id: "plan" },
-                            { name: "Startup Video", id: "startup-video" },
-                            { name: "Social Media Handles", id: "social-media" },
-                            { name: "Affiliates", id: "affiliates" },
-                            { name: "Payment Section", id: "payment" },
-                            { name: "Training Section", id: "training" },
-                            { name: "Certificates", id: "certificates" },
-                            { name: "Assignments", id: "assignments" },
-                            { name: "Leaderboard", id: "leaderboard" },
+                            { name: "Profile", href: "/profile" },
+                            { name: "My Courses", href: "/elearning/dashboard/courses" },
+                            { name: "Plan", href: "/elearning/dashboard/plan" },
+                            { name: "Startup Video", href: "/elearning/dashboard/startup-video" },
+                            { name: "Social Media Handles", href: "/elearning/dashboard/social" },
+                            { name: "Affiliates", href: "/elearning/dashboard/affiliates" },
+                            { name: "Payment Section", href: "/elearning/dashboard/payment" },
+                            { name: "Training Section", href: "/elearning/dashboard/training" },
+                            { name: "Certificates", href: "/elearning/dashboard/certificates" },
+                            { name: "Assignments", href: "/elearning/dashboard/assignments" },
+                            { name: "Leaderboard", href: "/elearning/dashboard/leaderboard" },
                           ] : currentPlatform?.href === "/mart" ? [
-                            { name: "Profile", id: "profile" },
-                            { name: "Earning", id: "earning" },
-                            { name: "Orders", id: "orders" },
-                            { name: "Payout", id: "payout" },
-                            { name: "Products", id: "products" },
-                            { name: "Leaderboard", id: "leaderboard" },
-                            { name: "Tools", id: "tools" },
+                            { name: "Profile", href: "/profile" },
+                            { name: "Earning", href: "/mart/dashboard" },
+                            { name: "Orders", href: "/mart/dashboard" },
+                            { name: "Payout", href: "/mart/dashboard" },
+                            { name: "Products", href: "/mart/dashboard" },
+                            { name: "Leaderboard", href: "/mart/dashboard" },
+                            { name: "Tools", href: "/mart/dashboard" },
                           ] : [
-                            { name: "Profile", id: "profile" },
-                            { name: "Earning", id: "earning" },
-                            { name: "Mock Tests", id: "mock-tests" },
-                            { name: "Payout", id: "payout" },
-                            { name: "Leaderboard", id: "leaderboard" },
-                            { name: "Tools", id: "tools" },
-                            { name: "Certificates", id: "certificates" },
+                            { name: "Profile", href: "/profile" },
+                            { name: "Earning", href: "/competition/dashboard" },
+                            { name: "Mock Tests", href: "/competition/dashboard" },
+                            { name: "Payout", href: "/competition/dashboard" },
+                            { name: "Leaderboard", href: "/competition/dashboard" },
+                            { name: "Tools", href: "/competition/dashboard" },
+                            { name: "Certificates", href: "/competition/dashboard" },
                           ]).map((sub) => (
                             <Link
-                              key={sub.id}
-                              href={`${currentPlatform?.href}/dashboard`}
+                              key={sub.name}
+                              href={sub.href}
                               onClick={() => setIsOpen(false)}
                               className="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
                             >
