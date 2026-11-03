@@ -315,7 +315,7 @@ export function Navbar() {
                   <div className="flex flex-col">
                     <button
                       onClick={() => {
-                        if (!isLoggedIn) {
+                        if (platformMenuConfig.label === "Dashboard" && !isLoggedIn) {
                           setIsOpen(false);
                           router.push("/login");
                           return;
