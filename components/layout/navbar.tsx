@@ -314,7 +314,14 @@ export function Navbar() {
                 {!isHome && platformMenuConfig && (
                   <div className="flex flex-col">
                     <button
-                      onClick={() => setIsDashboardDropdownOpen(!isDashboardDropdownOpen)}
+                      onClick={() => {
+                        if (!isLoggedIn) {
+                          setIsOpen(false);
+                          router.push("/login");
+                          return;
+                        }
+                        setIsDashboardDropdownOpen(!isDashboardDropdownOpen);
+                      }}
                       className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-white/10 transition-colors text-sm font-bold"
                     >
                       <div className="flex items-center space-x-3">
