@@ -124,7 +124,6 @@ export function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDashboardDropdownOpen, setIsDashboardDropdownOpen] = useState(false);
-  const [isDesktopDashboardOpen, setIsDesktopDashboardOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -187,8 +186,8 @@ export function Navbar() {
           <button
             onClick={toggleMenu}
             className={cn(
-              "relative z-[150] p-2.5 rounded-2xl border transition-all active:scale-90",
-              navText === "text-white" ? "border-white/15 bg-white/10 text-white hover:bg-white/20" : "border-border bg-background text-foreground hover:bg-muted"
+              "relative z-[150] p-2.5 rounded-xl transition-all active:scale-90",
+              navText === "text-white" ? "bg-white/10 text-white hover:bg-white/20" : "bg-muted text-foreground hover:bg-muted/80"
             )}
             aria-label="Toggle Menu"
           >
@@ -225,56 +224,44 @@ export function Navbar() {
 
         </div>
 
-        {/* Left-Aligned Slide-Out Drawer / Dropdown Menu */}
+        {/* Minimalist Left-Aligned Menu Drawer */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, x: -40, scale: 0.95 }}
+              initial={{ opacity: 0, x: -30, scale: 0.98 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: -40, scale: 0.95 }}
-              transition={{ duration: 0.25, ease: "easeInOut" }}
+              exit={{ opacity: 0, x: -30, scale: 0.98 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
               className={cn(
-                "absolute top-full left-3 mt-3 w-80 max-w-[calc(100vw-2rem)] p-6 rounded-3xl border shadow-2xl backdrop-blur-3xl overflow-y-auto max-h-[80vh] z-[160]",
+                "absolute top-full left-3 mt-3 w-72 max-w-[calc(100vw-2rem)] p-4 rounded-2xl border shadow-xl backdrop-blur-2xl overflow-y-auto max-h-[80vh] z-[160]",
                 navBg,
                 border,
                 navText
               )}
             >
-              <div className="flex flex-col space-y-3.5">
+              <div className="flex flex-col space-y-1.5">
                 {/* 1. Home Link */}
                 <Link
                   href="/"
                   onClick={() => setIsOpen(false)}
-                  className={cn(
-                    "flex items-center space-x-3.5 p-3.5 rounded-2xl border transition-all active:scale-95",
-                    navText === "text-white" ? "border-white/15 bg-white/5 hover:bg-white/10 text-white" : "border-border bg-muted/60 hover:bg-muted text-foreground"
-                  )}
+                  className="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl hover:bg-white/10 transition-colors text-sm font-bold"
                 >
-                  <div className={cn("p-2 rounded-xl border", navText === "text-white" ? "border-white/15 bg-black/40" : "border-border bg-background", iconColor)}>
-                    <Home className="h-5 w-5" />
-                  </div>
-                  <span className="text-sm font-black tracking-wide">Home</span>
+                  <Home className="h-4 w-4 opacity-80" />
+                  <span>Home</span>
                 </Link>
 
-                {/* 2. Dashboard Dropdown / Accordion (Only if Logged In & Has Dashboard) */}
+                {/* 2. Dashboard Dropdown (Only if Logged In & Has Dashboard) */}
                 {hasDashboard && isLoggedIn && (
                   <div className="flex flex-col">
                     <button
                       onClick={() => setIsDashboardDropdownOpen(!isDashboardDropdownOpen)}
-                      className={cn(
-                        "w-full flex items-center justify-between p-3.5 rounded-2xl border transition-all active:scale-95 shadow-md",
-                        navText === "text-white"
-                          ? "border-cyan-500/40 bg-cyan-500/20 text-white"
-                          : "border-primary/40 bg-primary/10 text-foreground"
-                      )}
+                      className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-white/10 transition-colors text-sm font-bold"
                     >
-                      <div className="flex items-center space-x-3.5">
-                        <div className={cn("p-2 rounded-xl border", navText === "text-white" ? "border-white/15 bg-black/40" : "border-border bg-background", iconColor)}>
-                          <LayoutDashboard className="h-5 w-5" />
-                        </div>
-                        <span className="text-sm font-black tracking-wide">Dashboard</span>
+                      <div className="flex items-center space-x-3">
+                        <LayoutDashboard className="h-4 w-4 opacity-80" />
+                        <span>Dashboard</span>
                       </div>
-                      <ChevronDown className={cn("h-4 w-4 transition-transform duration-300 opacity-70", isDashboardDropdownOpen && "rotate-180")} />
+                      <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-300 opacity-60", isDashboardDropdownOpen && "rotate-180")} />
                     </button>
 
                     <AnimatePresence>
@@ -283,14 +270,14 @@ export function Navbar() {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="flex flex-col space-y-2 mt-2 pl-4 border-l-2 border-cyan-500/40 ml-4 py-2"
+                          className="flex flex-col space-y-1 mt-1 pl-7 border-l border-white/10 ml-3 py-1"
                         >
                           <Link
                             href={`${currentPlatform?.href}/dashboard`}
                             onClick={() => setIsOpen(false)}
-                            className="text-xs font-black uppercase tracking-widest text-cyan-400 hover:underline py-1"
+                            className="px-3 py-2 rounded-lg text-xs font-bold text-cyan-400 hover:bg-white/10 transition-colors"
                           >
-                            ↗ Open Full Dashboard
+                            Open Full Dashboard
                           </Link>
                           {(currentPlatform?.href === "/elearning" ? [
                             { name: "Profile", id: "profile" },
@@ -325,9 +312,9 @@ export function Navbar() {
                               key={sub.id}
                               href={`${currentPlatform?.href}/dashboard`}
                               onClick={() => setIsOpen(false)}
-                              className="text-xs font-bold text-slate-300 hover:text-white py-1 transition-colors"
+                              className="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
                             >
-                              • {sub.name}
+                              {sub.name}
                             </Link>
                           ))}
                         </motion.div>
@@ -337,9 +324,9 @@ export function Navbar() {
                 )}
 
                 {/* 3. Ecosystem Platforms */}
-                <div className="flex flex-col space-y-2 pt-1">
-                  <span className={cn("text-[10px] font-black uppercase tracking-[0.2em] px-1 mb-1", iconColor)}>
-                    Ecosystem Platforms
+                <div className="pt-2 pb-1 border-t border-white/10 mt-1">
+                  <span className="text-[10px] font-bold uppercase tracking-widest px-3 opacity-60 block mb-1">
+                    Platforms
                   </span>
                   {platforms.map((p) => (
                     <Link
@@ -347,36 +334,27 @@ export function Navbar() {
                       href={p.href}
                       onClick={() => setIsOpen(false)}
                       className={cn(
-                        "flex items-center space-x-3.5 p-3 rounded-2xl border transition-all active:scale-95",
-                        pathname.startsWith(p.href)
-                          ? (navText === "text-white" ? "border-cyan-400 bg-cyan-500/20 text-white" : "border-primary bg-primary/20 text-foreground")
-                          : (navText === "text-white" ? "border-white/15 bg-white/5 hover:bg-white/10 text-slate-200" : "border-border bg-muted/60 hover:bg-muted text-foreground")
+                        "flex items-center space-x-3 px-3.5 py-2 rounded-xl transition-colors text-sm font-medium",
+                        pathname.startsWith(p.href) ? "bg-white/10 font-bold text-white" : "hover:bg-white/10 text-slate-300 hover:text-white"
                       )}
                     >
-                      <div className={cn("p-2 rounded-xl border", navText === "text-white" ? "border-white/15 bg-black/40" : "border-border bg-background", p.color)}>
-                        <p.icon className="h-5 w-5" />
-                      </div>
-                      <span className="text-sm font-black tracking-wide">{p.name}</span>
+                      <p.icon className="h-4 w-4 opacity-80" />
+                      <span>{p.name}</span>
                     </Link>
                   ))}
                 </div>
 
-                {/* 4. Profile & Auth (Conditional) */}
-                <div className={cn("pt-4 border-t flex flex-col space-y-3", navText === "text-white" ? "border-white/10" : "border-border")}>
+                {/* 4. Profile & Auth */}
+                <div className="pt-2 border-t border-white/10 flex flex-col space-y-1.5 mt-1">
                   {isLoggedIn ? (
                     <>
                       <Link
                         href="/profile"
                         onClick={() => setIsOpen(false)}
-                        className={cn(
-                          "flex items-center space-x-3.5 p-3 rounded-2xl border transition-all active:scale-95",
-                          navText === "text-white" ? "border-white/15 bg-white/5 hover:bg-white/10 text-white" : "border-border bg-muted/60 hover:bg-muted text-foreground"
-                        )}
+                        className="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl hover:bg-white/10 transition-colors text-sm font-bold"
                       >
-                        <div className={cn("p-2 rounded-xl border", navText === "text-white" ? "border-white/15 bg-black/40" : "border-border bg-background", iconColor)}>
-                          <User className="h-5 w-5" />
-                        </div>
-                        <span className="text-sm font-black tracking-wide">Profile Settings</span>
+                        <User className="h-4 w-4 opacity-80" />
+                        <span>Profile Settings</span>
                       </Link>
                       <button
                         onClick={() => {
@@ -386,7 +364,7 @@ export function Navbar() {
                           router.push("/login");
                           router.refresh();
                         }}
-                        className="w-full py-3 text-center text-xs font-black uppercase tracking-widest rounded-2xl border border-red-500/30 bg-red-500/10 text-red-400 hover:bg-red-500/20 transition-all active:scale-95"
+                        className="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-red-500/10 text-red-400 transition-colors text-xs font-bold uppercase tracking-wider"
                       >
                         Logout
                       </button>
@@ -396,24 +374,14 @@ export function Navbar() {
                       <Link
                         href="/login"
                         onClick={() => setIsOpen(false)}
-                        className={cn(
-                          "w-full py-3 text-center text-xs font-black uppercase tracking-widest rounded-2xl border transition-all active:scale-95",
-                          navText === "text-white"
-                            ? "border-white/25 text-white hover:bg-white/10"
-                            : "border-border text-foreground hover:bg-muted"
-                        )}
+                        className="px-3.5 py-2.5 rounded-xl hover:bg-white/10 transition-colors text-xs font-bold uppercase tracking-wider text-center block border border-white/15"
                       >
                         Login
                       </Link>
                       <Link
                         href="/signup"
                         onClick={() => setIsOpen(false)}
-                        className={cn(
-                          "w-full py-3 text-center text-xs font-black uppercase tracking-widest rounded-2xl shadow-xl transition-all active:scale-95",
-                          navText === "text-white"
-                            ? "bg-white text-black hover:bg-white/90"
-                            : "bg-primary text-primary-foreground hover:bg-primary/90"
-                        )}
+                        className="px-3.5 py-2.5 rounded-xl bg-white text-black hover:bg-white/90 transition-colors text-xs font-black uppercase tracking-wider text-center block shadow-md"
                       >
                         Sign Up
                       </Link>
