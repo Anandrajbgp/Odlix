@@ -250,8 +250,8 @@ export function Navbar() {
                   <span>Home</span>
                 </Link>
 
-                {/* 2. Dashboard Dropdown (Only if Logged In & Has Dashboard) */}
-                {hasDashboard && isLoggedIn && (
+                {/* 2. Dashboard Dropdown (Only if Has Dashboard) */}
+                {hasDashboard && (
                   <div className="flex flex-col">
                     <button
                       onClick={() => {
