@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
-import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const sidebarLinks = [
@@ -42,6 +42,7 @@ const sidebarLinks = [
 ];
 
 export default function StudentDashboard() {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState("courses"); // Starting with Step 1: Learn (Courses)
 
   return (
@@ -82,7 +83,9 @@ export default function StudentDashboard() {
         <div className="p-6 border-t border-white/10">
           <button
             onClick={() => {
-              void signOut({ callbackUrl: "/login" });
+              localStorage.removeItem("odlix_user");
+              router.push("/login");
+              router.refresh();
             }}
             className="w-full flex items-center space-x-4 p-4 rounded-2xl font-black text-[10px] uppercase tracking-widest text-red-400 hover:bg-red-500/10 transition-all border border-red-500/10"
           >
@@ -100,7 +103,7 @@ export default function StudentDashboard() {
                  <Smartphone className="w-3 h-3" />
                  <span>Verified Student Access</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-black tracking-tighter">Hello, Anand! 👋</h1>
+              <h1 className="text-4xl md:text-5xl font-black tracking-tighter">Hello, User! 👋</h1>
               <p className="opacity-40 font-bold uppercase text-[10px] tracking-widest mt-2 italic">Step 1: Focus on Learning</p>
            </div>
            <div className="flex items-center space-x-6">
@@ -208,4 +211,3 @@ export default function StudentDashboard() {
     </div>
   );
 }
-

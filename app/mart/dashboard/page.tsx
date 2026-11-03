@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { User, Wallet, ShoppingBag, TrendingUp, Trophy, Users, Award, LogOut, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
-import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -18,6 +18,7 @@ const links = [
 ];
 
 export default function MartDashboard() {
+  const router = useRouter();
   const [tab, setTab] = useState("orders");
   const cur = links.find(l => l.id === tab);
 
@@ -45,7 +46,7 @@ export default function MartDashboard() {
           ))}
         </nav>
         <div className="p-6 border-t border-white/10">
-          <button onClick={() => { void signOut({ callbackUrl: "/login" }); }} className="w-full flex items-center space-x-4 p-4 rounded-2xl font-black text-[10px] uppercase tracking-widest text-red-400 hover:bg-red-500/10 transition-all border border-red-500/10">
+          <button onClick={() => { localStorage.removeItem("odlix_user"); router.push("/login"); router.refresh(); }} className="w-full flex items-center space-x-4 p-4 rounded-2xl font-black text-[10px] uppercase tracking-widest text-red-400 hover:bg-red-500/10 transition-all border border-red-500/10">
             <LogOut className="w-4 h-4" />
             <span>Log Out</span>
           </button>
