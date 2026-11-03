@@ -124,6 +124,7 @@ export function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDashboardDropdownOpen, setIsDashboardDropdownOpen] = useState(false);
+  const [isDesktopDashboardOpen, setIsDesktopDashboardOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -228,18 +229,92 @@ export function Navbar() {
 
              {/* 2. Dashboard (Only for E-Learning, Mart, Mock Tests) */}
              {hasDashboard && (
-               <Link
-                 href={`${currentPlatform?.href}/dashboard`}
-                 className={cn(
-                   "inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-[11px] font-black uppercase tracking-[0.18em] transition-all active:scale-95",
-                   navText === "text-white"
-                     ? "border-white/20 bg-white/10 text-white hover:bg-white/15"
-                     : "border-border bg-muted text-foreground hover:bg-muted/80"
-                 )}
-               >
-                 <LayoutDashboard className={cn("h-4 w-4", iconColor)} />
-                 Dashboard
-               </Link>
+               <div className="relative">
+                 <button
+                   onClick={() => {
+                     if (!isLoggedIn) {
+                       router.push(`/login?callbackUrl=${encodeURIComponent(`${currentPlatform?.href}/dashboard`)}`);
+                       return;
+                     }
+                     setIsDesktopDashboardOpen(!isDesktopDashboardOpen);
+                   }}
+                   className={cn(
+                     "inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-[11px] font-black uppercase tracking-[0.18em] transition-all active:scale-95",
+                     navText === "text-white"
+                       ? "border-white/20 bg-white/10 text-white hover:bg-white/15"
+                       : "border-border bg-muted text-foreground hover:bg-muted/80"
+                   )}
+                 >
+                   <LayoutDashboard className={cn("h-4 w-4", iconColor)} />
+                   Dashboard
+                   <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-300 opacity-70", isDesktopDashboardOpen && "rotate-180")} />
+                 </button>
+
+                 <AnimatePresence>
+                   {isLoggedIn && isDesktopDashboardOpen && (
+                     <motion.div
+                       initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                       animate={{ opacity: 1, y: 0, scale: 1 }}
+                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                       className={cn(
+                         "absolute left-0 mt-2 w-72 rounded-2xl border p-3 shadow-2xl backdrop-blur-2xl z-50 overflow-hidden",
+                         navBg,
+                         border,
+                         navText
+                       )}
+                     >
+                       <div className="flex flex-col space-y-1">
+                         <Link
+                           href={`${currentPlatform?.href}/dashboard`}
+                           onClick={() => setIsDesktopDashboardOpen(false)}
+                           className="px-3 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest text-cyan-400 hover:bg-white/10 transition-colors mb-1 border-b border-white/10"
+                         >
+                           ↗ Open Full Dashboard
+                         </Link>
+                         {(currentPlatform?.href === "/elearning" ? [
+                           { name: "Profile", id: "profile" },
+                           { name: "My Courses", id: "courses" },
+                           { name: "Plan", id: "plan" },
+                           { name: "Startup Video", id: "startup-video" },
+                           { name: "Social Media Handles", id: "social-media" },
+                           { name: "Affiliates", id: "affiliates" },
+                           { name: "Payment Section", id: "payment" },
+                           { name: "Training Section", id: "training" },
+                           { name: "Certificates", id: "certificates" },
+                           { name: "Assignments", id: "assignments" },
+                           { name: "Leaderboard", id: "leaderboard" },
+                         ] : currentPlatform?.href === "/mart" ? [
+                           { name: "Profile", id: "profile" },
+                           { name: "Earning", id: "earning" },
+                           { name: "Orders", id: "orders" },
+                           { name: "Payout", id: "payout" },
+                           { name: "Products", id: "products" },
+                           { name: "Leaderboard", id: "leaderboard" },
+                           { name: "Tools", id: "tools" },
+                         ] : [
+                           { name: "Profile", id: "profile" },
+                           { name: "Earning", id: "earning" },
+                           { name: "Mock Tests", id: "mock-tests" },
+                           { name: "Payout", id: "payout" },
+                           { name: "Leaderboard", id: "leaderboard" },
+                           { name: "Tools", id: "tools" },
+                           { name: "Certificates", id: "certificates" },
+                         ]).map((sub) => (
+                           <Link
+                             key={sub.id}
+                             href={`${currentPlatform?.href}/dashboard`}
+                             onClick={() => setIsDesktopDashboardOpen(false)}
+                             className="px-3 py-2 rounded-xl text-xs font-bold hover:bg-white/10 transition-colors flex items-center justify-between"
+                           >
+                             <span>{sub.name}</span>
+                             <span className="text-[10px] opacity-50">→</span>
+                           </Link>
+                         ))}
+                       </div>
+                     </motion.div>
+                   )}
+                 </AnimatePresence>
+               </div>
              )}
 
              {/* 3. 8 Platforms */}
