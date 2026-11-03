@@ -11,31 +11,31 @@ const platforms = [
     icon: <BookOpen className="text-[#4f46e5]" />,
     href: "/elearning",
     color: "from-[#4f46e5] to-[#06b6d4]",
-    iconSurface: "bg-[#4f46e5]/15 group-hover:bg-[#4f46e5]",
-    iconText: "text-[#4f46e5] dark:text-[#4f46e5] group-hover:text-slate-950",
-    checkColor: "text-[#4f46e5]",
+    iconSurface: "bg-slate-800",
+    iconText: "text-indigo-400",
+    checkColor: "text-indigo-400",
     features: ["Expert Mentors", "Live Sessions", "Certifications"]
   },
   {
     title: "Digital Agency",
     description: "Full-stack creative and tech solutions.",
-    icon: <Briefcase className="text-[#1e3a8a]" />,
+    icon: <Briefcase className="text-blue-400" />,
     href: "/agency",
     color: "from-[#1e3a8a] to-[#f97316]",
-    iconSurface: "bg-[#1e3a8a]/15 group-hover:bg-[#1e3a8a]",
-    iconText: "text-[#1e3a8a] dark:text-[#1e3a8a] group-hover:text-white",
-    checkColor: "text-[#14b8a6]",
+    iconSurface: "bg-slate-800",
+    iconText: "text-blue-400",
+    checkColor: "text-blue-400",
     features: ["Web & App Dev", "Marketing", "Video Prod"]
   },
   {
     title: "Mock Tests",
     description: "Competitive exam mocks with rank analytics and AI guidance.",
-    icon: <GraduationCap className="text-[#2563eb]" />,
+    icon: <GraduationCap className="text-sky-400" />,
     href: "/competition",
     color: "from-[#2563eb] to-[#f97316]",
-    iconSurface: "bg-[#2563eb]/15 group-hover:bg-[#2563eb]",
-    iconText: "text-[#2563eb] dark:text-[#2563eb] group-hover:text-white",
-    checkColor: "text-[#2563eb]",
+    iconSurface: "bg-slate-800",
+    iconText: "text-sky-400",
+    checkColor: "text-sky-400",
     features: ["Real Simulation", "AI Analytics", "Topic-wise Tests"]
   },
   {
@@ -44,111 +44,111 @@ const platforms = [
     icon: <BarChart3 className="text-[#7CFC00]" />,
     href: "/trading",
     color: "from-[#1f2937] to-[#7CFC00]",
-    iconSurface: "bg-[#7CFC00]/15 group-hover:bg-[#7CFC00]",
-    iconText: "text-[#7CFC00] dark:text-[#7CFC00] group-hover:text-slate-900",
+    iconSurface: "bg-slate-800",
+    iconText: "text-[#7CFC00]",
     checkColor: "text-[#7CFC00]",
     features: ["Multi-asset", "AI Insights", "Advanced Charts"]
   },
   {
     title: "App Store",
     description: "Curated collection of useful apps and websites.",
-    icon: <LayoutGrid className="text-[#2563eb]" />,
+    icon: <LayoutGrid className="text-blue-400" />,
     href: "/apps",
     color: "from-[#64748b] to-[#2563eb]",
-    iconSurface: "bg-[#2563eb]/15 group-hover:bg-[#2563eb]",
-    iconText: "text-[#2563eb] dark:text-[#2563eb] group-hover:text-white",
-    checkColor: "text-[#2563eb]",
+    iconSurface: "bg-slate-800",
+    iconText: "text-blue-400",
+    checkColor: "text-blue-400",
     features: ["Creator Studio", "Affiliate Program", "Guides"]
   },
   {
     title: "Useful Websites",
     description: "Handpicked websites for productivity, learning, and daily tools.",
-    icon: <Globe className="text-[#14b8a6]" />,
+    icon: <Globe className="text-teal-400" />,
     href: "/useful-websites",
     color: "from-[#14b8a6] to-[#eab308]",
-    iconSurface: "bg-[#14b8a6]/15 group-hover:bg-[#14b8a6]",
-    iconText: "text-[#14b8a6] dark:text-[#14b8a6] group-hover:text-slate-950",
-    checkColor: "text-[#14b8a6]",
+    iconSurface: "bg-slate-800",
+    iconText: "text-teal-400",
+    checkColor: "text-teal-400",
     features: ["Verified Links", "Daily Tools", "Quick Access"]
   },
   {
     title: "Telegram Bots",
     description: "Automation bots for trading, alerts, and productivity on Telegram.",
-    icon: <Send className="text-[#24a1ee]" />,
+    icon: <Send className="text-sky-400" />,
     href: "/telegram-bots",
     color: "from-[#24a1ee] to-[#38bdf8]",
-    iconSurface: "bg-[#24a1ee]/15 group-hover:bg-[#24a1ee]",
-    iconText: "text-[#24a1ee] dark:text-[#24a1ee] group-hover:text-white",
-    checkColor: "text-[#24a1ee]",
+    iconSurface: "bg-slate-800",
+    iconText: "text-sky-400",
+    checkColor: "text-sky-400",
     features: ["Trading Alerts", "Task Automation", "Instant Notify"]
   },
   {
     title: "Odlix Mart",
     description: "Premium marketplace for high-end products.",
-    icon: <ShoppingBag className="text-white" />,
+    icon: <ShoppingBag className="text-orange-400" />,
     href: "/mart",
-     color: "from-[#ea580c] to-[#fb923c]",
-    iconSurface: "bg-white/15 group-hover:bg-white",
-    iconText: "text-white dark:text-white group-hover:text-slate-950",
-     checkColor: "text-white dark:text-[#fb923c]",
+    color: "from-[#ea580c] to-[#fb923c]",
+    iconSurface: "bg-slate-800",
+    iconText: "text-orange-400",
+    checkColor: "text-orange-400",
     features: ["Verified Products", "Secure Payments", "Fast Delivery"]
   },
 ];
 
 export function PlatformShowcase() {
   return (
-    <section id="platforms" className="relative overflow-hidden py-32 text-foreground">
-      <div className="absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#2563eb]/15 blur-3xl" />
-      <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#f59e0b]/15 blur-3xl" />
-      <div className="absolute right-1/3 top-1/2 h-64 w-64 rounded-full bg-[#7CFC00]/10 blur-3xl" />
-      <div className="container relative z-10 mx-auto px-4">
+    <section id="platforms" className="relative overflow-hidden py-24 text-foreground">
+      <div className="container relative z-10 mx-auto px-4 max-w-6xl">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-4 tracking-tight leading-[0.92] text-white">Ecosystem <br /> <span className="text-[#f59e0b] italic">Hub.</span></h2>
-            <p className="text-slate-200 text-lg md:text-xl font-semibold leading-relaxed max-w-md">
-              Dedicated engines driving the digital revolution.
+            <span className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-2 block">
+              Ecosystem Hub
+            </span>
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
+              Connected Platforms
+            </h2>
+            <p className="text-slate-400 text-base font-normal mt-2 max-w-md">
+              Dedicated engines driving the digital revolution under one roof.
             </p>
           </div>
-          <Link href="/platforms" className="font-black text-xl flex items-center text-amber-400 hover:text-amber-300 transition-colors active:scale-95">
-            Explore All Platforms <ArrowRight className="ml-2 w-6 h-6" />
+          <Link href="/platforms" className="font-bold text-sm flex items-center text-amber-400 hover:underline">
+            Explore All Platforms <ArrowRight className="ml-2 w-4 h-4" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {platforms.map((platform, idx) => (
             <motion.div
               key={platform.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
+              transition={{ delay: idx * 0.08 }}
               viewport={{ once: true }}
             >
               <Link
                 href={platform.href}
-                className="group relative block p-8 md:p-10 rounded-[2.5rem] border border-slate-700/70 bg-slate-950/85 backdrop-blur-xl hover:bg-slate-900/90 hover:border-amber-400/80 transition-all hover:-translate-y-2 h-full overflow-hidden active:scale-[0.98] text-white shadow-2xl"
+                className="group relative block p-8 rounded-3xl border border-slate-800 bg-slate-900/90 backdrop-blur-xl hover:border-slate-700 transition-all hover:-translate-y-1 h-full overflow-hidden text-white shadow-xl"
               >
-                <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${platform.color} opacity-20 blur-[90px] group-hover:opacity-30 transition-opacity`} />
-
-                <div className={`mb-8 flex h-16 w-16 items-center justify-center rounded-2xl text-2xl shadow-xl transition-all group-hover:scale-110 ${platform.iconSurface} ${platform.iconText}`}>
+                <div className={`mb-6 flex h-12 w-12 items-center justify-center rounded-2xl text-xl shadow-md transition-all ${platform.iconSurface} ${platform.iconText}`}>
                   {platform.icon}
                 </div>
 
-                <h3 className="text-2xl md:text-3xl font-black mb-3 tracking-tight text-white">{platform.title}</h3>
-                <p className="text-slate-300 font-semibold text-sm md:text-base mb-6 leading-relaxed group-hover:text-white transition-colors">
+                <h3 className="text-xl font-bold mb-2 tracking-tight text-white">{platform.title}</h3>
+                <p className="text-slate-400 font-normal text-sm mb-6 leading-relaxed">
                   {platform.description}
                 </p>
 
-                <div className="space-y-2.5 mb-8">
+                <div className="space-y-2 mb-6">
                    {platform.features.map(f => (
-                     <div key={f} className="flex items-center space-x-2 text-xs font-black uppercase tracking-widest text-slate-200">
+                     <div key={f} className="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-slate-300">
                         <CheckCircle2 className={`h-4 w-4 ${platform.checkColor}`} />
                         <span>{f}</span>
                      </div>
                    ))}
                 </div>
 
-                <div className="flex items-center font-extrabold text-xs md:text-sm uppercase tracking-[0.2em] text-amber-400 group-hover:text-amber-300 transition-colors">
-                  Access Platform <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <div className="flex items-center font-bold text-xs uppercase tracking-widest text-amber-400 group-hover:underline">
+                  Access Platform <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
                 </div>
               </Link>
             </motion.div>
@@ -158,6 +158,3 @@ export function PlatformShowcase() {
     </section>
   );
 }
-
-
-
