@@ -286,19 +286,19 @@ export function Navbar() {
         {/* Minimalist Left-Aligned Menu Drawer */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, x: -30, scale: 0.98 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: -30, scale: 0.98 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
-              className={cn(
-                "absolute top-full left-3 mt-3 w-72 max-w-[calc(100vw-2rem)] p-4 rounded-2xl border shadow-xl backdrop-blur-2xl overflow-y-auto max-h-[75vh] z-[160]",
-                navBg,
-                border,
-                navText
-              )}
-              style={{ WebkitOverflowScrolling: "touch", overscrollBehavior: "contain" }}
-            >
+            <>
+              <div
+                onClick={() => setIsOpen(false)}
+                className="fixed inset-0 z-[155] bg-black/40"
+              />
+              <motion.div
+                initial={{ opacity: 0, x: -30, scale: 0.98 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: -30, scale: 0.98 }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+                className="absolute top-full left-3 mt-3 w-72 max-w-[calc(100vw-2rem)] p-4 rounded-2xl border border-cyan-500/40 bg-slate-950 text-white shadow-2xl overflow-y-auto max-h-[75vh] z-[160]"
+                style={{ WebkitOverflowScrolling: "touch", overscrollBehavior: "contain" }}
+              >
               <div className="flex flex-col space-y-1.5">
                 {/* 1. Home Link */}
                 <Link
