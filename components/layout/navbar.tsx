@@ -20,7 +20,7 @@ import {
   ChevronDown,
   type LucideIcon
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -143,6 +143,33 @@ export function Navbar() {
     setIsOpen(false);
   }, [pathname]);
 
+  const menuContainerRef = useRef<HTMLDivElement>(null);
+  const toggleBtnRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node;
+      if (
+        menuContainerRef.current &&
+        !menuContainerRef.current.contains(target) &&
+        toggleBtnRef.current &&
+        !toggleBtnRef.current.contains(target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [isOpen]);
+
   useEffect(() => {
     if (typeof document === "undefined") {
       return;
@@ -243,6 +270,7 @@ export function Navbar() {
 
           {/* Left: 3-Line Menu Button */}
           <button
+            ref={toggleBtnRef}
             onClick={toggleMenu}
             className={cn(
               "relative z-[150] p-2.5 rounded-xl transition-all active:scale-90",
@@ -292,12 +320,13 @@ export function Navbar() {
                 className="fixed inset-0 z-[155] bg-black/40"
               />
               <motion.div
+                ref={menuContainerRef}
                 initial={{ opacity: 0, x: -30, scale: 0.98 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: -30, scale: 0.98 }}
                 transition={{ duration: 0.2, ease: "easeInOut" }}
-                className="absolute top-full left-3 mt-3 w-72 max-w-[calc(100vw-2rem)] p-4 rounded-2xl border border-cyan-500/40 bg-slate-950 text-white shadow-2xl overflow-y-auto max-h-[75vh] z-[160]"
-                style={{ WebkitOverflowScrolling: "touch", overscrollBehavior: "contain" }}
+                className="absolute top-full left-3 mt-3 w-72 max-w-[calc(100vw-2rem)] p-4 rounded-2xl border border-slate-800 bg-black text-white shadow-2xl backdrop-blur-none opacity-100 overflow-y-auto max-h-[75vh] z-[160]"
+                style={{ backgroundColor: "#000000", opacity: 1, WebkitOverflowScrolling: "touch", overscrollBehavior: "contain" }}
               >
               <div className="flex flex-col space-y-1.5">
                 {/* 1. Home Link */}

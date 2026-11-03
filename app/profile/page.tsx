@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { User, Mail, Phone, MapPin, Building2, Image as ImageIcon, Save, CheckCircle2, ShieldCheck, ArrowLeft } from "lucide-react";
+import { User, Mail, Phone, MapPin, Building2, Image as ImageIcon, Save, CheckCircle2, ShieldCheck, ArrowLeft, TrendingUp, Wallet, Award, BookOpen } from "lucide-react";
 import Link from "next/link";
 
 const INDIAN_STATES_DISTRICTS: Record<string, string[]> = {
@@ -20,7 +20,7 @@ const INDIAN_STATES_DISTRICTS: Record<string, string[]> = {
   "Haryana": ["Gurugram", "Faridabad", "Panipat", "Ambala", "Hisar"]
 };
 
-export default function ProfileSettingsPage() {
+export default function ProfilePage() {
   const router = useRouter();
 
   const [name, setName] = useState("");
@@ -29,6 +29,7 @@ export default function ProfileSettingsPage() {
   const [state, setState] = useState("");
   const [district, setDistrict] = useState("");
   const [image, setImage] = useState("");
+  const [role, setRole] = useState("USER");
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -38,7 +39,9 @@ export default function ProfileSettingsPage() {
 
   useEffect(() => {
     const stored = localStorage.getItem("odlix_user");
-    if (stored) {
+    if (!stored) {
+      router.replace("/login");
+    } else {
       try {
         const u = JSON.parse(stored);
         setName(u.name || "");
@@ -47,11 +50,12 @@ export default function ProfileSettingsPage() {
         setState(u.state || "");
         setDistrict(u.district || "");
         setImage(u.image || "");
+        setRole(u.role || "USER");
       } catch (e) {
         console.error(e);
       }
     }
-  }, []);
+  }, [router]);
 
   async function handleSave(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -84,19 +88,50 @@ export default function ProfileSettingsPage() {
 
   return (
     <main className="min-h-screen bg-[#050b14] text-white px-4 py-24 selection:bg-cyan-400 selection:text-slate-950">
-      <div className="container mx-auto max-w-2xl">
-        <div className="mb-8 flex items-center justify-between">
-          <Link href="/elearning/dashboard" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-cyan-400 hover:underline">
-            <ArrowLeft className="h-4 w-4" /> Back to Dashboard
+      <div className="container mx-auto max-w-4xl">
+        <div className="mb-8 flex items-center justify-between min-w-0">
+          <Link href="/" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-cyan-400 hover:underline shrink-0">
+            <ArrowLeft className="h-4 w-4" /> Back to Home
           </Link>
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-cyan-400">
-            <ShieldCheck className="h-4 w-4" /> Secure Profile Settings
+          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-[10px] sm:text-xs font-black uppercase tracking-widest text-cyan-400 shrink-0">
+            <ShieldCheck className="h-4 w-4" /> {role === "ADMIN" ? "Super Admin Profile" : "Verified User Profile"}
           </div>
         </div>
 
-        <div className="rounded-[2.5rem] border border-cyan-500/30 bg-slate-900/90 p-8 sm:p-12 shadow-2xl backdrop-blur-xl">
-          <h1 className="text-3xl font-black tracking-tight text-white mb-2">Profile Settings</h1>
-          <p className="text-sm text-slate-400 mb-8">Update your personal details, contact info, location, and profile photo.</p>
+        {/* Dashboard Overview Cards integrated into Profile */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          <div className="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-xl min-w-0 overflow-hidden">
+             <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-400 truncate">Wallet Balance</span>
+                <Wallet className="h-5 w-5 text-emerald-400 shrink-0" />
+             </div>
+             <div className="text-2xl sm:text-3xl font-black text-emerald-400 truncate max-w-full">₹1,250</div>
+             <p className="text-[10px] text-slate-500 uppercase tracking-widest mt-1 truncate">Available for instant payout</p>
+          </div>
+
+          <div className="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-xl min-w-0 overflow-hidden">
+             <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-400 truncate">Total Referrals</span>
+                <TrendingUp className="h-5 w-5 text-cyan-400 shrink-0" />
+             </div>
+             <div className="text-2xl sm:text-3xl font-black text-cyan-400 truncate max-w-full">0</div>
+             <p className="text-[10px] text-slate-500 uppercase tracking-widest mt-1 truncate">Rank 1 Affiliate Partner</p>
+          </div>
+
+          <div className="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-xl min-w-0 overflow-hidden">
+             <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-400 truncate">Enrolled Courses</span>
+                <BookOpen className="h-5 w-5 text-indigo-400 shrink-0" />
+             </div>
+             <div className="text-2xl sm:text-3xl font-black text-indigo-400 truncate max-w-full">2 Active</div>
+             <p className="text-[10px] text-slate-500 uppercase tracking-widest mt-1 truncate">Master Pass Active</p>
+          </div>
+        </div>
+
+        {/* Profile Settings Form */}
+        <div className="rounded-[2.5rem] border border-cyan-500/30 bg-slate-900/90 p-6 sm:p-12 shadow-2xl backdrop-blur-xl min-w-0 overflow-hidden">
+          <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white mb-2">Profile Settings & Hub</h1>
+          <p className="text-xs sm:text-sm text-slate-400 mb-8">Update your personal details, contact info, location, and account preferences.</p>
 
           <form onSubmit={handleSave} className="space-y-6">
             <div>
@@ -156,7 +191,7 @@ export default function ProfileSettingsPage() {
                       setState(e.target.value);
                       setDistrict("");
                     }}
-                    className="w-full rounded-2xl border border-cyan-500/20 bg-slate-950/80 px-4 py-3.5 pl-12 text-sm text-white outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 appearance-none cursor-pointer"
+                    className="w-full rounded-2xl border border-cyan-500/20 bg-slate-950/80 px-4 py-3.5 pl-12 pr-10 text-sm text-white outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 appearance-none cursor-pointer"
                   >
                     <option value="" disabled>Select State</option>
                     {Object.keys(INDIAN_STATES_DISTRICTS).map((s) => (
@@ -176,7 +211,7 @@ export default function ProfileSettingsPage() {
                     disabled={!state}
                     value={district}
                     onChange={(e) => setDistrict(e.target.value)}
-                    className="w-full rounded-2xl border border-cyan-500/20 bg-slate-950/80 px-4 py-3.5 pl-12 text-sm text-white outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 appearance-none cursor-pointer disabled:opacity-50"
+                    className="w-full rounded-2xl border border-cyan-500/20 bg-slate-950/80 px-4 py-3.5 pl-12 pr-10 text-sm text-white outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 appearance-none cursor-pointer disabled:opacity-50"
                   >
                     <option value="" disabled>{state ? "Select District" : "Select State First"}</option>
                     {availableDistricts.map((d) => (
@@ -203,21 +238,21 @@ export default function ProfileSettingsPage() {
             </div>
 
             {error ? (
-              <div className="rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-400">
+              <div className="rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-xs text-red-400">
                 {error}
               </div>
             ) : null}
 
             {success ? (
-              <div className="flex items-center gap-2 rounded-xl border border-cyan-500/30 bg-cyan-500/10 p-3 text-sm text-cyan-300">
-                <CheckCircle2 className="h-5 w-5" /> Profile updated successfully!
+              <div className="flex items-center gap-2 rounded-xl border border-cyan-500/30 bg-cyan-500/10 p-3 text-xs text-cyan-300">
+                <CheckCircle2 className="h-5 w-5 shrink-0" /> Profile updated successfully!
               </div>
             ) : null}
 
             <button
               type="submit"
               disabled={loading}
-              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-500 to-teal-400 px-6 py-4 text-sm font-black uppercase tracking-widest text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:opacity-95 hover:shadow-cyan-500/40 disabled:cursor-not-allowed disabled:opacity-60"
+              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-500 to-teal-400 px-6 py-4 text-xs sm:text-sm font-black uppercase tracking-widest text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:opacity-95 hover:shadow-cyan-500/40 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {loading ? (
                 "Saving Changes..."

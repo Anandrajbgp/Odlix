@@ -66,20 +66,20 @@ export default function ElearningDashboardPage() {
       {/* Top Banner / User Header */}
       <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white py-10 px-6 border-b border-slate-700 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative z-10">
-          <div className="flex items-center gap-4">
-             <div className="w-16 h-16 rounded-2xl bg-indigo-500/20 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-black text-2xl shadow-inner">
+          <div className="flex items-center gap-4 min-w-0">
+             <div className="w-16 h-16 shrink-0 rounded-2xl bg-indigo-500/20 border border-indigo-500/40 flex items-center justify-center text-indigo-300 font-black text-2xl shadow-inner">
                 {user?.name?.[0]?.toUpperCase() || "U"}
              </div>
-             <div>
-                <h1 className="text-2xl font-black tracking-tight">{dashboardData?.user?.name || user?.name || "Student"}</h1>
-                <p className="text-xs text-slate-300 mt-1">📧 {dashboardData?.user?.email || user?.email}</p>
+             <div className="min-w-0">
+                <h1 className="text-xl sm:text-2xl font-black tracking-tight truncate max-w-full">{dashboardData?.user?.name || user?.name || "Student"}</h1>
+                <p className="text-xs text-slate-300 mt-1 truncate max-w-full">📧 {dashboardData?.user?.email || user?.email}</p>
                 <div className="mt-2 inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-indigo-500 text-white font-black text-xs tracking-wider">
                    Database Verified Partner
                 </div>
              </div>
           </div>
 
-          <div className="w-full md:w-72 bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
+          <div className="w-full md:w-72 bg-slate-800/80 p-4 rounded-2xl border border-slate-700 min-w-0">
              <div className="flex justify-between text-xs font-bold mb-2">
                 <span className="text-slate-400">Enrolled Courses: <strong className="text-white">{coursesCount}</strong></span>
                 <span className="text-cyan-400">Certificates: <strong className="text-white">{certsCount}</strong></span>
@@ -124,9 +124,9 @@ export default function ElearningDashboardPage() {
 
       {/* Alert Banner */}
       <div className="container mx-auto max-w-6xl px-4 mt-6">
-         <div className="p-4 rounded-2xl bg-amber-100 border border-amber-300 text-amber-900 text-xs md:text-sm font-bold flex items-center gap-3 shadow-sm">
+         <div className="p-4 rounded-2xl bg-amber-100 border border-amber-300 text-amber-900 text-xs md:text-sm font-bold flex items-center gap-3 shadow-sm min-w-0 overflow-hidden">
             <AlertCircle className="h-5 w-5 text-amber-600 shrink-0" />
-            <span>Database profile connected successfully for <strong>{dashboardData?.user?.email}</strong>. Complete setup <Link href="/elearning/dashboard/payment" className="underline font-black text-amber-950">here</Link></span>
+            <span className="truncate max-w-full">Database profile connected for <strong>{dashboardData?.user?.email}</strong>. Complete setup <Link href="/elearning/dashboard/payment" className="underline font-black text-amber-950">here</Link></span>
          </div>
       </div>
 
@@ -136,38 +136,38 @@ export default function ElearningDashboardPage() {
 
          {/* 4 Colored Stat Cards + 2 Balance Cards */}
          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-6 rounded-2xl bg-[#5cb85c] text-white shadow-lg relative overflow-hidden">
-               <div className="text-4xl font-black mb-1">{coursesCount}</div>
-               <div className="text-sm font-bold uppercase tracking-wider opacity-90">Enrolled Courses</div>
-               <p className="text-[11px] opacity-80 mt-2 font-medium">fetched live from Supabase database</p>
+            <div className="p-6 rounded-2xl bg-[#5cb85c] text-white shadow-lg relative overflow-hidden min-w-0">
+               <div className="text-2xl sm:text-3xl font-black mb-1 truncate max-w-full">{coursesCount}</div>
+               <div className="text-xs sm:text-sm font-bold uppercase tracking-wider opacity-90 truncate max-w-full">Enrolled Courses</div>
+               <p className="text-[10px] sm:text-[11px] opacity-80 mt-2 font-medium">fetched live from Supabase database</p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#f0ad4e] text-white shadow-lg relative overflow-hidden">
-               <div className="text-4xl font-black mb-1">{certsCount}</div>
-               <div className="text-sm font-bold uppercase tracking-wider opacity-90">Certificates Earned</div>
-               <p className="text-[11px] opacity-80 mt-2 font-medium">QR verified credentials</p>
+            <div className="p-6 rounded-2xl bg-[#f0ad4e] text-white shadow-lg relative overflow-hidden min-w-0">
+               <div className="text-2xl sm:text-3xl font-black mb-1 truncate max-w-full">{certsCount}</div>
+               <div className="text-xs sm:text-sm font-bold uppercase tracking-wider opacity-90 truncate max-w-full">Certificates Earned</div>
+               <p className="text-[10px] sm:text-[11px] opacity-80 mt-2 font-medium">QR verified credentials</p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#d9534f] text-white shadow-lg relative overflow-hidden">
-               <div className="text-4xl font-black mb-1">0</div>
-               <div className="text-sm font-bold uppercase tracking-wider opacity-90">Pending Assignments</div>
-               <p className="text-[11px] opacity-80 mt-2 font-medium">all submissions up to date</p>
+            <div className="p-6 rounded-2xl bg-[#d9534f] text-white shadow-lg relative overflow-hidden min-w-0">
+               <div className="text-2xl sm:text-3xl font-black mb-1 truncate max-w-full">0</div>
+               <div className="text-xs sm:text-sm font-bold uppercase tracking-wider opacity-90 truncate max-w-full">Pending Assignments</div>
+               <p className="text-[10px] sm:text-[11px] opacity-80 mt-2 font-medium">all submissions up to date</p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#337ab7] text-white shadow-lg relative overflow-hidden">
-               <div className="text-4xl font-black mb-1">₹1,250</div>
-               <div className="text-sm font-bold uppercase tracking-wider opacity-90">Wallet Credit</div>
+            <div className="p-6 rounded-2xl bg-[#337ab7] text-white shadow-lg relative overflow-hidden min-w-0">
+               <div className="text-2xl sm:text-3xl font-black mb-1 truncate max-w-full">₹1,250</div>
+               <div className="text-xs sm:text-sm font-bold uppercase tracking-wider opacity-90 truncate max-w-full">Wallet Credit</div>
             </div>
          </div>
 
          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-[#e5e9f0] border border-slate-300 text-slate-800 shadow-sm">
-               <div className="text-3xl font-black text-slate-900 mb-1">₹0.00</div>
-               <div className="text-xs font-bold text-slate-600 uppercase tracking-wide">Withdrawn Earnings (Live Ledger)</div>
+            <div className="p-6 rounded-2xl bg-[#e5e9f0] border border-slate-300 text-slate-800 shadow-sm min-w-0 overflow-hidden">
+               <div className="text-2xl sm:text-3xl font-black text-slate-900 mb-1 truncate max-w-full">₹0.00</div>
+               <div className="text-xs font-bold text-slate-600 uppercase tracking-wide truncate max-w-full">Withdrawn Earnings (Live Ledger)</div>
             </div>
-            <div className="p-6 rounded-2xl bg-[#607d8b] text-white shadow-sm">
-               <div className="text-3xl font-black mb-1">₹1,250.00</div>
-               <div className="text-xs font-bold uppercase tracking-wide opacity-90">Current Supabase Account Balance</div>
+            <div className="p-6 rounded-2xl bg-[#607d8b] text-white shadow-sm min-w-0 overflow-hidden">
+               <div className="text-2xl sm:text-3xl font-black mb-1 truncate max-w-full">₹1,250.00</div>
+               <div className="text-xs font-bold uppercase tracking-wide opacity-90 truncate max-w-full">Current Supabase Account Balance</div>
             </div>
          </div>
       </div>
