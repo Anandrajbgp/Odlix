@@ -1,105 +1,106 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { User, Wallet, ShoppingBag, TrendingUp, Trophy, Users, Award, LogOut, ChevronRight } from "lucide-react";
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { ShoppingBag, Wallet, Heart, MapPin, Package, ArrowRight, ShieldCheck, Truck, Clock } from "lucide-react";
 
-const links = [
-  { name: "Profile", icon: <User />, id: "profile" },
-  { name: "Earning", icon: <TrendingUp />, id: "earning" },
-  { name: "Orders", icon: <ShoppingBag />, id: "orders" },
-  { name: "Payout", icon: <Wallet />, id: "payout" },
-  { name: "Products", icon: <Users />, id: "products" },
-  { name: "Leaderboard", icon: <Trophy />, id: "leaderboard" },
-  { name: "Tools", id: "tools" },
-];
-
-export default function MartDashboard() {
+export default function MartDashboardOverview() {
   const router = useRouter();
-  const [tab, setTab] = useState("orders");
-  const cur = links.find(l => l.id === tab);
+  const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
     const stored = localStorage.getItem("odlix_user");
     if (!stored) {
       router.replace("/login");
+    } else {
+      try {
+        setUser(JSON.parse(stored));
+      } catch (e) {}
     }
   }, [router]);
 
   return (
-    <div className="flex min-h-screen bg-background text-foreground transition-colors duration-300">
-      <aside className="w-80 bg-slate-950 text-white flex flex-col sticky top-0 h-screen shrink-0 border-r border-white/5">
-        <div className="p-8 border-b border-white/10">
-          <Link href="/mart" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#001f3f] shadow-lg group-hover:rotate-6 transition-transform">
-              <ShoppingBag className="w-6 h-6" />
+    <main className="min-h-screen bg-[#050b14] text-white p-6 md:p-12">
+      <div className="container mx-auto max-w-6xl">
+        <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12 border-b border-orange-500/20 pb-8">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1 text-xs font-black uppercase tracking-widest text-orange-400 mb-3">
+              <ShoppingBag className="h-4 w-4" /> Odlix Mart Customer Dashboard
             </div>
-            <div>
-              <div className="text-lg font-black tracking-tighter leading-none">MART HUB</div>
-              <div className="text-[9px] font-bold text-[#f97316] tracking-[0.2em] leading-none mt-1.5 uppercase">Dashboard by Odlix</div>
-            </div>
+            <h1 className="text-3xl md:text-4xl font-black tracking-tight">Welcome back, {user?.name || "Customer"}! 👋</h1>
+            <p className="text-sm text-slate-400 mt-1">Manage your orders, store wallet, and delivery preferences.</p>
+          </div>
+          <Link href="/mart" className="px-5 py-3 rounded-2xl bg-orange-500 text-slate-950 font-black text-xs uppercase tracking-widest hover:bg-orange-400 transition shadow-lg">
+            Shop Store
           </Link>
-        </div>
-        <nav className="flex-1 p-6 space-y-1.5 overflow-y-auto scrollbar-hide text-white">
-          {links.map(l => (
-            <button key={l.id} onClick={() => setTab(l.id)} className={cn("w-full flex items-center space-x-4 p-4 rounded-[1.2rem] font-bold text-sm transition-all relative group", tab === l.id ? "bg-white text-[#001f3f] shadow-xl" : "text-slate-500 hover:text-white hover:bg-white/5")}>
-              {l.icon && <span className="w-5 h-5">{l.icon}</span>}
-              <span className="tracking-tight">{l.name}</span>
-              {tab === l.id && <div className="absolute right-4"><ChevronRight className="w-4 h-4" /></div>}
-            </button>
-          ))}
-        </nav>
-        <div className="p-6 border-t border-white/10">
-          <button onClick={() => { localStorage.removeItem("odlix_user"); router.push("/login"); router.refresh(); }} className="w-full flex items-center space-x-4 p-4 rounded-2xl font-black text-[10px] uppercase tracking-widest text-red-400 hover:bg-red-500/10 transition-all border border-red-500/10">
-            <LogOut className="w-4 h-4" />
-            <span>Log Out</span>
-          </button>
-        </div>
-      </aside>
-      <main className="flex-1 p-8 md:p-12 overflow-y-auto">
-        <div className="mb-12">
-          <h1 className="text-4xl font-black mb-2 tracking-tight">Mart Dashboard</h1>
-          <p className="opacity-50 text-lg">Manage your store orders and vendor earnings.</p>
-        </div>
-        {tab === "orders" && (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="bg-card p-10 rounded-[3rem] border border-border shadow-sm">
-              <h3 className="font-black mb-8 uppercase tracking-tighter opacity-70">Total Orders</h3>
-              <div className="text-5xl font-black text-white mb-10">84</div>
-              <div className="flex items-center space-x-3 p-6 rounded-[2rem] bg-muted/40 border border-border">
-                <ShoppingBag className="w-7 h-7 text-white" />
-                <div><div className="font-black text-sm tracking-tight">Pending Fulfillment</div><div className="text-[10px] opacity-40 font-bold uppercase tracking-widest">6 orders</div></div>
-              </div>
-            </div>
-            <div className="bg-card p-10 rounded-[3rem] border border-border shadow-sm">
-              <h3 className="font-black mb-8 uppercase tracking-tighter opacity-70">Current Earning</h3>
-              <p className="opacity-40 text-[10px] font-bold uppercase tracking-[0.2em] mb-8">Payout Saturday • min ₹500</p>
-              <div className="text-5xl font-black text-white mb-10">₹56,800</div>
-              <button className="w-full py-5 rounded-[1.5rem] bg-white text-[#001f3f] font-black text-xs uppercase tracking-widest shadow-xl shadow-white/20 hover:scale-[1.02] active:scale-[0.98] transition-all">Payout Hub</button>
-            </div>
-            <div className="bg-card p-10 rounded-[3rem] border border-border shadow-sm">
-              <h3 className="font-black mb-8 uppercase tracking-tighter opacity-70">Avg Order Value</h3>
-              <div className="text-5xl font-black text-[#f97316] mb-10">₹1,240</div>
-              <div className="flex items-center space-x-3 p-6 rounded-[2rem] bg-muted/40 border border-border">
-                <Users className="w-7 h-7 text-[#f97316]" />
-                <div><div className="font-black text-sm tracking-tight">Repeat Customers</div><div className="text-[10px] opacity-40 font-bold uppercase tracking-widest">32 verified</div></div>
-              </div>
-            </div>
+        </header>
+
+        {/* Profile Summary & Rewards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="rounded-3xl border border-orange-500/30 bg-slate-900/90 p-8 shadow-xl">
+             <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Profile Summary</h3>
+             <div className="text-xl font-black text-white">{user?.name || "Odlix User"}</div>
+             <p className="text-xs text-cyan-400 font-mono mt-1">{user?.email}</p>
+             <div className="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                <span className="text-slate-400">Loyalty Rewards:</span>
+                <span className="font-black text-orange-400">450 Points (₹45)</span>
+             </div>
           </div>
-        )}
-        {tab !== "orders" && (
-          <div className="flex flex-col items-center justify-center h-[60vh] text-muted-foreground">
-            <div className="w-24 h-24 bg-muted/50 border border-border rounded-[2.5rem] flex items-center justify-center mb-8 shadow-inner">
-              <span className="text-foreground scale-150">{cur?.icon}</span>
-            </div>
-            <h2 className="text-3xl font-black text-foreground mb-4 tracking-tighter uppercase">{cur?.name}</h2>
-            <p className="max-w-xs text-center font-medium italic opacity-60">This module is being calibrated for your account.</p>
+
+          <div className="rounded-3xl border border-orange-500/30 bg-slate-900/90 p-8 shadow-xl">
+             <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Store Wallet Credit</h3>
+             <div className="text-3xl font-black text-emerald-400 mb-1">₹1,250</div>
+             <p className="text-xs text-slate-500">Available for instant checkout.</p>
+             <Link href="/mart/dashboard/wallet" className="inline-block mt-4 text-xs font-bold text-orange-400 hover:underline">Add Funds →</Link>
           </div>
-        )}
-      </main>
-    </div>
+
+          <div className="rounded-3xl border border-orange-500/30 bg-slate-900/90 p-8 shadow-xl">
+             <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Saved Addresses</h3>
+             <div className="text-xl font-black text-white">2 Addresses</div>
+             <p className="text-xs text-slate-500 mt-1">Home, Office (Bihar, UP)</p>
+             <Link href="/mart/dashboard/address" className="inline-block mt-4 text-xs font-bold text-orange-400 hover:underline">Manage Addresses →</Link>
+          </div>
+        </div>
+
+        {/* Recent Order Live Tracking */}
+        <div className="rounded-3xl border border-orange-500/30 bg-slate-900/90 p-8 shadow-xl mb-12">
+           <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-black tracking-tight flex items-center gap-2">
+                 <Truck className="h-5 w-5 text-orange-400" /> Recent Order Status
+              </h2>
+              <Link href="/mart/dashboard/orders" className="text-xs font-bold text-orange-400 hover:underline">View All Orders →</Link>
+           </div>
+           <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+              <div>
+                 <div className="inline-block px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 text-[10px] font-black uppercase tracking-widest mb-2 border border-emerald-500/25">Out for Delivery</div>
+                 <h4 className="font-bold text-base text-white">Odlix Creator Pro Hoodie & Earbuds Bundle</h4>
+                 <p className="text-xs text-slate-400 mt-1">Order ID: #ODX-98421 • Delivery expected by 7:00 PM today</p>
+              </div>
+              <Link href="/mart/dashboard/orders" className="px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs font-bold hover:bg-slate-800 transition">
+                 Live Tracking
+              </Link>
+           </div>
+        </div>
+
+        {/* Quick Links Grid */}
+        <h2 className="text-xl font-black tracking-tight mb-6">Quick Shortcuts</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+           {[
+             { name: "My Orders", href: "/mart/dashboard/orders", icon: <Package className="h-5 w-5 text-orange-400" /> },
+             { name: "Wallet & UPI", href: "/mart/dashboard/wallet", icon: <Wallet className="h-5 w-5 text-emerald-400" /> },
+             { name: "Saved Wishlist", href: "/mart/dashboard/wishlist", icon: <Heart className="h-5 w-5 text-pink-400" /> },
+             { name: "Help & Support", href: "/mart/dashboard/support", icon: <ShieldCheck className="h-5 w-5 text-cyan-400" /> },
+           ].map(q => (
+             <Link key={q.name} href={q.href} className="p-6 rounded-2xl border border-slate-800 bg-slate-900/90 hover:border-orange-500/50 transition text-center group">
+                <div className="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                   {q.icon}
+                </div>
+                <h4 className="font-bold text-sm text-white">{q.name}</h4>
+             </Link>
+           ))}
+        </div>
+      </div>
+    </main>
   );
 }
