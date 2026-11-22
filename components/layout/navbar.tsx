@@ -345,7 +345,7 @@ export function Navbar() {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 30, scale: 0.98 }}
                 transition={{ duration: 0.2, ease: "easeInOut" }}
-                className="absolute top-full right-3 mt-3 w-72 max-w-[calc(100vw-2rem)] p-4 rounded-2xl border border-[#E2E8F0] bg-white text-[#0F172A] shadow-2xl backdrop-blur-none opacity-100 overflow-y-auto max-h-[75vh] z-[160]"
+                className="absolute top-full right-3 mt-3 w-80 sm:w-84 max-w-[calc(100vw-2rem)] p-5 rounded-3xl border border-[#E2E8F0] bg-white text-[#0F172A] shadow-2xl backdrop-blur-none opacity-100 overflow-y-auto max-h-[80vh] z-[160]"
                 style={{
                   backgroundColor: "#FFFFFF",
                   opacity: 1,
@@ -353,14 +353,14 @@ export function Navbar() {
                   overscrollBehavior: "contain",
                 }}
               >
-              <div className="flex flex-col space-y-1.5 text-[#0F172A]">
+              <div className="flex flex-col space-y-2 text-[#0F172A]">
                 {/* 1. Home Link */}
                 <Link
                   href="/"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl hover:bg-[#F8FAFC] transition-colors text-sm font-bold text-[#0F172A]"
+                  className="flex items-center space-x-3.5 px-4 py-3 rounded-2xl hover:bg-[#F8FAFC] transition-colors text-base font-extrabold text-[#0F172A]"
                 >
-                  <Home className="h-4 w-4 opacity-60" />
+                  <Home className="h-5 w-5 text-[#2563EB]" />
                   <span>Home</span>
                 </Link>
 
@@ -376,13 +376,13 @@ export function Navbar() {
                         }
                         setIsDashboardDropdownOpen(!isDashboardDropdownOpen);
                       }}
-                      className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-[#F8FAFC] transition-colors text-sm font-bold text-[#0F172A]"
+                      className="w-full flex items-center justify-between px-4 py-3 rounded-2xl hover:bg-[#F8FAFC] transition-colors text-base font-extrabold text-[#0F172A]"
                     >
-                      <div className="flex items-center space-x-3">
-                        <LayoutDashboard className="h-4 w-4 opacity-60" />
+                      <div className="flex items-center space-x-3.5">
+                        <LayoutDashboard className="h-5 w-5 text-[#2563EB]" />
                         <span>{platformMenuConfig.label}</span>
                       </div>
-                      <ChevronDown className="h-3.5 w-3.5 transition-transform duration-300 opacity-60" />
+                      <ChevronDown className="h-4 w-4 transition-transform duration-300 opacity-80" />
                     </button>
 
                     <AnimatePresence>
@@ -391,14 +391,14 @@ export function Navbar() {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="flex flex-col space-y-1 mt-1 pl-7 border-l border-[#E2E8F0] ml-3 py-1"
+                          className="flex flex-col space-y-1.5 mt-1 pl-8 border-l-2 border-[#E2E8F0] ml-4 py-1"
                         >
                           {platformMenuConfig.items.map((sub) => (
                             <Link
                               key={sub.name}
                               href={sub.href}
                               onClick={() => setIsOpen(false)}
-                              className="px-3 py-1.5 rounded-lg text-xs font-medium text-[#475569] hover:text-[#0F172A] hover:bg-[#F8FAFC] transition-colors"
+                              className="px-3.5 py-2 rounded-xl text-sm font-bold text-[#475569] hover:text-[#0F172A] hover:bg-[#F8FAFC] transition-colors"
                             >
                               {sub.name}
                             </Link>
@@ -410,8 +410,8 @@ export function Navbar() {
                 )}
 
                 {/* 3. Ecosystem Platforms */}
-                <div className="pt-2 pb-1 border-t border-[#E2E8F0] mt-1">
-                  <span className="text-[10px] font-bold uppercase tracking-widest px-3 block mb-1 text-[#475569]">
+                <div className="pt-3 pb-2 border-t border-[#E2E8F0] mt-2">
+                  <span className="text-xs font-black uppercase tracking-wider px-4 block mb-2 text-[#0F172A]">
                     Platforms
                   </span>
                   {platforms.map((p) => (
@@ -420,28 +420,28 @@ export function Navbar() {
                       href={p.href}
                       onClick={() => setIsOpen(false)}
                       className={cn(
-                        "flex items-center space-x-3 px-3.5 py-2 rounded-xl transition-colors text-sm font-medium",
+                        "flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl transition-colors text-base font-bold",
                         pathname.startsWith(p.href)
-                          ? "bg-[#F8FAFC] font-bold text-[#0F172A]"
-                          : "hover:bg-[#F8FAFC] text-[#475569] hover:text-[#0F172A]"
+                          ? "bg-[#EFF6FF] font-extrabold text-[#2563EB] shadow-sm"
+                          : "hover:bg-[#F8FAFC] text-[#0F172A]"
                       )}
                     >
-                      <p.icon className="h-4 w-4 text-[#0F172A] opacity-80" />
+                      <p.icon className="h-5 w-5 text-[#2563EB] shrink-0" />
                       <span>{p.name}</span>
                     </Link>
                   ))}
                 </div>
 
                 {/* 4. Profile & Auth */}
-                <div className="pt-2 border-t border-[#E2E8F0] flex flex-col space-y-1.5 mt-1">
+                <div className="pt-3 border-t border-[#E2E8F0] flex flex-col space-y-2 mt-2">
                   {isLoggedIn ? (
                     <>
                       <Link
                         href="/profile"
                         onClick={() => setIsOpen(false)}
-                        className="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl hover:bg-[#F8FAFC] transition-colors text-sm font-bold text-[#0F172A]"
+                        className="flex items-center space-x-3.5 px-4 py-3 rounded-2xl hover:bg-[#F8FAFC] transition-colors text-base font-extrabold text-[#0F172A]"
                       >
-                        <User className="h-4 w-4 opacity-60" />
+                        <User className="h-5 w-5 text-[#2563EB]" />
                         <span>Profile Settings</span>
                       </Link>
                       <button
@@ -452,7 +452,7 @@ export function Navbar() {
                           router.push("/login");
                           router.refresh();
                         }}
-                        className="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-[#F8FAFC] transition-colors text-xs font-bold uppercase tracking-wider text-red-600"
+                        className="w-full text-left px-4 py-3 rounded-2xl hover:bg-[#F8FAFC] transition-colors text-sm font-extrabold uppercase tracking-wider text-red-600"
                       >
                         Logout
                       </button>
@@ -462,14 +462,14 @@ export function Navbar() {
                       <Link
                         href="/login"
                         onClick={() => setIsOpen(false)}
-                        className="px-3.5 py-2.5 rounded-xl border border-[#E2E8F0] text-[#0F172A] hover:bg-[#F8FAFC] transition-colors text-xs font-bold uppercase tracking-wider text-center block"
+                        className="px-4 py-3 rounded-2xl border border-[#E2E8F0] text-[#0F172A] hover:bg-[#F8FAFC] transition-colors text-sm font-extrabold uppercase tracking-wider text-center block"
                       >
                         Login
                       </Link>
                       <Link
                         href="/signup"
                         onClick={() => setIsOpen(false)}
-                        className="px-3.5 py-2.5 rounded-xl bg-white text-black hover:bg-white/90 transition-colors text-xs font-black uppercase tracking-wider text-center block shadow-md"
+                        className="px-4 py-3 rounded-2xl bg-[#0F172A] text-white hover:bg-black transition-colors text-sm font-black uppercase tracking-wider text-center block shadow-md"
                       >
                         Sign Up
                       </Link>
