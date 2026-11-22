@@ -23,7 +23,6 @@ import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
 
-
 type PlatformConfig = {
   name: string;
   logoTitle: string;
@@ -170,19 +169,6 @@ export function Navbar() {
     };
   }, [isOpen]);
 
-  useEffect(() => {
-    if (typeof document === "undefined") {
-      return;
-    }
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = isOpen ? "hidden" : previousOverflow || "auto";
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [isOpen]);
-
   const currentPlatform = platforms.find(p => pathname.startsWith(p.href));
 
   const isHomeRoute = pathname === "/" || ["/about", "/terms", "/privacy"].includes(pathname);
@@ -302,7 +288,7 @@ export function Navbar() {
           <button
             ref={toggleBtnRef}
             onClick={toggleMenu}
-            className="relative z-[150] p-2.5 rounded-xl bg-[#F8FAFC] text-[#0F172A] hover:bg-[#E2E8F0] transition-all active:scale-90"
+            className="relative z-[150] p-2.5 rounded-xl bg-[#F8FAFC] text-[#0F172A] hover:bg-[#E2E8F0] transition-all active:scale-90 cursor-pointer"
             aria-label="Toggle Menu"
           >
             {isOpen ? (
@@ -331,155 +317,166 @@ export function Navbar() {
 
         </div>
 
-        {/* Minimalist Right-Aligned Menu Drawer */}
+        {/* Right-Aligned Menu Drawer */}
         <AnimatePresence>
           {isOpen && (
             <>
               <div
                 onClick={() => setIsOpen(false)}
-                className="fixed inset-0 z-[155] bg-black/40"
+                className="fixed inset-0 z-[155] bg-black/40 backdrop-blur-xs"
               />
               <motion.div
                 ref={menuContainerRef}
-                initial={{ opacity: 0, x: 30, scale: 0.98 }}
+                initial={{ opacity: 0, x: 20, scale: 0.98 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: 30, scale: 0.98 }}
+                exit={{ opacity: 0, x: 20, scale: 0.98 }}
                 transition={{ duration: 0.2, ease: "easeInOut" }}
-                className="absolute top-full right-3 mt-3 w-80 sm:w-84 max-w-[calc(100vw-2rem)] p-5 rounded-3xl border border-[#E2E8F0] bg-white text-[#0F172A] shadow-2xl backdrop-blur-none opacity-100 overflow-y-auto max-h-[80vh] z-[160]"
+                className="absolute top-full right-0 mt-2 w-[310px] sm:w-[350px] max-w-[calc(100vw-1.5rem)] p-4 sm:p-5 rounded-3xl border border-[#E2E8F0] bg-white text-[#0F172A] shadow-2xl z-[160] overflow-y-auto pointer-events-auto touch-pan-y"
                 style={{
                   backgroundColor: "#FFFFFF",
-                  opacity: 1,
+                  maxHeight: "calc(100dvh - 90px)",
                   WebkitOverflowScrolling: "touch",
                   overscrollBehavior: "contain",
                 }}
               >
-              <div className="flex flex-col space-y-2 text-[#0F172A]">
-                {/* 1. Home Link */}
-                <Link
-                  href="/"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center space-x-3.5 px-4 py-3 rounded-2xl hover:bg-[#F8FAFC] transition-colors text-base font-extrabold text-[#0F172A]"
-                >
-                  <Home className="h-5 w-5 text-[#2563EB]" />
-                  <span>Home</span>
-                </Link>
+                <div className="flex flex-col space-y-1.5 text-[#0F172A] pb-2">
+                  {/* 1. Home Link */}
+                  <Link
+                    href="/"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-3 px-3.5 py-2 rounded-2xl hover:bg-[#F8FAFC] transition-colors text-sm sm:text-base font-extrabold text-[#0F172A]"
+                  >
+                    <div className="w-8 h-8 rounded-xl bg-[#EFF6FF] flex items-center justify-center shrink-0 text-[#2563EB]">
+                      <Home className="h-4 w-4" />
+                    </div>
+                    <span>Home</span>
+                  </Link>
 
-                {/* 2. Platform Contextual Menu / Dashboard Dropdown */}
-                {!isHome && platformMenuConfig && (
-                  <div className="flex flex-col">
-                    <button
-                      onClick={() => {
-                        if (platformMenuConfig.label === "Dashboard" && !isLoggedIn) {
-                          setIsOpen(false);
-                          router.push("/login");
-                          return;
-                        }
-                        setIsDashboardDropdownOpen(!isDashboardDropdownOpen);
-                      }}
-                      className="w-full flex items-center justify-between px-4 py-3 rounded-2xl hover:bg-[#F8FAFC] transition-colors text-base font-extrabold text-[#0F172A]"
-                    >
-                      <div className="flex items-center space-x-3.5">
-                        <LayoutDashboard className="h-5 w-5 text-[#2563EB]" />
-                        <span>{platformMenuConfig.label}</span>
-                      </div>
-                      <ChevronDown className="h-4 w-4 transition-transform duration-300 opacity-80" />
-                    </button>
-
-                    <AnimatePresence>
-                      {isDashboardDropdownOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="flex flex-col space-y-1.5 mt-1 pl-8 border-l-2 border-[#E2E8F0] ml-4 py-1"
-                        >
-                          {platformMenuConfig.items.map((sub) => (
-                            <Link
-                              key={sub.name}
-                              href={sub.href}
-                              onClick={() => setIsOpen(false)}
-                              className="px-3.5 py-2 rounded-xl text-sm font-bold text-[#475569] hover:text-[#0F172A] hover:bg-[#F8FAFC] transition-colors"
-                            >
-                              {sub.name}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                )}
-
-                {/* 3. Ecosystem Platforms */}
-                <div className="pt-3 pb-2 border-t border-[#E2E8F0] mt-2">
-                  <span className="text-xs font-black uppercase tracking-wider px-4 block mb-2 text-[#0F172A]">
-                    Platforms
-                  </span>
-                  {platforms.map((p) => (
-                    <Link
-                      key={p.name}
-                      href={p.href}
-                      onClick={() => setIsOpen(false)}
-                      className={cn(
-                        "flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl transition-colors text-base font-bold",
-                        pathname.startsWith(p.href)
-                          ? "bg-[#EFF6FF] font-extrabold text-[#2563EB] shadow-sm"
-                          : "hover:bg-[#F8FAFC] text-[#0F172A]"
-                      )}
-                    >
-                      <p.icon className="h-5 w-5 text-[#2563EB] shrink-0" />
-                      <span>{p.name}</span>
-                    </Link>
-                  ))}
-                </div>
-
-                {/* 4. Profile & Auth */}
-                <div className="pt-3 border-t border-[#E2E8F0] flex flex-col space-y-2 mt-2">
-                  {isLoggedIn ? (
-                    <>
-                      <Link
-                        href="/profile"
-                        onClick={() => setIsOpen(false)}
-                        className="flex items-center space-x-3.5 px-4 py-3 rounded-2xl hover:bg-[#F8FAFC] transition-colors text-base font-extrabold text-[#0F172A]"
-                      >
-                        <User className="h-5 w-5 text-[#2563EB]" />
-                        <span>Profile Settings</span>
-                      </Link>
+                  {/* 2. Platform Contextual Menu / Dashboard Dropdown */}
+                  {!isHome && platformMenuConfig && (
+                    <div className="flex flex-col">
                       <button
                         onClick={() => {
-                          setIsOpen(false);
-                          localStorage.removeItem("odlix_user");
-                          setIsLoggedIn(false);
-                          router.push("/login");
-                          router.refresh();
+                          if (platformMenuConfig.label === "Dashboard" && !isLoggedIn) {
+                            setIsOpen(false);
+                            router.push("/login");
+                            return;
+                          }
+                          setIsDashboardDropdownOpen(!isDashboardDropdownOpen);
                         }}
-                        className="w-full text-left px-4 py-3 rounded-2xl hover:bg-[#F8FAFC] transition-colors text-sm font-extrabold uppercase tracking-wider text-red-600"
+                        className="w-full flex items-center justify-between px-3.5 py-2 rounded-2xl hover:bg-[#F8FAFC] transition-colors text-sm sm:text-base font-extrabold text-[#0F172A] cursor-pointer"
                       >
-                        Logout
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-xl bg-[#EFF6FF] flex items-center justify-center shrink-0 text-[#2563EB]">
+                            <LayoutDashboard className="h-4 w-4" />
+                          </div>
+                          <span>{platformMenuConfig.label}</span>
+                        </div>
+                        <ChevronDown className={`h-4 w-4 transition-transform duration-300 text-[#475569] ${isDashboardDropdownOpen ? "rotate-180" : ""}`} />
                       </button>
-                    </>
-                  ) : (
-                    <>
-                      <Link
-                        href="/login"
-                        onClick={() => setIsOpen(false)}
-                        className="px-4 py-3 rounded-2xl border border-[#E2E8F0] text-[#0F172A] hover:bg-[#F8FAFC] transition-colors text-sm font-extrabold uppercase tracking-wider text-center block"
-                      >
-                        Login
-                      </Link>
-                      <Link
-                        href="/signup"
-                        onClick={() => setIsOpen(false)}
-                        className="px-4 py-3 rounded-2xl bg-[#0F172A] text-white hover:bg-black transition-colors text-sm font-black uppercase tracking-wider text-center block shadow-md"
-                      >
-                        Sign Up
-                      </Link>
-                    </>
+
+                      <AnimatePresence>
+                        {isDashboardDropdownOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="flex flex-col space-y-1 mt-1 pl-6 border-l-2 border-[#2563EB]/30 ml-5 py-1"
+                          >
+                            {platformMenuConfig.items.map((sub) => (
+                              <Link
+                                key={sub.name}
+                                href={sub.href}
+                                onClick={() => setIsOpen(false)}
+                                className="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold text-[#475569] hover:text-[#2563EB] hover:bg-[#EFF6FF] transition-colors"
+                              >
+                                {sub.name}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
                   )}
+
+                  {/* 3. Ecosystem Platforms */}
+                  <div className="pt-2 pb-1 border-t border-[#E2E8F0] mt-1">
+                    <span className="text-[11px] font-black uppercase tracking-wider px-3 block mb-1 text-[#475569]">
+                      Platforms
+                    </span>
+                    <div className="space-y-0.5">
+                      {platforms.map((p) => (
+                        <Link
+                          key={p.name}
+                          href={p.href}
+                          onClick={() => setIsOpen(false)}
+                          className={cn(
+                            "flex items-center gap-3 px-3.5 py-2 rounded-2xl transition-all text-sm sm:text-base font-extrabold",
+                            pathname.startsWith(p.href)
+                              ? "bg-[#EFF6FF] text-[#2563EB] shadow-xs"
+                              : "hover:bg-[#F8FAFC] text-[#0F172A]"
+                          )}
+                        >
+                          <div className="w-8 h-8 rounded-xl bg-[#EFF6FF] flex items-center justify-center shrink-0 text-[#2563EB]">
+                            <p.icon className="h-4 w-4" />
+                          </div>
+                          <span className="truncate">{p.name}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 4. Profile & Auth Buttons (Grid Layout) */}
+                  <div className="pt-3 border-t border-[#E2E8F0] flex flex-col space-y-2 mt-1">
+                    {isLoggedIn ? (
+                      <>
+                        <Link
+                          href="/profile"
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-center gap-3 px-3.5 py-2 rounded-2xl hover:bg-[#F8FAFC] transition-colors text-sm sm:text-base font-extrabold text-[#0F172A]"
+                        >
+                          <div className="w-8 h-8 rounded-xl bg-[#EFF6FF] flex items-center justify-center shrink-0 text-[#2563EB]">
+                            <User className="h-4 w-4" />
+                          </div>
+                          <span>Profile Settings</span>
+                        </Link>
+                        <button
+                          onClick={() => {
+                            setIsOpen(false);
+                            localStorage.removeItem("odlix_user");
+                            setIsLoggedIn(false);
+                            router.push("/login");
+                            router.refresh();
+                          }}
+                          className="w-full text-left px-4 py-2 rounded-2xl hover:bg-red-50 transition-colors text-xs sm:text-sm font-extrabold uppercase tracking-wider text-red-600 cursor-pointer"
+                        >
+                          Logout
+                        </button>
+                      </>
+                    ) : (
+                      <div className="grid grid-cols-2 gap-2 pt-1">
+                        <Link
+                          href="/login"
+                          onClick={() => setIsOpen(false)}
+                          className="px-3 py-2.5 rounded-xl border-2 border-[#0F172A] text-[#0F172A] hover:bg-slate-100 transition-all text-xs font-extrabold uppercase tracking-wider text-center block cursor-pointer shadow-xs"
+                        >
+                          Login
+                        </Link>
+                        <Link
+                          href="/signup"
+                          onClick={() => setIsOpen(false)}
+                          className="px-3 py-2.5 rounded-xl bg-[#2563EB] text-white hover:bg-[#1D4ED8] transition-all text-xs font-extrabold uppercase tracking-wider text-center block cursor-pointer shadow-md"
+                          style={{ backgroundColor: "#2563EB", color: "#FFFFFF" }}
+                        >
+                          Sign Up
+                        </Link>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          </>
-        )}
+              </motion.div>
+            </>
+          )}
         </AnimatePresence>
       </nav>
     </>
