@@ -1,12 +1,15 @@
 import { Hero } from "@/components/sections/telegram-bots/hero";
 import { Features } from "@/components/sections/telegram-bots/features";
 import { FAQ } from "@/components/sections/telegram-bots/faq";
+import { SectionDivider } from "@/components/shared/section-divider";
 
 export default function TelegramBotsPage() {
   return (
     <div className="bg-white text-[#0F172A] min-h-screen relative z-10">
       <Hero />
+      <SectionDivider />
       <Features />
+      <SectionDivider />
       <FAQ />
 
       {/* Telegram Bots Footer */}

@@ -1,12 +1,15 @@
 import { Hero } from "@/components/sections/apps/hero";
 import { Features } from "@/components/sections/apps/features";
 import { FAQ } from "@/components/sections/apps/faq";
+import { SectionDivider } from "@/components/shared/section-divider";
 
 export default function AppsPage() {
   return (
     <div className="bg-white text-[#0F172A] min-h-screen relative z-10">
       <Hero />
+      <SectionDivider />
       <Features />
+      <SectionDivider />
       <FAQ />
 
       {/* App Store Footer */}

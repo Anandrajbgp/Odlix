@@ -1,12 +1,15 @@
 import { Hero } from "@/components/sections/useful-websites/hero";
 import { Features } from "@/components/sections/useful-websites/features";
 import { FAQ } from "@/components/sections/useful-websites/faq";
+import { SectionDivider } from "@/components/shared/section-divider";
 
 export default function UsefulWebsitesPage() {
   return (
     <div className="bg-white text-[#0F172A] min-h-screen relative z-10">
       <Hero />
+      <SectionDivider />
       <Features />
+      <SectionDivider />
       <FAQ />
 
       {/* Useful Websites Footer */}

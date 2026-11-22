@@ -4,15 +4,21 @@ import { Features } from "@/components/sections/competition/features";
 import { AiGuidance } from "@/components/sections/competition/ai-guidance";
 import { Pricing } from "@/components/sections/competition/pricing";
 import { SuccessStories } from "@/components/sections/competition/success-stories";
+import { SectionDivider } from "@/components/shared/section-divider";
 
 export default function CompetitionPage() {
   return (
     <div className="bg-transparent min-h-screen transition-colors duration-300">
       <Hero />
+      <SectionDivider />
       <Stats />
+      <SectionDivider />
       <Features />
+      <SectionDivider />
       <AiGuidance />
+      <SectionDivider />
       <Pricing />
+      <SectionDivider />
       <SuccessStories />
     </div>
   );
