@@ -121,7 +121,7 @@ export function OdlixEcosystemSwitcher() {
       {/* 9-Dots App Launcher Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-10 h-10 rounded-xl flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F172A]/20"
+        className="w-10 h-10 rounded-xl flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-[#0F172A]/20 cursor-pointer"
         title="Odlix Ecosystem Switcher"
         aria-label="Odlix Ecosystem Switcher"
       >
@@ -145,14 +145,14 @@ export function OdlixEcosystemSwitcher() {
         </svg>
       </button>
 
-      {/* Dropdown Floating Card (Width: 320px, Bg: #FFFFFF, Border Radius: 16px, Shadow) */}
+      {/* Dropdown Floating Card (Width: 360px, Larger Text & Badges) */}
       {isOpen && (
-        <div className="absolute right-0 mt-3 w-[320px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.1)] p-4 z-50 animate-in fade-in zoom-in-95 duration-150">
-          <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100 dark:border-slate-800">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+        <div className="absolute right-0 mt-3 w-[360px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.12)] p-4 sm:p-5 z-50 animate-in fade-in zoom-in-95 duration-150">
+          <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-slate-100 dark:border-slate-800">
+            <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-slate-800 dark:text-slate-100">
               Odlix Ecosystem
             </span>
-            <span className="text-[10px] font-semibold bg-blue-50 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400 px-2 py-0.5 rounded-full">
+            <span className="text-xs font-bold bg-blue-100 text-blue-700 dark:bg-blue-950/60 dark:text-blue-300 px-2.5 py-0.5 rounded-full">
               8 Platforms
             </span>
           </div>
@@ -168,9 +168,9 @@ export function OdlixEcosystemSwitcher() {
                   href={platform.href}
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    "group flex flex-col items-center justify-center p-2.5 rounded-xl transition-all relative text-center hover:scale-[1.03]",
+                    "group flex flex-col items-center justify-center p-3 rounded-xl transition-all relative text-center hover:scale-[1.04]",
                     isActive
-                      ? "ring-2 ring-offset-1 bg-slate-50 dark:bg-slate-800/80"
+                      ? "ring-2 ring-offset-1 bg-slate-50 dark:bg-slate-800/80 shadow-sm"
                       : "hover:bg-slate-50 dark:hover:bg-slate-800/50"
                   )}
                   style={{
@@ -179,21 +179,21 @@ export function OdlixEcosystemSwitcher() {
                 >
                   {isActive && (
                     <span
-                      className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full shadow-sm"
+                      className="absolute top-2 right-2 w-2.5 h-2.5 rounded-full shadow-sm"
                       style={{ backgroundColor: platform.primaryColor }}
                       title="Active Platform"
                     />
                   )}
                   <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center mb-1.5 transition-transform group-hover:scale-110 shadow-sm"
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-2 transition-transform group-hover:scale-110 shadow-sm"
                     style={{ backgroundColor: platform.lightTint }}
                   >
                     <IconComponent
-                      className="w-5 h-5 transition-colors"
+                      className="w-6 h-6 transition-colors"
                       style={{ color: platform.primaryColor }}
                     />
                   </div>
-                  <span className="text-[11px] font-semibold text-slate-700 dark:text-slate-200 line-clamp-1">
+                  <span className="text-xs font-bold text-slate-800 dark:text-slate-100 line-clamp-1">
                     {platform.name.replace("Odlix ", "")}
                   </span>
                 </Link>
@@ -201,11 +201,11 @@ export function OdlixEcosystemSwitcher() {
             })}
           </div>
 
-          <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-800 text-center">
+          <div className="mt-4 pt-3.5 border-t border-slate-100 dark:border-slate-800 text-center">
             <Link
               href="/"
               onClick={() => setIsOpen(false)}
-              className="text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+              className="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
               ← Back to Odlix Hub
             </Link>
