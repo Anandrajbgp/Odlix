@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="900" viewBox="0 0 800 900" fill="none">
+  <rect width="800" height="900" rx="40" fill="#0F172A"/>
+  <circle cx="320" cy="380" r="120" fill="#00F5FF" fill-opacity="0.25"/>
+  <circle cx="480" cy="380" r="120" fill="#00F5FF" fill-opacity="0.25"/>
+  <rect x="270" y="280" width="90" height="250" rx="45" fill="#E2E8F0"/>
+  <rect x="440" y="280" width="90" height="250" rx="45" fill="#E2E8F0"/>
+  <circle cx="315" cy="330" r="20" fill="#0F172A"/>
+  <circle cx="485" cy="330" r="20" fill="#0F172A"/>
+  <text x="400" y="760" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="52" font-weight="700">ANC Earbuds</text>
+</svg>

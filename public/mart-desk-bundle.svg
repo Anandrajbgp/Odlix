@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="900" viewBox="0 0 800 900" fill="none">
+  <rect width="800" height="900" rx="40" fill="#0A0F1C"/>
+  <rect x="120" y="230" width="560" height="310" rx="28" fill="#32FF00" fill-opacity="0.2" stroke="#32FF00" stroke-width="6"/>
+  <rect x="170" y="280" width="180" height="200" rx="18" fill="#111827"/>
+  <rect x="380" y="280" width="250" height="85" rx="14" fill="#1F2937"/>
+  <rect x="380" y="385" width="250" height="95" rx="14" fill="#1F2937"/>
+  <circle cx="260" cy="380" r="38" fill="#32FF00"/>
+  <text x="400" y="760" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="48" font-weight="700">Desk Bundle</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="900" viewBox="0 0 800 900" fill="none">
+  <rect width="800" height="900" rx="40" fill="#1F2937"/>
+  <path d="M250 460C250 360 320 290 400 290C480 290 550 360 550 460V560H250V460Z" fill="#FF5F1F"/>
+  <path d="M280 330C305 270 348 240 400 240C452 240 495 270 520 330" stroke="#FDBA74" stroke-width="24" stroke-linecap="round"/>
+  <rect x="300" y="430" width="200" height="35" rx="17.5" fill="#FB923C"/>
+  <text x="400" y="760" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="52" font-weight="700">Carry Sling</text>
+</svg>
