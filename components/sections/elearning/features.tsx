@@ -1,129 +1,93 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BrainCircuit, Crown, IndianRupee } from "lucide-react";
+import { BrainCircuit, Crown, IndianRupee, ArrowRight, Sparkles, Zap } from "lucide-react";
 
-const nodes = [
+const steps = [
   {
+    num: "01",
     key: "learn",
     title: "Learn",
-    subtitle: "Build Core Skills",
+    subtitle: "Build High-Income Skills",
+    desc: "Master in-demand digital skills including video editing, graphic design, copywriting, and affiliate marketing.",
     icon: BrainCircuit,
-    position: "left-1/2 top-8 -translate-x-1/2",
-    delay: 0,
   },
   {
+    num: "02",
     key: "earn",
     title: "Earn",
-    subtitle: "Monetize Smartly",
+    subtitle: "Monetize & Scale Cashflow",
+    desc: "Earn up to 58% direct commissions, passive 2nd-level tier payouts, and launch freelancing revenue streams.",
     icon: IndianRupee,
-    position: "left-6 bottom-12 md:left-20 md:bottom-16",
-    delay: 0.12,
   },
   {
+    num: "03",
     key: "conquer",
     title: "Conquer",
-    subtitle: "Scale With Confidence",
+    subtitle: "Build Long-Term Wealth",
+    desc: "Establish brand authority, financial literacy, mutual fund compounding, and executive leadership.",
     icon: Crown,
-    position: "right-6 bottom-12 md:right-20 md:bottom-16",
-    delay: 0.24,
   },
 ];
 
 export function Features() {
   return (
-    <section className="relative overflow-hidden bg-transparent py-16 md:py-20 text-[#0F172A]">
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="mb-10 text-center md:mb-12">
-          <h2 className="text-3xl font-black tracking-tight md:text-5xl text-[#0F172A]">
-            Learn. Earn. <span className="text-[#6366F1]">Conquer.</span>
+    <section className="relative overflow-hidden bg-transparent py-12 md:py-16 text-[#0F172A]">
+      <div className="container relative z-10 mx-auto px-4 max-w-6xl">
+        <div className="mb-10 md:mb-14 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EEF2FF] border border-[#6366F1]/30 text-[#6366F1] text-xs font-extrabold uppercase tracking-wide mb-3 shadow-sm">
+            <Sparkles className="w-4 h-4 text-[#6366F1]" />
+            <span>Structured Growth Framework</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#0F172A]">
+            Odlix <span className="text-[#6366F1]">Growth Loop</span>
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-sm font-semibold text-[#475569] md:text-base">
-            One clean roadmap from skill-building to income to long-term growth.
+          <p className="mx-auto mt-2 max-w-xl text-xs sm:text-sm font-semibold text-[#475569] md:text-base leading-relaxed">
+            One clean, proven 3-stage system from skill building to digital income and long-term wealth.
           </p>
         </div>
 
-        <div className="relative mx-auto h-[23rem] w-full max-w-5xl rounded-[1.75rem] border border-[#E2E8F0] bg-[#F8FAFC] p-5 md:h-[26rem] md:p-8 shadow-sm">
-          <svg
-            className="pointer-events-none absolute inset-0 h-full w-full"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <motion.path
-              d="M50,16 C42,28 34,40 24,56"
-              fill="none"
-              stroke="rgba(99,102,241,0.4)"
-              strokeWidth="0.5"
-              strokeLinecap="round"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              transition={{ duration: 0.9, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.4 }}
-            />
-            <motion.path
-              d="M50,16 C58,28 66,40 76,56"
-              fill="none"
-              stroke="rgba(99,102,241,0.4)"
-              strokeWidth="0.5"
-              strokeLinecap="round"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              transition={{ duration: 0.9, ease: "easeOut", delay: 0.08 }}
-              viewport={{ once: true, amount: 0.4 }}
-            />
-            <motion.path
-              d="M24,56 C38,70 62,70 76,56"
-              fill="none"
-              stroke="rgba(99,102,241,0.25)"
-              strokeWidth="0.5"
-              strokeLinecap="round"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              transition={{ duration: 0.9, ease: "easeOut", delay: 0.16 }}
-              viewport={{ once: true, amount: 0.4 }}
-            />
-          </svg>
-
-          {nodes.map((node) => {
-            const Icon = node.icon;
+        {/* Modern 3-Step Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+          {steps.map((step, idx) => {
+            const Icon = step.icon;
 
             return (
               <motion.div
-                key={node.key}
-                className={`absolute ${node.position}`}
-                initial={{ opacity: 0, y: 10 }}
+                key={step.key}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: node.delay, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="group relative rounded-3xl border border-[#E2E8F0] border-t-4 border-t-[#6366F1] bg-white p-7 sm:p-8 shadow-sm hover:border-[#6366F1] hover:shadow-lg transition-all flex flex-col justify-between overflow-hidden"
               >
-                <div className="min-w-[10.75rem] rounded-2xl border border-[#E2E8F0] bg-white px-4 py-3 text-center shadow-sm">
-                  <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-[#EEF2FF] text-[#6366F1]">
-                    <Icon className="h-4.5 w-4.5" />
+                {/* Background Watermark Number */}
+                <div className="absolute -right-3 -bottom-4 text-7xl font-black text-slate-100 select-none pointer-events-none group-hover:text-[#EEF2FF] transition-colors">
+                  {step.num}
+                </div>
+
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-13 h-13 rounded-2xl bg-[#EEF2FF] border border-[#6366F1]/30 flex items-center justify-center text-[#6366F1] shadow-sm group-hover:scale-110 transition-transform">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <span className="text-xs font-black text-[#6366F1] bg-[#EEF2FF] px-3 py-1 rounded-full border border-[#6366F1]/20">
+                      STAGE {step.num}
+                    </span>
                   </div>
-                  <div className="text-lg font-black tracking-tight text-[#0F172A]">{node.title}</div>
-                  <div className="mt-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[#475569]">
-                    {node.subtitle}
-                  </div>
+
+                  <h3 className="text-2xl font-black text-[#0F172A] tracking-tight mb-1">{step.title}</h3>
+                  <p className="text-xs font-extrabold uppercase tracking-wider text-[#6366F1] mb-3">{step.subtitle}</p>
+                  <p className="text-xs font-semibold text-[#475569] leading-relaxed mb-6">{step.desc}</p>
+                </div>
+
+                <div className="relative z-10 pt-4 border-t border-[#E2E8F0] flex items-center justify-between text-xs font-bold text-[#6366F1]">
+                  <span>Explore Stage</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </motion.div>
             );
           })}
-
-          <motion.div
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.45, delay: 0.2, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.4 }}
-          >
-            <div className="rounded-xl border border-[#6366F1]/30 bg-[#EEF2FF] px-4 py-2.5 text-center shadow-sm">
-              <div className="text-[10px] font-black uppercase tracking-[0.2em] text-[#6366F1]">
-                Odlix Growth Loop
-              </div>
-              <div className="mt-1 text-xs font-bold text-[#0F172A]">Learn → Earn → Conquer</div>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
